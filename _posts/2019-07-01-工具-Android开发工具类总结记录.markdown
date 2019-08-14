@@ -24,9 +24,9 @@ implementation 'com.github.itCatface:CTool:latest-version'
 
 ## 事件类
 
-#### 防抖-->AntiShakeClickListener
+### 防抖-->AntiShakeClickListener
 
-> 可设置防抖时长，默认为1s
+> 设置防抖时长，默认为1s
 
 ``` java
 bt.setOnClickListener(new AntiShakeClickListener(1_000) {
@@ -37,10 +37,51 @@ bt.setOnClickListener(new AntiShakeClickListener(1_000) {
 });
 ```
 
-#### RecyclerView条目点击-->ItemClickSupport
+### RecyclerView条目点击-->ItemClickSupport
+
+> 支持长短和短按
 
 ``` java
 ItemClickSupport.addTo(rv).setOnItemClickListener((recyclerView, position, v) -> {
     // todo...
 });
 ```
+
+## 控件类
+
+### TextView相关-->TextViewUtils
+
+> 字符串内匹配文本高亮，支持匹配关键字集合，支持英文大小写忽略，支持自定义高亮颜色
+
+``` java
+tv.setText(TextViewUtils.highlight("full content", "l", Color.parseColor("#4285f4")));
+```
+
+### RecyclerView相关
+
+#### Adapter封装-->CustomBindingAdapter
+
+> 封装了Holder和DataBinding
+
+#### Adapter封装-->ListBindingAdapter
+
+> 在CustomBindingAdapter的基础上添加了单个List数据源
+
+``` java
+public class TempAdapter extends ListBindingAdapter<Person, ItemAdapterTempBinding> {
+
+    public TempAdapter(List<Person> datas) {
+        super(datas);
+    }
+
+    @Override public int layoutId() {
+        return R.layout.item_adapter_temp;
+    }
+
+    @Override public void onBindHolder(ItemAdapterTempBinding binding, int position) {
+        Person person = getDatas().get(position);
+        binding.tvName.setText(person.getName());
+    }
+}
+```
+
