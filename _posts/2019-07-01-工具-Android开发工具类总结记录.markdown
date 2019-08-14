@@ -12,4 +12,8 @@ tags:
     - 工具
 ---
 
-# 首先在项目模块的gradle中添加依赖`implementation 'com.github.itCatface:CTool:latest-version'`
+# 首先在项目模块的gradle中添加依赖
+
+```gradle
+implementation 'com.github.itCatface:CTool:latest-version'
+```
