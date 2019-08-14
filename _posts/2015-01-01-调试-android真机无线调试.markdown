@@ -12,20 +12,20 @@ tags:
     - 调试
 ---
 
-0. 前置条件：android设备和开发计算机需在同一个网段下(如连着同一个路由器)
+# 操作步骤
 
-1. 使用命令`adb shell`进入设备系统
+**0. 前置条件：android设备和开发计算机需在同一个网段下(如连着同一个路由器)**
 
-2. 使用命令`ifconfig`查看设备ip地址
+**1. 使用命令`adb shell`进入设备系统**
 
-3. 使用命令`adb tcpip xxxx`设置android设备的port端口(xxxx为0-65535之间)
+**2. 使用命令`ifconfig`查看设备ip地址**
 
-4. 使用命令`adb connect ip:port`连接成功后即可进行无线调试
+**3. 使用命令`adb tcpip xxxx`设置android设备的port端口(xxxx为0-65535之间)**
 
-    > 查看设备ip
-	
-	![步骤1. 2.](https://img-blog.csdnimg.cn/20190523153405762.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2l0Q2F0ZmFjZQ==,size_16,color_FFFFFF,t_70)
-	
-	> 设置设备的端口号并连接设备
-	
-	![步骤3. 4.](https://img-blog.csdnimg.cn/20190523153435278.png)
+**4. 使用命令`adb connect ip:port`连接成功后即可进行无线调试**
+
+> 查看设备ip
+![步骤1. 2.](https://img-blog.csdnimg.cn/20190523153405762.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2l0Q2F0ZmFjZQ==,size_16,color_FFFFFF,t_70)
+
+> 设置设备的端口号并连接设备
+![步骤3. 4.](https://img-blog.csdnimg.cn/20190523153435278.png)
