@@ -544,7 +544,9 @@ static void setBitmap(ImageView target, Context context, Bitmap bitmap, Picasso.
     target.setImageDrawable(drawable);
 }
 ```
+
 > 小结：上述流程即先在`get()`方法中创建Picasso，其中包含下载器downloader、缓存器cache、线程池service、请求转换器transformer、分发器dispatcher。然后在`load(url)`方法中创建请求Request实例，通过请求实例可以设置占位图，调整图片显示尺寸等操作。紧接着在`into(iv)`方法中创建一个请求图片的活动action，action被提交给了图片捕获器hunter线程，hunter启动后，先为action匹配合适的请求处理器requestHandler，然后requestHandler使用下载器downloader从网络下载图片资源，网络请求完成后，通过分发器dispatcher告知action本次图片资源获取成功。最后在action的`complete()`方法中使用PicassoDrawable将图片设置进目标控件，完成图片的显示。
+
 ---
 # 4. 额外说明
 下面对Picasso对象的各个核心内部对象简要的看一下。
