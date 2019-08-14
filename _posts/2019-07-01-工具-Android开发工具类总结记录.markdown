@@ -1,7 +1,7 @@
 ---
 layout:       post
-title:        "工具-Android开发工具类总结记录"
-subtitle:     "将个人在开发过程中使用到的相对独立的逻辑功能封装到github中并通过gradle依赖使用"
+title:        "Android开发基本工具总结"
+subtitle:     "将个人在开发过程中使用到的相对独立的逻辑功能封装上传至github中并通过gradle依赖使用"
 date:         2019-07-01 12:00:00
 author:       "catface"
 header-img:   "img/black-bg.png"
@@ -12,8 +12,35 @@ tags:
     - 工具
 ---
 
-# 首先在项目模块的gradle中添加依赖
+> 本篇总结项目为[CTool](https://github.com/itCatface/CTool)
 
-```gradle
+# 在项目的gradle文件中添加依赖
+
+``` gradle
 implementation 'com.github.itCatface:CTool:latest-version'
+```
+
+# 使用方式详述
+
+## 事件类
+
+#### 防抖-->AntiShakeClickListener
+
+> 可设置防抖时长，默认为1s
+
+``` java
+bt.setOnClickListener(new AntiShakeClickListener(1_000) {
+    @Override
+    protected void onAntiShakeClick(View view) {
+        // todo...
+    }
+});
+```
+
+#### RecyclerView条目点击-->ItemClickSupport
+
+``` java
+ItemClickSupport.addTo(rv).setOnItemClickListener((recyclerView, position, v) -> {
+    // todo...
+});
 ```
