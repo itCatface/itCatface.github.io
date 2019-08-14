@@ -1,0 +1,15 @@
+---
+layout:       post
+title:        "工具-Android开发工具类总结记录"
+subtitle:     "将个人在开发过程中使用到的相对独立的逻辑功能封装到github中并通过gradle依赖使用"
+date:         2019-07-01 12:00:00
+author:       "catface"
+header-img:   "img/black-bg.png"
+header-mask:  0.3
+catalog:      true
+multilingual: false
+tags:
+    - 工具
+---
+
+# 首先在项目模块的gradle中添加依赖`implementation 'com.github.itCatface:CTool:latest-version'`
