@@ -1,0 +1,69 @@
+# 第一章、选择器
+
+- [外链图片转存失败(img-yjd2BgHu-1565771028215)(http://itCatface.github.io/img/IOS/IOS004-高级控件/01选择器梗概.jpg)]
+
+### 第一节、DatePicker
+
+- [外链图片转存失败(img-Ti9lS7xW-1565771028216)(http://itCatface.github.io/img/IOS/IOS004-高级控件/02日期选择器.jpg)]
+
+- **分别为时间、日期、日期时间选择器**
+
+	```
+	let date: Date = self.dp_time.date
+	    
+	// 时间格式
+	let formatter: DateFormatter = DateFormatter()
+	formatter.dateFormat = "HH:mm:ss"
+	
+	// 返回选择器选中的时间字符串
+	self.lb_result.text = formatter.string(from: date)
+	```
+			
+	---
+
+	```
+	let date: Date = self.dp_date.date
+	
+	// 日期格式
+	let formatter: DateFormatter = DateFormatter()
+	formatter.dateFormat = "YYYY-MM-dd"
+	
+	self.lb_result.text = formatter.string(from: date)
+	```
+			    
+	--- 
+		
+	```
+	let date: Date = self.dp_dateAndTime.date
+			    
+	// 日期时间格式
+	let formatter: DateFormatter = DateFormatter()
+	formatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
+	    
+	self.lb_result.text = formatter.string(from: date)
+	```
+
+- **倒计时选择器**
+	
+	```
+	let timeInterval: TimeInterval = dp_countdown.countDownDuration
+	
+	let _: Timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: "countdown", userInfo: nil, repeats: false)
+	```
+	     
+	---
+	
+	```
+	func countdown() {
+		lb_result.text = "time over..."
+	}
+	```
+		
+### 第二节、Picker
+
+- [外链图片转存失败(img-Cw1AVHnW-1565771028216)(http://itCatface.github.io/img/IOS/IOS004-高级控件/03普通选择器.jpg)]
+
+- **普通选择器的简单使用(列无关联)**
+
+
+- **省市区三级联动**

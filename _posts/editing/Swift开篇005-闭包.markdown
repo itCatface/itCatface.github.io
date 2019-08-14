@@ -1,0 +1,173 @@
+<font size=5>**PART_A 背景**
+
+1. **闭包的概念：自包含的函数代码块，可以在代码中被传递和使用. 用简洁语法构建内联闭包**
+
+2. **闭包的三种形式**
+
+	- **全局函数是一个有名字但不会捕获任何值的闭包**
+	
+	- **嵌套函数是一个有名字并可以捕获其封闭函数域内值的闭包**
+
+	- **闭包表达式是一个利用轻量级语法所写的可以捕获其上下文中变量或常量值的匿名闭包**
+
+3. **Swift对闭包的优化**
+
+	- **利用上下文推断参数和返回值类型**
+	
+	- **隐式返回单表达式闭包，即单表达式闭包可以省略return关键字**
+
+	- **参数名称缩写**
+	
+	- **尾随(Trailing)闭包语法**
+
+<hr>
+
+<font size=5>**PART_B 闭包表达式**
+
+1. **一般格式**
+
+	```swift
+	{ (parameters) -> returnType in
+	    statements
+	}
+	```
+
+2. **通过对 `sort()` 的优化展示闭包表达式**
+
+	1. **一般方式**
+
+		```swift
+		// 定义字符串数组
+		let names = ["zhangsan", "lisi", "wanger", "zhaoritian"]
+		
+		// 定义排序规则(按字典降序)
+		func compare(str1: String, str2: String) -> Bool {
+		    return str1 > str2
+		}
+		
+		// 通过sort方法传入规则进行排序
+		func test() {
+		    var reverse = names.sort(compare)
+		    print(reverse) // ["zhangsan", "zhaoritian", "wanger", "lisi"]
+		}
+		```
+
+	2. **利用闭包表达式构建内联排序闭包**
+
+		- **闭包表达式：可以使用常量、变量和inout类型作为参数，不能提供默认值**
+		
+		- **可以在参数列表的最后使用可变参数**
+
+		- **元组也可以作为参数和返回值**
+
+			```swift
+			// compare方法替换成闭包表达式：{ ... }
+			// 圆括号包裹了方法的整个参数，即内联闭包
+			var reverse = names.sort({
+				(str1: String, str2: String) -> Bool in
+			    return str1 > str2
+			})
+			```
+
+	3. **简写：根据上下文推断类型(闭包作为函数或方法的参数时都可省略类型)**
+
+		- **该排序闭包函数是作为 `sort()` 的参数传入，则自动推断参数和返回值类型：`(String, String) -> Bool`**
+			
+			```swift
+			var reverse = names.sort({ str1, str2 in return str1 > str2 })
+			```
+
+	4. **单表达式闭包隐式返回**
+
+		- **可省略 `return` 来隐式返回单行表达式的结果**
+
+			```swift
+			var reverse = names.sort({ str1, str2 in str1 > str2 })
+			```
+
+	5. **参数名称缩写**
+
+		- **可直接通过 `$0`、`$1`...来顺序调用闭包的参数**
+
+			```swift
+			var reverse = names.sort({ $0 > $1 })
+			```
+
+	6. **运算符函数**
+
+		- **Swift的 `String` 类型定义了大于号的字符串实现：即作为函数接收两个 `String` 参数并返回 `Bool` 值**
+
+			```swift
+			var reverse = names.sort(>)
+			```
+
+<hr>
+
+<font size=5>**PART_C 尾随闭包：闭包很长时建议使用**
+
+1. **格式**
+
+	- **未使用尾随闭包进行函数调用**
+	
+		```swift
+		func({
+			// 闭包主体
+		})
+		```
+	
+	- **使用尾随闭包进行函数调用**
+	
+		```swift
+		func() {
+			// 闭包主体
+		}
+		
+		// 或者如下写法：见举例的注释
+		func {
+			// 闭包主体
+		}
+		```
+	
+	- **举例：PART_A中第5条可写成如下**
+	
+		```swift
+		var reverse = names.sort() { $0 > $1 }
+		
+		// 若函数只需闭包表达式一个参数，使用尾随闭包时，可省略()
+		var reverse = names.sort { $0 > $1 }
+		```
+
+2. **例子：`map()`**
+
+	- **重点内容**
+
+		```swift
+		// 数字数组
+		let digitNum = [
+		    0: "Zero", 1: "One", 2: "Two", 3: "Three", 4: "four", 5: "Five",
+		    6: "Six", 7: "Seven", 8: "Eight", 9: "Nine"
+		]
+		
+		// 匹配数字顺序
+		let nums = [16, 58, 510, 3418, 1]
+		
+		func test() {
+			// 闭包表达式(长)
+		    let strs = nums.map {
+			    // 类型
+		        (var num) -> String in
+		        var output = ""
+		        while num > 0 {
+			        // 字典下标 digitNum 返回可选值
+		            output = digitNum[num % 10]! + output 
+		            num /= 10
+		        }
+		        return output
+		    }
+		}
+		// OneSix
+		// FiveEight
+		// FiveOneZero
+		// ThreefourOneEight
+		// One
+		```

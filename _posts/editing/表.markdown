@@ -1,0 +1,499 @@
+[外链图片转存失败(img-45qA9nEK-1565771045919)(http://itCatface.github.io/img/IOS/IOS005-表/01概述.jpg)]
+
+# 第一章、普通表
+
+### 第一节、简单TableView
+  
+  >[外链图片转存失败(img-03PeNav6-1565771045920)(http://itCatface.github.io/img/IOS/IOS005-表/02简单TV.jpg)]
+
+1. **准备好 `team.plist` 资源文件**
+
+		
+
+	```
+	<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+	<plist version="1.0">
+	<array>
+		<dict>
+			<key>name</key>
+			<string>A1-中国</string>
+			<key>img</key>
+			<string>China</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>A2-美国</string>
+			<key>img</key>
+			<string>America</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>A3-韩国</string>
+			<key>img</key>
+			<string>Korea</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>B1-日本</string>
+			<key>img</key>
+			<string>Japanese</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>B2-英国</string>
+			<key>img</key>
+			<string>Britain</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>B3-澳大利亚</string>
+			<key>img</key>
+			<string>Australia</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>C1-巴西</string>
+			<key>img</key>
+			<string>Brazil</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>C2-加拿大</string>
+			<key>img</key>
+			<string>Canada</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>C3-德国</string>
+			<key>img</key>
+			<string>German</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>D1-瑞士</string>
+			<key>img</key>
+			<string>Switzerland</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>D2-我</string>
+			<key>img</key>
+			<string>Catface</string>
+		</dict>
+	</array>
+	</plist>
+	```
+
+2. **视图中实现(继承 `UITableViewController` 并实现 `Delegate` 和 `DataSource` 协议)**
+
+	```
+	class TableViewController: UITableViewController {
+		
+	    var teamArr: NSArray!
+	    
+	    override func viewDidLoad() {
+	        super.viewDidLoad()
+	
+	        // 读取plist资源文件数据 ||(||结尾的为固定套路)
+	        let resPath = Bundle.main.path(forResource: "team", ofType: "plist")
+	        self.teamArr = NSArray(contentsOfFile: resPath!)
+	    }
+	    
+	    // 填充单元格 ||
+	    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+	        
+	        // 单元格复用 ||
+	        let cellIdentifier = "TableViewId"
+	        var cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+	        
+	        let rowDict = self.teamArr[indexPath.row] as! NSDictionary
+	        
+	        cell.textLabel?.text = rowDict["name"] as? String // 设置标题
+	        
+	        let imgPath = NSString(format: "%@.jpg", rowDict["img"] as! String)
+	        cell.imageView?.image = UIImage(named: imgPath as String) // 设置图片
+	        
+	        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+	        
+	        return cell
+	    }
+	    
+	    // MARK: - DataSource ||
+	    override func numberOfSections(in tableView: UITableView) -> Int {
+	        return 1
+	    }
+	    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	        return self.teamArr.count
+	    }
+	    
+	    override func didReceiveMemoryWarning() {
+	        super.didReceiveMemoryWarning()
+	    }
+	}
+	```
+		
+3. **上述步骤中单元格复用方法**
+
+    >[外链图片转存失败(img-4jc5P748-1565771045922)(http://itCatface.github.io/img/IOS/IOS005-表/03单元格复用.jpg)] 
+		
+		
+### 第二节、自定义单元格
+
+>[外链图片转存失败(img-SEwzXcQn-1565771045922)(http://itCatface.github.io/img/IOS/IOS005-表/04自定义单元格.jpg)]
+
+- **只需更改 `Delegate` 中单元格类为自定义 `Cell` 类即可**
+
+	> [外链图片转存失败(img-EkBCp0mX-1565771045923)(http://itCatface.github.io/img/IOS/IOS005-表/05自定义单元格02.jpg)]
+
+	```
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+	    let cellIdentifier = "TableViewId2"
+	    // 定义自己的单元格类
+	    var cell: CustomTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CustomTableViewCell
+	   
+	    let row = indexPath.row
+	    let rowDict = self.filterTeamArr[row] as! NSDictionary
+	    
+	    cell.lb_name.text = rowDict["name"] as? String
+	    
+	    let imgPath = NSString(format: "%@.jpg", rowDict["img"] as! String)
+	    cell.iv_icon.image = UIImage(named: imgPath as String)
+	    
+	    cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+	    
+	    return cell
+	}
+	```
+		
+
+### 第三节、添加搜索栏
+
+ > [外链图片转存失败(img-f7A34pl3-1565771045923)(http://itCatface.github.io/img/IOS/IOS005-表/06Bar01.jpg)]
+
+1. 声明相关变量
+
+		
+
+	```
+	var teamArr: NSArray!
+		    
+	var filterTeamArr: NSMutableArray! // 过滤后的队伍
+	@IBOutlet weak var sb_test: UISearchBar!
+	```
+		
+2. **`viewDidLoad()` 中设置初始状态**
+		
+	```
+	self.sb_test.delegate = self // 设置委托对象为当前视图
+	self.sb_test.showsScopeBar = false // 隐藏
+	self.sb_test.sizeToFit() // 重新设置搜索大小
+	    
+	self.filterTeam(searchText: "", scope: -1) // 初次进入，显示所有队伍
+	```
+		
+3. **自定义过滤方法**
+
+	```
+	func filterTeam(searchText: NSString, scope: Int) {
+		if searchText.length == 0 { // 无输入即查询所有
+			self.filterTeamArr = NSMutableArray(array: self.teamArr)
+			return
+		}
+	
+		var tempArr: NSArray!
+		
+		if scope == 0 {
+			let scopePredict = NSPredicate(format: "SELF.img contains[cd] %@", searchText) // 过滤
+			
+			tempArr = self.teamArr.filtered(using: scopePredict) as NSArray!
+			
+			self.filterTeamArr = NSMutableArray(array: tempArr)
+		} else if scope == 1 {
+			let scopePredict = NSPredicate(format: "SELF.name contains[cd] %@", searchText)
+			tempArr = self.teamArr.filtered(using: scopePredict) as NSArray!
+			self.filterTeamArr = NSMutableArray(array: tempArr)
+		} else {
+			self.filterTeamArr = NSMutableArray(array: self.teamArr)
+		}
+	}
+	```
+	    
+4. **`Delegate`**
+
+	```
+	// 获得焦点，成为第一响应者
+	func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+	    self.sb_test.showsScopeBar = true
+	    self.sb_test.sizeToFit()
+	    return true
+	}
+	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+	    self.sb_test.showsScopeBar = false
+	    self.sb_test.resignFirstResponder()
+	    self.sb_test.sizeToFit()
+	}
+	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+	    self.filterTeam(searchText: "", scope: -1)
+	    self.sb_test.showsScopeBar = false
+	    self.sb_test.resignFirstResponder()
+	    self.sb_test.sizeToFit()
+	}
+	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+	    self.filterTeam(searchText: NSString.init(string: searchText), scope: self.sb_test.selectedScopeButtonIndex)
+	    self.tableView.reloadData()
+	}
+	func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+	    self.filterTeam(searchText: NSString.init(string: self.sb_test.text!), scope: selectedScope)
+	    self.tableView.reloadData()
+	}    
+	```
+		
+		
+# 第二章、分组表
+
+### 第一节、添加索引与分组
+
+>![分节是添加索引的前提](https://imgconvert.csdnimg.cn/aHR0cDovL3VwbG9hZC1pbWFnZXMuamlhbnNodS5pby91cGxvYWRfaW1hZ2VzLzk3NTM1NC01NmIzYjYyY2UwZDk0NzEwLmpwZw)
+
+1. **修改 `team.plist` 为如下**
+
+	
+
+	```
+	<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+	<plist version="1.0">
+	<dict>
+		<key>A组</key>
+		<array>
+			<string>A1-中国</string>
+			<string>A2-美国</string>
+			<string>A3-韩国</string>
+		</array>
+		<key>B组</key>
+		<array>
+			<string>B1-日本</string>
+			<string>B2-英国</string>
+			<string>B3-澳大利亚</string>
+			<string>B4-阿根廷</string>
+		</array>
+		<key>C组</key>
+		<array>
+			<string>C1-巴西</string>
+			<string>C2-加拿大</string>
+			<string>C3-德国</string>
+		</array>
+		<key>D组</key>
+		<array>
+			<string>D1-瑞士</string>
+			<string>D2-我</string>
+		</array>
+		<key>E组</key>
+		<array>
+			<string>E1-南非</string>
+			<string>E2-墨西哥</string>
+			<string>E2-哥伦比亚</string>
+			<string>E2-秘鲁</string>
+		</array>
+		<key>F组</key>
+		<array>
+			<string>F1-法国</string>
+			<string>F2-挪威</string>
+			<string>F3-朝鲜</string>
+		</array>
+	</dict>
+	</plist>
+	```
+
+2. **swift 实现**
+
+	```
+	import UIKit
+	class TableViewControllerIndex: UITableViewController {
+	
+		var teamDict: NSDictionary!
+		var groupArr: NSArray!
+		
+		override func viewDidLoad() {
+			super.viewDidLoad()
+			
+			// 获取源数据
+			let plistPath = Bundle.main.path(forResource: "team2", ofType: "plist")
+			teamDict = NSDictionary(contentsOfFile: plistPath!)
+			
+			// 对key排序
+			groupArr = (teamDict.allKeys as NSArray).sortedArray(using: "compare:") as NSArray!
+		}
+		override func didReceiveMemoryWarning() {
+			super.didReceiveMemoryWarning()
+		}
+		
+		// MARK: - DataSource
+		override func numberOfSections(in tableView: UITableView) -> Int {
+			return groupArr.count
+		}
+		// 获取各组集合
+		override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+			var groupName = groupArr[section] as! String
+			var teamLsit = teamDict[groupName] as! NSArray
+			return teamLsit.count
+		}
+		
+		override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		
+			// 单元格复用 ||
+			let cellIdentifier = "IndexCellID"
+			var cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+			
+			// 获取选择的节
+			let section = indexPath.section
+			// 获取节的行索引
+			let row = indexPath.row
+			// 按节索引获取组名
+			var groupName = groupArr[section] as! String
+			// 取出组集合
+			var teamList = teamDict[groupName] as! NSArray
+			
+			cell.textLabel?.text = teamList[row] as! String
+			return cell
+		}
+		
+		override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+			var groupName = groupArr[section] as! String
+			return groupName
+		}
+		
+		// MARK: - 添加索引
+		override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+			var arr = ["a", "b", "c", "d", "e", "f"]
+			return arr
+		}
+	}
+	```
+
+### 第二节、静态表
+
+
+>![](https://imgconvert.csdnimg.cn/aHR0cDovL3VwbG9hZC1pbWFnZXMuamlhbnNodS5pby91cGxvYWRfaW1hZ2VzLzk3NTM1NC1lN2QwMWEyMTdjNDA1NWE4LmpwZw)
+
+- **界面在 storyboard 中画好，swift 中仅做简单处理**
+
+	```
+	@IBAction func bt_login(_ sender: UIButton) {
+		if tf_username.text == "1" && tf_password.text == "q" {
+			NSLog("登陆成功")
+			tf_username.resignFirstResponder()
+			tf_password.resignFirstResponder()
+		}
+	}
+	```
+
+### 第三节、修改单元格
+
+- **初学阶段，代码仅供了解**
+
+	```
+	import UIKit
+	class TableViewController5: UITableViewController, UITextFieldDelegate {
+	
+		@IBOutlet var tf_tip: UITextField!
+		
+		var nameArr: NSMutableArray! // 可变数组集合
+		
+		override func viewDidLoad() {
+			super.viewDidLoad()
+			
+			// 设置导航栏
+			navigationItem.rightBarButtonItem = editButtonItem
+			navigationItem.title = "增删单元格"
+			
+			tf_tip.isHidden = true
+			tf_tip.delegate = self
+			
+			nameArr = NSMutableArray(array: ["麻子", "李四", "王二"])
+		}
+		
+		// 点击导航栏编辑按钮显示输入框
+		override func setEditing(_ editing: Bool, animated: Bool) {
+			super.setEditing(editing, animated: animated)
+			
+			tableView.setEditing(editing, animated: true)
+			if editing {
+				tf_tip.isHidden = false
+			} else {
+				tf_tip.isHidden = true
+			}
+		}
+		
+		// MARK: - Table view data source
+		override func numberOfSections(in tableView: UITableView) -> Int {
+			return 1
+		}
+		override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+			return nameArr.count + 1 // [行数(为插入的一条做准备)]
+		}
+		
+		// [每绘制一行调用一次]
+		override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+			let cell = tableView.dequeueReusableCell(withIdentifier: "AddDeleteCellID", for: indexPath) // [复用单元格]
+			
+			if indexPath.row == nameArr.count { // [?]
+				tf_tip.frame = CGRect(x: 10, y: 5, width: 300, height: 44)
+				tf_tip.borderStyle = UITextBorderStyle.none
+				tf_tip.placeholder = "Add..."
+				tf_tip.text = ""
+				cell.contentView.addSubview(tf_tip)
+			} else {
+				cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+				cell.textLabel?.text = nameArr[indexPath.row] as! String
+			}
+			return cell
+		}
+		
+		override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+			if indexPath.row == nameArr.count {
+				return UITableViewCellEditingStyle.insert
+			} else {
+				return UITableViewCellEditingStyle.delete
+			}
+		}
+		
+		override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+			var indexPaths = NSArray(array: [indexPath])
+			
+			if editingStyle == UITableViewCellEditingStyle.delete {
+				nameArr.removeObject(at: indexPath.row)
+				tableView.deleteRows(at: indexPaths as! [IndexPath], with: UITableViewRowAnimation.fade)
+			} else if editingStyle == UITableViewCellEditingStyle.insert {
+				nameArr.insert(tf_tip.text, at: nameArr.count)
+				tableView.insertRows(at: indexPaths as! [IndexPath], with: UITableViewRowAnimation.fade)
+			}
+			tableView.reloadData()
+		}
+		
+		override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+			if indexPath.row == nameArr.count {
+				return false
+			} else {
+				return true
+			}
+		}
+		
+		override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+			return 50
+		}
+		
+		// MARK: - [移动]
+		override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+			return true
+		}
+		override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+			nameArr.removeObject(at: sourceIndexPath.row)
+			nameArr.insert(nameArr[sourceIndexPath.row], at: destinationIndexPath.row)
+		}
+		override func didReceiveMemoryWarning() {
+			super.didReceiveMemoryWarning()
+		}
+	}
+	```

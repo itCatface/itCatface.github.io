@@ -1,0 +1,257 @@
+面向对象概述
+面向过程：强调过程，执行者，强调的是功能行为
+面向对象：强调对象，指挥者，将功能封装进对象，强调具备了功能的对象
+面向对象举例
+煎饼果子
+人开门
+餐馆点餐
+面向对象思想的特点
+A：它是一种更符合人们思考习惯的思想
+B：它使复杂的内容简单化
+C：它使我们从执行者变成了指挥者
+面向对象的特点
+A：封装
+B：继承
+C：多态
+开发的过程：其实就是不断的创建对象，使用对象，指挥对象做事情
+类和对象的关系
+使用计算机语言就是不断的在描述现实生活中的事物
+java中描述事物通过类的形式体现，类是一组相同属性行为的对象的抽象
+对象即是该类事物实实在在存在的个体
+举例：
+人就是一个类(是把每一个相同属性行为的对象进行抽取)
+人的属性：姓名,年龄,身高,体重等
+人的行为：吃饭,睡觉,说话,跑,跳等
+而我们就是对象(是实实在在存在的个体),具体每个人叫什么名字,年龄多大,身高多高,体重多重等,吃饭怎么吃,睡觉怎么睡,说话怎么说等
+描述任意一类事物就是在描述他的属性和行为
+分析这句话的属性和行为：
+上得了厅堂，下得了厨房，写得了代码，查得出异常，杀得了木马，翻得了围墙（黑客技术），开得起好车，买得起新房，斗得过二奶，打得过流氓
+如何创建对象
+(1)类：对现实世界中事物的描述(成员变量和方法)
+(2)对象：现实世界中实际存在具体的个体
+(3)对象的使用以及内存图 new
+class Person {
+    String name;
+    int age;
+    public void speak() {
+        System.out.println("我的姓名是:" + name + ",我的年龄是:" + age);
+    }
+}
+成员变量和局部变量
+(1)作用范围
+局部变量：方法内public void method(String name)  { }
+成员变量：类中，对整个类有效 { 成员变量分为两种一种静态的,一种非静态的 }
+(2)存储空间
+局部变量：栈内存
+成员变量：堆内存 { 静态的成员变量在方法区,非静态的在对象中在堆内存中 }
+(3)初始化值
+局部变量：在使用前必须手动给值
+成员变量：jvm默认初始化值。int 0 - byte 0 - short 0 - long 0 - double 0.0 - boolean false - char '\u0000'
+class Person {
+    int num = 10;
+    public void method() {
+        int num = 20 ;
+        System.out.println(num);
+    }
+} // result 20
+匿名对象
+(1)当对对象中的功能只执行一次的时候使用。否则，请你使用有名字的对象
+Person p = new Person();
+p.show();
+p.show();
+new Person().show();
+new Person().show();
+(2)用于作为实际参数进行传递
+Person p = new Person();
+method(p);
+method(new Person());
+public static void method(Person p) { }
+(3)是否可以用匿名对象调用属性,是否有意义?
+封装
+(1)封装的好处：便于重复使用，安全性高
+(2)private权限修饰符
+class Demo {
+    private int age; // 把属性私有对外提供公共的访问方法,可控性提高了
+
+    public void setAge(int age) {
+        if(age > 0 && age <= 200) {
+            this.age = age;
+        } else { 
+            System.out.println("请回火星");
+        }
+    }
+
+    public int getAge() {
+        return age;
+    }
+    /*
+     * 设置是setXxx要传参数
+     * 获取是getXxx要返回值类型,返回值类型和属性一致
+    */
+}
+
+class DemoTest {
+    public static void main(String[] args) {
+        Demo d = new Demo();
+        d.setAge(-20);
+        System.out.println(d.getAge());
+    }
+}
+this关键字及其使用场景
+(1)代表当前对象的引用。使用的时候，谁调用方法，this就代表谁
+(2)什么时候使用this呢？
+A：当局部变量和成员变量重名的时候,可以用this进行区分
+B：this调用成员方法
+C：构造函数中使用this
+this() 必须放在第一行
+同下面的道理：
+Person(String name) {
+    this.name = name;
+    System.out.println("有一个参数的构造函数");
+}
+
+Person(String name, int age) {
+    this("张三");
+    this.name = name;
+    this.age = age;
+    System.out.println("有两个参数的构造函数");
+}
+
+Person p1 = new Person("lisi", 20);
+Person p2 = new Person("wangwu");
+构造函数
+(1)用途：用于给对象中属性进行初始化
+格式：类名()  { code }
+Person() {
+    对对象属性进行初始化代码;
+}
+(2)特点：不定义空参数的构造函数，系统会自动给一个空参构造。定义了构造函数无论是有参还空参的，系统就不再给空参数的了
+
+(3)重载构造函数：根据参数列表来区分是哪个构造函数
+A：Person() { }
+B：Person(int age, String name) { }
+C：Person(int age) { }
+D：Person(String name, int age) { }
+☆static关键字
+静态的意思。可以修饰类的成员(成员变量和成员方法)
+静态的内存图及特点
+A：随着类的加载而加载，生命周期最长
+B：优先于对象存在
+C：被所有的对象所共享
+D：比非静态成员多了一种访问方式。可以通过类名直接调用。建议用：类名.调用
+什么时候使用static
+当类中的成员需要被所有对象共享时，用static修饰。不需要被共享时，就不用static修饰
+简单说：共性用static修饰，特性不用static修饰
+类变量(静态变量)和实例变量(非静态的成员变量)的区别
+(1)存在内存中的位置
+(类变量)静态变量随着类的加载而存在于方法区中
+实例变量随着对象的建立而存在于堆内存中
+(2)生命周期
+静态变量的生命周期最长，随着类的消失而消失
+实例变量的生命周期随着对象的消失而消失
+(3)所属不同
+静态变量也称之为类变量，所属于整个类，被整个类的对象所共享
+实例变量是对象的特有数据，所属于对象
+举例：定义一个非静态的属性,和一个静态属性,再定义一个静态方法和非静态方法对属性进行输出
+帮助文档的制作
+javadoc -d(指定文档存储的位置如果写.代表当前目录,也可以定义一个文件夹)
+@author(提取作者内容)
+@version(提取版本内容)
+javadoc -d 指定的文件目录 -author -version ArrayTool.java
+@param 参数名称//形式参数的变量名称@return 函数运行完返回的数据
+制作工具说明书:代码中有文档注释,用javadoc解析
+ javadoc -d . myAPI -author -version ArrayTool.java
+ -d 后面跟目录,.代表当前目录 
+
+ javadoc: 错误 - 找不到可以文档化的公共或受保护的类。
+ 改用public修饰一下即可
+main方法
+格式如下：
+public static void main(String[] args) { // new String[0]
+	...;
+}
+由于它被jvm调用，所以权限要足够大，所以用public权限修饰符
+为了jvm可以不用创建对象直接调用它，所以用static修饰
+void：jvm不需要任何返回。但是方法体结尾默认有return;
+main：jvm只认识这个名字
+String[]：有可能需要传入参数
+args：字符串数组的名字,只要符合标识符的命名规则可以随便起
+局部代码块 & 构造代码块 & 静态代码块
+(1)局部代码块：控制变量的生命周期 { int x; }
+(2)构造代码块：每创建一次对象就执行一次
+(3)静态代码块
+类中加载流程？
+静态代码块--构造代码块--构造方法
+面向对象特点继承简介(封装、继承、多态)
+
+继承(extends)
+(1)继承的体系结构：就是对要描述的事物进行不断的向上抽取，就出现了体系结构。
+要了解这个体系结构中最共性的内容,就看最顶层的类。
+要使用这个体系的功能,就用最底层的类创建对象。
+继承的好处：
+A：继承的出现，提高了代码的复用性。
+B：继承的出现，让类与类之间产生了关系，extends来表示，这个关系的出现，为后面我们讲面向对象的第三个特点多态打下了基础。
+特点
+A：java只支持单继承(其实确切的说是java对多继承进行了优化，避免了安全问题)。
+B：java支持多重(层)继承。
+注意：
+A：子类可以直接访问父类中的非私有的属性和行为。
+B：不要仅为了获取其他类中部分功能而去继承。
+C：类与类之间要有所属( " is a " )关系，xx1是xx2的一种。
+如何判断A和B是否有继承关系？
+A如果继承B，那么就可以说A是B的一种。
+继承后子父类之间成员的关系
+
+
+成员变量
+
+
+	class Fu{ int num = 5; } 
+	class Zi extends Fu{ int num = 20; public void show() 
+	{ int num = 30; System.out.println("num:"+num); //当局部变量和成员变量重名的时候用this来区分 System.out.println("this num:"+this.num); //当子类和父类出现了同名变量,用super来区分 System.out.println("father num:"+super.num); } } 总结:在一个类中如果方法中的局部变量和方法外的成员变量重名,那么如果在方法内输出这变量,就是方法自己的变量里的值,想要区分要用this,加上this.就是输出成员变量的值在子父类中如果出现成员变量重名的时候,在子类输出会输出自己的变量里的值,想要区分要用super,加上super.就是输出父类里变量的值 this和super的区分： **this代表本类对象的引用 super本类对象父类的引用。 **this可以用于区分局部变量和成员变量同名的情况。 super可以用于区分子类和父类成员变量同名的情况。 **一般，子类中不会出现和父类同名的成员变量。面试可能问到。
+
+
+成员方法
+
+
+	class Fu { public void show() { System.out.println("fu show"); } public void method() {} } class Zi extends Fu{ public void show(){ System.out.println("zi show"); } } 子类中存在和父类成员方法同名的这种现象，叫做重写，复写，覆盖。重写(override)和重载(overload)的区别：重载的特点： **在同一类中。 **方法名相同，参数列表不同。重写的特点： **要有继承关系。在子父类中 **方法的声明相同。(方法名和参数列表都相同) ***覆盖时，子类方法权限一定要大于等于父类方法权限父类的权限不能是私有的 ***静态只能覆盖静态。
+
+
+构造方法
+
+
+	class Fu{ Fu(){} Fu(int age){ System.out.println("father age:"+age); } } class Zi extends Fu{ Zi(){ this(40); System.out.println("son"); } Zi(int age){ super(); System.out.println("son age:"+age); } } Zi z = new Zi(); Zi z = new Zi(30); 总结：子类中所有的构造方法默认都会访问父类中空参数的构造方法。 **因为每一个构造方法的第一行都有一条默认的语句super(); 当父类中没有空参数的构造方法时，子类的构造函数必须通过this 或者super语句指定要访问的构造方法。或者手动提供无参构造方法。 this(...):调用本类中的构造方法 super(...):调用父类中的构造方法构造方法用于创建对象，并进行初始化.建议如果你写了有参的构造函数,也要把空参的构造函数再手动加上否则你定义了有参的构造函数,空参的系统就不会再给了你这样创建对象的时候就会报错Person p = new Person();//这句话是会去找空参的构造函数 class Person{ Person(){} Person(int age){ this.age = age; } Person(int age,String name){ this(age); //this.age = age; this.name = name; } } //Person p =new Person(); //系统默认给出无参构造 //当你手动给出构造方法后，系统就不会再给出默认的空的构造方法。手动无参数，如果你想给属性赋值或者做一些初始化，无参你别删不就行了吗。 class Demo{ private String name; Demo(){} public void setName(String name){ this.name = name; } public String getName(){ return name; } } 
+final可以用来修饰什么呢？
+
+
+final可以用来修饰类：被final修饰的类不能被继承。
+final可以用来修饰成员方法：被final修饰的成员方法不能被重写。
+final可以用来修饰变量：被final修饰的变量为常量，值不能被修改。
+多态
+某一类事物的多种存在形态。
+方法重载(静态多态)
+方法重写(动态多态,对象多态)
+对象多态的前提
+A：类与类(或接口)要有继承(或实现)关系。
+B：一定要有方法的重写。
+C：一定要有父类或者接口的引用指向子类的对象。
+多态中成员的特点：(我们只研究特殊的，就是说名字一样的东西) Fu f = new Zi(); A：成员变量：编译和运行都看Fu。B：非静态方法：编译看Fu，运行看Zi。C：静态方法：编译和运行都看Fu。
+
+举例：动物的例子：向上转型 Animal a = new Cat(); a.eat(); // a.catchMouse();
+	向下转型 
+	Cat c = (Cat) a; 
+	c.eat(); 
+	c.catchMouse();
+ 
+	Animal dog = new Dog(); // 向上转型 
+	Cat c = (Cat)dog; // 向下转型转换异常
+	Dog d = (Dog)dog; 
+
+	总结:无论是向上转型还是向下转型,变化的都是子类对象,绝对不能把父类对象强转为子类类型
+
+
+多态的好处和弊端
+好处：提高了程序的扩展性
+弊端：不能使用子类特有的属性和行为
+
+
