@@ -1,10 +1,24 @@
-# **PART_A 准备工具**
+---
+layout:       post
+title:        "Win&VMware安装Linux(CentOS)虚拟机"
+subtitle:     "在windows系统下，使用VMware和linux系统镜像文件安装linux虚拟机"
+date:         2015-01-01 12:00:00
+author:       "catface"
+header-img:   "img/black-bg.png"
+header-mask:  0.3
+catalog:      true
+multilingual: false
+tags:
+    - linux
+---
 
-1. **VMware**：从百度软件中心下的12.5.7.20721版本(网速差官网卡)
+# 准备工具
 
-2. **Linux镜像 **：[百度随便下的一个CentOS-7-x86_64版本](http://211.162.0.124/files/8134000002670DF7/b.mirrors.lanunion.org/CentOS/7/isos/x86_64/CentOS-7-x86_64-DVD-1611.iso)
+1. **VMware**
 
-# **PART_B**
+2. **Linux镜像**
+
+# 安装过程
 
 1. **选择自定义安装(不带界面 | 典型安装是带界面的)**
 
@@ -130,7 +144,7 @@
 		<font color=#10f0>**Xshell访问并操作Linux**</font>
 	![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODI5MjIwOTM3ODQ2)
 
-# **PART_C 重启Linux需重启网络配置**
+# 重启Linux需重启网络配置
 
 1. **在windows服务中开启VMware的所有服务**
 
