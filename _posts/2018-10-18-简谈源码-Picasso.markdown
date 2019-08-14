@@ -4,9 +4,9 @@ title:        "简谈源码-Picasso"
 subtitle:     "sub title descriptions."
 date:         2018-10-18 12:00:00
 author:       "catface"
-header-img:   "img/in-post/post-eleme-pwa/eleme-at-io.jpg"
+header-img:   "img/black-bg.png"
 header-mask:  0.3
-catalog:      false
+catalog:      true
 multilingual: false
 tags:
     - 简谈源码
