@@ -1,5 +1,21 @@
+---
+layout:       post
+title:        "上传war包到tomcat的webapps目录"
+subtitle:     "在windows系统下，使用VMware和linux系统镜像文件安装linux虚拟机"
+date:         2018-08-05 12:00:00
+author:       "catface"
+header-img:   "img/black-bg.png"
+header-mask:  0.3
+catalog:      false
+multilingual: false
+tags:
+    - linux
+---
+
+# 操作步骤
+
 1. **使用Xftp看下服务器中的旧war包，然后把它删掉**
-	**我们的目标是将本机的新war包替换服务器中的旧war包**
+    **<br>我们的目标是将本机的新war包替换服务器中的旧war包**
 
 	![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwOTA2MjE1NzU1NDU1)
 
@@ -19,7 +35,7 @@
 
 	![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwOTA2MjE1ODQyMTI1)
 
-> 总结下用到的命令
+> 总结使用到的命令
 
 1. **# ps -ef|grep tomcat**
 
