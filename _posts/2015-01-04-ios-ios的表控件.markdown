@@ -13,13 +13,13 @@ tags:
     - ios
 ---
 
-![-](http://itCatface.github.io/img/IOS/IOS005-表/01概述.jpg)
+![](http://itCatface.github.io/img/IOS/IOS005-表/01概述.jpg)
 
 # 第一章、普通表
 
 ## 第一节、简单TableView
   
-  > ![-](http://itCatface.github.io/img/IOS/IOS005-表/02简单TV.jpg)
+  > ![](http://itCatface.github.io/img/IOS/IOS005-表/02简单TV.jpg)
 
 1. **准备好 `team.plist` 资源文件**
 
@@ -148,16 +148,16 @@ tags:
 		
 3. **上述步骤中单元格复用方法**
 
-    > ![-](http://itCatface.github.io/img/IOS/IOS005-表/03单元格复用.jpg)
+    > ![](http://itCatface.github.io/img/IOS/IOS005-表/03单元格复用.jpg)
 		
 		
 ## 第二节、自定义单元格
 
-> [-](http://itCatface.github.io/img/IOS/IOS005-表/04自定义单元格.jpg)
+> [](http://itCatface.github.io/img/IOS/IOS005-表/04自定义单元格.jpg)
 
 - **只需更改 `Delegate` 中单元格类为自定义 `Cell` 类即可**
 
-	> [-](http://itCatface.github.io/img/IOS/IOS005-表/05自定义单元格02.jpg)
+	> ![](http://itCatface.github.io/img/IOS/IOS005-表/05自定义单元格02.jpg)
 
 	``` swift
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -178,11 +178,10 @@ tags:
 	    return cell
 	}
 	```
-		
 
 ## 第三节、添加搜索栏
 
- > [-](http://itCatface.github.io/img/IOS/IOS005-表/06Bar01.jpg)
+ > ![](http://itCatface.github.io/img/IOS/IOS005-表/06Bar01.jpg)
 
 1. 声明相关变量
 	``` swift
@@ -262,7 +261,7 @@ tags:
 
 ## 第一节、添加索引与分组
 
->![分节是添加索引的前提](https://imgconvert.csdnimg.cn/aHR0cDovL3VwbG9hZC1pbWFnZXMuamlhbnNodS5pby91cGxvYWRfaW1hZ2VzLzk3NTM1NC01NmIzYjYyY2UwZDk0NzEwLmpwZw)
+> ![](https://imgconvert.csdnimg.cn/aHR0cDovL3VwbG9hZC1pbWFnZXMuamlhbnNodS5pby91cGxvYWRfaW1hZ2VzLzk3NTM1NC01NmIzYjYyY2UwZDk0NzEwLmpwZw)
 
 1. **修改 `team.plist` 为如下**
 
@@ -379,7 +378,7 @@ tags:
 
 ## 第二节、静态表
 
->![](https://imgconvert.csdnimg.cn/aHR0cDovL3VwbG9hZC1pbWFnZXMuamlhbnNodS5pby91cGxvYWRfaW1hZ2VzLzk3NTM1NC1lN2QwMWEyMTdjNDA1NWE4LmpwZw)
+> ![](https://imgconvert.csdnimg.cn/aHR0cDovL3VwbG9hZC1pbWFnZXMuamlhbnNodS5pby91cGxvYWRfaW1hZ2VzLzk3NTM1NC1lN2QwMWEyMTdjNDA1NWE4LmpwZw)
 
 - **界面在 storyboard 中画好，swift 中仅做简单处理**
 	``` swift

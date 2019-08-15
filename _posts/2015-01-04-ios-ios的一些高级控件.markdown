@@ -15,11 +15,11 @@ tags:
 
 # 第一章、选择器
 
-- [-](http://itCatface.github.io/img/IOS/IOS004-高级控件/01选择器梗概.jpg)
+- ![](http://itCatface.github.io/img/IOS/IOS004-高级控件/01选择器梗概.jpg)
 
 ## 第一节、DatePicker
 
-- [-](http://itCatface.github.io/img/IOS/IOS004-高级控件/02日期选择器.jpg)
+- ![](http://itCatface.github.io/img/IOS/IOS004-高级控件/02日期选择器.jpg)
 
 - **分别为时间、日期、日期时间选择器**
 
@@ -76,7 +76,7 @@ tags:
 		
 ## 第二节、Picker
 
-- [-](http://itCatface.github.io/img/IOS/IOS004-高级控件/03普通选择器.jpg)
+- ![](http://itCatface.github.io/img/IOS/IOS004-高级控件/03普通选择器.jpg)
 
 - **普通选择器的简单使用(列无关联)**
 
