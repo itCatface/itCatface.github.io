@@ -2,7 +2,7 @@
 layout:       post
 title:        "JavaScript页面行为简述"
 subtitle:     "通过JavaScript即可完成界面交互"
-date:         2015-01-01 12:00:00
+date:         2015-01-02 12:00:00
 author:       "catface"
 header-img:   "img/black-bg.png"
 header-mask:  0.3
@@ -140,7 +140,7 @@ tags:
     |unshift()| 向数组的开头添加一个或更多元素，并返回新的长度|
     |valueOf() |返回数组对象的原始值 |
 		
-## oolean
+## Boolean
 
 - 创建
     - `new Boolean(value);	// 构造函数`
@@ -161,11 +161,11 @@ tags:
 	|**toString()**| 把逻辑值转换为字符串，并返回结果|
 	|valueOf()| 返回 Boolean 对象的原始值|
 
-- **Data**
+## Data
 
-	- 创建
-	
-		- `var myDate=new Date();`
+- 创建
+
+    - `var myDate=new Date();`
 
 	**方法**
 
