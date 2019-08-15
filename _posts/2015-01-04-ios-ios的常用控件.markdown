@@ -10,7 +10,7 @@ catalog:      true
 multilingual: false
 edit status:  ed
 tags:
-    - swift
+    - ios
 ---
 
 > 本篇会介绍如下 TextFireld、TextView、Button、Segment、Label、Slider、WebView、ActivityIndicator、Progress、Alert(DEPRECATED)、ActionSheet(DEPRECATED)、ActionControl、ToolBar、Bar Button Item
@@ -206,7 +206,7 @@ tags:
 		    
 # Page C&D
 
- >[外链图片转存失败(img-gqJ8LBuv-1565771002155)(http://itCatface.github.io/img/IOS/IOS002-常用控件/03PageC.jpg)]
+ > [-](http://itCatface.github.io/img/IOS/IOS002-常用控件/03PageC.jpg)
 
 1. **ToolBar**
 
