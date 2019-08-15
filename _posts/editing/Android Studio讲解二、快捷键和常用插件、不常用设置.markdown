@@ -177,7 +177,7 @@
 
 >可以看到搜索框及插件列表(建议没有翻墙的同学将与Google Cloud有关的插件关闭，如我).
 >
-![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTA5MTQzMDIxOTIy)
+![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTA5MTQzMDIxOTIy)
 
 1. **Sexy Editor：<a href="http://download.csdn.net/detail/itcatface/9254577" target="_blank">点我下载</a>**
 
@@ -195,11 +195,11 @@
 
 	>**`Insert`**...：选择图片
 >
-![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTA5MTU1MDE1NTY3)
+![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTA5MTU1MDE1NTY3)
 
 	>**效果如下**
 
-	>![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTA5MTU1MjU1MjUw)
+	>![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTA5MTU1MjU1MjUw)
 
 2. **Android ButterKnife Zelezny(注解生成器，类似xUtils、Afinal的注解)**
 **支持以下用法，当然这里只例举了冰山一角，详情点击下述链接**
@@ -224,7 +224,7 @@
 
 	>**<font size="4" color="red">墙裂推荐学习官方文档：<a href="http://jakewharton.github.io/butterknife/" target="_blank">Butterknife官方使用文档</a></font>**
 
-	>![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTA5MTU1NjMwODk5)
+	>![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTA5MTU1NjMwODk5)
 
 3. **SelectorChapek for Android(自动生成Selector，支持.png和.9.png)**
 
@@ -246,23 +246,23 @@
 
 	>看到drawable中自动生成了test_bg.xml的选择器，很方便
 
-	>![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTA5MTYwMzI1NTY4)
+	>![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTA5MTYwMzI1NTY4)
 
 4. **GsonFormat(根据json文件自动生成javab)**
 
 	> **在类中右击>Generate>Gsonformate**>>粘贴json内容确定即可
 
-	>![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTA5MTYwNTE4NDI5)
+	>![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTA5MTYwNTE4NDI5)
 
 5. **Android Parcelable Code Generator(序列化)**
 
 	>**在类中右击>Generate>Parcelable**
-![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTA5MTYwNzUwMjcz)
+![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTA5MTYwNzUwMjcz)
 
 6. **Android Postfix Completion(快速打印日志和弹土司)**
 
 	> **用法："土司内容".toast / .log / .find……**
->![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTEzMTUwNTMwMjY3)
+>![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTEzMTUwNTMwMjY3)
 
 7. **LeakCanary(检测内存泄漏)**
 	- <a href="https://github.com/square/leakcanary" target="_blank">**LeakCanary on Github**</a>
@@ -282,8 +282,8 @@
 
 1. **格式化代码时不换行**
 
-	![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTMxMTMxMjM0NTYx)
+	![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTMxMTMxMjM0NTYx)
 
 2. **格式化代码时注解不换行**
 
-	![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTMxMTMxMTIwMDg0)
+	![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTgwMTMxMTMxMTIwMDg0)

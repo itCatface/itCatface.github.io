@@ -22,29 +22,29 @@ tags:
 # 操作步骤
 
 - **事先确保本机已安装`JDK、SDK`并配置好`JAVA_HOME、ANDROID_HOME`环境，如下图.**
-![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMTEyMTUzMzE4NjU3)
+![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMTEyMTUzMzE4NjU3)
 
 ---
 
 - **安装<a href="http://ant.apache.org/" target="_blank">ANT</a>并配置环境，如图.**
-![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMTEyMTYyMDAwMjc4)
+![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMTEyMTYyMDAwMjc4)
 
 ---
 
 - **安装<a href="https://nodejs.org/en/" target="_blank">Node.js</a>，如图，点击DOWNLOADS.**
-![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMTEyMTUzNTQ1NjQ2)
+![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMTEyMTUzNTQ1NjQ2)
 
 ---
 
 - **装好Node.js，即可使用命令 `npm install cordova` 安装Cordova环境，装好之后如下.**
 也可使用 **`npm install -g cordova`** 将Cordova安装在全局目录
-![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMTEyMTU0NTExODE2)
+![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMTEyMTU0NTExODE2)
 
 ---
 
 - **由于小伙伴常用Ionic，可以顺带 `npm install ionic` 集成进来，如下.**
 同理，可使用 **`npm install -g ionic`** 将Ionic安装在全局目录
-![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMTEyMTU0NzI3OTU1)
+![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMTEyMTU0NzI3OTU1)
 
 ---
 
@@ -54,7 +54,7 @@ tags:
 	- com.catface.aa：项目包名
 	- Aa：项目名称
 
-		![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMTEyMTU1MzIxNTQw)
+		![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMTEyMTU1MzIxNTQw)
 <br>
 	- 进入文件夹，可见工程目录：hooks：存放自定义cordova命令的脚本文件.
 	- platforms：各平台原生代码，勿手动修改.
@@ -62,7 +62,7 @@ tags:
 	- www：源代码目录，`cordova prepare`时候会copy到各平台工程的assets\www目录.
 	- config.xml：cordova配置文件.
 
-		![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMTEyMTU1NzU2NDYz)
+		![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMTEyMTU1NzU2NDYz)
 
 ---
 
@@ -71,7 +71,7 @@ tags:
 	- `cordova platform ls`：列出已有平台
 	- `cordova platform rm android`：删除已有相应平台
 
-		![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMTEyMTYwNzMwMTcz)
+		![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMTEyMTYwNzMwMTcz)
 
 ---
 

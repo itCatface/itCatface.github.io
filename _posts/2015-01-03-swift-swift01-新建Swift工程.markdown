@@ -19,16 +19,16 @@ tags:
 
 - **`File -> New -> Project`**
 
-	![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwNTE2MTYwODI5NzU1)
+	![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwNTE2MTYwODI5NzU1)
 
 - **`OS X -> Application -> Command Line Tool`**
 
-	![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwNTE2MTYwOTQxOTU4)
+	![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwNTE2MTYwOTQxOTU4)
 
 - **`填写相关工程信息,注意选择Swift作为开发语言`**
 
-	![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwNTE2MTYxMDM5OTQz)
+	![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwNTE2MTYxMDM5OTQz)
 
 - **`Command + R运行程序,或者点击Xcode左上角的运行按钮(绿色箭头)`**
 
-	![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwNTE2MTYxMTI4NDQz)
+	![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwNTE2MTYxMTI4NDQz)

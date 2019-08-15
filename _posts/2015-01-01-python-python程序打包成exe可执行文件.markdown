@@ -17,15 +17,15 @@ tags:
 
 ## 1、安装[`pip install pyinstaller`]
 
-![这里写图片描述](https://img-blog.csdn.net/20180326114734325?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2l0Q2F0ZmFjZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![](https://img-blog.csdn.net/20180326114734325?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2l0Q2F0ZmFjZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
 ## 2、打包成exe文件[`pyinstaller xxx.py`]
 
-![这里写图片描述](https://img-blog.csdn.net/2018032611491079?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2l0Q2F0ZmFjZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![](https://img-blog.csdn.net/2018032611491079?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2l0Q2F0ZmFjZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
 ## 3、测试打包好的exe文件
 
-![这里写图片描述](https://img-blog.csdn.net/20180326114956566?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2l0Q2F0ZmFjZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![](https://img-blog.csdn.net/20180326114956566?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2l0Q2F0ZmFjZQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
 ## 4、打包方式
 

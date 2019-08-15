@@ -14,7 +14,7 @@ tags:
 ---
 
 > 插件目录结构(参考官方提供的插件结构)
-> ![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMzE5MTU1NTU4NDEy)
+> ![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMzE5MTU1NTU4NDEy)
 
 
 # 编码

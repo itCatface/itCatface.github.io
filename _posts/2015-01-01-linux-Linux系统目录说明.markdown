@@ -15,7 +15,7 @@ tags:
 
 # Linux根目录简述
 
-![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjA0MTU5ODc0)
+![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjA0MTU5ODc0)
 
 1. **bin(abbr of Binary) -> 谨慎操作**
 	**存放最常用的命令(系统用户使用的程序)**
@@ -107,19 +107,19 @@ tags:
 
     1. **bin**
     
-        ![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjE0NTEyODcy)
+        ![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjE0NTEyODcy)
 
     2. **boot**
     
-        ![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjE0NzAzNDIz)
+        ![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjE0NzAzNDIz)
     
     3. **dev**
     
-        ![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjE1MzQzNDA1)
+        ![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjE1MzQzNDA1)
     
     4. **etc**
     
-        ![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjE1OTA1NTUw)
+        ![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjE1OTA1NTUw)
     
     5. **home**
     
@@ -127,7 +127,7 @@ tags:
     
     6. **lib**
     
-        ![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjIwMzIzMzA5)
+        ![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjIwMzIzMzA5)
     
     7. **media**
     
@@ -143,19 +143,19 @@ tags:
     
     10. **proc**
     
-        ![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjIwNTQzODc1)
+        ![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjIwNTQzODc1)
     
     11. **root**
     
-        ![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjIwNzMwOTMw)
+        ![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjIwNzMwOTMw)
     
     12. **run**
     
-        ![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjIwODE5NTQ5)
+        ![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjIwODE5NTQ5)
     
     13. **sbin**
     
-        ![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjIxNDE3MjQ2)
+        ![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjIxNDE3MjQ2)
     
     14. **srv**
     
@@ -163,18 +163,18 @@ tags:
     
     15. **sys**
         
-        ![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjIxNzA3MDQx)
+        ![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjIxNzA3MDQx)
     
     16. **tmp**
     
-        ![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjIxNzQ4ODc3)
+        ![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjIxNzQ4ODc3)
         
     17. **usr**
     
-        ![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjIxODA5MDc2)
+        ![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjIxODA5MDc2)
         
     18. **var**
     
-        ![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjIxODI2MTgz)
+        ![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjIxODI2MTgz)
 
 	

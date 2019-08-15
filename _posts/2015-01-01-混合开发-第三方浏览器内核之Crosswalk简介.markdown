@@ -70,7 +70,7 @@ tags:
 	```
 	> 配置结果参考下图
 	>
-	> ![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTEyMTUzMzEzNTYy)
+	> ![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTEyMTUzMzEzNTYy)
 
 - **配置权限**
 
@@ -169,14 +169,14 @@ tags:
 # 兼容ARM的Crosswalk集成简要
 
 1. **先看<a href="https://download.01.org/crosswalk/releases/crosswalk/android/maven2/org/xwalk/xwalk_core_library/" target="_blank">官方Crosswalk的各个版本</a>**
-	![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTI0MTc0NjM5OTg2)
+	![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTI0MTc0NjM5OTg2)
 
 
 2. **点进**<a href="https://download.01.org/crosswalk/releases/crosswalk/android/maven2/org/xwalk/xwalk_core_library/15.44.384.13/" target="_blank">**当前最新版本**</a>
 
 	>**可以看到完整包39m，arm包20m. 我们在此选择第一个arm包**
 	>
-	>![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTI2MTExMDUxNTYx)
+	>![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTI2MTExMDUxNTYx)
 
 3. **将下载好的arm.aar包放入工程的libs目录下**
 
@@ -191,11 +191,11 @@ tags:
 	compile 'org.xwalk:xwalk_core_library:15.44.384.13-arm@aar'
 	```
 	> 配置结果参考下图
-	> ![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTI2MTExOTMwNzg1)
+	> ![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTI2MTExOTMwNzg1)
 
 5. **重新编译打包，可见结果如下(集成完整Crosswalk与仅集成ARM包)**
 
-	 ![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTI2MTEyMzE0OTk0)
+	 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTI2MTEyMzE0OTk0)
 
 # 补充说明
 
