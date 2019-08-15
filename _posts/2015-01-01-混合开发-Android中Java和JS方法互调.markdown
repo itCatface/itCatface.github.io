@@ -8,7 +8,7 @@ header-img:   "img/black-bg.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false
-edit status:  test
+edit status:  ed
 tags:
     - 混合开发
 ---
@@ -48,11 +48,11 @@ tags:
 	
 		    	/*java调用js方法*/
 		    	function javaCallJs(){
-			 		document.getElementById("content").innerHTML += "<br\>java调用了js函数";
+			 		document.getElementById("content").innerHTML += "<br>java调用了js函数";
 				}
 	
 				function javaCallJsWithArgs(args){
-			 		document.getElementById("content").innerHTML += ("<br\>" + args);
+			 		document.getElementById("content").innerHTML += ("<br>" + args);
 				}
 	
 				function javaCallJsWithArgs2(args) {
@@ -60,7 +60,7 @@ tags:
 					for(var i = 0; i < args; i++) {
 						sum += i;
 					}
-			 		document.getElementById("content").innerHTML += ("<br\>" + sum);
+			 		document.getElementById("content").innerHTML += ("<br>" + sum);
 				}
 			</script>
 		</head>

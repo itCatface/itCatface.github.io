@@ -8,12 +8,12 @@ header-img:   "img/black-bg.png"
 header-mask:  0.3
 catalog:      false
 multilingual: false
-edit status:  test
+edit status:  ed
 tags:
     - 混合开发
 ---
 
-> **本系列节目预告：**
+> **本系列目录：**
 > <br>1、进入Cordova官网，使用命令创建Cordova项目.
 > <br>2、了解Cordova官网，按照官网步骤使用常用Cordova插件.
 > <br>3、学习Cordova，开发自定义Cordova插件.
@@ -21,7 +21,7 @@ tags:
 
 # 操作步骤
 
-- **<font color=green>事先确保本机已安装`JDK、SDK`并配置好`JAVA_HOME、ANDROID_HOME`环境，如下图.**
+- **事先确保本机已安装`JDK、SDK`并配置好`JAVA_HOME、ANDROID_HOME`环境，如下图.**
 ![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMTEyMTUzMzE4NjU3)
 
 ---

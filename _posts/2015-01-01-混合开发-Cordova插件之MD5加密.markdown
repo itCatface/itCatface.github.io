@@ -8,7 +8,7 @@ header-img:   "img/black-bg.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false
-edit status:  test
+edit status:  ed
 tags:
     - 混合开发
 ---

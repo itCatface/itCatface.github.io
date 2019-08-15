@@ -8,7 +8,7 @@ header-img:   "img/black-bg.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false
-edit status:  test
+edit status:  ed
 tags:
     - 混合开发
 ---
@@ -49,7 +49,7 @@ tags:
 
 # 自定义Cordova插件
 
-### 照猫画虎，仿照官方明确插件结构
+## 照猫画虎，仿照官方明确插件结构
 
     |catface.toast
     ----|src
@@ -60,7 +60,7 @@ tags:
     ----plugin.xml
 
 
-### plugin.xml -- 配置清单
+## plugin.xml -- 配置清单
 
 - **以 `|` 结尾为相对不重要或为固定写法**
 
@@ -149,7 +149,7 @@ tags:
     </plugin>
     ```
 
-### toast.js -- 中间件
+## toast.js -- 中间件
 
 - **`prototype.` 跟上暴露给 H5 的接口方法，可带参数及回调函数**
 
@@ -188,7 +188,7 @@ tags:
     module.exports = showt;
     ```
 
-### MyToast.java -- 原生 java 类
+## MyToast.java -- 原生 java 类
 
 - **继承 `CordovaPlugin` 接口，复写 `execute` 方法.**
 
@@ -265,7 +265,7 @@ tags:
     }
     ```
 		
-### H5 调用演示
+## H5 调用演示
 
 ``` js
 <script type="text/javascript">
@@ -303,7 +303,7 @@ tags:
 	
 # 补充说明
 
-细心的朋友会发现，本案例介绍了四种调用方式，希望大家满意
+本案例介绍了四种调用方法，以供参考
 
 1. `js ------> java`
 
