@@ -48,7 +48,6 @@ tags:
 	- ③**配置文件：**重要性参考 Android 的 AndroidManifest.xml、Servlet 的 Web.xml
 
 # 自定义Cordova插件
-
 ## 照猫画虎，仿照官方明确插件结构
 
     |catface.toast
