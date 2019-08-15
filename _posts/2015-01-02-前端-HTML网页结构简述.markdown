@@ -1,8 +1,22 @@
+---
+layout:       post
+title:        "HTML网页结构简述"
+subtitle:     "通过HTML即可编写页面元素"
+date:         2015-01-01 12:00:00
+author:       "catface"
+header-img:   "img/black-bg.png"
+header-mask:  0.3
+catalog:      true
+multilingual: false
+edit status:  ed
+tags:
+    - 前端
+---
+
 # HTML全称
 
 >**HyperText Mark-up Language：超文本标记语言.**
-
->**本篇基于HTML4，后续会推出HTML5的说明.**
+>**<br>本篇基于HTML4，后续会推出HTML5的说明.**
 
 # HTML文档由四部分组成
 
@@ -24,134 +38,135 @@
 
 # HTML常用标签
 
-1.文字标签：`<font></font>`
+1. 文字标签：`<font></font>`
 
-- color：字体颜色
-	- 英文单词：red black green orange white yellow gray.
-	- 十六进制：#fff RGB 使用工具.
+    - color：字体颜色
+        - 英文单词：red black green orange white yellow gray.
+        - 十六进制：#fff RGB 使用工具.
+        
+    - size：字体大小
+        - 使用1-7表示大小范围(超过7按7显示).
+
+2. 注释标签
+
+    - java有三种：单行`//...`、多行`/*...*/`、文档`/**...*/`
+    - html、xml一种`<!-- ... -->`
+    - css一种：多行`/% ... %/`
+    - js两种：单行、多行
+
+3. 水平线标签：`<hr/>`
+
+    - color：颜色
+    - size：粗细(1-7表范围)
+
+4. 特殊字符：
+
+    - <：`&lt;`
+    - \>：`&gt;`
+    - &：`&amp;`
+    - 空格：`&nbsp;`
+
+5. 标题标签：`<h1><h1/>...<h6><h6/>` `<caption></caption>`
+
+    - 自动换行：从1-6字体大小递减
 	
-- size：字体大小
-	- 使用1-7表示大小范围(超过7按7显示).
+6. 列表标签
 
-2.注释标签
+    - 层级列表
+    
+        ``` html
+        <dl--列表范围>
+            <dt--上层内容>
+                <dd--下层内容><dd/>
+            <dt/>
+        <dl/>
+        ```
+    
+    - 有序列表
+    
+        ``` html
+        <ol type="1/a/i"--排序显示方式>
+            <li><li/>
+        <ol/>
+        ```
+    - 无序列表
+    
+        ``` html
+        <ul type="circle/square/disc"--排序显示方式>
+            <li><li/>
+        <ul/>
+        ```
 
-- java有三种：单行`//...`、多行`/*...*/`、文档`/**...*/`
-- html、xml一种`<!-- ... -->`
-- css一种：多行`/% ... %/`
-- js两种：单行、多行
+7. 图像标签：`<img src="img src">`
 
-3.水平线标签：`<hr/>`
+    - wigth：图片高度
+    - height：图片宽度
+    - alt：图片存在，鼠标悬停显示文字；图片不存在，图片位置上显示文字 
 
-- color：颜色
-- size：粗细(1-7表范围)
+8. 两种路径
 
-4.特殊字符：
+    - 绝对路径：图片的完全路径
+    - 相对路径
+        - 如果图片和html文件在一个目录下，可以直接写`picture.jpg`
+        - 如果图片在html文件所在目录的下层目录，`aa/picture.jpg`
+        - 如果图片在html文件所在目录的上层目录，`../picture.jpg`
+        - 如果图片在html文件所在目录的上层目录的上层目录，`../../picture.jpg`
 
-- <：`&lt;`
-- \>：`&gt;`
-- &：`&amp;`
-- 空格：`&nbsp;`
+9. 超链接标签
 
-5.标题标签：`<h1><h1/>...<h6><h6/>` `<caption></caption>`
+    - funcA：链接资源
+    
+        ``` html
+        <a href="" target="_self/_blank/_parent/_top"--打开方式><a/>
+        ```
+    
+    - funcB：定位资源
+        - 定义位置：`<a name="locationName"><a/>`
+        - 回到位置：`<a href="#locationName"><a/>`
 
-- 自动换行：从1-6字体大小递减
-	
-6.列表标签
+10. 表格标签
 
-- 层级列表
-
-	```
-	<dl--列表范围>
-		<dt--上层内容>
-			<dd--下层内容><dd/>
-		<dt/>
-	<dl/>
-	```
-
-- 有序列表
-
-	```
-	<ol type="1/a/i"--排序显示方式>
-		<li><li/>
-	<ol/>
-	```
-- 无序列表
-
-	```
-	<ul type="circle/square/disc"--排序显示方式>
-		<li><li/>
-	<ul/>
-	```
-
-7.图像标签：`<img src="img src">`
-
-- wigth：图片高度
-- height：图片宽度
-- alt：图片存在，鼠标悬停显示文字；图片不存在，图片位置上显示文字 
-
-8.两种路径
-
-- 绝对路径：图片的完全路径
-- 相对路径
-	- 如果图片和html文件在一个目录下，可以直接写`picture.jpg`
-	- 如果图片在html文件所在目录的下层目录，`aa/picture.jpg`
-	- 如果图片在html文件所在目录的上层目录，`../picture.jpg`
-	- 如果图片在html文件所在目录的上层目录的上层目录，`../../picture.jpg`
-
-9.超链接标签
-
-- funcA：链接资源
-
-	```
-	<a href="" target="_self/_blank/_parent/_top"--打开方式><a/>
-	```
-
-- funcB：定位资源
-	- 定义位置：`<a name="locationName"><a/>`
-	- 回到位置：`<a href="#locationName"><a/>`
-
-10.表格标签
-
+    ``` html
 	<table>
 		<tr/th(居中加粗)--行 align="left/center/right"--位置>
 			<td--格 align="left/center/right"></td>
 		</tr/th>
 	</table>
+	```
 
-	
-- border：表格线(1-7)
-- bordercolor
-- borderspacing：单元格间距
-- borderpadding：数据与单元格间距
-- width：表格宽度
-- height：表格高度
+    - border：表格线(1-7)
+    - bordercolor
+    - borderspacing：单元格间距
+    - borderpadding：数据与单元格间距
+    - width：表格宽度
+    - height：表格高度
 
-><font color=red>**合并单元格思想：首先确定行数及每行内单元格数**</font>
--- rowspan：跨行
--- colspan：跨列
+> **合并单元格思想：首先确定行数及每行内单元格数**
+<br>-- rowspan：跨行
+<br>-- colspan：跨列
 
-11.其他标签：`b u i p(段落) s pre sub(下标) sup(上标) div span(行内元素)`
+11. 其他标签：`b u i p(段落) s pre sub(下标) sup(上标) div span(行内元素)`
 
-12.头标签
+12. 头标签
 
-- title：定义文档的标题
-- base：定义默认超链接地址`<base href="" target="_blank"></base>`
-- meta：定义HTML文档中的元数据`<meta name="keywords" content="catface, wyh">`
-- link：引入外部资源文件(如css文件)
-- style：定义HTML文档的样式
-- script：加载客户端的脚本文件
+    - title：定义文档的标题
+    - base：定义默认超链接地址`<base href="" target="_blank"></base>`
+    - meta：定义HTML文档中的元数据`<meta name="keywords" content="catface, wyh">`
+    - link：引入外部资源文件(如css文件)
+    - style：定义HTML文档的样式
+    - script：加载客户端的脚本文件
 
-13.框架标签：不能有body
+13. 框架标签：不能有body
 
-- frameset：页面划分方式
-	- rows：上下划分
-	- cols：左右划分
-- frame：具体封装的页面
+    - frameset：页面划分方式
+        - rows：上下划分
+        - cols：左右划分
+    - frame：具体封装的页面
 
-<font color=red>**★表单标签**
+# 表单标签
 
 >要求一：每个输入项必须有name属性
->要求二：单选框、复选框、下拉框必须有value属性
+<br>要求二：单选框、复选框、下拉框必须有value属性
 
 - `<form>表单范围</form>`
 	- action：设置提交到哪个页面
@@ -185,7 +200,7 @@
 # HTML标记概览
 
 |标记 |类型| 译名或意义|  作用| 备注| 
-|-|-|-|-|-|
+|---|---|---|---|---|
 |**文件标记**| 
 |`<html>`| ●| 文件声明| 让浏览器知道这是 HTML 文件|   
 |`<head>` | ● | 开头 | 提供文件整体资讯   |
@@ -276,7 +291,6 @@
 |`<style>`  |●  |样式表 | 控制网页版面    |
 |`<span>` | ● | 自订标记 | 独立使用或与样式表同用    |
 
----
 
 **注**：
 

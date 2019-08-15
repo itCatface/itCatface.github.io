@@ -1,6 +1,22 @@
+---
+layout:       post
+title:        "JavaScript页面行为简述"
+subtitle:     "通过JavaScript即可完成界面交互"
+date:         2015-01-01 12:00:00
+author:       "catface"
+header-img:   "img/black-bg.png"
+header-mask:  0.3
+catalog:      true
+multilingual: false
+edit status:  ed
+tags:
+    - 前端
+---
+
 # JavaScript简介
 
 - **简介**
+
 	- 是脚本语言.
 	- 是一种轻量级的编程语言.
 	- 是可插入 HTML 页面的编程代码.
@@ -9,7 +25,7 @@
 - **JavaScript和java的区别**
 
 	|java |JavaScript|
-	|-|-|
+	|---|---|
 	|sun公司，现为oracle公司   |  网景公司|
 	|面向对象            |   基于对象|
 	|运行需要虚拟机           |直接使用浏览器就能运行|
@@ -17,14 +33,17 @@
 	|定义变量`int i=10;`但`int i="10";`是错误的|没有限制`var j=10; var j="10"; var j=true;`|
 	
 - **三个特点**
+
 	交互、安全、跨平台、大小写敏感
 
 - **三个组成部分**
+
 	- ECMAScript：欧洲计算机协会.由此组织制定了js规范(包含语句、语法).
 	- BOM(Browser Object Model)：浏览器对象模型.
 	- DOM(Document Object Model)：文档对象模型.
 	
 - **大致作用**
+
 	- 写入 HTML 输出：`document.write`
 	- 对事件作出反应：`onclick="alert('Welcome!')"`
 	- 改变 HTML 内容：`innerHTML`
@@ -33,6 +52,7 @@
 	- 验证输入：`if isNaN(x) {alert("Not Numeric")};`
 	
 - **两种结合方式**
+
 	- 使用html的标签`<script type="text/script">js代码</script>`
 	- `<script type="text/script" src="js文件路径"></script>`
 	
@@ -41,7 +61,7 @@
 	**查看变量类型：`typeof(变量名称)`**
 	
 	|类型|声明|
-	|-|-|
+	|---|---|
 	|String|var str="aaa";|
 	| Number|`var i=10.01;`|
 	|boolean|`var flag=true;`|
@@ -60,7 +80,7 @@
 	- 循环语句
 		- ```for```
 		- ```for ... in```
-			```
+			``` js
 			var person={fname:"John",lname:"Doe",age:25};
 			
 			for (x in person)
@@ -86,7 +106,9 @@
 # JavaScript对象
 
 - **Array**
+
 	- 创建
+	
 		- `new Array();`
 		- `new Array(5);`
 		- `new Array("a", true, ..., 7);`
@@ -102,7 +124,7 @@
 	**方法**
 
 	|方法 |描述|
-	|-|-|
+	|---|---|
 	|**concat()** |连接两个或更多的数组，并返回结果|
 	|join() |把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔|
 	|pop() |删除并返回数组的最后一个元素 |
@@ -127,14 +149,14 @@
 	**属性**
 
 	|属性 |描述|
-	|-|-|
+	|---|---|
 	|constructor |返回对创建此对象的 Boolean 函数的引用| 
 	|prototype |使您有能力向对象添加属性和方法| 
 
 	**方法**
 
 	|方法|描述|
-	|-|-|
+	|---|---|
 	|toSource() |返回该对象的源代码|
 	|**toString()**| 把逻辑值转换为字符串，并返回结果|
 	|valueOf()| 返回 Boolean 对象的原始值|
@@ -142,17 +164,18 @@
 - **Data**
 
 	- 创建
+	
 		- `var myDate=new Date();`
 
 	**属性**
 
 	|属性 |描述|
-	|-|-|
+	|---|---|
 
 	**方法**
 
 	|方法|描述|
-	|-|-|
+	|---|---|
 	|Date() |返回当日的日期和时间|
 	|getDate() / setData() |从 Date 对象返回一个月中的某一天 (1 ~ 31)|
 	|getDay() |从 Date 对象返回一周中的某一天 (0 ~ 6)| 
@@ -190,7 +213,7 @@
 	**属性**
 
 	|属性 |描述|
-	|-|-|
+	|---|---|
 	|E |返回算术常量 e，即自然对数的底数（约等于2.718）|
 	|LN2 |返回 2 的自然对数（约等于0.693）| 
 	|LN10 |返回 10 的自然对数（约等于2.302）| 
@@ -203,7 +226,7 @@
 	**方法**
 
 	|方法|描述|
-	|-|-|
+	|---|---|
 	|abs(x)| 返回数的绝对值| 
 	|acos(x)| 返回数的反余弦值| 
 	|asin(x) |返回数的反正弦值|
@@ -231,7 +254,7 @@
 	**属性**
 
 	|属性 |描述|
-	|-|-|
+	|---|---|
 	|constructor| 返回对创建此对象的 Number 函数的引用|
 	|MAX_VALUE |可表示的最大的数| 
 	|MIN_VALUE| 可表示的最小的数| 
@@ -243,7 +266,7 @@
 	**方法**
 
 	|方法|描述|
-	|-|-|
+	|---|---|
 	|toString| 把数字转换为字符串，使用指定的基数| 
 	| toLocaleString|  把数字转换为字符串，使用本地数字格式顺序| 
 	| toFixed | 把数字转换为字符串，结果的小数点后有指定位数的数字| 
@@ -252,10 +275,11 @@
 	| valueOf | 返回一个 Number 对象的基本数字值| 
 
 - **String**
+
 	**属性**
 
 	|属性 |描述|
-	|-|-|
+	|---|---|
 	|constructor| 对创建该对象的函数的引用 |
 	|length| 字符串的长度 |
 	|prototype| 允许您向对象添加属性和方法 |
@@ -263,7 +287,7 @@
 	**方法**
 
 	|方法|描述|
-	|-|-|
+	|---|---|
 	|anchor() |创建 HTML 锚| 
 	|big()| 用大号字体显示字符串|
 	|blink() |显示闪动字符串|
