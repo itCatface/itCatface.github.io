@@ -23,7 +23,7 @@ tags:
 # css的四种引入方式
 
 1. 在每个html标签中都有一个属性style，在style属性中写css代码.
-	``` css
+	``` html
 	<div style="backgroud:black;color:white">GG思密达</div>
 	```
 

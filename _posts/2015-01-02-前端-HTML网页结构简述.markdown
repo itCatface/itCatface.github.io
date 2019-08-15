@@ -141,9 +141,9 @@ tags:
     - width：表格宽度
     - height：表格高度
 
-> **合并单元格思想：首先确定行数及每行内单元格数**
-<br>-- rowspan：跨行
-<br>-- colspan：跨列
+        > **合并单元格思想：首先确定行数及每行内单元格数**
+        <br>-- rowspan：跨行
+        <br>-- colspan：跨列
 
 11. 其他标签：`b u i p(段落) s pre sub(下标) sup(上标) div span(行内元素)`
 
@@ -290,7 +290,6 @@ tags:
 |**StyleSheet**  |
 |`<style>`  |●  |样式表 | 控制网页版面    |
 |`<span>` | ● | 自订标记 | 独立使用或与样式表同用    |
-
 
 **注**：
 
