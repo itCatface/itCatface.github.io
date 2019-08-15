@@ -1,3 +1,17 @@
+---
+layout:       post
+title:        "命令行创建Cordova项目"
+subtitle:     "在windows系统下，使用VMware和linux系统镜像文件安装linux虚拟机"
+date:         2018-08-02 12:00:00
+author:       "catface"
+header-img:   "img/black-bg.png"
+header-mask:  0.3
+catalog:      true
+multilingual: false
+tags:
+    - linux
+---
+
 # **PART_A 插件目录结构**
 
 > 照官方插件做参考即可
@@ -9,7 +23,7 @@
 
 1. **plugin.xml配置文件**
 
-	```xml
+	``` xml
 	<?xml version="1.0" encoding="UTF-8"?>
 	<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
 	    id="deppon.md5"
@@ -65,7 +79,7 @@
 
 3. **Java代码**
 
-	```java
+	``` java
 	public class MD5Tool extends CordovaPlugin {
 		
 		@Override public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
@@ -107,7 +121,7 @@
 4. **加密中需要的两个类，不需手动修改，直接CV即可**
 
 	- **BASE64Encoder**
-		```java
+		``` java
 		public class BASE64Encoder extends CharacterEncoder {
 		
 		    private final static int NUMBER_ZERO = 0;
@@ -174,7 +188,7 @@
 
 	- **CharacterEncoder**
 		
-		```java
+		``` java
 		import java.io.ByteArrayInputStream;
 		import java.io.ByteArrayOutputStream;
 		import java.io.IOException;

@@ -1,3 +1,17 @@
+---
+layout:       post
+title:        "Android中Java和JS方法互调"
+subtitle:     "在windows系统下，使用VMware和linux系统镜像文件安装linux虚拟机"
+date:         2018-08-02 12:00:00
+author:       "catface"
+header-img:   "img/black-bg.png"
+header-mask:  0.3
+catalog:      true
+multilingual: false
+tags:
+    - linux
+---
+
 # **A Java 调用 Js 的方法**
 
 - **无参：使用WebView控件`loadUrl()`方法，传入`"javascript:jsMethod()"`即可调用`jsMethod()`方法**
@@ -14,7 +28,7 @@
 
 1. **html + Js**
 
-	```xml
+	``` xml
 	<html>
 		<head>
 			<meta http-equiv="Content-Type"	content="text/html;charset=utf-8">
@@ -58,7 +72,7 @@
 
 2. **xml**
 
-	```xml
+	``` xml
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent"
@@ -90,7 +104,7 @@
 
 3. **Java**
 
-	```java
+	``` java
 	public class MainActivity extends Activity {
 		private WebView wv_main;
 	
@@ -150,17 +164,17 @@
 
 - **Java调用Js方法仅修改一点点即可**
 	
-	```java
+	``` java
 	xv_main.load("javascript:javaCallJs()", null);
 	```
 
-	```java
+	``` java
 	xv_main.load("javascript:javaCallJsWithArgs2("java调用js啦")", null);
 	```
 
 - **Js调用Java方法与原生调用同理，但需在Activity的onCreate()中添加**
 	
-	```java
+	``` java
 	XWalkPreferences.setValue("enable-javascript", true);
 	XWalkPreferences.setValue(XWalkPreferences.REMOTE_DEBUGGING, true);
 	```
@@ -171,7 +185,7 @@
 
 	>注意`@JavascriptInterface`的包类路径是：`org.xwalk.core.JavascriptInterface`.即Crosswalk下的API，别导错.
 	
-	```java
+	``` java
 	this.appView.addJavascriptInterface(new Object() {
 		@JavascriptInterface 
 		public void showToast(String text) {
@@ -186,7 +200,7 @@
 	```
 
 - **Java调用Js**
-	```java
+	``` java
 	// 在CordovaActivity或者CordovaPlugin(插件)类中调用方法如下.
 	appView.loadUrl("javascript:compare(" + arg1 + "," + arg2 + ")");
 

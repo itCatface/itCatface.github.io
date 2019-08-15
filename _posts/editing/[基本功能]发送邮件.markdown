@@ -2,7 +2,7 @@
 
 - 方法类  
  
-	```java
+	``` java
 	import java.util.Date;
 	import java.util.Properties;
 	
@@ -150,7 +150,7 @@
 
 - 调用示例
 
-	```java
+	``` java
 	public class MailTest {
 	    public static void main(String[] args) {
 	        String username = "---@gmail.com";

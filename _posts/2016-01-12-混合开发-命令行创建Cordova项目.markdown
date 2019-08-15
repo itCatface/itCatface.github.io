@@ -1,3 +1,17 @@
+---
+layout:       post
+title:        "Linux系统目录说明"
+subtitle:     "在windows系统下，使用VMware和linux系统镜像文件安装linux虚拟机"
+date:         2018-08-02 12:00:00
+author:       "catface"
+header-img:   "img/black-bg.png"
+header-mask:  0.3
+catalog:      true
+multilingual: false
+tags:
+    - linux
+---
+
 >**本系列节目预告：**
 1、进入Cordova官网，使用命令创建Cordova项目.
 2、了解Cordova官网，按照官网步骤使用常用Cordova插件.

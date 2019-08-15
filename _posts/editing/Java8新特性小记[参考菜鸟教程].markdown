@@ -8,7 +8,7 @@
 
 ---
 > 全部测试案例
-```java
+``` java
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;

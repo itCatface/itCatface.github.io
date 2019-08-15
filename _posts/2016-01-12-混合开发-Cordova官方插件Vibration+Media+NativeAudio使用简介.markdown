@@ -1,3 +1,17 @@
+---
+layout:       post
+title:        "Cordova官方插件Vibration+Media+NativeAudio使用简介"
+subtitle:     "在windows系统下，使用VMware和linux系统镜像文件安装linux虚拟机"
+date:         2018-08-02 12:00:00
+author:       "catface"
+header-img:   "img/black-bg.png"
+header-mask:  0.3
+catalog:      true
+multilingual: false
+tags:
+    - linux
+---
+
 # <a target="_blank" href="http://cordova.apache.org/docs/en/latest/reference/cordova-plugin-vibration/index.html">**cordova-plugin-vibration**</a>
 
 1. **安装(通过命令行)**

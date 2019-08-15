@@ -1,3 +1,17 @@
+---
+layout:       post
+title:        "自定义Cordova插件"
+subtitle:     "在windows系统下，使用VMware和linux系统镜像文件安装linux虚拟机"
+date:         2018-08-02 12:00:00
+author:       "catface"
+header-img:   "img/black-bg.png"
+header-mask:  0.3
+catalog:      true
+multilingual: false
+tags:
+    - linux
+---
+
 # **一、概括**
 
 - **通过 Cordova 官方提供的插件，我们可以轻松的在 H5 上调用 Android 封装好的调用手机硬件的方法**
@@ -53,7 +67,7 @@
 
 	- **以 `**` 结尾为重要内容，需仔细核对**
 
-		```xml
+		``` xml
 		// 清单模板
 		plugin
 		
@@ -106,7 +120,7 @@
 
 		---
 
-		```xml
+		``` xml
 		<!-- 本案例完整清单 -->
 		<?xml version="1.0" encoding="UTF-8"?>
 		<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
@@ -185,7 +199,7 @@
 	
 	- **arg3：java 提供的接口供回调给 H5.**
 
-		```java
+		``` java
 		public class MyToast extends CordovaPlugin {  
 		    
 		    private static final String TAG = "Toast";

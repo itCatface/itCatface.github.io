@@ -1,3 +1,17 @@
+---
+layout:       post
+title:        "第三方浏览器内核之Crosswalk简介"
+subtitle:     "在windows系统下，使用VMware和linux系统镜像文件安装linux虚拟机"
+date:         2018-08-02 12:00:00
+author:       "catface"
+header-img:   "img/black-bg.png"
+header-mask:  0.3
+catalog:      true
+multilingual: false
+tags:
+    - linux
+---
+
 本篇分为三部分：
 
 1. 介绍**Crosswalk背景**
@@ -6,7 +20,7 @@
 
 3. **为了减小体积，仅集成兼容ARM的Crosswalk(针对X86同理)**
 
-# **PART_A Crosswalk背景介绍**
+# Crosswalk背景介绍
 
 >Web技术的优势可想而知. 
 >
@@ -59,7 +73,7 @@
 
 - **配置权限**
 
-	```xml
+	``` xml
 	<uses-permission android:name="android.permission.INTERNET"/>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
@@ -71,7 +85,7 @@
 	
 - **布局文件**
 
-	```xml
+	``` xml
 	<LinearLayout 
 		xmlns:android="http://schemas.android.com/apk/res/android"
 	    android:layout_width="match_parent"
@@ -95,7 +109,7 @@
 
 	- **必须显示调用 `onDestroy()`，防止浏览器引擎的内存泄漏**
 
-		```java
+		``` java
 		public class MainActivity extends Activity {
 		
 		    @Bind(R.id.xWalkWebView) XWalkView xWalkWebView;
