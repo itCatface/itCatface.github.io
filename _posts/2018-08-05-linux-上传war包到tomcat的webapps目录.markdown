@@ -37,10 +37,10 @@ tags:
 
 > 总结使用到的命令
 
-1. **# ps -ef|grep tomcat**
-
-2. **# ../bin/shutdown.sh**
-
-3. **# ../bin/startup.sh**
-
-4. **# tailf ../logs/catalina.out** 
+    1. # ps -ef|grep tomcat
+    
+    2. # ../bin/shutdown.sh
+    
+    3. # ../bin/startup.sh
+    
+    4. # tailf ../logs/catalina.out
