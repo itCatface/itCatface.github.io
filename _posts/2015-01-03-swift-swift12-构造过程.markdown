@@ -129,7 +129,8 @@ PS：当为存储型属性设置默认值或者在构造器中为其赋值时，
 	 ``` swift
 		let magenta = Color(red: 1.0, green: 0.0, blue: 1.0)
 		let halfGray = Color(white: 0.5)
-		```
+	```
+	
 	注意，如果不通过外部参数名字传值，你是没法调用这个构造器的. 只要构造器定义了某个外部参数名，你就必须使用它，忽略它将导致编译错误
 	
 	``` swift
@@ -338,7 +339,6 @@ Swift 为类类型提供了两种构造器来确保实例中所有存储型属�
 2. **指定构造器和便利构造器的语法**
 
 	类的指定构造器的写法跟值类型简单构造器一样
-	
 	``` swift
 	init(parameters) {
 	    statements
@@ -346,7 +346,6 @@ Swift 为类类型提供了两种构造器来确保实例中所有存储型属�
 	```
 	
 	便利构造器也采用相同样式的写法，但需要在 init 关键字之前放置 convenience 关键字，并使用空格将它们俩分开
-	
 	``` swift
 	convenience init(parameters) {
 	    statements
@@ -420,7 +419,6 @@ Swift 为类类型提供了两种构造器来确保实例中所有存储型属�
 	相反，如果编写了一个和父类便利构造器相匹配的子类构造器，由于子类不能直接调用父类的便利构造器(每个规则都在上文类的构造器代理规则有所描述)，因此，严格意义上来讲，子类并未对一个父类构造器提供重写. 最后的结果就是，<font color=red>在子类中"重写"一个父类便利构造器时，不需要加 override 前缀</font>
 	
 	在下面的例子中定义了一个叫 Vehicle 的基类. 基类中声明了一个存储型属性 numberOfWheels，它是值为 0 的 Int 类型的存储型属性. numberOfWheels 属性用于创建名为 descrpiption 的 String 类型的计算型属性
-	
 	``` swift
 	class Vehicle {
 	    var numberOfWheels = 0
@@ -431,14 +429,12 @@ Swift 为类类型提供了两种构造器来确保实例中所有存储型属�
 	```
 	
 	Vehicle 类只为存储型属性提供默认值，而不自定义构造器. 因此，它会自动获得一个默认构造器. 自动获得的默认构造器总会是类中的指定构造器，它可以用于创建 numberOfWheels 为 0 的 Vehicle 实例
-	
 	``` swift
 	let vehicle = Vehicle()
 	// vehicle.description 值为 0 wheel(s)
 	```
 	
 	下面例子中定义了一个 Vehicle 的子类 Bicycle
-	
 	``` swift
 	class Bicycle: Vehicle {
 	    override init() {
@@ -453,7 +449,6 @@ Swift 为类类型提供了两种构造器来确保实例中所有存储型属�
 	Bicycle 的构造器 init() 以调用 super.init() 方法开始，这个方法的作用是调用 Bicycle 的父类 Vehicle 的默认构造器. 这样可以确保 Bicycle 在修改属性之前，它所继承的属性 numberOfWheels 能被 Vehicle 类初始化. 在调用 super.init() 之后，属性 numberOfWheels 的原值被新值 2 替换
 	
 	如果创建一个 Bicycle 实例，可以调用继承的 description 计算型属性去查看属性 numberOfWheels 是否有改变
-	
 	``` swift
 	let bicycle = Bicycle()
 	print("Bicycle: \()")
@@ -481,7 +476,6 @@ Swift 为类类型提供了两种构造器来确保实例中所有存储型属�
 	接下来的例子将在实践中展示指定构造器、便利构造器以及构造器的自动继承. 这个例子定义了包含三个类 Food、RecipeIngredient 以及 ShoppingListItem 的类层次结构，并将演示它们的构造器是如何相互作用的
 	
 	类层次中的基类是 Food，它是一个简单的用来封装食物名字的类. Food 类引入了一个叫做 name 的 String 类型的属性，并且提供了两个构造器来创建 Food 实例
-	
 	``` swift
 	class Food {
 	    var name: String
