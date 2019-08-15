@@ -1,13 +1,14 @@
 ---
 layout:       post
 title:        "Linux系统目录说明"
-subtitle:     "在windows系统下，使用VMware和linux系统镜像文件安装linux虚拟机"
-date:         2018-08-02 12:00:00
+subtitle:     "简单介绍linux系统的各个系统目录"
+date:         2015-01-01 12:00:00
 author:       "catface"
 header-img:   "img/black-bg.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false
+edit status:  ed
 tags:
     - linux
 ---

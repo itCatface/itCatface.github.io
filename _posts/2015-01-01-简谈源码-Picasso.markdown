@@ -2,12 +2,13 @@
 layout:       post
 title:        "简谈源码-Picasso"
 subtitle:     "对使用Picasso进行一次简单的图片展示进行其代码调用过程的追踪查看"
-date:         2018-10-18 12:00:00
+date:         2015-01-01 12:00:00
 author:       "catface"
 header-img:   "img/black-bg.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false
+edit status:  ed
 tags:
     - 简谈源码
 ---

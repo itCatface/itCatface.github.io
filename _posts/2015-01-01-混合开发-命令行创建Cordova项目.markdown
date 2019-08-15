@@ -1,15 +1,16 @@
 ---
 layout:       post
-title:        "Linux系统目录说明"
-subtitle:     "在windows系统下，使用VMware和linux系统镜像文件安装linux虚拟机"
-date:         2018-08-02 12:00:00
+title:        "命令行创建Cordova项目"
+subtitle:     "按步骤安装Cordova环境，并通过命令行创建第一个Cordova项目"
+date:         2015-01-01 12:00:00
 author:       "catface"
 header-img:   "img/black-bg.png"
 header-mask:  0.3
 catalog:      false
 multilingual: false
+edit status:  test
 tags:
-    - linux
+    - 混合开发
 ---
 
 > **本系列节目预告：**

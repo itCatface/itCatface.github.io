@@ -1,15 +1,16 @@
 ---
 layout:       post
 title:        "Android中Java和JS方法互调"
-subtitle:     "在windows系统下，使用VMware和linux系统镜像文件安装linux虚拟机"
-date:         2018-08-02 12:00:00
+subtitle:     "通过案例介绍Android的WebView中JavaScript和Java原生方法的互相调用"
+date:         2015-01-01 12:00:00
 author:       "catface"
 header-img:   "img/black-bg.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false
+edit status:  test
 tags:
-    - linux
+    - 混合开发
 ---
 
 # Java调用Js方法
@@ -18,11 +19,13 @@ tags:
 
 - **带参：同上，并将参数加上即可`"javascript:jsMethodWithArg(" + args参数 + ")"`**
 
+
 # Js调用Java方法
 
 - **使用WebView控件的`addJavascriptInterface()`方法，传入一个Object对象和一个String标记(Js通过该标记调用Object对象内写好的方法)**
 
 - **关于带不带参数，即Object内的方法和Js调用时配合定义好参数格式，准确传入即可**
+
 
 # 完整案例
 
@@ -158,7 +161,7 @@ tags:
 	}
 	```
 
-#### 补1：Crosswalk中相互调用方式
+## 补1：Crosswalk中相互调用方式
 
 - **Java调用Js方法仅修改一点点即可**
 	
@@ -177,7 +180,7 @@ tags:
 	XWalkPreferences.setValue(XWalkPreferences.REMOTE_DEBUGGING, true);
 	```
 
-#### 补2：Cordova + Crosswalk中相互调用方式
+## 补2：Cordova + Crosswalk中相互调用方式
 
 - **Js调用Java：在CordovaActivity中添加`this.appView.addJavascriptInterface()`即可，参数传递方式同上**
 

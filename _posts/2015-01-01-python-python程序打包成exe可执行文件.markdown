@@ -8,6 +8,7 @@ header-img:   "img/black-bg.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false
+edit status: ed
 tags:
     - python
 ---

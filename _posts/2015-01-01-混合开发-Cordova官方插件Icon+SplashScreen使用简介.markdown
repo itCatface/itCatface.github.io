@@ -1,18 +1,19 @@
 ---
 layout:       post
 title:        "Cordova官方插件Icon+SplashScreen使用简介"
-subtitle:     "在windows系统下，使用VMware和linux系统镜像文件安装linux虚拟机"
-date:         2018-08-02 12:00:00
+subtitle:     ""
+date:         2015-01-01 12:00:00
 author:       "catface"
 header-img:   "img/black-bg.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false
+edit status:  test
 tags:
-    - linux
+    - 混合开发
 ---
 
-<font size=5>**Cordova快速添加Icon图标和Splash闪屏页**
+# Cordova快速添加Icon图标和Splash闪屏页
 
 ><a target="_blank" href="https://cordova.apache.org/docs/en/latest/config_ref/images.html">**官方Configuring Icons in the CLI文档**</a>
 >
@@ -20,11 +21,13 @@ tags:
 
 ><a target="_blank" href="http://cordova.apache.org/docs/en/dev/reference/cordova-plugin-splashscreen/">**官方cordova-plugin-splashscreen文档**</a>
 
+
 1. **安装插件(命令行的两种方式)**
 	
 	- **cordova plugin add cordova-plugin-splashscreen**
 
 	- **cordova plugin add https://github.com/apache/cordova-plugin-splashscreen.git**
+	
 
 2. **在项目第一级目录(与platform同级)的config.xml中做如下配置**
 
@@ -131,6 +134,7 @@ tags:
 	7. **ShowSplashScreenSpinner (default-true)：true为闪屏页显示的时候，同时也会显示进度条Bar.**
 	
 		`<preference name="ShowSplashScreenSpinner" value="true|false"/>`
+		
 
 3. **在JS中可做如下配置**
 

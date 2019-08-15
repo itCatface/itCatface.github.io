@@ -2,23 +2,24 @@
 layout:       post
 title:        "第三方浏览器内核之Crosswalk简介"
 subtitle:     "由于安卓4.4版本之前的浏览器内核性能较差，故通过intel的Crosswalk浏览器内核进行页面渲染的效率更高"
-date:         2018-08-02 12:00:00
+date:         2015-01-01 12:00:00
 author:       "catface"
 header-img:   "img/black-bg.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false
+edit status:  test
 tags:
     - 混合开发
 ---
 
 > 本篇分为三部分：
 
-1. 介绍**Crosswalk背景**
+1. 介绍Crosswalk背景
 
-2. 介绍**Crosswalk集成步骤**
+2. 介绍Crosswalk集成步骤
 
-3. **为了减小体积，仅集成兼容ARM的Crosswalk(针对X86同理)**
+3. 为了减小体积，仅集成兼容ARM的Crosswalk(针对X86同理)
 
 # Crosswalk背景介绍
 

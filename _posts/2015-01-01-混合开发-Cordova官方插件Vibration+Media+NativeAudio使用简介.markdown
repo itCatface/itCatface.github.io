@@ -1,15 +1,16 @@
 ---
 layout:       post
 title:        "Cordova官方插件Vibration+Media+NativeAudio使用简介"
-subtitle:     "在windows系统下，使用VMware和linux系统镜像文件安装linux虚拟机"
-date:         2018-08-02 12:00:00
+subtitle:     ""
+date:         2015-01-01 12:00:00
 author:       "catface"
 header-img:   "img/black-bg.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false
+edit status:  test
 tags:
-    - linux
+    - 混合开发
 ---
 
 # <a target="_blank" href="http://cordova.apache.org/docs/en/latest/reference/cordova-plugin-vibration/index.html">**cordova-plugin-vibration**</a>
@@ -124,8 +125,10 @@ tags:
 1. **安装**
 
 	**cordova plugin add cordova-plugin-nativeaudio**
+	
 
 2. **使用**
+
 	1. **preloadSimple()**：优化短视频/单镜头(最多五秒). 不能停止/循环.
 	
 	2. **preloadComplex()**：可以停止/循环和用于多个声音. 可以在使用延迟参数的时间和使用.
