@@ -1,14 +1,29 @@
+---
+layout:       post
+title:        "ios的一些高级控件"
+subtitle:     "Swift的析构过程介绍"
+date:         2015-01-04 12:00:00
+author:       "catface"
+header-img:   "img/black-bg.png"
+header-mask:  0.3
+catalog:      true
+multilingual: false
+edit status:  ed
+tags:
+    - ios
+---
+
 # 第一章、选择器
 
 - [外链图片转存失败(img-yjd2BgHu-1565771028215)(http://itCatface.github.io/img/IOS/IOS004-高级控件/01选择器梗概.jpg)]
 
-### 第一节、DatePicker
+## 第一节、DatePicker
 
 - [外链图片转存失败(img-Ti9lS7xW-1565771028216)(http://itCatface.github.io/img/IOS/IOS004-高级控件/02日期选择器.jpg)]
 
 - **分别为时间、日期、日期时间选择器**
 
-	```
+	``` swift
 	let date: Date = self.dp_time.date
 	    
 	// 时间格式
@@ -21,7 +36,7 @@
 			
 	---
 
-	```
+	``` swift
 	let date: Date = self.dp_date.date
 	
 	// 日期格式
@@ -33,7 +48,7 @@
 			    
 	--- 
 		
-	```
+	``` swift
 	let date: Date = self.dp_dateAndTime.date
 			    
 	// 日期时间格式
@@ -45,7 +60,7 @@
 
 - **倒计时选择器**
 	
-	```
+	``` swift
 	let timeInterval: TimeInterval = dp_countdown.countDownDuration
 	
 	let _: Timer = Timer.scheduledTimer(timeInterval: timeInterval, target: self, selector: "countdown", userInfo: nil, repeats: false)
@@ -53,13 +68,13 @@
 	     
 	---
 	
-	```
+	``` swift
 	func countdown() {
 		lb_result.text = "time over..."
 	}
 	```
 		
-### 第二节、Picker
+## 第二节、Picker
 
 - [外链图片转存失败(img-Cw1AVHnW-1565771028216)(http://itCatface.github.io/img/IOS/IOS004-高级控件/03普通选择器.jpg)]
 

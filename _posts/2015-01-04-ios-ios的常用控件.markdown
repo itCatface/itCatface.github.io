@@ -1,3 +1,18 @@
+---
+layout:       post
+title:        "swift13-析构过程"
+subtitle:     "Swift的析构过程介绍"
+date:         2015-01-04 12:00:00
+author:       "catface"
+header-img:   "img/black-bg.png"
+header-mask:  0.3
+catalog:      true
+multilingual: false
+edit status:  ed
+tags:
+    - swift
+---
+
 > 本篇会介绍如下 TextFireld、TextView、Button、Segment、Label、Slider、WebView、ActivityIndicator、Progress、Alert(DEPRECATED)、ActionSheet(DEPRECATED)、ActionControl、ToolBar、Bar Button Item
 
 # PageA
@@ -8,13 +23,13 @@
 
 	- **当前类实现接口**
 	
-		```
+		``` swift
 		class ViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate
 		```
 			
 	- **实现对应的接口方法**
 	
-		```
+		``` swift
 		// 主动放弃焦点
 		func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 			textField.resignFirstResponder()
@@ -24,7 +39,7 @@
 			
 		---
 		
-		```
+		``` swift
 		// 主动放弃焦点
 		func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
 			if text == "\n" {
@@ -37,7 +52,7 @@
 			
 2. **Switch-让右开关随左开关联动**
 
-	```
+	``` swift
 	@IBAction func rightSwitchControl(_ sender: UISwitch) {
 		var setting = sender.isOn // 获取左开关的开闭状态
 		self.swLeft.setOn(setting, animated: true)
@@ -47,7 +62,7 @@
 	    
 3. **Segment-用分段控件控制两个开关的显示与隐藏**    
 
-	```
+	``` swift
 	@IBAction func showOrHideSwitch(_ sender: UISegmentedControl) {
 		if self.swLeft.isHidden { // 获取左开关的隐藏状态
 			self.swLeft.isHidden = false
@@ -61,7 +76,7 @@
 	    
 4. **Slider-显示滑块的值**
 
-	```
+	``` swift
 	@IBAction func slideValueChangeLabel(_ sender: UISlider) {
 		var progressAsInt = sender.value // 获取滑块的值
 		let newResult = NSString(format: "%d", progressAsInt)
@@ -73,7 +88,7 @@
 
 	- **`loadHTMLString` 加载本地页面**
 
-		```
+		``` swift
 		let html = "<h1>welcome <a href='http://catface.cc'>catface</a></h1>"
 		wv_home.loadHTMLString(html, baseURL: nil)
 		```
@@ -82,7 +97,7 @@
 	
 	- **`loadRequest` 加载网络页面**  
 			
-		```
+		``` swift
 		let addr = NSURL(string: "http://catface.cc")
 		let request = NSURLRequest(url: addr! as URL) // 将URL封装成Request
 		self.wv_home.loadRequest(request as URLRequest)
@@ -93,7 +108,7 @@
 			
 		- **可选实现 UIWebViewDelegate 接口的如下方法**
 				
-			```
+			``` swift
 			// 页面加载完成后调用
 			func webViewDidFinishLoad(_ webView: UIWebView) {
 				NSLog("%@", wv_home.stringByEvaluatingJavaScript(from: "document.body.innerhtml")!)
@@ -112,7 +127,7 @@
 
 1. **ActivityIndicator-使用按钮控制其动画开闭**
 	
-	```
+	``` swift
 	if self.aiv_test.isAnimating { // 判断当前aiv是否正进行动画
 		aiv_test.stopAnimating()
 	} else {
@@ -122,7 +137,7 @@
 	    
 2. **Progress-使用 Timer 控制进度条的进度**   
 
-	```
+	``` swift
 	var mTimer: Timer!  // 来一个Timer
 	@IBAction func changePV(_ sender: UIButton) {
 		// 参数：时间间隔s | 消息发送目标 | 调用方法 | 给消息发送参数 | 是否重复
@@ -144,50 +159,50 @@
 
  >![](https://imgconvert.csdnimg.cn/aHR0cDovL2l0Y2F0ZmFjZS5naXRodWIuaW8vaW1nL0lPUy9JT1MwMDItJUU1JUI4JUI4JUU3JTk0JUE4JUU2JThFJUE3JUU0JUJCJUI2LzA1UGFnZUUuanBn)
 
-	- **Alert**
-		
-		```
-		// 单个选项
-		UIAlertView(title: "警告", message: "我是警告内容", delegate: nil, cancelButtonTitle: "知道").show()
-		
-		// 两个选项
-		UIAlertView(title: "警告", message: "我是警告内容", delegate: nil, cancelButtonTitle: "取消", otherButtonTitles: "确定").show()
-		
-		// 多个选项...
-		UIAlertView(title: "警告", message: "我是警告内容", delegate: nil, cancelButtonTitle: "取消", otherButtonTitles: "确定", "玩一玩").show()
-		```
-	    
-	- **ActionSheet**    
+- **Alert**
+    
+    ``` swift
+    // 单个选项
+    UIAlertView(title: "警告", message: "我是警告内容", delegate: nil, cancelButtonTitle: "知道").show()
+    
+    // 两个选项
+    UIAlertView(title: "警告", message: "我是警告内容", delegate: nil, cancelButtonTitle: "取消", otherButtonTitles: "确定").show()
+    
+    // 多个选项...
+    UIAlertView(title: "警告", message: "我是警告内容", delegate: nil, cancelButtonTitle: "取消", otherButtonTitles: "确定", "玩一玩").show()
+    ```
+    
+- **ActionSheet**    
 
-		```
-		var asTest: UIActionSheet = UIActionSheet(title: "选择列表", delegate: nil, cancelButtonTitle: "取消", destructiveButtonTitle: "破坏性选项", otherButtonTitles: "百度", "腾讯", "阿里")
-		asTest.show(in: self.view)
-		```
-		
-	- **ActionControl(掌握这个可以了)**
+    ``` swift
+    var asTest: UIActionSheet = UIActionSheet(title: "选择列表", delegate: nil, cancelButtonTitle: "取消", destructiveButtonTitle: "破坏性选项", otherButtonTitles: "百度", "腾讯", "阿里")
+    asTest.show(in: self.view)
+    ```
+    
+- **ActionControl(掌握这个可以了)**
 
-		```		
-		var acTest: UIAlertController = UIAlertController(title: "标题", message: "消息内容", preferredStyle: UIAlertControllerStyle.alert)
-		
-		acTest.addAction(UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel) {(alertAction) -> Void in NSLog("取消")})
-		acTest.addAction(UIAlertAction(title: "确定", style: UIAlertActionStyle.default) {(alertAction) -> Void in NSLog("确定")})
-		
-		self.present(acTest, animated: true, completion: nil)
-		```
-		    
-	    ---
-		   
-		```
-		var acTest: UIAlertController = UIAlertController()
-		
-		acTest.addAction(UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel) {(alertAction) -> Void in NSLog("取消")})
-		acTest.addAction(UIAlertAction(title: "破坏性选项", style: UIAlertActionStyle.destructive) {(alertAction) -> Void in NSLog("破坏")})
-		acTest.addAction(UIAlertAction(title: "百度", style: UIAlertActionStyle.default) {(alertAction) -> Void in NSLog("百度")})
-		acTest.addAction(UIAlertAction(title: "腾讯", style: UIAlertActionStyle.default) {(alertAction) -> Void in NSLog("腾讯")})
-		acTest.addAction(UIAlertAction(title: "阿里", style: UIAlertActionStyle.default) {(alertAction) -> Void in NSLog("阿里")})
-		
-		self.present(acTest, animated: true, completion: nil)  
-		```
+    ```	oc	
+    var acTest: UIAlertController = UIAlertController(title: "标题", message: "消息内容", preferredStyle: UIAlertControllerStyle.alert)
+    
+    acTest.addAction(UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel) {(alertAction) -> Void in NSLog("取消")})
+    acTest.addAction(UIAlertAction(title: "确定", style: UIAlertActionStyle.default) {(alertAction) -> Void in NSLog("确定")})
+    
+    self.present(acTest, animated: true, completion: nil)
+    ```
+        
+    ---
+       
+    ``` swift
+    var acTest: UIAlertController = UIAlertController()
+    
+    acTest.addAction(UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel) {(alertAction) -> Void in NSLog("取消")})
+    acTest.addAction(UIAlertAction(title: "破坏性选项", style: UIAlertActionStyle.destructive) {(alertAction) -> Void in NSLog("破坏")})
+    acTest.addAction(UIAlertAction(title: "百度", style: UIAlertActionStyle.default) {(alertAction) -> Void in NSLog("百度")})
+    acTest.addAction(UIAlertAction(title: "腾讯", style: UIAlertActionStyle.default) {(alertAction) -> Void in NSLog("腾讯")})
+    acTest.addAction(UIAlertAction(title: "阿里", style: UIAlertActionStyle.default) {(alertAction) -> Void in NSLog("阿里")})
+    
+    self.present(acTest, animated: true, completion: nil)  
+    ```
 		    
 # Page C&D
 
