@@ -2,7 +2,7 @@
 layout:       post
 title:        "Win&VMware安装Linux(CentOS)虚拟机"
 subtitle:     "在windows系统下，使用VMware和linux系统镜像文件安装linux虚拟机"
-date:         2015-01-01 12:00:00
+date:         2017-08-02 12:00:00
 author:       "catface"
 header-img:   "img/black-bg.png"
 header-mask:  0.3
