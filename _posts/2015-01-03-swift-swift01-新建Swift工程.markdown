@@ -1,14 +1,14 @@
 ---
 layout:       post
 title:        "swift01-新建Swift工程"
-subtitle:     ""
+subtitle:     "使用Xcode新建一个Swift项目"
 date:         2015-01-03 12:00:00
 author:       "catface"
 header-img:   "img/black-bg.png"
 header-mask:  0.3
 catalog:      false
 multilingual: false
-edit status:  test
+edit status:  ed
 tags:
     - swift
 ---

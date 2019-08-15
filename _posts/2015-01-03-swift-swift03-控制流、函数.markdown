@@ -1,14 +1,14 @@
 ---
 layout:       post
 title:        "swift03-控制流、函数"
-subtitle:     ""
+subtitle:     "for、while、if、switch、continue等控制语句使用介绍，函数声明及调用方式介绍"
 date:         2015-01-03 12:00:00
 author:       "catface"
 header-img:   "img/black-bg.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false
-edit status:  test
+edit status:  ed
 tags:
     - swift
 ---

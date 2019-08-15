@@ -1,14 +1,14 @@
 ---
 layout:       post
 title:        "swift12-构造过程"
-subtitle:     ""
+subtitle:     "Swift的构造函数介绍"
 date:         2015-01-03 12:00:00
 author:       "catface"
 header-img:   "img/black-bg.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false
-edit status:  test
+edit status:  ed
 tags:
     - swift
 ---
@@ -127,8 +127,8 @@ PS：当为存储型属性设置默认值或者在构造器中为其赋值时，
 	两种构造器都能用于创建一个新的 Color 实例，你需要为构造器每个外部参数传值
 	
 	 ``` swift
-		let magenta = Color(red: 1.0, green: 0.0, blue: 1.0)
-		let halfGray = Color(white: 0.5)
+    let magenta = Color(red: 1.0, green: 0.0, blue: 1.0)
+    let halfGray = Color(white: 0.5)
 	```
 	
 	注意，如果不通过外部参数名字传值，你是没法调用这个构造器的. 只要构造器定义了某个外部参数名，你就必须使用它，忽略它将导致编译错误

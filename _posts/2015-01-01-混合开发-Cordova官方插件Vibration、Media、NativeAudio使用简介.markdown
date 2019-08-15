@@ -1,7 +1,7 @@
 ---
 layout:       post
-title:        "Cordova官方插件Vibration+Media+NativeAudio使用简介"
-subtitle:     ""
+title:        "Cordova官方插件Vibration、Media、NativeAudio使用简介"
+subtitle:     "介绍Cordova官方提供的插件的使用方法"
 date:         2015-01-01 12:00:00
 author:       "catface"
 header-img:   "img/black-bg.png"

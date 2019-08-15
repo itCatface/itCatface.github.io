@@ -1,14 +1,14 @@
 ---
 layout:       post
 title:        "swift04-集合"
-subtitle:     ""
+subtitle:     "集合类型包括Arrays、Sets、Dictionaries的简单使用介绍"
 date:         2015-01-03 12:00:00
 author:       "catface"
 header-img:   "img/black-bg.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false
-edit status:  test
+edit status:  ed
 tags:
     - swift
 ---
