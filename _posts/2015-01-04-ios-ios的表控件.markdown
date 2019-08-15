@@ -1,7 +1,7 @@
 ---
 layout:       post
-title:        "ios的常用控件"
-subtitle:     "Swift的析构过程介绍"
+title:        "ios的表控件"
+subtitle:     "TableView的使用介绍"
 date:         2015-01-04 12:00:00
 author:       "catface"
 header-img:   "img/black-bg.png"
