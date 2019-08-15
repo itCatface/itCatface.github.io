@@ -1,0 +1,132 @@
+---
+layout:       post
+title:        "swift09-方法"
+subtitle:     ""
+date:         2015-01-03 12:00:00
+author:       "catface"
+header-img:   "img/black-bg.png"
+header-mask:  0.3
+catalog:      true
+multilingual: false
+edit status:  test
+tags:
+    - swift
+---
+
+# 实例方法
+
+1. **简介**
+
+	- **实例方法：可属于某个特定类、结构体或枚举实例的方法**
+	
+	- **实例方法能隐式访问它所属类型的所有其他实例方法和属性**
+	
+	- **实例方法只能被它所属的类的某个特定实例调用**
+	
+	- **调用方式：`对象.实例方法`**
+
+2. **方法的局部参数名称和外部参数名称、及修改**
+
+	- **默认第一个为局部参数名称，后续为局部和外部参数名称**
+	
+	- **可为第一个添加显式的外部名称，为后续添加外部名称 `_`，覆盖默认行为**
+
+		``` swift
+		// 定义方法
+		func add(a: Int, b: Int) { ... }
+		
+		// 方法调用
+		.add(3, b: 8)
+		```
+		
+		``` swift
+		// 定义方法
+		func add(numPre a: Int, _ b: Int) { ... }
+		
+		// 方法调用
+		.add(numPre: 3, 8)
+		```
+
+3. **self 属性**
+
+	- **适用场景：实例方法的某个参数名称与实例的某个属性名称相同时(参考 Java)**
+
+4. **在实例方法中修改值类型**
+
+	- **需在特定的方法中修改结构体或枚举的属性，可为该方法选择可变(`mutating`)行为. 当该方法做出改变后结果会写回到原始结构中**
+		
+		``` swift
+		struct Point {
+		    var x = 0.0, y = 0.0
+		    mutating func moveByX(deltaX: Double, y deltaY: Double) {
+		        x += deltaX
+		        y += deltaY
+		    }
+		}
+		var somePoint = Point(x: 1.0, y: 1.0)
+		somePoint.moveByX(2.0, y: 3.0)
+		print("The point is now at (\(somePoint.x), \(somePoint.y))")
+		// (3.0, 4.0)
+		```
+
+5. **在可变方法中给 self 赋值**
+
+	1. **上面可简写**
+
+		``` swift
+		struct Point {
+		    var x = 0.0, y = 0.0
+		    mutating func moveByX(deltaX: Double, y deltaY: Double) {
+		        self = Point(x: x + deltaX, y: y + deltaY)
+		    }
+		}
+		```
+
+	2. **枚举的可变方法可将 self 设置为同一枚举类型中的不同成员**
+
+		``` swift
+		enum TriStateSwitch {
+		    case Off, Low, High
+		    mutating func next() {
+		        switch self {
+		        case Off:
+		            self = Low
+		        case Low:
+		            self = High
+		        case High:
+		            self = Off
+		        }
+		    }
+		}
+		var ovenLight = TriStateSwitch.Low
+		ovenLight.next()
+		// ovenLight 值为 High
+		ovenLight.next()
+		// ovenLight 值为 Off
+		```
+
+# 类型方法
+
+1. 	**类型方法：可属于类、结构体或枚举类型的方法**
+
+2. **定义方式：`static`**
+
+3. **调用方式：`类名.方法名`、`类名.属性名`**
+
+	``` swift
+	class SomeClass {
+		// 类型属性
+		static var someProperty
+
+		// 类型方法
+	    static func someTypeMethod() {
+	        // Method Body
+	    }
+	}
+	
+	// 类型属性访问
+	SomeClass.someProperty
+
+	// 类型方法调用	
+	SomeClass.someTypeMethod()
+	```

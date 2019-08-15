@@ -1,0 +1,205 @@
+---
+layout:       post
+title:        "swift04-集合"
+subtitle:     ""
+date:         2015-01-03 12:00:00
+author:       "catface"
+header-img:   "img/black-bg.png"
+header-mask:  0.3
+catalog:      true
+multilingual: false
+edit status:  test
+tags:
+    - swift
+---
+
+# 集合简介
+
+- **集合长度默认可变，若分配成常量，则其大小和内容皆不可变**
+
+- **Swift集合类型(必须通过泛型明确存储值)**
+	
+	- **`Arrays`：数组，有序可重复**
+
+	- **`Sets`：集合，无序不重复**
+	
+	- **`Dictionaries`：字典，无序键值对**
+
+
+# `Arrays`
+
+
+1. **定义(等价，推荐第二种方式)**
+
+	- **`Array<T>`**
+
+	- **`[T]`**
+ 
+2. **创建空数组**
+
+	- **特定类型空数组：`var arr = [String]()`**
+
+	- **已定义好类型的常量或变量，可用空数组语句创建空数组：`arr = []`，仍为String类型**
+
+3. **创建带默认值的数组：`var arr = [Double](count: 3, repeatedValue: 0.0)`**
+
+	- **此时结果：`arr = [0.0, 0.0, 0.0]`**
+
+	- **`count`：默认数组长度**
+
+	- **`repeatedValue`：默认值**
+
+4. **通过数组相加创建数组：`var doubleArr = arr + arr`**
+
+	- **此时结果：`doubleArr = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]`**
+
+5. **通过字面量构造数组：`[value1, value2, ...]`**
+
+	- **`var arr: [String] = ["fuck", "me"]`**
+	
+	- **由类型推断可简写：`var arr = ["fuck", "me"]`**
+
+6. **访问和修改数组**
+
+	- **`count`：获取数组长度**
+	
+	- **`isEmpty`：判空**
+	
+	- **`append`：在数组后添加新数据项**
+	
+	- **`+=`：在数组后添加一或多个相同类型的数据项**
+	
+	- **`arr[index]`：通过下标获取指定索引位置的值**
+	
+	- **数组的索引从0开始**
+	
+	- **`arr[1 ... 3] = ["fuck", "me"]`：通过区间修改一系列数据值，即使数量不同**
+
+	- **`insert(_, atIndex: )`：向指定索引位置插入数据项**
+	
+	- **`removeAtIndex(index)`：删除指定索引位置的值**
+	
+	- **`removeLast()`：删除最后一项数据值，避免通过 `count` 获取数组长度**
+
+7. **遍历：`for - in`**
+
+	- **普通遍历**
+
+	- **同时获取数据项的值和索引：`for (index, value) in arr.enumerate()`**
+
+# `Sets`
+
+>只有可以哈希化的类型才可存储在集合中
+><br>哈希值是Int类型
+><br>相等的对象哈希值必须相同，若 `a == b` 则 `a.hashValue == b.hashValue`
+><br>基本类型默认皆可哈希化，可做集合的值类型或字典的键类型
+
+1. **定义(方式唯一)**
+
+	- **`Set<T>`**
+
+2. **创建空集合**
+
+	- **`var letters = Set<Character>()`**
+	
+	- **`letters = []`：此时 `letters` 为空 `Set`，其类型仍为 `Set<Charater>`**
+
+3. **用数组字面量创建集合**
+
+	- **`var words: Set<String> = ["fuck", "me"]`**
+
+	- **或者简写，省略Set的具体类型：`var words: Set = ["fuck", "me"]`**
+
+4. **访问和修改集合**
+
+	- **`count`：获取集合中元素的数量**
+	
+	- **`isEmpty`：判空**
+	
+	- **`insert`：添加新元素**
+	
+	- **`remove`：删除并返回元素值，若集合为空，返回 `nil`**
+	
+	- **`removeAll`：删除所有元素**
+	
+	- **`contains(value)`：检查集合是否包含 `value` 值**
+
+5. **遍历：`for - in`**
+
+	- **普通遍历(无序)**
+
+	- **有序遍历：`for num in nums.sort()`**
+
+6. **集合操作(皆创建新集合)**
+
+	- **基本操作**
+
+		- **`a.intersect(b)`：交集**
+
+		- **`a.exclusiveOr(b)`：除交集**
+
+		- **`a.union(b)`：并集**
+
+		- **`a.subtract(b)`：a减去a与b的交集**
+
+	- **集合成员关系**
+	
+		- **`a.isSubsetOf(b)`：a是否被包含于b**
+
+		- **`a.isSupersetOf(b)`：a包含于b**
+	
+		- **`a.isStrictSubsetOf(b) / isStrictSupersetOf`：a是否被包含于b**
+
+		- **`a.isSubsetOf(b)`：a是否被包含于b**
+
+# `Dictionaries`
+
+>存储多个相同类型的值
+><br>键唯一，值不唯一
+><br>无序
+
+1. **定义**
+
+	- **`Dictionary<key, value>`**
+
+2. **创建空字典**
+
+	- **`var persons = [String: Int]()`**
+	
+	- **`persons = [:]`：此时 `persons` 为空 `Dictionary`，其类型仍为 `[String: Int]`**
+
+3. **用字典字面量创建字典**
+
+	- **`var persons: [String: Int] = ["zhangsan": 12, "lisi": 17]`**
+
+	- **简写：`var persons = ["zhangsan": 12, "lisi": 17]`**
+
+4. **访问和修改字典**
+
+	- **`count`：获取字典数据项的数量**
+	
+	- **`isEmpty`：判空**
+	
+	- **`persons["zhangsan"]`：通过下标分配新值或者修改指定键位对应的值，空时返回 `nil`**
+	
+	- **`persons.updateValue(_, forKey:)`：同上**
+	
+	- **`persons["zhangsan"] = nil`：移除指定键值对**
+	
+	- **`persons.removeValueForKey(_)`：移除并返回值，若空返回 `nil`**
+
+5. **遍历：`for - in`**
+
+	- **键值遍历：`for (key, value) in persons`**
+
+	- **仅键遍历：`for key in persons.keys`**
+	
+	- **仅值遍历：`for value in person.value`**
+
+6. **通过键集合或值集合构造数组**
+
+	- **`var keyArr = [String](persons.keys)`**
+	
+	- **`var valueArr = [Int](persons.values)`**
+
+7. **因字典是无序的，可用 `sort()` 对字典的键或值排序**
