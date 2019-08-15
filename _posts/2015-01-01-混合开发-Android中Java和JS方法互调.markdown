@@ -31,7 +31,7 @@ tags:
 
 1. **html + Js**
 
-	``` xml
+	``` html
 	<html>
 		<head>
 			<meta http-equiv="Content-Type"	content="text/html;charset=utf-8">
@@ -170,7 +170,7 @@ tags:
 	```
 
 	``` java
-	xv_main.load("javascript:javaCallJsWithArgs2("java调用js啦")", null);
+	xv_main.load("javascript:javaCallJsWithArgs2(" + "'java调用js啦'" + ")", null);
 	```
 
 - **Js调用Java方法与原生调用同理，但需在Activity的onCreate()中添加**
