@@ -377,7 +377,7 @@ tags:
 	}
 	```
 
-## 第二节、静态表
+## 第二节、静态表
 
 >![](https://imgconvert.csdnimg.cn/aHR0cDovL3VwbG9hZC1pbWFnZXMuamlhbnNodS5pby91cGxvYWRfaW1hZ2VzLzk3NTM1NC1lN2QwMWEyMTdjNDA1NWE4LmpwZw)
 
@@ -392,7 +392,7 @@ tags:
 	}
 	```
 
-## 第三节、修改单元格
+## 第三节、修改单元格
 
 - **初学阶段，代码仅供了解**
 	``` swift
