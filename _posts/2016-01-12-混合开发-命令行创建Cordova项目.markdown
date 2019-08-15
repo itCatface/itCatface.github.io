@@ -6,19 +6,19 @@ date:         2018-08-02 12:00:00
 author:       "catface"
 header-img:   "img/black-bg.png"
 header-mask:  0.3
-catalog:      true
+catalog:      false
 multilingual: false
 tags:
     - linux
 ---
 
->**本系列节目预告：**
-1、进入Cordova官网，使用命令创建Cordova项目.
-2、了解Cordova官网，按照官网步骤使用常用Cordova插件.
-3、学习Cordova，开发自定义Cordova插件.
-补、本系列Cordova基于Crosswalk，对于只使用原生WebView来说影响不大.
+> **本系列节目预告：**
+> <br>1、进入Cordova官网，使用命令创建Cordova项目.
+> <br>2、了解Cordova官网，按照官网步骤使用常用Cordova插件.
+> <br>3、学习Cordova，开发自定义Cordova插件.
+> <br>补、本系列Cordova基于Crosswalk，对于只使用原生WebView来说影响不大.
 
-<font size=5>**只有准备工作**
+# 操作步骤
 
 - **<font color=green>事先确保本机已安装`JDK、SDK`并配置好`JAVA_HOME、ANDROID_HOME`环境，如下图.**
 ![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwMTEyMTUzMzE4NjU3)
@@ -86,17 +86,25 @@ tags:
 ---
 
 - **最后，真机插上，adb连接好`cordova run`就能运行创建好的Cordova项目了.**
-<hr>
 
-<font size=4>**总结**
+# 总结
 	
-	完整环境概括如下：
-		1. 安装JDK、SDK并配置好环境.
-		2. 安装Node.js并配置好环境.
-		3. 安装ANT并配置好环境.
-		4. 使用Node.js的>npm<命令安装Cordova和Ionic.
-		5. 使用>Cordova create<创建项目.
-		6. 切进项目目录，使用>cordova platform add<添加平台(可同时引进crosswalk支持).
-		7. 使用>cordova plugin add<添加插件.
-		8. 使用>cordova build<编译(也可直接run，run之前会自己编译).
-		9. 使用>cordova run<进行装机测试.
+完整环境概括如下：
+
+1. 安装JDK、SDK并配置好环境.
+
+2. 安装Node.js并配置好环境.
+
+3. 安装ANT并配置好环境.
+
+4. 使用Node.js的>npm<命令安装Cordova和Ionic.
+
+5. 使用>Cordova create<创建项目.
+
+6. 切进项目目录，使用>cordova platform add<添加平台(可同时引进crosswalk支持).
+
+7. 使用>cordova plugin add<添加插件.
+
+8. 使用>cordova build<编译(也可直接run，run之前会自己编译).
+
+9. 使用>cordova run<进行装机测试.

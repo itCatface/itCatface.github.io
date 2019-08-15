@@ -1,7 +1,7 @@
 ---
 layout:       post
 title:        "第三方浏览器内核之Crosswalk简介"
-subtitle:     "在windows系统下，使用VMware和linux系统镜像文件安装linux虚拟机"
+subtitle:     "由于安卓4.4版本之前的浏览器内核性能较差，故通过intel的Crosswalk浏览器内核进行页面渲染的效率更高"
 date:         2018-08-02 12:00:00
 author:       "catface"
 header-img:   "img/black-bg.png"
@@ -9,10 +9,10 @@ header-mask:  0.3
 catalog:      true
 multilingual: false
 tags:
-    - linux
+    - 混合开发
 ---
 
-本篇分为三部分：
+> 本篇分为三部分：
 
 1. 介绍**Crosswalk背景**
 
@@ -22,10 +22,10 @@ tags:
 
 # Crosswalk背景介绍
 
->Web技术的优势可想而知. 
->
->1. 当下app开发模式偏向Android/IOS原生壳+Web. 浏览器内核性能至关重要
->2. 这样开发的优势很明显，当出现bug或者app要升级时不需要用户下载安装包，而是在服务器后台维护即可，极大的增强了开发的灵活性和用户粘性
+> Web技术的优势可想而知. 
+> 
+> 1. 当下app开发模式偏向Android/IOS原生壳+Web. 浏览器内核性能至关重要
+> 2. 这样开发的优势很明显，当出现bug或者app要升级时不需要用户下载安装包，而是在服务器后台维护即可，极大的增强了开发的灵活性和用户粘性
 
 - **Crosswalk的优势**
 
@@ -49,7 +49,7 @@ tags:
 
 	- Cordova(PhoneGap)作为第三方的H5应用开发框架工具的代表，极大促进了H5应用的发展. 提供了方便的跨平台应用打包/发布服务、实用的API、灵活的扩展机制、以及积累下来的丰富的第三方API实现. 然而Cordova使用的web引擎是系统的WebView. 如果开发者正在使用Cordova并且渴望更好的性能和更新的功能，如WebGL，那么Crosswalk是一个很好的选择! Crosswalk支持开发者在Cordova中用Crosswalk替换原生的WebView，并将两者完美的融合. 当然，它也支持Crodova的扩展机制. 目前Crosswalk采用提供定制过的Cordova开发包来支持Cordova中Crosswalk引擎的使用
 	
-# **PART_B Crosswalk集成步骤**
+# Crosswalk集成步骤
 
 - **新建项目**
 
@@ -57,19 +57,19 @@ tags:
 	
 - **配置gradle**
 
-	```gradle
+	``` gradle
 	repositories {
 	    maven {
 	        url 'https://download.01.org/crosswalk/releases/crosswalk/android/maven2'
 	    }
 	}
 	```
-	```gradle
+	``` gradle
 	compile 'org.xwalk:xwalk_core_library:10.39.235.15'
 	```
-	>配置结果参考下图
+	> 配置结果参考下图
 	>
-	>![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTEyMTUzMzEzNTYy)
+	> ![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTEyMTUzMzEzNTYy)
 
 - **配置权限**
 
@@ -165,7 +165,7 @@ tags:
 		}
 		```
 		
-# **PART_C 兼容ARM的Crosswalk集成简要**
+# 兼容ARM的Crosswalk集成简要
 
 1. **先看<a href="https://download.01.org/crosswalk/releases/crosswalk/android/maven2/org/xwalk/xwalk_core_library/" target="_blank">官方Crosswalk的各个版本</a>**
 	![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTI0MTc0NjM5OTg2)
@@ -181,22 +181,22 @@ tags:
 
 4. **在builde.gradle中添加配置**
 
-	```gradle
+	``` gradle
 	flatDir {
 		dirs 'libs'
 	}
 	```
-	```gradle
+	``` gradle
 	compile 'org.xwalk:xwalk_core_library:15.44.384.13-arm@aar'
 	```
 	> 配置结果参考下图
-	>![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTI2MTExOTMwNzg1)
+	> ![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTI2MTExOTMwNzg1)
 
 5. **重新编译打包，可见结果如下(集成完整Crosswalk与仅集成ARM包)**
 
 	 ![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTUxMTI2MTEyMzE0OTk0)
 
-**第三部分小结**
+# 补充说明
 
 - **1.众所周知，Crosswalk的体积是个恼人的问题. 可以针对针对ARM、X86分别引入对应的库文件，减少不必要的空间浪费**
 

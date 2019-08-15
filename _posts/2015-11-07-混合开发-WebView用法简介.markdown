@@ -12,24 +12,24 @@ tags:
     - 混合开发
 ---
 
-**<font size=5>一、WebView简单介绍**
+# WebView简单介绍
 
 **WebView控件可以使我们自己的app嵌入一个浏览器，并渲染各种各样的网页**
-<hr>
 
-**<font size=5>二、WebView使用方法**
+# WebView使用方法
 
-**1.因为要访问网络，所以必须先添加联网权限.否则<font color=re>出现错误：<font color=red>Web page not available</font>**
+## 因为要访问网络，所以必须先添加联网权限.否则出现错误：Web page not available
+
 ``` java
 <uses-permission android:name="android.permission.INTERNET" />
 ```
-<br>
 
-**2.添加WebView组件的两种方式(Activity中创建、布局文件中声明)**
+## 添加WebView组件的两种方式(Activity中创建、布局文件中声明)
 
 ```	java
 WebView wv = new WebView(this); // Activity中创建组件实例
 ```
+
 ``` xml
 <!-- 布局文件中声明组件 -->
 <WebView
@@ -37,46 +37,59 @@ WebView wv = new WebView(this); // Activity中创建组件实例
     android:layout_width="match_parent"
     android:layout_height="match_parent" />
 ```
-<br>
 
-**3.拿着组件实例，我们就可以加载网页啦(网络页面、本地页面)**
+## 拿着组件实例，我们就可以加载网页啦(网络页面、本地页面)
+
 ``` java
 wv.loadUrl("http://quora.com"); // 加载网络页面
 ```
+
 ``` java
 wv.loadUrl("file:///android_asset/index.html"); // 加载assets目录下的本地页面
 ```
-<br>
 
-**4.WebView的常用功能集锦(排名不分先后，按需CV)**
+## WebView的常用功能集锦(排名不分先后，按需CV)
 
-### 4.0、加载页面
+## 4.0、加载页面
 
 - **加载指定页面(网络、本地)**
+
 	``` java
 	LoadUrl() 
 	```
+	
 - **加载指定数据**
+
 	``` java
 	wv.loadData()
 	```
+	
 - **使用BaseUrl加载指定页面**
+
 	``` java
 	wv.loadDataWithBaseURL() 
 	```
+	
 - **重新加载页面所有资源**
+
 	``` java
 	wv.reload();
 	```
+	
 ### 4.1、网页中需要输入账号密码时获取手势焦点
+
 ``` java
 wv.requestFocusFromTouch();
 ```
+
 ### 4.2、通过组件本身打开超链接.不调用第三方浏览器
-**<font size=4>WebViewClient基本使用**：提供网页加载各个阶段的通知
+
+**WebViewClient基本使用**：提供网页加载各个阶段的通知
+
 ``` java
 wv.setWebViewClient(new WebViewClient()); // 方法一
 ```
+
 ``` java
 ww.setWebViewClient(new WebViewClient() { // 方法二
 	public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -85,7 +98,8 @@ ww.setWebViewClient(new WebViewClient() { // 方法二
 	}
 }); 
 ```
-**<font size=4>WebViewClient详解**
+
+**WebViewClient详解**
 
 - `public boolean shouldOverrideUrlLoading(WebView view, String url)`
 	>告知我们应用程序是否需要接管控制网页加载
@@ -126,12 +140,15 @@ ww.setWebViewClient(new WebViewClient() { // 方法二
 	>通知应用程序有个自动登录的帐号过程
 
 ### 4.3、支持页面中的JavaScript脚本
+
 ``` java
 WebSettings ws = wv.getSettings(); // 先获取Settings对象.后面常用
 ws.setJavaScriptEnabled(true);
 ws.setJavaScriptCanOpenWindowsAutomatically(true);
 ```
+
 ### 4.4、启用缓存、设置缓存模式
+
 ``` java
 ws.setAppCacheEnabled(true); // 启用缓存
 
@@ -143,18 +160,25 @@ ws.setCacheMode(WebSettings.LOAD_CACHE_ONLY); // 仅使用缓存
 
 ws.setCacheMode(WebSettings.LOAD_NO_CACHE); // 禁用缓存
 ```
+
 ### 4.5、支持拖动放缩页面
+
 ``` java
 ws.setSupportZoom(true);
 ws.setBuiltInZoomControls(true);
 ```
+
 ### 4.6、打开页面时自适应屏幕大小
+
 ``` java
 ws.setUseWideViewPort(true);
 ws.setLoadWithOverviewMode(true);
 ```
+
 ### 4.7、支持历史回退.否则返回时会将WebView作为整体finish掉
+
 覆写Activity的**onKeyDown()**
+
 ``` java
 @Override
 public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -165,8 +189,11 @@ public boolean onKeyDown(int keyCode, KeyEvent event) {
 		return super.onKeyDown(keyCode, event); // 注意：直接返回false会出现问题
     }
 ```
+
 ### 4.8、针对网页加载进度进行处理
-**<font size=4>WebChromeClient**：辅助WebView处理js的对话框、网站标题、网站图标、加载进度
+
+**WebChromeClient**：辅助WebView处理js的对话框、网站标题、网站图标、加载进度
+
 ``` java
 wv.setWebChromeClient(new WebChromeClient() {
 	@Override
@@ -180,9 +207,8 @@ wv.setWebChromeClient(new WebChromeClient() {
 	}
 });
 ```
-<hr>
 
-**<font size=5>WebChromeClient详解**
+**WebChromeClient详解**
 
 - `public void onProgressChanged(WebView view, int newProgress)`
 	>通知应用程序当前网页加载的进度，如上代码
@@ -231,22 +257,31 @@ wv.setWebChromeClient(new WebChromeClient() {
 
 
 ### 4.9、支持内容重新布局
+
 ``` java
 ws.setLayoutAlgorithm(LayoutAlgorithm.SINGLE_COLUMN);
 ```
+
 ### 4.10、支持多窗口
+
 ``` java
 ws.supportMultipleWindows(); 
 ```
+
 ### 4.11、支持访问文件
+
 ``` java
 ws.setAllowFileAccess(true); 
 ```
+
 ### 4.12、支持通过JS打开新窗口
+
 ``` java
 ws.setJavaScriptCanOpenWindowsAutomatically(true);  
 ```
+
 ### 4.13、支持自动加载图片
+
 ``` java
 ws.setLoadsImagesAutomatically(true);   
 ```

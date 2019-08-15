@@ -12,19 +12,19 @@ tags:
     - linux
 ---
 
-# **A Java 调用 Js 的方法**
+# Java调用Js方法
 
 - **无参：使用WebView控件`loadUrl()`方法，传入`"javascript:jsMethod()"`即可调用`jsMethod()`方法**
 
 - **带参：同上，并将参数加上即可`"javascript:jsMethodWithArg(" + args参数 + ")"`**
 
-# **B Js 调用 Java 的方法**
+# Js调用Java方法
 
 - **使用WebView控件的`addJavascriptInterface()`方法，传入一个Object对象和一个String标记(Js通过该标记调用Object对象内写好的方法)**
 
 - **关于带不带参数，即Object内的方法和Js调用时配合定义好参数格式，准确传入即可**
 
-# **C 完整案例**
+# 完整案例
 
 1. **html + Js**
 
@@ -158,9 +158,7 @@ tags:
 	}
 	```
 
-<hr><hr><hr>
-
-#### **补1：Crosswalk中相互调用方式**
+#### 补1：Crosswalk中相互调用方式
 
 - **Java调用Js方法仅修改一点点即可**
 	
@@ -179,7 +177,7 @@ tags:
 	XWalkPreferences.setValue(XWalkPreferences.REMOTE_DEBUGGING, true);
 	```
 
-#### **补2：Cordova + Crosswalk中相互调用方式**
+#### 补2：Cordova + Crosswalk中相互调用方式
 
 - **Js调用Java：在CordovaActivity中添加`this.appView.addJavascriptInterface()`即可，参数传递方式同上**
 
@@ -200,6 +198,7 @@ tags:
 	```
 
 - **Java调用Js**
+
 	``` java
 	// 在CordovaActivity或者CordovaPlugin(插件)类中调用方法如下.
 	appView.loadUrl("javascript:compare(" + arg1 + "," + arg2 + ")");
