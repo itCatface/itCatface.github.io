@@ -181,7 +181,7 @@ tags:
     
 - **ActionControl(掌握这个可以了)**
 
-    ```	oc	
+    ```	swift	
     var acTest: UIAlertController = UIAlertController(title: "标题", message: "消息内容", preferredStyle: UIAlertControllerStyle.alert)
     
     acTest.addAction(UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel) {(alertAction) -> Void in NSLog("取消")})
@@ -206,7 +206,7 @@ tags:
 		    
 # Page C&D
 
- > [](http://itCatface.github.io/img/IOS/IOS002-常用控件/03PageC.jpg)
+ > ![](http://itCatface.github.io/img/IOS/IOS002-常用控件/03PageC.jpg)
 
 1. **ToolBar**
 

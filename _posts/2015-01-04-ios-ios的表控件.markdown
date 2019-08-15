@@ -312,7 +312,7 @@ tags:
 	```
 
 2. **swift 实现**
-	``` pc
+	``` swift
 	import UIKit
 	class TableViewControllerIndex: UITableViewController {
 	
