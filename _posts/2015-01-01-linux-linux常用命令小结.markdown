@@ -386,11 +386,11 @@ tags:
 
 ### >和>>指令
 
-- >：覆盖内容，文件不存在时会自动创建
+- \>：覆盖内容，文件不存在时会自动创建
 
 		ls -l > temp.txt
 
-- >>：追加不覆盖内容，文件不存在时会自动创建
+- \>>：追加不覆盖内容，文件不存在时会自动创建
 
 		ls -l >> temp.txt
 		
@@ -632,10 +632,10 @@ linux中每个执行的程序都是一个进程，都有一个进程id号
 
 - 通过进程号停止进程
 
-	kill 5033
-	
-	// -9强制停止进程
-	kill -9 5033
+		kill 5033
+		
+		// -9强制停止进程
+		kill -9 5033
 
 ## killall psname
 
@@ -661,7 +661,7 @@ linux中每个执行的程序都是一个进程，都有一个进程id号
 
 - 给服务的各个运行级别分别设置自启动/关闭
 
-- chkconfig –list | grep xxx：查看xxx服务
+- chkconfig –list \| grep xxx：查看xxx服务
 
 - chkconfig servicename --list：查看服务的状态
 
@@ -707,15 +707,15 @@ linux中每个执行的程序都是一个进程，都有一个进程id号
 
 - redhat package manager，红帽软件包管理工具
 
-- rpm查询已安装的rpm列表：rpm -qa | grep xx
+- rpm查询已安装的rpm列表：rpm -qa \| grep xx
 
 - rpm包的其它查询指令：
 	
 	- rpm -qa：查询所安装的所有rpm软件包
 	
-	- rpm -qa | more
+	- rpm -qa \| more
 	
-	- rpm -qa | grep xx
+	- rpm -qa \| grep xx
 	
 	- rpm -q xx：查询xx软件包是否安装
 	
@@ -741,7 +741,7 @@ linux中每个执行的程序都是一个进程，都有一个进程id号
 
 - 是一个shell前端软件包管理器，基于RPM包管理，能够从指定的服务器自动下载RPM包并安装，可以自动处理依赖性关系，并且一次安装所有依赖的软件包，使用yum的前提是联网
 
-- yum list | grep xx：查询yum服务器是否有需要安装的软件
+- yum list \| grep xx：查询yum服务器是否有需要安装的软件
 
 - yum install xx：安装指定的yum包
 
