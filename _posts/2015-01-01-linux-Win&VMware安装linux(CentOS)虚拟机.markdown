@@ -1,6 +1,6 @@
 ---
 layout:       post
-title:        "Win&VMware安装Linux(CentOS)虚拟机"
+title:        "Win&VMware安装linux(CentOS)虚拟机"
 subtitle:     "在windows系统下，使用VMware和linux系统镜像文件安装linux虚拟机"
 date:         2015-01-01 12:00:00
 author:       "catface"
@@ -17,7 +17,7 @@ tags:
 
 1. **VMware**
 
-2. **Linux镜像**
+2. **linux镜像**
 
 # 安装过程
 
@@ -33,7 +33,7 @@ tags:
 
 	![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODI5MjEwNzI5MzY0)
 
-4. **选择Linux**
+4. **选择linux**
 
 	![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODI5MjEwNzQxOTU3)
 
@@ -85,11 +85,11 @@ tags:
 
 	![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODI5MjExMDI2ODEy)
 
-17. **点击开启此虚拟机，进行Linux系统安装过程**
+17. **点击开启此虚拟机，进行linux系统安装过程**
 
 	![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODI5MjExMDM3NDc3)
 
-18. **选择Install CentOS Linux7模式进行安装**
+18. **选择Install CentOS linux7模式进行安装**
 
 	![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODI5MjExMDQ5NzQz)
 
@@ -103,7 +103,7 @@ tags:
 
 	![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODI5MjExMTI0Njgy)
 
-21. **SOFTWARE SELECTION选择最小安装模式(无界面，仅安装Linux核心及基本组件，推荐使用该模式) / NETWORK & HOST NAME选择Not connected(选择在OS安装完成后进行网络设置)**
+21. **SOFTWARE SELECTION选择最小安装模式(无界面，仅安装linux核心及基本组件，推荐使用该模式) / NETWORK & HOST NAME选择Not connected(选择在OS安装完成后进行网络设置)**
 
 	![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODI5MjExMTM2OTIz)
 
@@ -115,7 +115,7 @@ tags:
 
 	![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODI5MjExMTU3ODQ3)
 
-24. **恭喜！重启后进入Linux系统**
+24. **恭喜！重启后进入linux系统**
 
 	![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODI5MjExMjA3Mzg3)
 
@@ -136,23 +136,33 @@ tags:
 
 	3. **# service network restart：重启网络后即可使用网络进行工作**
 
-		**主机访问Linux**
+		**主机访问linux**
 	![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODI5MjIwNjI4OTYw)
 
-		**Linux访问外网和主机**
+		**linux访问外网和主机**
 	![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODI5MjE1OTU3NDcy)
 
-		**Xshell访问并操作Linux**
+		**Xshell访问并操作linux**
 	![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODI5MjIwOTM3ODQ2)
 
-# 重启Linux需重启网络配置
+# 重启linux需重启网络配置
 
 1. **在windows服务中开启VMware的所有服务**
 
 	![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjAzNjI0ODUw)
 
-2. **在Linux中重启网络服务**
+2. **在linux中重启网络服务**
 
 	![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwODMxMjAzNzEzMDUy)
 
 	**如图，重启网络服务后，即可使用 # ip addr 查看到虚拟机ip地址**
+	
+# 补充说明
+
+参考安装步骤第8.步，配置网络连接时的三种方式说明如下：
+
+1. 桥连接：为linux分配的ip地址与母机处于同网段，可以和其他系统进行通信，但是存在问题，如果母机所在局域网有250台主机，每台主机都安装了虚拟机并都是用桥连接，那么ip会发生冲突(如母机ip为192.168.0.55，linux虚拟机ip为192.168.0.92)
+
+2. NAT：为linux分配的ip地址与母机处于不同网段，但linux虚拟机可以访问外网且不会造成ip冲突(如母机ip为192.168.0.55，linux虚拟机ip为192.168.100.32)
+
+3. 主机模式：linux为独立的主机，不可访问外网

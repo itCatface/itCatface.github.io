@@ -2,7 +2,7 @@
 
 ### 1. DDMS中模拟器文件目录无法打开的解决办法
 
-1. 如图中命令，先进入手机的Linux系统，然后使用 **chmod 755** 命令层层将文件夹的权限改为可操作，再用 **chmod 777** 命令将目标文件的权限改为可操作，最后就能将目标文件导出到电脑上了(但我这样最后还是没能够将文件导出到电脑，并在DDMS中报了 <font color=red>Failed to pull selection: open failed: Permission denied</font> 错误，在此建议使用第二种方式解决)
+1. 如图中命令，先进入手机的linux系统，然后使用 **chmod 755** 命令层层将文件夹的权限改为可操作，再用 **chmod 777** 命令将目标文件的权限改为可操作，最后就能将目标文件导出到电脑上了(但我这样最后还是没能够将文件导出到电脑，并在DDMS中报了 <font color=red>Failed to pull selection: open failed: Permission denied</font> 错误，在此建议使用第二种方式解决)
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwNjE2MTE0MTE3MzE2)
 
 2. **使用命令 adb root 完事**，命令运行后，DDMS中所有文件夹均可轻松打开，所有文件也可轻松导出
