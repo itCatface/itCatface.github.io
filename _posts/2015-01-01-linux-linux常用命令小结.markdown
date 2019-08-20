@@ -8,7 +8,7 @@ header-img:   "img/black-bg.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false
-edit status:  ing
+edit status:  ed
 tags:
     - linux
 ---
@@ -620,7 +620,7 @@ linux中每个执行的程序都是一个进程，都有一个进程id号
 
 - ps -x：显示后台进程运行的参数
 
-- ps -axu | grep xxx：过滤得到xxx的信息
+- ps -axu \| grep xxx：过滤得到xxx的信息
 
 - ps -ef：以全格式显示当前所有的进程，查看进程的父进程
 
