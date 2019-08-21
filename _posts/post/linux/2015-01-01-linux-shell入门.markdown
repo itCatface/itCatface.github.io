@@ -1,6 +1,6 @@
 ---
 layout:       post
-title:        "2015-01-01-linux-shell入门"
+title:        "shell入门"
 subtitle:     "简介shell的基础语法，编写入门案例"
 date:         2015-01-01 12:00:00
 author:       "catface"
@@ -44,13 +44,13 @@ tags:
 
 - 第一个shell编程案例
 
-``` shell
-#!/bin/bash
-
-echo "hello world!"
-
-echo "home=$HOME | pwd=$PWD | shell=$SHELL | user=$USER"
-```
+    ``` shell
+    #!/bin/bash
+    
+    echo "hello world!"
+    
+    echo "home=$HOME | pwd=$PWD | shell=$SHELL | user=$USER"
+    ```
 
 ## shell的变量
 
@@ -93,12 +93,14 @@ echo "home=$HOME | pwd=$PWD | shell=$SHELL | user=$USER"
 	- echo $变量名：查询环境变量的值
 	
 	- 多行注释格式：
-	
-			:<<!
-			
-			需要注释的内容
-			
-			!
+
+        ``` shell
+        :<<!
+        
+        需要注释的内容
+        
+        !
+        ```
 
 - 位置参数变量
 
@@ -180,87 +182,99 @@ echo "home=$HOME | pwd=$PWD | shell=$SHELL | user=$USER"
 
 - 流程控制if语句
 
-		# 基本语法
-		if [ 条件判断式 ];then
-		
-		程序
-		
-		fi
+    ``` shell
+    # 基本语法
+    if [ 条件判断式 ];then
+    
+    程序
+    
+    fi
+    ```
 
 	---
 
-		# 多重条件语法
-		if [ 条件判断式 ]
-		
-		​ then
-		
-		​ 程序
-		
-		elif [ 条件判断式 ]
-		
-		​ then
-		
-		​ 程序
-		
-		fi
+    ``` shell
+    # 多重条件语法
+    if [ 条件判断式 ]
+    
+    ​ then
+    
+    ​ 程序
+    
+    elif [ 条件判断式 ]
+    
+    ​ then
+    
+    ​ 程序
+    
+    fi
+    ```
 
 - 流程控制case语句
 
-		case $变量名 in
-		
-		"值1")
-		
-		如果变量的值等于值1，则执行程序1
-		
-		;;
-		
-		"值2")
-		
-		如果变量的值等于值2，则执行程序2
-		
-		;;
-		
-		…省略其他分支…
-		
-		*)
-		
-		如果变量的值都不是以上的值，则执行此程序
-		
-		;;
-		
-		esac
+    ``` shell
+    case $变量名 in
+    
+    "值1")
+    
+    如果变量的值等于值1，则执行程序1
+    
+    ;;
+    
+    "值2")
+    
+    如果变量的值等于值2，则执行程序2
+    
+    ;;
+    
+    …省略其他分支…
+    
+    *)
+    
+    如果变量的值都不是以上的值，则执行此程序
+    
+    ;;
+    
+    esac
+    ```
 
 - 流程控制for循环
 
-		# 方式一
-		for 变量 in 值1 值2 值3…
-		
-		​ do
-		
-		​ 程序
-		
-		​ done
+    ``` shell
+    # 方式一
+    for 变量 in 值1 值2 值3…
+    
+    ​ do
+    
+    ​ 程序
+    
+    ​ done
+    ```
 
 	---
 
-		# 方式二
-		for ((初始值;循环控制条件;变量变化))
-		
-		​ do
-		
-		​ 程序
-		
-		​ done
+    ``` shell
+    # 方式二
+    for ((初始值;循环控制条件;变量变化))
+    
+    ​ do
+    
+    ​ 程序
+    
+    ​ done
+    ```
 
 - 流程控制while循环
 
-		while [ 条件判断式 ]
-		
-		​ do
-		
-		​ 程序
-		
-		​ done
+    ``` shell
+    while [ 条件判断式 ]
+    
+    ​ do
+    
+    ​ 程序
+    
+    ​ done
+    ```
 
 - read读取控制台的输入
 
@@ -294,14 +308,16 @@ echo "home=$HOME | pwd=$PWD | shell=$SHELL | user=$USER"
 	
 	- 自定义函数
 	
-			function funname()
-			
-			{
-			
-			​ Action;
-			
-			​ [return int;]
-			
-			}
+        ``` shell
+        function funname()
+        
+        {
+        
+        ​ Action;
+        
+        ​ [return int;]
+        
+        }
+        ```
 	
-		调用直接写函数名：funname(不用写括号)，然后在后面写参数
+        调用直接写函数名：funname(不用写括号)，然后在后面写参数
