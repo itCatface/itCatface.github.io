@@ -13,7 +13,6 @@ tags:
     - linux
 ---
 
-
 # 文件
 
 - 所有者
@@ -32,7 +31,7 @@ tags:
 
 - 修改文件所有者：chown username filename
 
- -文件所在组不一定是文件所有者
+ - 文件所在组不一定是文件所有者
 
 # 组的创建
 
@@ -106,7 +105,7 @@ tags:
 	
 	- x：可执行，可以进入该目录
 
-# 修改权限 chmod
+# 修改权限chmod
 
 - 修改文件或者目录的权限
 
@@ -124,7 +123,7 @@ tags:
 
 - chmod u=rwx，g=rx，o=x 文件目录名 等价于 chmod 751 文件目录名
 
-# 修改文件所有者 chown
+# 修改文件所有者chown
 
 - chown newowner file：改变文件的所有者
 
@@ -132,7 +131,7 @@ tags:
 
 - -R：如果是目录，则使其下所有子文件或目录递归生效
 
-# 修改文件所在组 chgrp
+# 修改文件所在组chgrp
 
 - chgrp newgroup file：改变文件的所有组
 
