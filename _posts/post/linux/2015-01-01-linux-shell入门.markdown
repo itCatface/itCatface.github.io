@@ -130,17 +130,19 @@ tags:
 		
 		- 后台运行：./test_shell.sh &
 
-- 运算符
+## 运算符
 
-	- 在shell中进行各种运算操作
-	
-	- "$((运算式))"或"$[运算时]"
-	
-	- expr m + n，注意expr运算符间要有空格
-	
-	- expr m - n
-	
-	- expr \\* / %，乘(注意不是*而是\\\*)，除，取余
+- 在shell中进行各种运算操作
+
+- "$((运算式))"或"$[运算时]"
+
+- expr m + n，注意expr运算符间要有空格
+
+- expr m - n
+
+- expr \\* / %，乘(注意不是*而是\\\*)，除，取余
+
+## 条件判断及流程控制语句
 
 - 条件判断
 
@@ -286,38 +288,38 @@ tags:
 	
 	- 参数：变量：指定读取值的变量名
 
-- 函数
+## 函数
 
-	- 系统函数
-	
-		- basename：返回完整路径最后/的部分，常用于获取文件名
-		
-			- basename [pathname] [suffix]
-			
-			- basename [string] [suffix]
-			
-			- basename命令会删掉所有的前缀包括最后一个/
-			
-			- 选项：suffix为后缀，如果suffix被指定了，basename会将pathname或string中的suffix去掉
-		
-		- dirname：返回完整路径最后/的前面的部分，常用于返回路径部分
-		
-			- dirname 文件绝对路径：从给定的包含绝对路径的文件名中出去文件名(非目录部分)，然后返回剩下的路径(目录部分)
-		
-		- 说明：这两个系统函数都不要最后一个/
-	
-	- 自定义函数
-	
-        ``` shell
-        function funname()
+- 系统函数
+
+    - basename：返回完整路径最后/的部分，常用于获取文件名
+    
+        - basename [pathname] [suffix]
         
-        {
+        - basename [string] [suffix]
         
-        ​ Action;
+        - basename命令会删掉所有的前缀包括最后一个/
         
-        ​ [return int;]
-        
-        }
-        ```
-	
-        调用直接写函数名：funname(不用写括号)，然后在后面写参数
+        - 选项：suffix为后缀，如果suffix被指定了，basename会将pathname或string中的suffix去掉
+    
+    - dirname：返回完整路径最后/的前面的部分，常用于返回路径部分
+    
+        - dirname 文件绝对路径：从给定的包含绝对路径的文件名中出去文件名(非目录部分)，然后返回剩下的路径(目录部分)
+    
+    - 说明：这两个系统函数都不要最后一个/
+
+- 自定义函数
+
+    ``` shell
+    function funname()
+    
+    {
+    
+    ​ Action;
+    
+    ​ [return int;]
+    
+    }
+    ```
+
+    调用直接写函数名：funname(不用写括号)，然后在后面写参数
