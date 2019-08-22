@@ -26,7 +26,9 @@ tags:
 **5. 使用命令adb connect ip:port连接成功后即可进行无线调试**
 
 > **查看设备ip**
-![步骤1. 2.](https://img-blog.csdnimg.cn/20190523153405762.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2l0Q2F0ZmFjZQ==,size_16,color_FFFFFF,t_70)
+
+![](https://img-blog.csdnimg.cn/20190523153405762.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2l0Q2F0ZmFjZQ==,size_16,color_FFFFFF,t_70)
 
 > **设置设备的端口号并连接设备**
-![步骤3. 4.](https://img-blog.csdnimg.cn/20190523153435278.png)
+
+![](https://img-blog.csdnimg.cn/20190523153435278.png)
