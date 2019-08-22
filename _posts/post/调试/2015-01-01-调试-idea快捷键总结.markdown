@@ -15,7 +15,7 @@ tags:
 
 # AS快捷键(已分类)
 
-- Alt对应Mac OS的Option || Ctrl对应Mac OS的Command
+- Alt对应Mac OS的Option \|| Ctrl对应Mac OS的Command
 
 - 这里列举的比较全，但是做了较为完善的分类，就没有标记常用的快捷键了
 
