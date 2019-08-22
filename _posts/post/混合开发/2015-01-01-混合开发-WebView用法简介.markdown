@@ -183,12 +183,12 @@ ws.setLoadWithOverviewMode(true);
 ``` java
 @Override
 public boolean onKeyDown(int keyCode, KeyEvent event) {
-	if ((keyCode == KeyEvent.KEYCODE_BACK) && wv.canGoBack()) {
-		wv.goBack();
+    if ((keyCode == KeyEvent.KEYCODE_BACK) && wv.canGoBack()) {
+        wv.goBack();
         return true;
-	}
-		return super.onKeyDown(keyCode, event); // 注意：直接返回false会出现问题
     }
+    return super.onKeyDown(keyCode, event); // 注意：直接返回false会出现问题
+}
 ```
 
 ### 4.8、针对网页加载进度进行处理
