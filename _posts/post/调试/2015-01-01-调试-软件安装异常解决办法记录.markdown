@@ -1,0 +1,22 @@
+---
+layout:       post
+title:        "软件安装异常解决办法记录"
+subtitle:     "收集记录软件安装/使用中出现的异常解决办法"
+date:         2015-01-01 12:00:00
+author:       "catface"
+header-img:   "img/black-bg.png"
+header-mask:  0.3
+catalog:      false
+multilingual: false
+edit status:  ed
+tags:
+    - 调试
+---
+
+# 编辑类软件
+
+## markdown pad 2
+
+- 异常：安装后无法预览并报错提示This view has crashed
+
+    下载并安装[awesomium](http://markdownpad.com/download/awesomium_v1.6.6_sdk_win.exe)后重启即可
