@@ -1,0 +1,135 @@
+---
+layout:       post
+title:        "adb调试命令收集"
+subtitle:     "收集总结开发过程中用到的adb命令"
+date:         2015-01-01 12:00:00
+author:       "catface"
+header-img:   "img/black-bg.png"
+header-mask:  0.3
+catalog:      true
+multilingual: false
+edit status:  ed
+tags:
+    - 调试
+---
+
+# 与app相关
+
+- 打开app指定activity页面
+
+        // 案例1
+        adb shell am start -n com.eiot.mic/c.mic.mic.MainActivity
+
+    ---
+    
+        // 案例2(Starting: Intent { cmp=me.jessyan.mvparms.demo/.mvp.ui.activity.UserActivity })
+        adb shell am start -n me.jessyan.mvparms.demo/me.jessyan.mvparms.demo.mvp.ui.activity.UserActivity
+
+- 查看apk的包名
+
+        aapt dump badging apk路径
+
+- 查看当前显示的app包名及activity包类路径
+
+        adb shell dumpsys window windows | findstr "Current"
+
+# 与设备相关
+
+- 查看设备型号
+
+        adb shell getprop ro.product.model
+
+- 查看设备详细信息
+
+        adb shell
+        
+        cat system/build.prop
+
+- 获取手机系统信息(CPU，厂商名称等)
+
+        adb shell "cat /system/build.prop | grep "product"
+
+- 获取手机系统版本
+
+        adb shell getprop ro.build.version.release
+
+- 获取手机系统api版本
+
+        adb shell getprop ro.build.version.sdk
+
+- 获取手机设备型号
+
+        adb -d shell getprop ro.product.model
+
+- 获取手机厂商名称
+
+        adb -d shell getprop ro.product.brand
+
+- 获取手机的序列号
+
+        // 方式一
+        adb get-serialno
+
+    ---
+    
+        // 方式二
+        adb shell getprop ro.serialno
+
+- 获取手机的IMEI(三种方式但因手机和系统限制不一定能获取)
+
+        // 方式一
+        adb shell dumpsys iphonesubinfo
+    
+    ---
+    
+        // 方式二(其中Device ID即为IMEI号)
+        adb shell getprop gsm.baseband.imei
+    
+    ---
+    
+        // 方式三(该方式需处理获取到的信息)
+        adb shell service call iphonesubinfo 1 
+
+- 获取手机mac地址
+ 
+        adb shell cat /sys/class/net/wlan0/address
+
+- 获取手机内存信息
+
+        adb shell cat /proc/meminfo
+
+- 获取手机存储信息
+
+        adb shell df
+
+- 获取手机内部存储信息
+
+        // 魅族手机
+        adb shell df /mnt/shell/emulated
+        
+    ---
+        
+        // 其他手机
+        adb shell df /data
+
+- 获取sdcard存储信息
+
+        adb shell df /sdcard
+
+# 与屏幕相关
+
+- 获取手机分辨率
+
+        adb shell "dumpsys window | grep mUnrestrictedScreen"
+
+- 获取手机物理密度
+
+        adb shell wm density
+
+- 禁用自动旋转
+        
+        adb shell content insert --uri content://settings/system --bind name:s:accelerometer_rotation --bind value:i:0
+
+- 旋转屏幕(i代表旋转方向，取值范围为0，1，2，3)
+    
+        adb shell content insert --uri content://settings/system --bind name:s:user_rotation --bind value:i:1 
