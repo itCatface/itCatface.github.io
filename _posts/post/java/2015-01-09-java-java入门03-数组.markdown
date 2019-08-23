@@ -1,7 +1,7 @@
 ---
 layout:       post
 title:        "java入门03-数组"
-subtitle:     ""
+subtitle:     "数组简介"
 date:         2015-01-09 12:00:00
 author:       "catface"
 header-img:   "img/black-bg.png"
