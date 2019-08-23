@@ -14,7 +14,7 @@ tags:
 ---
 
 # Object类
--getClass()
+- getClass()
 	
 	``` java
 	Demo d = new Demo();
@@ -43,7 +43,7 @@ tags:
 	System.out.println(arr.toString());
 	```
 
--equals()
+- equals()
 
 	``` java
 	public boolean equals(Object obj) {
@@ -218,19 +218,19 @@ tags:
 	- 什么是正则表达式
 		一种字符串的约束格式， 例如邮箱提示输入不合法
 	
-	- 2. 匹配
+	- 匹配
 
 		String里的matches() 验证一个字符串是否匹配指定的正则表达式"18612345678".matches("1[34578]\d{9}");
 
-	- 3. 分割
+	- 分割
 
 		String里的split() 用指定正则表达式能匹配的字符作为分隔符， 分割字符串
 
-	- 4. 替换
+	- 替换
 
 		String里的replaceAll(" ", " ") 把字符串中能匹配正则表达式的部分替换为另一个字符串
 
-	- 5. 查找
+	- 查找
 
 		Pattern.compile() 创建正则表达式对象
 		Pattern.matcher() 用正则表达式匹配一个字符串， 得到匹配器
