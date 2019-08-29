@@ -181,9 +181,13 @@ tags:
 
 ### 查看当前账户信息
 
-- who am i
+- 查看自己所在的终端信息
 
 		who am i
+		
+- 查看当前谁在使用该主机
+
+        who
 
 ## 用户组
 
@@ -268,12 +272,28 @@ tags:
 - help 命令
 
 		help cd
+		
+	---
+	
+	    cd --help
+		
+### whatis指令
+
+- whatis 命令
+
+        whatis cd
+		
+### 打印系统支持的所有命令列表
+
+    compgen -c
 
 ## 文件目录类指令
 
-### pwd
+### pwd和dirs
 
-- print working directory，显示当前工作目录的绝对路径
+- pwd：print working directory，显示当前工作目录的绝对路径
+
+- dirs：打印当前目录栈
 
 ### ls [options] [file or directory]
 
@@ -282,6 +302,10 @@ tags:
 - -l：以列表的方式显示信息
 
 ### cd [params]
+
+> ~ 或 /：主目录
+><br>./：当前目录
+><br>../：上级目录
 
 - change directory，切换目录
 
@@ -411,6 +435,12 @@ tags:
 	
 	// 打印$PATH环境变量
 	echo $PATH
+	
+	// 查看所有环境变量
+	env
+	
+	// 查看某个环境变量
+	env $HOME
 
 ### head [options] filename
 
@@ -439,11 +469,15 @@ tags:
 		// 实时监控文件变化
 		tail -f name.txt
 
-### ln -s file/directoryname linkname
+### ln创建软/硬连接
 
 - 给源文件或目录创建一个软链接
 
 		ln -s /root lk2root
+		
+- 给源文件或目录创建一个硬链接(不允许将硬链接指向目录)
+
+        ln /root lk2root
 
 ### history
 
@@ -474,6 +508,32 @@ tags:
 - cal 2012：查看2012一整年的日历
 
 ## 搜索查找类指令
+
+### du directoryname：查看目录或文件大小及绝对路径
+
+### df directoryname：查看文件系统信息
+    
+### df -hl：查看磁盘使用情况及空闲空间
+
+### whereis [options] file/directorynames
+
+- b：只查找二进制文件
+
+- B<目录>：只在设置的目录下查找二进制文件，-f 不显示文件名前的路径名称
+
+- m：只查找说明文件
+
+- M<目录>：只在设置的目录下查找说明文件，-s 只查找原始代码文件
+
+- S<目录>：只在设置的目录下查找原始代码文件，-u 查找不包含指定类型的文件
+
+- which：指令会在 PATH 变量指定的路径中，搜索某个系统命令的位置，并且返回第一个搜索结果
+
+- n：指定文件名长度，指定的长度必须大于或等于所有文件中最长的文件名
+
+- p：与-n 参数相同，但此处的包括了文件的路径，-w 指定输出时栏位的宽度
+
+- V：显示版本信息
 
 ### find scope [options]
 
@@ -695,7 +755,13 @@ linux中每个执行的程序都是一个进程，都有一个进程id号
 
 	- q：退出top
 
-## netstat [options]
+## 网络相关
+
+### 查看ip地址
+
+    ifconfig
+
+### netstat [options]
 
 - -an：按一定顺序排列输出
 
