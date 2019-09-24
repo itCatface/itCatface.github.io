@@ -54,6 +54,8 @@ tags:
                 android:id="@+id/lav_"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:lottie_autoPlay="true"
@@ -67,7 +69,7 @@ tags:
     
 3. 从动画案例网址中下载示例json放入项目assets目录
 
-    ![](http://itCatface.github.io/img/android/lottie1.jpg)
+    ![](http://itCatface.github.io/img/android/lottie1.png)
     
 4. activity中控制播放
 
@@ -94,5 +96,9 @@ tags:
     });
     mBinding.lav.playAnimation();
     ```
+    
+5. 效果
+
+    ![](http://itCatface.github.io/img/android/lottie2.gif)
 
     
