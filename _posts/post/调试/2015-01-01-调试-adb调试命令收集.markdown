@@ -133,3 +133,7 @@ tags:
 - 旋转屏幕(i代表旋转方向，取值范围为0，1，2，3)
     
         adb shell content insert --uri content://settings/system --bind name:s:user_rotation --bind value:i:1 
+
+- 截屏
+    
+        adb shell screencap -p /sdcard/xxx.png

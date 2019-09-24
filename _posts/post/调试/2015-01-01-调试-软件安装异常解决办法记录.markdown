@@ -20,3 +20,9 @@ tags:
 - 异常：安装后无法预览并报错提示This view has crashed
 
     下载并安装[awesomium](http://markdownpad.com/download/awesomium_v1.6.6_sdk_win.exe)后重启即可
+    
+## android studio
+
+- 3.5版本格式化xml后布局错乱
+
+    File -> Settings -> code style -> xml 右上角set from -> predefined style -> Android -> apply -> ok
