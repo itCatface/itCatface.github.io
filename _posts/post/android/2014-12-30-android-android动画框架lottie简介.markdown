@@ -2,7 +2,7 @@
 layout:       post
 title:        "android动画框架lottie简介"
 subtitle:     "方便以后运用lottie动画，并添加一个简单案例，详细操作手册参考官网就ok了"
-date:         2015-01-01 12:00:00
+date:         2014-12-30 12:00:00
 author:       "catface"
 header-img:   "img/black-bg.png"
 header-mask:  0.3
@@ -13,19 +13,13 @@ tags:
     - android
 ---
 
-# 网址
+# 相关网址
 
-1. github
-
-    https://github.com/airbnb/lottie-android
+1. [github](https://github.com/airbnb/lottie-android)
     
-2. 说明文档
-
-    http://airbnb.io/lottie/#/
+2. [说明文档](http://airbnb.io/lottie/#/)
     
-3. 动画案例
-
-    https://lottiefiles.com/
+3. [动画案例](https://lottiefiles.com/)
     
 # 入门案例
 
