@@ -1,0 +1,30 @@
+---
+layout:       post
+title:        "sql基础语句示例"
+subtitle:     "sql的基本操作示例供参考"
+date:         2015-01-05 12:00:00
+author:       "catface"
+header-img:   "img/black-bg.png"
+header-mask:  0.3
+catalog:      false
+multilingual: false
+edit status:  ed
+tags:
+    - sql
+---
+
+# 基础语句
+
+# 开发总结语句
+
+### 按column_a排序并按条件将column_b某条置顶/底
+
+1. 
+    ```sql
+    select * from test order by case when username='catface' then 0 else 1 end, update_time asc;
+    ```
+
+2. 
+    ```sql
+    select * from test order by instr('catface', username) desc, update_time asc;
+    ```
