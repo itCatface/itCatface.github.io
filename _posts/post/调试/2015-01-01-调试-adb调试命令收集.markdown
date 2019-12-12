@@ -15,7 +15,12 @@ tags:
 
 # 与app相关
 
-- 打开app指定activity页面
+- 关闭apk
+
+        // 案例
+        adb shell am force-stop cc.catface.app
+
+- 打开app指定activity页面[开启apk]
 
         // 案例1
         adb shell am start -n com.eiot.mic/c.mic.mic.MainActivity

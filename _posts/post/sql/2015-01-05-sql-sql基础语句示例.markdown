@@ -17,14 +17,22 @@ tags:
 
 # 开发总结语句
 
+## 排序并置顶
+
 ### 按column_a排序并按条件将column_b某条置顶/底
 
-1. 
-    ```sql
-    select * from test order by case when username='catface' then 0 else 1 end, update_time asc;
-    ```
+```sql
+select * from test order by case when username='catface' then 0 else 1 end, update_time asc;
+```
 
-2. 
-    ```sql
-    select * from test order by instr('catface', username) desc, update_time asc;
-    ```
+---
+
+```sql
+select * from test order by instr('catface', username) desc, update_time asc;
+```
+
+### 分页排序并置顶
+
+```sql
+select * from test order by case when username='catface' then 0 else 1 end, update_time desc limit 2 offset 2;
+```
