@@ -2,7 +2,7 @@
 layout:       post
 title:        "android目录"
 subtitle:     ""
-date:         2014-12-30 12:00:00
+date:         2025-12-30 12:00:00
 author:       "catface"
 header-img:   "img/color-android-robot-green.png"
 header-mask:  0.3
