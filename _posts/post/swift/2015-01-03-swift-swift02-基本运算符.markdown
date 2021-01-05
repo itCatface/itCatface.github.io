@@ -4,7 +4,7 @@ title:        "swift02-基本运算符"
 subtitle:     "赋值、比较、逻辑等运算符使用介绍"
 date:         2015-01-03 12:00:00
 author:       "catface"
-header-img:   "img/black-bg.png"
+header-img:   "img/color-black.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false

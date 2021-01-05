@@ -4,7 +4,7 @@ title:        "linux系统目录说明"
 subtitle:     "简单介绍linux系统的各个系统目录"
 date:         2015-01-01 12:00:00
 author:       "catface"
-header-img:   "img/black-bg.png"
+header-img:   "img/color-black.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false

@@ -4,7 +4,7 @@ title:        "JavaScript页面行为简述"
 subtitle:     "通过JavaScript即可完成界面交互"
 date:         2015-01-02 12:00:00
 author:       "catface"
-header-img:   "img/black-bg.png"
+header-img:   "img/color-black.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false

@@ -4,7 +4,7 @@ title:        "上传war包到tomcat的webapps目录"
 subtitle:     "通过Xftp和Xshell工具将war包上传至tomcat服务器"
 date:         2015-01-01 12:00:00
 author:       "catface"
-header-img:   "img/black-bg.png"
+header-img:   "img/color-black.png"
 header-mask:  0.3
 catalog:      false
 multilingual: false

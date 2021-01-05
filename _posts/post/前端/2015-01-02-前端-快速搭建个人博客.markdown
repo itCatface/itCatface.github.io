@@ -4,7 +4,7 @@ title:        "快速搭建个人博客"
 subtitle:     "使用github的gitpage服务+Jekyll的博客模版+域名快速搭建个人博客站点"
 date:         2015-01-02 12:00:00
 author:       "catface"
-header-img:   "img/black-bg.png"
+header-img:   "img/color-black.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false
@@ -16,6 +16,8 @@ tags:
 # 挑选Jekyll博客主题模版
 
 - [Jekyll官方网站](http://jekyllthemes.org/)
+
+- [github上的jekyll模版](https://github.com/jekyll/jekyll/wiki/sites)
 
 - 百度搜索《Jekyll主题》挑选中意的模版
 

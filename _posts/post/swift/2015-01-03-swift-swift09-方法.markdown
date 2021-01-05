@@ -4,7 +4,7 @@ title:        "swift09-方法"
 subtitle:     "包含实例方法和类型方法的简单使用介绍"
 date:         2015-01-03 12:00:00
 author:       "catface"
-header-img:   "img/black-bg.png"
+header-img:   "img/color-black.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false

@@ -4,7 +4,7 @@ title:        "创建ios的HelloWorld"
 subtitle:     "通过Xcode创建第一个可运行的ios项目"
 date:         2015-01-04 12:00:00
 author:       "catface"
-header-img:   "img/black-bg.png"
+header-img:   "img/color-black.png"
 header-mask:  0.3
 catalog:      false
 multilingual: false

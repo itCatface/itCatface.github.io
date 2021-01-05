@@ -4,7 +4,7 @@ title:        "HTML网页结构简述"
 subtitle:     "通过HTML即可编写页面元素"
 date:         2015-01-02 12:00:00
 author:       "catface"
-header-img:   "img/black-bg.png"
+header-img:   "img/color-black.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false

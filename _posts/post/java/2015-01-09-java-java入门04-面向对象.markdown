@@ -4,7 +4,7 @@ title:        "java入门04-面向对象"
 subtitle:     "面向对象简介"
 date:         2015-01-09 12:00:00
 author:       "catface"
-header-img:   "img/black-bg.png"
+header-img:   "img/color-black.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false

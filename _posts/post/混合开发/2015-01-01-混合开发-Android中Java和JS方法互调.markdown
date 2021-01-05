@@ -4,7 +4,7 @@ title:        "Android中Java和JS方法互调"
 subtitle:     "通过案例介绍Android的WebView中JavaScript和Java原生方法的互相调用"
 date:         2015-01-01 12:00:00
 author:       "catface"
-header-img:   "img/black-bg.png"
+header-img:   "img/color-black.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false

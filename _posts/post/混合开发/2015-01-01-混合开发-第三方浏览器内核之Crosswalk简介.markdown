@@ -4,7 +4,7 @@ title:        "第三方浏览器内核之Crosswalk简介"
 subtitle:     "由于安卓4.4版本之前的浏览器内核性能较差，故通过intel的Crosswalk浏览器内核进行页面渲染的效率更高"
 date:         2015-01-01 12:00:00
 author:       "catface"
-header-img:   "img/black-bg.png"
+header-img:   "img/color-black.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false

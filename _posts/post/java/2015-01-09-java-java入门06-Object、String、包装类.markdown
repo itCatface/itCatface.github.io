@@ -4,7 +4,7 @@ title:        "java入门06-Object、String、包装类"
 subtitle:     "简介java的Object、String对象和包装类"
 date:         2015-01-09 12:00:00
 author:       "catface"
-header-img:   "img/black-bg.png"
+header-img:   "img/color-black.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false
