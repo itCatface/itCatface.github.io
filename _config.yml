@@ -30,7 +30,7 @@ paginate: 10
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","README.zh.md"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
 # If you have timezone issue (e.g. #68) in China, uncomment to use this:
-#timezone: CN  
+timezone: CN
 
 
 
@@ -77,14 +77,14 @@ ga_domain: catface.cc
 
 
 # 主页右边我的简介
-sidebar: false
+sidebar: true
 sidebar-about-description:            "全体起立<br>sit down"
 sidebar-avatar: /img/favicon.ico      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
 # 主页右边部分归档归类
-featured-tags: false
+featured-tags: true
 featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
 
 
