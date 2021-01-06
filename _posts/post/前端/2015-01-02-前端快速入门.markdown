@@ -12,9 +12,7 @@ edit status:  ed
 tags:
     - 前端
 ---
-# [html4入门示例](http://catface.cc/resume/demo_html4.html)
-
-# [html5入门示例](http://catface.cc/resume/demo_html5.html)
+# [html入门示例](http://catface.cc/resume/demo_html.html)
 
 # [css3入门示例]()
 
