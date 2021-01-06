@@ -1,6 +1,6 @@
 # Site settings
 title: catface blog
-SEOTitle: 王夜寒的博客 | catface blog
+SEOTitle: 王夜寒的博客 | catface's blog
 header-img: img/color-android-robot-green.png
 email: catface.wyh@gmail.com
 description: "关于程序与设计、黑客与画家 | 王夜寒，Web & Mobile Lover，Software Engineer，UX Designer | 这里是 @catface王夜寒 的个人博客，与你一起发现更大的世界。"
@@ -12,13 +12,13 @@ baseurl: ""                             # for example, '/blog' if your blog host
 future: true
 
 # SNS settings
-RSS: false
-weibo_username:     catface
-zhihu_username:     catface
-github_username:    catface
-twitter_username:   catface
-#facebook_username:  catface
-#linkedin_username:  firstname-lastname-idxxxx
+RSS: true
+weibo_username: catface
+zhihu_username: catface
+github_username: catface
+twitter_username: catface
+facebook_username: catface
+linkedin_username: catface
 
 
 
@@ -27,10 +27,9 @@ twitter_username:   catface
 highlighter: rouge
 permalink: pretty
 paginate: 10
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","README.zh.md"]
-anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
-# If you have timezone issue (e.g. #68) in China, uncomment to use this:
-timezone: CN
+exclude: [ "less","node_modules","Gruntfile.js","package.json","README.md","README.zh.md" ]
+anchorjs: true            # if you want to customize anchor. check out line:181 of `post.html`
+timezone: CN              # If you have timezone issue (e.g. #68) in China, uncomment to use this:
 
 
 
@@ -38,7 +37,7 @@ timezone: CN
 # from PR#40, to support local preview for Jekyll 3.0
 # make sure you have this gem installed
 # `$ gem install jekyll-paginate`
-plugins: [jekyll-paginate]
+plugins: [ jekyll-paginate ]
 
 
 
@@ -72,7 +71,7 @@ ga_domain: catface.cc
 
 # 主页右边我的简介
 sidebar: true
-sidebar-about-description:            "全体起立<br>sit down"
+sidebar-about-description: "全体起立<br>sit down"
 sidebar-avatar: /img/favicon.ico      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
