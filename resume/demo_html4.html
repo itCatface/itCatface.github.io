@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base target="_blank">
+    <meta charset="UTF-8">
+    <title>demo of html4</title>
+</head>
+<body>
+
+<audio controls>
+    <source src="ithinki.mp3" type="audio/mpeg">
+</audio>
+
+<hr/>
+<hr/>
+<hr/>
+chapter补充
+<hr/>
+=>字符实体<br/>
+a&#768;
+a&#769;
+a&#770;
+̃a&#771;
+̀O&#768;
+́O&#769;
+O&#770;
+O&#771;
+
+空格&nbsp;
+小于号&lt;
+大于号&gt;
+和号&amp;
+引号&quot;
+撇号&apos;
+分&cent;
+镑&pound;
+人民币/日元&yen;
+欧元&euro;
+小节&sect;
+版权&copy;
+注册商标&reg;
+商标&trade;
+乘号&times;
+除号&divide;
+
+<hr/>
+<hr/>
+<hr/>
+chapter基础
+<hr/>
+=>标题<br/>
+<h1>这是标题 1</h1>
+<h2>这是标题 2</h2>
+<h3>这是标题 3</h3>
+<h4>这是标题 4</h4>
+<h5>这是标题 5</h5>
+<h6>这是标题 6</h6><br/>
+
+=>段落<br/>
+<p>这是一个段落。</p>
+<p>这是一个段落。</p>
+<p>这是一个段落。</p><br/>
+
+=>链接<br/>
+<a href="https://www.baidu.com">百度一下-这是一个链接使用了 href 属性</a><br/>
+
+=>图片<br/>
+<img src="../img/404-bg.jpg" width="650" height="270"/><br/>
+
+
+<hr/>
+<hr/>
+<hr/>
+chapter标题
+<hr/>
+=>标题
+<h1>这是标题 1</h1>
+<h2>这是标题 2</h2>
+<h3>这是标题 3</h3>
+<h4>这是标题 4</h4>
+<h5>这是标题 5</h5>
+<h6>这是标题 6</h6><br/>
+
+=>注释<br/>
+<!--这是一个注释，注释在浏览器中不会显示--><br/>
+
+=>水平线<br/>
+<hr/>
+
+
+<hr/>
+<hr/>
+<hr/>
+chapter段落
+<hr/>
+=>段落<br/>
+<p>这是一个段落。</p>
+<p>这是一个段落。</p>
+<p>这是一个段落。</p><br/>
+
+=>更多段落<br/>
+<p>
+    这个段落
+    在源代码中
+    包含许多行
+    但是浏览器
+    忽略了它们。
+</p>
+<p>
+    这个段落
+    在源代码 中
+    包含 许多行
+    但是 浏览器
+    忽略了 它们。
+</p>
+<p>段落的行数依赖于浏览器窗口的大小。如果调节浏览器窗口的大小，将改变段落中的行数。</p><br/>
+
+=>html中文本折行<br/>
+<p>这个<br>段落<br>演示了分行的效果</p><br/>
+
+=>html中格式化问题<br/>
+<h1>春晓</h1>
+<p>
+    春眠不觉晓，
+    处处闻啼鸟。
+    夜来风雨声，
+    花落知多少。
+</p>
+<p>注意，浏览器忽略了源代码中的排版（省略了多余的空格和换行）。</p><br/>
+
+
+<hr/>
+<hr/>
+<hr/>
+chapter文本格式化
+<hr/>
+=>文本格式化<br/>
+<b>这个文本是加粗的</b>
+<br/>
+<strong>这个文本是加粗的</strong>
+<br/>
+<big>这个文本字体放大</big>
+<br/>
+<em>这个文本是斜体的</em>
+<br/>
+<i>这个文本是斜体的</i>
+<br/>
+<small>这个文本是缩小的</small>
+<br/>
+这个文本包含
+<sub>下标</sub>
+<br/>
+这个文本包含
+<sup>上标</sup><br/>
+
+=>pre 标签对空行和空格进行控制<br/>
+<pre>
+此例演示如何使用 pre 标签
+对空行和    空格
+进行控制
+</pre>
+<br/>
+
+=>不同的"计算机输出"标签的显示效果<br/>
+<code>计算机输出</code>
+<br/>
+<kbd>键盘输入</kbd>
+<br/>
+<tt>打字机文本</tt>
+<br/>
+<samp>计算机代码样本</samp>
+<br/>
+<var>计算机变量</var>
+<br/>
+<p>
+    <b>注释：</b>这些标签常用于显示计算机/编程代码。
+</p><br/>
+
+=>在 HTML 文件中写地址<br/>
+<address>
+    Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br>
+    Visit us at:<br>
+    Example.com<br>
+    Box 564, Disneyland<br>
+    USA
+</address>
+<br/>
+
+=>实现缩写或首字母缩写<br/>
+<abbr title="etcetera">etc.</abbr>
+<br/>
+<acronym title="World Wide Web">WWW</acronym>
+<p>在某些浏览器中，当您把鼠标移至缩略词语上时，title 可用于展示表达的完整版本。</p>
+<p>仅对于 IE 5 中的 acronym 元素有效。</p>
+<p>对于 Netscape 6.2 中的 abbr 和 acronym 元素都有效。</p><br/>
+
+=>改变文字的方向<br/>
+<p>该段落文字从左到右显示。</p>
+<p><bdo dir="rtl">该段落文字从右到左显示。</bdo></p><br/>
+
+=>实现长短不一的引用语<br/>
+<p>WWF's goal is to:
+    <q>Build a future where people live in harmony with nature.</q>
+    We hope they succeed.</p><br/>
+
+=>文本下划线与删除线<br/>
+<p>My favorite color is
+    <del>blue</del>
+    <ins>red</ins>
+    !
+</p>
+<br/>
+
+
+<hr/>
+<hr/>
+<hr/>
+chapter样式
+<hr/>
+=>Style 元素<br/>
+<div style="opacity:0.5;position:absolute;left:50px;width:300px;height:150px;background-color:#40B3DF"></div>
+<div style="font-family:verdana;padding:20px;border-radius:10px;border:10px solid #EE872A;">
+    <div style="opacity:0.3;position:absolute;left:120px;width:100px;height:200px;background-color:#8AC007"></div>
+    <h3>Look! Styles and colors</h3>
+    <div style="letter-spacing:12px;">Manipulate Text</div>
+    <div style="color:#40B3DF;">Colors
+        <span style="background-color:#B4009E;color:#ffffff;">Boxes</span>
+    </div>
+    <div style="color:#000000;">and more...</div>
+</div>
+<br/>
+
+=>背景色样式<br/>
+<h2 style="background-color:red;">这是一个标题</h2>
+<p style="background-color:green;">这是一个段落。</p><br/>
+
+=>字体样式，颜色，大小<br/>
+<h1 style="font-family:verdana;">一个标题</h1>
+<p style="font-family:arial;color:red;font-size:20px;">一个段落。</p><br/>
+
+=>文本对齐样式<br/>
+<h1 style="text-align:center;">居中对齐的标题</h1>
+<p>这是一个段落。</p><br/>
+
+=>设置文本字体<br/>
+<h1 style="font-family:verdana">This is a heading</h1>
+<p style="font-family:courier">This is a paragraph.</p><br/>
+
+=>设置文本字体大小<br/>
+<h1 style="font-size:200%">This is a heading</h1>
+<p style="font-size:110%">This is a paragraph.</p><br/>
+
+=>设置文本字体颜色<br/>
+<h1 style="color:blue">This is a heading</h1>
+<p style="color:red">This is a paragraph.</p><br/>
+
+=>设置文本字体，字体大小，字体颜色<br/>
+<p style="font-family:verdana;font-size:110%;color:green">
+    This is a paragraph with some text in it. This is a paragraph with some text in it. This is a paragraph with some text in it. This is a paragraph with some text in it.
+</p><br/>
+
+=>使用不同样式<br/>
+<!-- <head>中 -->
+<!--<style type="text/css">-->
+<!--    h1 {-->
+<!--        color: red;-->
+<!--    }-->
+
+<!--    p {-->
+<!--        color: blue;-->
+<!--    }-->
+<!--</style>-->
+<h1>这是一个标题</h1>
+<p>这是一个段落。</p><br/>
+
+=>没有下划线的链接<br/>
+<a href="//www.runoob.com/" style="text-decoration:none;">访问 runoob.com!</a><br/>
+
+=>链接到一个外部样式表<br/>
+<!-- <head>中 -->
+<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+<h1>我使用了外部样式文件来格式化文本 </h1>
+<p>我也是!</p><br/>
+
+
+<hr/>
+<hr/>
+<hr/>
+chapter链接
+<hr/>
+=>创建超级链接<br/>
+<p><a href="/index.html">本文本</a> 是一个指向本网站中的一个页面的链接。</p>
+<p><a href="//www.microsoft.com/">本文本</a> 是一个指向万维网上的页面的链接。</p><br/>
+
+=>将图像作为链接<br/>
+<p>创建图片链接:
+    <a href="//www.runoob.com/html/html-tutorial.html"><img border="10" src="../img/favicon.ico" alt="favicon" width="32" height="32"></a>
+</p>
+<p>无边框的图片链接:
+    <a href="//www.runoob.com/html/html-tutorial.html"><img border="0" src="../img/favicon.ico" alt="favicon" width="32" height="32"></a>
+</p><br/>
+
+=>在新的浏览器窗口打开链接<br/>
+<a href="https://www.runoob.com/" target="_blank">访问菜鸟教程!</a>
+<p>如果你将 target 属性设置为 &quot;_blank&quot;, 链接将在新窗口打开。</p><br/>
+
+=>链接到同一个页面的不同位置<br/>
+<p><a href="#C4">查看章节 4</a></p>
+<h2>章节 1</h2>
+<p>这边显示该章节的内容……</p>
+<h2>章节 2</h2>
+<p>这边显示该章节的内容……</p>
+<h2>章节 3</h2>
+<p>这边显示该章节的内容……</p>
+<h2><a id="C4">章节 4</a></h2>
+<p>这边显示该章节的内容……</p>
+<h2>章节 5</h2>
+<p>这边显示该章节的内容……</p>
+<h2>章节 6</h2>
+<p>这边显示该章节的内容……</p><br/>
+=>跳出框架<br/>
+<p>跳出框架?</p>
+<a href="//www.runoob.com/" target="_top">点击这里!</a> <br/>
+
+=>创建电子邮件链接<br/>
+<p>
+    这是一个电子邮件链接：<a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">发送邮件</a>
+</p>
+<p>
+    <b>注意:</b> 单词之间空格使用 %20 代替，以确保浏览器可以正常显示文本。
+</p><br/>
+
+=>创建电子邮件链接 2<br/>
+<p>
+    这是另一个电子邮件链接：<a href="mailto:someone@example.com?cc=someoneelse@example.com&bcc=andsomeoneelse@example.com&subject=Summer%20Party&body=You%20are%20invited%20to%20a%20big%20summer%20party!" target="_top">发送邮件!</a>
+</p>
+<p>
+    <b>注意:</b> 单词之间的空格使用 %20 代替，以确保浏览器可以正常显示文本。
+</p><br/>
+
+
+<hr/>
+<hr/>
+<hr/>
+chapter图像
+<hr/>
+=>插入图像<br/>
+<p>
+    一个图像:
+    <img src="https://www.runoob.com/try/demo_source/smiley.gif" alt="Smiley face" width="32" height="32"></p>
+<p>
+    一个动图:
+    <img src="https://www.runoob.com/try/demo_source/hackanm.gif" alt="Computer man" width="48" height="48"></p>
+<p>
+    注意插入动图的语法和静态图的语法是一样的。
+</p><br/>
+
+=>从不同的位置插入图片<br/>
+<p>一个来自文件夹中的图像:</p>
+<img src="../img/favicon.ico" alt="favicon" width="33" height="33">
+<p>一个来自本站的图像:</p>
+<img src="//www.runoob.com/images/logo.png" alt="runoob.com" width="336" height="69"><br/>
+
+=>排列图片<br/>
+<h4>默认对齐的图像 (align="bottom"):</h4>
+<p>这是一些文本。 <img src="../img/favicon.ico" alt="favicon" width="32" height="32"> 这是一些文本。</p>
+<h4>图片使用 align="middle":</h4>
+<p>这是一些文本。 <img src="../img/favicon.ico" alt="favicon" align="middle" width="32" height="32">这是一些文本。</p>
+<h4>图片使用 align="top":</h4>
+<p>这是一些文本。 <img src="../img/favicon.ico" alt="favicon" align="top" width="32" height="32">这是一些文本。</p>
+<p><b>注意:</b>在HTML 4中 align 属性已废弃，HTML5 已不支持该属性，可以使用 CSS 代替。</p><br/>
+
+=>使图片浮动至段落的左边或右边<br/>
+<p>
+    <img src="../img/favicon.ico" alt="favicon" style="float:left" width="32" height="32"> 一个带图片的段落，图片浮动在这个文本的左边。
+</p>
+<p>
+    <img src="../img/favicon.ico" alt="favicon" style="float:right" width="32" height="32"> 一个带图片的段落，图片浮动在这个文本的右边。
+</p>
+<p><b>注意:</b> 在这里我们使用了 CSS float 属性，在HTML 4 中 float 属性已废弃，HTML5 已不支持该属性，可以使用 CSS 代替。</p><br/>
+
+=>制作图像链接<br/>
+<p>创建图片链接:
+    <a href="//www.runoob.com/html/html-tutorial.html">
+        <img border="10" src="../img/favicon.ico" alt="favicon" width="32" height="32">
+    </a>
+</p>
+
+<p>无边框的图片链接:
+    <a href="//www.runoob.com/html/html-tutorial.html">
+        <img border="0" src="../img/favicon.ico" alt="favicon" width="32" height="32">
+    </a>
+</p>
+<br/>
+
+=>创建图像映射<br/>
+<p>点击太阳或其他行星，注意变化：</p>
+<img src="https://www.runoob.com/try/demo_source/planets.gif" width="145" height="126" alt="Planets" usemap="#planetmap">
+<map name="planetmap">
+    <area shape="rect" coords="0,0,82,126" alt="Sun" href="https://www.runoob.com/try/demo_source/sun.htm">
+    <area shape="circle" coords="90,58,3" alt="Mercury" href="https://www.runoob.com/try/demo_source/mercur.htm">
+    <area shape="circle" coords="124,58,8" alt="Venus" href="https://www.runoob.com/try/demo_source/venus.htm">
+</map>
+<br/>
+
+
+<hr/>
+<hr/>
+<hr/>
+chapter表格
+<hr/>
+=>简单的表格<br/>
+<p>
+    每个表格从一个 table 标签开始。
+    每个表格行从 tr 标签开始。
+    每个表格的数据从 td 标签开始。
+</p>
+<h4>一列:</h4>
+<table border="1">
+    <tr>
+        <td>100</td>
+    </tr>
+</table>
+<h4>一行三列:</h4>
+<table border="1">
+    <tr>
+        <td>100</td>
+        <td>200</td>
+        <td>300</td>
+    </tr>
+</table>
+<h4>两行三列:</h4>
+<table border="1">
+    <tr>
+        <td>100</td>
+        <td>200</td>
+        <td>300</td>
+    </tr>
+    <tr>
+        <td>400</td>
+        <td>500</td>
+        <td>600</td>
+    </tr>
+</table>
+<br/>
+
+=>没有边框的表格<br/>
+<h4>这个表格没有边框:</h4>
+<table>
+    <tr>
+        <td>100</td>
+        <td>200</td>
+        <td>300</td>
+    </tr>
+    <tr>
+        <td>400</td>
+        <td>500</td>
+        <td>600</td>
+    </tr>
+</table>
+<h4>这个表格没有边框:</h4>
+<table border="0">
+    <tr>
+        <td>100</td>
+        <td>200</td>
+        <td>300</td>
+    </tr>
+    <tr>
+        <td>400</td>
+        <td>500</td>
+        <td>600</td>
+    </tr>
+</table>
+<br/>
+=>表格中的表头<br/>
+<h4>水平标题:</h4>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Telephone</th>
+        <th>Telephone</th>
+    </tr>
+    <tr>
+        <td>Bill Gates</td>
+        <td>555 77 854</td>
+        <td>555 77 855</td>
+    </tr>
+</table>
+<h4>垂直标题:</h4>
+<table border="1">
+    <tr>
+        <th>First Name:</th>
+        <td>Bill Gates</td>
+    </tr>
+    <tr>
+        <th>Telephone:</th>
+        <td>555 77 854</td>
+    </tr>
+    <tr>
+        <th>Telephone:</th>
+        <td>555 77 855</td>
+    </tr>
+</table>
+<br/>
+
+=>带有标题的表格<br/>
+<table border="1">
+    <caption>Monthly savings</caption>
+    <tr>
+        <th>Month</th>
+        <th>Savings</th>
+    </tr>
+    <tr>
+        <td>January</td>
+        <td>$100</td>
+    </tr>
+    <tr>
+        <td>February</td>
+        <td>$50</td>
+    </tr>
+</table>
+<br/>
+
+=>跨行或跨列的表格单元格<br/>
+<h4>单元格跨两列:</h4>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th colspan="2">Telephone</th>
+    </tr>
+    <tr>
+        <td>Bill Gates</td>
+        <td>555 77 854</td>
+        <td>555 77 855</td>
+    </tr>
+</table>
+<h4>单元格跨两行:</h4>
+<table border="1">
+    <tr>
+        <th>First Name:</th>
+        <td>Bill Gates</td>
+    </tr>
+    <tr>
+        <th rowspan="2">Telephone:</th>
+        <td>555 77 854</td>
+    </tr>
+    <tr>
+        <td>555 77 855</td>
+    </tr>
+</table>
+<br/>
+
+=>表格内的标签<br/>
+<table border="1">
+    <tr>
+        <td>
+            <p>这是一个段落</p>
+            <p>这是另一个段落</p>
+        </td>
+        <td>这个单元格包含一个表格:
+            <table border="1">
+                <tr>
+                    <td>A</td>
+                    <td>B</td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                    <td>D</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>这个单元格包含一个列表
+            <ul>
+                <li>apples</li>
+                <li>bananas</li>
+                <li>pineapples</li>
+            </ul>
+        </td>
+        <td>HELLO</td>
+    </tr>
+</table>
+<br/>
+
+=>单元格边距(Cell padding)<br/>
+<h4>没有单元格边距:</h4>
+<table border="1">
+    <tr>
+        <td>First</td>
+        <td>Row</td>
+    </tr>
+    <tr>
+        <td>Second</td>
+        <td>Row</td>
+    </tr>
+</table>
+<h4>有单元格边距:</h4>
+<table border="1"
+       cellpadding="10">
+    <tr>
+        <td>First</td>
+        <td>Row</td>
+    </tr>
+    <tr>
+        <td>Second</td>
+        <td>Row</td>
+    </tr>
+</table>
+<br/>
+
+=>单元格间距(Cell spacing)<br/>
+<h4>没有单元格间距:</h4>
+<table border="1">
+    <tr>
+        <td>First</td>
+        <td>Row</td>
+    </tr>
+    <tr>
+        <td>Second</td>
+        <td>Row</td>
+    </tr>
+</table>
+<h4>单元格间距="0":</h4>
+<table border="1" cellspacing="0">
+    <tr>
+        <td>First</td>
+        <td>Row</td>
+    </tr>
+    <tr>
+        <td>Second</td>
+        <td>Row</td>
+    </tr>
+</table>
+<h4>单元格间距="10":</h4>
+<table border="1" cellspacing="10">
+    <tr>
+        <td>First</td>
+        <td>Row</td>
+    </tr>
+    <tr>
+        <td>Second</td>
+        <td>Row</td>
+    </tr>
+</table>
+<br/>
+
+
+<hr/>
+<hr/>
+<hr/>
+chapter列表
+<hr/>
+=>无序列表<br/>
+<h4>无序列表:</h4>
+<ul>
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Milk</li>
+</ul>
+<br/>
+
+=>有序列表<br/>
+<ol>
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Milk</li>
+</ol>
+<ol start="50">
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Milk</li>
+</ol>
+<br/>
+
+=>不同类型的有序列表<br/>
+<h4>编号列表：</h4>
+<ol>
+    <li>Apples</li>
+    <li>Bananas</li>
+    <li>Lemons</li>
+    <li>Oranges</li>
+</ol>
+<h4>大写字母列表：</h4>
+<ol type="A">
+    <li>Apples</li>
+    <li>Bananas</li>
+    <li>Lemons</li>
+    <li>Oranges</li>
+</ol>
+<h4>小写字母列表：</h4>
+<ol type="a">
+    <li>Apples</li>
+    <li>Bananas</li>
+    <li>Lemons</li>
+    <li>Oranges</li>
+</ol>
+<h4>罗马数字列表：</h4>
+<ol type="I">
+    <li>Apples</li>
+    <li>Bananas</li>
+    <li>Lemons</li>
+    <li>Oranges</li>
+</ol>
+<h4>小写罗马数字列表：</h4>
+<ol type="i">
+    <li>Apples</li>
+    <li>Bananas</li>
+    <li>Lemons</li>
+    <li>Oranges</li>
+</ol>
+<br/>
+
+=>不同类型的无序列表<br/>
+<p><b>注意：</b> 在 HTML 4中 ul 属性已废弃，HTML5 已不支持该属性，因此我们使用 CSS 代替来定义不同类型的无序列表如下：</p>
+<h4>圆点列表：</h4>
+<ul style="list-style-type:disc">
+    <li>Apples</li>
+    <li>Bananas</li>
+    <li>Lemons</li>
+    <li>Oranges</li>
+</ul>
+<h4>圆圈列表：</h4>
+<ul style="list-style-type:circle">
+    <li>Apples</li>
+    <li>Bananas</li>
+    <li>Lemons</li>
+    <li>Oranges</li>
+</ul>
+<h4>正方形列表：</h4>
+<ul style="list-style-type:square">
+    <li>Apples</li>
+    <li>Bananas</li>
+    <li>Lemons</li>
+    <li>Oranges</li>
+</ul>
+<br/>
+
+=>嵌套列表<br/>
+<h4>嵌套列表：</h4>
+<ul>
+    <li>Coffee</li>
+    <li>Tea
+        <ul>
+            <li>Black tea</li>
+            <li>Green tea</li>
+        </ul>
+    </li>
+    <li>Milk</li>
+</ul>
+<br/>
+
+=>嵌套列表 2<br/>
+<h4>嵌套列表：</h4>
+<ul>
+    <li>Coffee</li>
+    <li>Tea
+        <ul>
+            <li>Black tea</li>
+            <li>Green tea
+                <ul>
+                    <li>China</li>
+                    <li>Africa</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>Milk</li>
+</ul>
+<br/>
+
+=>自定义列表<br/>
+<h4>一个自定义列表：</h4>
+<dl>
+    <dt>Coffee</dt>
+    <dd>- black hot drink</dd>
+    <dt>Milk</dt>
+    <dd>- white cold drink</dd>
+</dl>
+<br/>
+
+
+<hr/>
+<hr/>
+<hr/>
+chapter表单和输入
+<hr/>
+=>创建文本域(Text fields)<br/>
+<form action="">
+    First name: <input type="text" name="firstname"><br>
+    Last name: <input type="text" name="lastname">
+</form>
+<p><b>注意：</b> 表单本身是不可见的。并且注意一个文本字段的默认宽度是20个字符。</p><br/>
+
+=>创建密码域<br/>
+<form action="">
+    Username: <input type="text" name="user"><br>
+    Password: <input type="password" name="password">
+</form>
+<p><b>注意：</b> 密码字段中的字符是隐藏的(显示为星号或圆圈)。</p><br/>
+
+=>复选框<br/>
+<form action="">
+    <input type="checkbox" name="vehicle" value="Bike">I have a bike<br>
+    <input type="checkbox" name="vehicle" value="Car">I have a car
+</form>
+<br/>
+
+=>单选按钮<br/>
+<form action="">
+    <input type="radio" name="sex" value="male">Male<br>
+    <input type="radio" name="sex" value="female">Female
+</form>
+<p><b>注意：</b>当用户点击一个单选按钮时，它就会被选中，其他同名的单选按钮就不会被选中。</p><br/>
+
+=>简单的下拉列表<br/>
+<form action="">
+    <select name="cars">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="fiat">Fiat</option>
+        <option value="audi">Audi</option>
+    </select>
+</form>
+<br/>
+
+=>预选下拉列表<br/>
+<form action="">
+    <select name="cars">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="fiat" selected>Fiat</option>
+        <option value="audi">Audi</option>
+    </select>
+</form>
+<br/>
+
+=>创建一个文本域（多行文本输入控件）<br/>
+<textarea rows="10" cols="30">
+我是一个文本框。
+</textarea><br/>
+
+=>创建一个按钮<br/>
+<form action="">
+    <input type="button" value="Hello world!">
+</form>
+<br/>
+
+=>在数据周围绘制一个带标题的框<br/>
+<form action="">
+    <fieldset>
+        <legend>Personal information:</legend>
+        Name: <input type="text" size="30"><br>
+        E-mail: <input type="text" size="30"><br>
+        Date of birth: <input type="text" size="10">
+    </fieldset>
+</form>
+<br/>
+
+=>带有文本域与输入域的表单<br/>
+<form action="demo-form.php">
+    First name: <input type="text" name="FirstName" value="Mickey"><br>
+    Last name: <input type="text" name="LastName" value="Mouse"><br>
+    <input type="submit" value="提交">
+</form>
+<p>点击"提交"按钮，表单数据将被发送到服务器上的“demo-form.php”。</p><br/>
+
+=>带有复选框与提交按钮的form表单<br/>
+<form action="demo-form.php" method="get">
+    <input type="checkbox" name="vehicle[]" value="Bike"> I have a bike<br>
+    <input type="checkbox" name="vehicle[]" value="Car" checked="checked"> I have a car<br>
+    <input type="submit" value="提交">
+</form>
+<br/>
+
+=>带有单选框与提交按钮的表单<br/>
+<form action="demo-form.php" method="get">
+    <input type="radio" name="sex" value="Male"> Male<br>
+    <input type="radio" name="sex" value="Female" checked="checked"> Female<br>
+    <input type="submit" value="提交">
+</form>
+<br/>
+
+=>发送邮件表单<br/>
+<h3>发送邮件到 someone@example.com:</h3>
+<form action="MAILTO:someone@example.com" method="post" enctype="text/plain">
+    Name:<br>
+    <input type="text" name="name" value="your name"><br>
+    E-mail:<br>
+    <input type="text" name="mail" value="your email"><br>
+    Comment:<br>
+    <input type="text" name="comment" value="your comment" size="50"><br><br>
+    <input type="submit" value="发送">
+    <input type="reset" value="重置">
+</form>
+<br/>
+
+
+<hr/>
+<hr/>
+<hr/>
+chapter内联
+<hr/>
+=>内联框架 (HTML页面中插入框架)<br/>
+<iframe src="//www.runoob.com" width="800" height="500">
+    <p>您的浏览器不支持 iframe 标签。</p>
+</iframe>
+<br/>
+
+
+<hr/>
+<hr/>
+<hr/>
+chapter脚本
+<hr/>
+=>插入一个脚本<br/>
+<script>
+    document.write("Hello World!")
+</script>
+<br/>
+
+=>使用 &lt;noscript&gt; 标签<br/>
+<script>
+    document.write("Hello World!")
+</script>
+<noscript>抱歉，你的浏览器不支持 JavaScript!</noscript>
+<p>不支持 JavaScript 的浏览器会使用 &lt;noscript&gt; 元素中定义的内容（文本）来替代。</p><br/>
+
+
+</body>
+</html>

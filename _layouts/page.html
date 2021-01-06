@@ -9,12 +9,12 @@ layout: default
 <div class="container">
 	<div class="row">
         {% if site.sidebar == false %}
-<!-- NO SIDEBAR -->
-    <!-- PostList Container -->
+            <!-- NO SIDEBAR -->
+            <!-- PostList Container -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 postlist-container">
                 {{ content }}
             </div>
-    <!-- Sidebar Container -->
+            <!-- Sidebar Container -->
             <div class="
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
@@ -28,8 +28,8 @@ layout: default
             </div>
         {% else %}
 
-<!-- USE SIDEBAR -->
-    <!-- PostList Container -->
+            <!-- USE SIDEBAR -->
+            <!-- PostList Container -->
     		<div class="
                 col-lg-8 col-lg-offset-1
                 col-md-8 col-md-offset-1
@@ -39,7 +39,7 @@ layout: default
             ">
     			{{ content }}
     		</div>
-    <!-- Sidebar Container -->
+            <!-- Sidebar Container -->
             <div class="
                 col-lg-3 col-lg-offset-0
                 col-md-3 col-md-offset-0
@@ -55,6 +55,10 @@ layout: default
 
                 <!-- Friends Blog -->
                 {% include friends.html %}
+
+                <audio controls>
+                    <source src="../resume/ithinki.mp3" type="audio/mpeg">
+                </audio>
     		</div>
         {% endif %}
 	</div>
