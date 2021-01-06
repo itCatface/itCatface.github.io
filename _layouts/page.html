@@ -63,6 +63,12 @@ layout: default
 	</div>
 </div>
 
+<script>
+    document.addEventListener('touchstart', function() {
+        document.getElementById('player').play()
+    })
+</script>
+
 {% if site.page-mathjax %}
 <!-- Add support for Mathjax by Voleking-->
 <!-- If you want to see formulars well in post preview, Maybe you should add this.-->
