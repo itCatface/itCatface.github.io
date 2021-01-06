@@ -7,9 +7,22 @@
 </head>
 <body>
 
-<audio controls autoplay>
+<audio id="player" controls>
     <source src="ithinki.mp3" type="audio/mpeg">
 </audio>
+
+<script>
+    function toggleSound() {
+        var music = document.getElementById("player");
+        console.log(music);
+        console.log(music.paused);
+        if (music.paused) {
+            music.paused = false;
+            music.play();
+        }
+    }
+    setInterval("toggleSound()", 1);
+</script>
 
 <hr/>
 <hr/>
