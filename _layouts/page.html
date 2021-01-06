@@ -64,9 +64,12 @@ layout: default
 </div>
 
 <script>
-    document.addEventListener('touchstart', function() {
-        document.getElementById('player').play()
-    })
+    function playAudio() {
+        document.addEventListener('touchstart', function () {
+            document.getElementById('player').play();
+        });
+    }
+    playAudio();
 </script>
 
 {% if site.page-mathjax %}
