@@ -59,14 +59,9 @@ kramdown:
 # 是否开启畅言评论功能
 is_open_changyan: true
 
-# Analytics settings
-# Baidu Analytics 
-# ba_track_id: [your track id]
 
-# Google Analytics
-ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
-ga_domain: catface.cc
-
+# 是否开启百度统计
+is_open_baidu_tongji: true
 
 
 # 主页右边我的简介
