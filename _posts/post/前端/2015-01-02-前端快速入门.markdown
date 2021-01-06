@@ -1,0 +1,18 @@
+---
+layout:       post
+title:        "前端快速入门"
+subtitle:     "快速了解基本的前端知识"
+date:         2015-01-02 12:00:00
+author:       "catface"
+header-img:   "img/color-black.png"
+header-mask:  0.3
+catalog:      true
+multilingual: false
+edit status:  ed
+tags:
+    - 前端
+---
+
+# html5入门示例
+
+[示例](http://catface.cc/_post/post/前端/demo_html5.html)
