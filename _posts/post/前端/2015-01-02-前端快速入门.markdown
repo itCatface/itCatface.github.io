@@ -12,11 +12,15 @@ edit status:  ed
 tags:
     - 前端
 ---
-# [html入门示例](http://catface.cc/resume/demo_html.html)
+# html入门示例
+
+1. [示例1/1](http://catface.cc/resume/demo_html.html)
 
 # [css3入门示例]()
 
-# [JavaScript入门示例]()
+# JavaScript入门示例
+
+1. [示例1/1](http://catface.cc/resume/demo_js.html)
 
 # Bootstrap入门示例
 
@@ -24,4 +28,6 @@ tags:
 1. [示例2/3](http://catface.cc/resume/h5_index_bootstrap_2.html)
 1. [示例3/3](http://catface.cc/resume/h5_index_bootstrap_3.html)
 
-# [jQuery入门示例]()
+# jQuery入门示例
+
+1. [示例1/1](http://catface.cc/resume/demo_jquery.html)
