@@ -56,6 +56,10 @@ kramdown:
       start_line: 1
 
 
+# 是否开启背景音乐
+is_open_background_music: false
+
+
 # 是否开启畅言评论功能
 is_open_changyan: true
 
