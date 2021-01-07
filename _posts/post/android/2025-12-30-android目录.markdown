@@ -4,6 +4,7 @@ title:        "android目录"
 subtitle:     ""
 date:         2025-12-30 12:00:00
 author:       "catface"
+header-style  "text"
 header-img:   "img/color-android-robot-green.png"
 header-mask:  0.3
 catalog:      false
@@ -14,77 +15,77 @@ tags:
 ---
 
 # android初阶
-## 基础知识
-### [Android系统架构、基础组件、JVM&DVM&ART、安全机制](https://blog.csdn.net/itcatface/article/details/49664853)
-### [文件权限](https://blog.csdn.net/itcatface/article/details/51382913)
-### [Context](https://blog.csdn.net/itCatface/article/details/50965454)
-### 四大组件
-#### [Activity](https://blog.csdn.net/itCatface/article/details/50421212)
-##### [requestWindowFeature(全屏、无标题等)](https://blog.csdn.net/itCatface/article/details/49796455)
-##### [startActivityForResult](https://blog.csdn.net/itCatface/article/details/50550807)
-##### [include](https://blog.csdn.net/itCatface/article/details/50962333)
-#### [Fragment](https://blog.csdn.net/itCatface/article/details/50428412)
-#### [BroadcastReceiver](https://blog.csdn.net/itcatface/article/details/50428866)
-#### [Service(包含IntentService)](https://blog.csdn.net/itCatface/article/details/61200328)
-#### [ContentProvider](https://blog.csdn.net/itCatface/article/details/61922091)
-### 数据存储
-#### [Properties](https://blog.csdn.net/itCatface/article/details/77484213)
-#### [xml](https://blog.csdn.net/itCatface/article/details/49718935)
-#### [序列化对象Serializable和Parcelable](https://blog.csdn.net/itCatface/article/details/85948341)
-### 网络
-#### [WebView](https://blog.csdn.net/itCatface/article/details/49700049)
-#### [HttpUrlConnection、HttpClient](https://blog.csdn.net/itCatface/article/details/49702129)
+- 基础知识
+    - [Android系统架构、基础组件、JVM&DVM&ART、安全机制](https://blog.csdn.net/itcatface/article/details/49664853)
+    - [文件权限](https://blog.csdn.net/itcatface/article/details/51382913)
+    - [Context](https://blog.csdn.net/itCatface/article/details/50965454)
+- 四大组件
+    - [Activity](https://blog.csdn.net/itCatface/article/details/50421212)
+        - [requestWindowFeature(全屏、无标题等)](https://blog.csdn.net/itCatface/article/details/49796455)
+        - [startActivityForResult](https://blog.csdn.net/itCatface/article/details/50550807)
+        - [include](https://blog.csdn.net/itCatface/article/details/50962333)
+    - [Fragment](https://blog.csdn.net/itCatface/article/details/50428412)
+    - [BroadcastReceiver](https://blog.csdn.net/itcatface/article/details/50428866)
+    - [Service(包含IntentService)](https://blog.csdn.net/itCatface/article/details/61200328)
+    - [ContentProvider](https://blog.csdn.net/itCatface/article/details/61922091)
+- 数据存储
+    - [Properties](https://blog.csdn.net/itCatface/article/details/77484213)
+    - [xml](https://blog.csdn.net/itCatface/article/details/49718935)
+    - [序列化对象Serializable和Parcelable](https://blog.csdn.net/itCatface/article/details/85948341)
+- 网络
+    - [WebView](https://blog.csdn.net/itCatface/article/details/49700049)
+    - [HttpUrlConnection、HttpClient](https://blog.csdn.net/itCatface/article/details/49702129)
 
-## 消息
-### [Handler](https://blog.csdn.net/itCatface/article/details/50704823)
-### [AsyncTask](https://blog.csdn.net/itCatface/article/details/50700428)
+- 消息
+    - [Handler](https://blog.csdn.net/itCatface/article/details/50704823)
+    - [AsyncTask](https://blog.csdn.net/itCatface/article/details/50700428)
 
-## view
-### 布局控件
-#### [布局&屏幕适配](https://blog.csdn.net/itCatface/article/details/61923203)
-#### [闪屏页支持点击进入主页面](https://blog.csdn.net/itcatface/article/details/51564831)
-### 系统控件
-#### 点击事件、Timer定时器
-##### [单击、多击事件、定时器](https://blog.csdn.net/itCatface/article/details/50131075)
-#### 多媒体
-##### [音 + 视频播放](https://blog.csdn.net/itcatface/article/details/50433922)
-##### [传感器](https://blog.csdn.net/itcatface/article/details/50439946)
-#### RecyclerView
-##### [简单案例&添加下拉刷新(SwipeRefreshLayout)、上拉加载(lastVisibleItem)](https://blog.csdn.net/itcatface/article/details/77861906)
-##### [多条目布局&添加点击事件、长按事件](https://blog.csdn.net/itCatface/article/details/77863689)
-##### [多条目布局&优雅的添加点击事件、长按事件](https://blog.csdn.net/itcatface/article/details/77865013)
-##### [RecyclerView在条目点击中传点击位置给Adapter](https://blog.csdn.net/itcatface/article/details/79819972)
-#### ListView
-##### [基本使用方法&适配器封装(参考鸿神)](https://blog.csdn.net/itcatface/article/details/50523588)
-##### [仿照IOS拉到上下底部仍可继续拉并自动回弹](https://blog.csdn.net/itcatface/article/details/50963825)
-#### Dialog
-##### [系统弹框](http://blog.csdn.net/itcatface/article/details/50969135)
-#### ViewPager
-##### [基本使用及加入动画](https://blog.csdn.net/itcatface/article/details/50766666)
-#### 自定义控件
-##### [View 的绘制&事件分发](http://blog.csdn.net/itcatface/article/details/72809133)
-##### [自定义CircleView，继承View重写onDraw方法](http://blog.csdn.net/itcatface/article/details/72818240)
-##### [自定义类似垂直布局的LinearLayout](http://blog.csdn.net/itCatface/article/details/72820291)
-##### [自定义MyHorizontalScrollView-类似 ViewPager](http://blog.csdn.net/itCatface/article/details/72848569)
-##### [自定义饼状图控件PieView](http://blog.csdn.net/itcatface/article/details/76020997)
+- view
+    - 布局控件
+        - [布局&屏幕适配](https://blog.csdn.net/itCatface/article/details/61923203)
+        - [闪屏页支持点击进入主页面](https://blog.csdn.net/itcatface/article/details/51564831)
+    - 系统控件
+        - 点击事件、Timer定时器
+            - [单击、多击事件、定时器](https://blog.csdn.net/itCatface/article/details/50131075)
+        - 多媒体
+            - [音 + 视频播放](https://blog.csdn.net/itcatface/article/details/50433922)
+            - [传感器](https://blog.csdn.net/itcatface/article/details/50439946)
+        - RecyclerView
+            - [简单案例&添加下拉刷新(SwipeRefreshLayout)、上拉加载(lastVisibleItem)](https://blog.csdn.net/itcatface/article/details/77861906)
+            - [多条目布局&添加点击事件、长按事件](https://blog.csdn.net/itCatface/article/details/77863689)
+            - [多条目布局&优雅的添加点击事件、长按事件](https://blog.csdn.net/itcatface/article/details/77865013)
+            - [RecyclerView在条目点击中传点击位置给Adapter](https://blog.csdn.net/itcatface/article/details/79819972)
+        - ListView
+            - [基本使用方法&适配器封装(参考鸿神)](https://blog.csdn.net/itcatface/article/details/50523588)
+            - [仿照IOS拉到上下底部仍可继续拉并自动回弹](https://blog.csdn.net/itcatface/article/details/50963825)
+        - Dialog
+            - [系统弹框](http://blog.csdn.net/itcatface/article/details/50969135)
+        - ViewPager
+            - [基本使用及加入动画](https://blog.csdn.net/itcatface/article/details/50766666)
+        - 自定义控件
+            - [View 的绘制&事件分发](http://blog.csdn.net/itcatface/article/details/72809133)
+            - [自定义CircleView，继承View重写onDraw方法](http://blog.csdn.net/itcatface/article/details/72818240)
+            - [自定义类似垂直布局的LinearLayout](http://blog.csdn.net/itCatface/article/details/72820291)
+            - [自定义MyHorizontalScrollView-类似 ViewPager](http://blog.csdn.net/itCatface/article/details/72848569)
+            - [自定义饼状图控件PieView](http://blog.csdn.net/itcatface/article/details/76020997)
 
-## 动画
-### [Android动画、补间，帧，Activity跳转，ListView条目 , 属性动画](https://blog.csdn.net/itCatface/article/details/50560393)
+- 动画
+    - [Android动画、补间，帧，Activity跳转，ListView条目 , 属性动画](https://blog.csdn.net/itCatface/article/details/50560393)
 
-## 构建
-### [AS打包、获取SHA1和MD5值](https://blog.csdn.net/itCatface/article/details/50015701)
-### [gradle命令行编译](https://blog.csdn.net/itCatface/article/details/77894410)
+- 构建
+    - [AS打包、获取SHA1和MD5值](https://blog.csdn.net/itCatface/article/details/50015701)
+    - [gradle命令行编译](https://blog.csdn.net/itCatface/article/details/77894410)
 
-## 调试
-### [设备无线调试](https://blog.csdn.net/itCatface/article/details/90481518)
+- 调试
+    - [设备无线调试](https://blog.csdn.net/itCatface/article/details/90481518)
 
-## jni
-### [使用AS的NDK工具开发JNI](https://blog.csdn.net/itCatface/article/details/73294237)
-## 性能优化
-## 新特性
-## jetpack
-## 开源框架
-### [网络-Retrofit入门[简单使用方式介绍]](https://blog.csdn.net/itCatface/article/details/78903304)
-### [图片-Picasso源码浅析](https://blog.csdn.net/itCatface/article/details/85062566)
-## 混合开发
+- jni
+    - [使用AS的NDK工具开发JNI](https://blog.csdn.net/itCatface/article/details/73294237)
+- 性能优化
+- 新特性
+- jetpack
+- 开源框架
+    - [网络-Retrofit入门[简单使用方式介绍]](https://blog.csdn.net/itCatface/article/details/78903304)
+    - [图片-Picasso源码浅析](https://blog.csdn.net/itCatface/article/details/85062566)
+- 混合开发
 # java初阶
