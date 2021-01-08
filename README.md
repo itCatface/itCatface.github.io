@@ -18,13 +18,19 @@
     </html>
     ```
  
-    > 包含顶部导航、搜索、html页面content、底部sns、copyright
+    > 包含顶部导航搜索、html页面content、底部sns、copyright
 
 - keynote.html
+
+    > 包含顶部导航搜索iframe幻灯片(没有的话是大片灰色背景图)、html页面content、底部featured tags、友情链接、底部sns、copyright
+
 - page.html
+
+    > 包含顶部导航搜索博文标题及标题背景图、html页面content、右边featured tags、关于catalog目录、sns、友情链接、底部友情链接、copyright
+
 - post.html
 
-    > 包含顶部导航、搜索、博文标题副标题发布时间及标题背景图、html页面content、右边catalog目录、底部畅言评论热门话题、featured tags、友情链接、底部sns、copyright
+    > 包含顶部导航搜索博文标题副标题发布时间及标题背景图、html页面content、右边catalog目录、底部畅言评论热门话题、featured tags、友情链接、底部sns、copyright
 
 
 
