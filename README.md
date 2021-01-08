@@ -1,3 +1,36 @@
+---
+# 说明
+
+## _layouts目录
+
+- default.html
+    
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+    {% include head.html %}
+    <body>
+    {% include nav.html %}
+    {% include search.html %}
+    {{ content }}
+    {% include footer.html %}
+    </body>
+    </html>
+    ```
+ 
+    > 包含顶部导航、搜索、html页面content、底部sns、copyright
+
+- keynote.html
+- page.html
+- post.html
+
+    > 包含顶部导航、搜索、博文标题副标题发布时间及标题背景图、html页面content、右边catalog目录、底部畅言评论热门话题、featured tags、友情链接、底部sns、copyright
+
+
+
+
+
+---
 [Hux Blog](https://huangxuan.me)
 ================================
 
