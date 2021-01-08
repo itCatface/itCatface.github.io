@@ -57,8 +57,11 @@ kramdown:
       start_line: 1
 
 
-# 是否开启背景音乐
+# 是否开启背景音乐(外链) todo 手机浏览器无法播放音乐
 is_open_background_music: false
+#  {% if site.is_open_background_music %}
+#  <audio id="player" controls autoplay src="http://m10.music.126.net/20210106174558/82bddc20e92aeea40b64c9fb976ba868/ymusic/44b9/6a7b/e64a/d6dc28872aa42eaf1e7cf2eb3f07cab4.mp3"></audio>
+#  {% endif %}
 
 
 # 是否开启畅言评论功能
@@ -75,11 +78,9 @@ sidebar-about-description: "全体起立<br>sit down"
 sidebar-avatar: /img/favicon.ico      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
-
 # 主页右边部分归档归类
 featured-tags: true
 featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
-
 
 
 # Progressive Web Apps
@@ -87,9 +88,11 @@ chrome-tab-theme-color: "#000000"
 service-worker: true
 
 
-
 # MathJax rendering for layout:page (e.g. post preview)
 page-mathjax: true
+#  {% if page.mathjax %}
+#  {% include mathjax_support.html %}
+#  {% endif %}
 
 
 # 主页下方的友情链接

@@ -26,7 +26,7 @@
 
 - page.html
 
-    > 包含顶部导航搜索博文标题及标题背景图、html页面content、右边featured tags、关于catalog目录、sns、友情链接、底部友情链接、copyright
+    > 包含顶部导航搜索博文标题及标题背景图、html页面content、右边featured tags、关于catalog目录、sns、友情链接、底部sns、copyright
 
 - post.html
 

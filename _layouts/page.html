@@ -8,102 +8,27 @@ layout: default
 <!-- Main Content -->
 <div class="container">
     <div class="row">
-        {% if site.sidebar == false %}
-            <!-- NO SIDEBAR -->
-            <!-- PostList Container -->
+        {% if site.sidebar == false %}  <!-- 不显示右边sidebar -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 postlist-container">
                 {{ content }}
             </div>
-            <!-- Sidebar Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                <!-- Featured Tags -->
-                {% include featured-tags.html %}
-
-                <!-- Friends Blog -->
-                {% include friends.html %}
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 sidebar-container">
+                {% include featured-tags.html %}    <!-- 底部tags -->
+                {% include friends.html %}          <!-- 底部友链 -->
             </div>
-            {% else %}
 
-            <!-- USE SIDEBAR -->
-            <!-- PostList Container -->
-            <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                postlist-container
-            ">
+        {% else %}
+            <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 postlist-container">
                 {{ content }}
             </div>
-            <!-- Sidebar Container -->
-            <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
-                <!-- Featured Tags -->
-                {% include featured-tags.html %}
 
-                {% if page.title='计划' %}
-                <script>alert("title==计划")</script>
-                {% endif %}
-
-
-                {% if page.title!='--计划' %}
-                <script>alert("title==--计划")</script>
-                {% endif %}
-
-                <!-- Short About -->
-                {% include short-about.html %}
-
-                <!-- Friends Blog -->
-                {% include friends.html %}
-
-                <!-- music -->
-                {% if site.is_open_background_music %}
-                <audio id="player" controls autoplay src="http://m10.music.126.net/20210106174558/82bddc20e92aeea40b64c9fb976ba868/ymusic/44b9/6a7b/e64a/d6dc28872aa42eaf1e7cf2eb3f07cab4.mp3"></audio>
-                {% endif %}
-            </div>
+            {% if page.title!='计划' %}   <!-- 计划页不显示右边栏 -->
+                <div class="col-lg-3 col-lg-offset-0 col-md-3 col-md-offset-0 col-sm-12 col-xs-12 sidebar-container">
+                    {% include featured-tags.html %}    <!-- 右边tags -->
+                    {% include short-about.html %}      <!-- 右边简介 -->
+                    {% include friends.html %}          <!-- 右边友链 -->
+                </div>
+            {% endif %}
         {% endif %}
     </div>
 </div>
-
-<!--<script>
-    function audioAutoPlay() {
-        alert("开始播放")
-        document.getElementById('player').play();
-    }
-
-    audioAutoPlay();
-</script>-->
-
-{% if site.page-mathjax %}
-<!-- Add support for Mathjax by Voleking-->
-<!-- If you want to see formulars well in post preview, Maybe you should add this.-->
-<!-- However, most of the time formulars may not appear in the post preview, you can delete it.-->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    TeX: {
-      equationNumbers: {
-        autoNumber: "AMS"
-      }
-    },
-    tex2jax: {
-      inlineMath: [ ['$','$'] ],
-      displayMath: [ ['$$','$$'] ],
-      processEscapes: true,
-    }
-  });
-
-
-</script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-{% endif %}
