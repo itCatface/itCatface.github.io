@@ -16,6 +16,10 @@ tags:
 
 1. [示例1/1](http://catface.cc/resume/demo_html.html)
 
+# css入门示例
+
+1. [示例1/1](http://catface.cc/resume/demo_css.html)
+
 # JavaScript入门示例
 
 1. [示例1/1](http://catface.cc/resume/demo_js.html)

@@ -13,6 +13,7 @@ future: true
 
 # SNS settings
 RSS: true
+wechat_username: catface
 weibo_username: catface
 zhihu_username: catface
 github_username: catface
