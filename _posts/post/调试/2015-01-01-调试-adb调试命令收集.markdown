@@ -37,8 +37,104 @@ tags:
 - 查看当前显示的app包名及activity包类路径
 
         adb shell dumpsys window windows | findstr "Current"
+        
+- 列出设备安装的所有app
 
-# 与设备相关
+        adb shell pm list package
+
+- 查看某app所有信息
+
+        adb shell dumpsys package 包名
+        // 可以使用管道符号grep[linux]/findstr[win]过滤信息，如下查看版本号和版本名  
+        adb shell dumpsys package  包名 | findstr versionCode  
+        adb shell dumpsys package  包名 | findstr versionName
+
+- 查看设备当前heap使用情况
+
+        // 可以在进入某activity前和退出后分别打印对比查看在该activity堆的使用情况，分析有无内存泄漏
+        adb shell dumpsys meminfo 包名 -d
+
+# 与设备操作相关
+
+- 杀adb服务
+
+        adb kill-server
+
+- 杀adb进程
+
+        taskkill /f /im adb.exe
+
+- 安装apk
+
+        // 普通安装
+        adb install apk文件绝对路径
+        // 安装debug版本的apk
+        adb install -t apk文件绝对路径
+
+- 卸载apk
+
+        adb uninstall 包名
+
+- 传文件至设备
+
+        adb push xxx.txt sdcard/temp_dir
+
+- 从设备拉取文件
+
+        adb pull sdcard/temp_dir/xxx.txt d:/catfcae
+
+- 开启wifi
+
+        adb shell svc wifi enable
+
+- 关闭wifi
+
+        adb shell svc wifi disable
+
+- 打开系统设置页
+
+        // 方式一
+        adb shell am start -n com.android.settings/.Settings
+        // 方式二
+        adb shell am start -n com.android.settings/.SubSettings
+
+- 点击返回按钮
+
+        // 方式一
+        adb shell input keyevent KEYCODE_BACK
+        // 方式二
+        adb shell input keyevent 4
+        
+- adb devices列出设备
+
+        C:\Users\catface>adb devices
+        List of devices attached
+        0123456789ABCDEF        device
+        311904300101401 device
+
+- 对指定设备进行操作
+
+        adb -s 311904300101401 shell
+
+- 当同时连模拟器和真实设备时
+
+        // 操作模拟器
+        adb -e
+        // 操作真实设备
+        adb -d
+        
+- 安装&设置输入法
+
+        // 安装apk
+        adb install -t 输入法.apk
+        // 进入系统设置页[如果打不开可以试试先adb shell再am start]
+        adb shell am start -n com.android.settings/.Settings
+        // 查看设备已安装输入法列表
+        adb shell ime list
+        // 根据上条命令结果选择并设置默认输入法
+        adb shell ime set com.iflytek.inputmethod/.FlyIME
+    
+# 与设备信息相关
 
 - 查看设备型号
 
@@ -120,6 +216,10 @@ tags:
 - 获取sdcard存储信息
 
         adb shell df /sdcard
+        
+- 查看heap size伐值
+
+        adb shell getprop | findstr dalvik.vm.heapgrowthlimit
 
 # 与屏幕相关
 
@@ -139,6 +239,13 @@ tags:
     
         adb shell content insert --uri content://settings/system --bind name:s:user_rotation --bind value:i:1 
 
-- 截屏
-    
+- 截屏&录屏
+
+        // 截屏
         adb shell screencap -p /sdcard/xxx.png
+        // 录屏-普通录制
+        adb shell screenrecord /sdcard/xxx.mp4
+        // 录屏-指定时长(如不指定默认录制180s)
+        adb shell screenrecord --time-limit 10 /sdcard/xxx.mp4
+        // 录屏-指定分辨率
+        adb shell screenrecord --size 1280*720 /sdcard/xxx.mp4
