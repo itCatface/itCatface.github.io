@@ -1,13 +1,9 @@
 ---
 layout:       post
-title:        "android目录"
+title:        "activity简介"
 subtitle:     ""
 date:         2015-01-01 12:00:00
-author:       "catface"
-header-style: "text"
--header-img:   "img/color-android-robot-green.png"
--header-mask:  0.3
--edit status:  ed
+header-img:   "img/color-android-robot-green.png"
 tags:
     - android
 ---
