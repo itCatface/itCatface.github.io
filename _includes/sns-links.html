@@ -1,115 +1,31 @@
+<!-- 友链布局-短简介里不需居中 -->
 {% comment %}
-    @param {Boolean} center
+@param {Boolean} center
 {% endcomment %}
-
-<style type="text/css">
-  #show-wechat-qr-code {
-    transition: opacity 0.7s ease-in-out;;
-    -moz-transition: opacity 0.7s ease-in-out;; /* Firefox 4 */
-    -webkit-transition: opacity 0.7s ease-in-out;; /* Safari and Chrome */
-    -o-transition: opacity 0.7s ease-in-out;; /* Opera */
-  }
-
-  #show-wechat-qr-code:hover, technetcal_hover {
-    opacity: 50.0%;
-  }
-</style>
 
 {% if include.center %}
 <ul class="list-inline text-center">
 {% else %}
 <ul class="list-inline">
 {% endif %}
-
-  {% if site.RSS %}
-  <li>
-    <a href="{{ "/feed.xml" | prepend: site.baseurl }}">
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
-      </span>
-    </a>
-  </li>
-  {% endif %}
-
-  {% if site.wechat_username %}
-  <li>
-    <a id="show-wechat-qr-code" ><img src="../img/wechat_qr_code.jpg" rel="nofollow"/></a>
-    <span class="fa-stack fa-lg" rel="nofollow">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-wechat fa-stack-1x fa-spin fa-inverse"></i>
-      </span>
-  </li>
-  {% endif %}
-
-  {% if site.steam_username %}
-  <li>
-    <a href="https://steamcommunity.com/profiles/76561199047947121/home">
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-steam fa-stack-1x fa-inverse"></i>
-      </span>
-    </a>
-  </li>
-  {% endif %}
-  {% if site.twitter_username %}
-  <li>
-    <a href="https://twitter.com/{{ site.twitter_username }}">
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-      </span>
-    </a>
-  </li>
-  {% endif %}
-  {% if site.zhihu_username %}
-  <li>
-    <a target="_blank" href="https://www.zhihu.com/people/{{ site.zhihu_username }}">
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-stack-1x fa-inverse">知</i>
-      </span>
-    </a>
-  </li>
-  {% endif %}
-  {% if site.weibo_username %}
-  <li>
-    <a target="_blank" href="http://weibo.com/{{ site.weibo_username }}">
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-      </span>
-    </a>
-  </li>
-  {% endif %}
-  {% if site.facebook_username %}
-  <li>
-    <a target="_blank" href="https://www.facebook.com/{{ site.facebook_username }}">
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-      </span>
-    </a>
-  </li>
-  {% endif %}
-  {% if site.github_username %}
-  <li>
-    <a target="_blank" href="https://github.com/{{ site.github_username }}">
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-      </span>
-    </a>
-  </li>
-  {% endif %}
-  {% if site.linkedin_username %}
-  <li>
-    <a target="_blank" href="https://www.linkedin.com/in/{{ site.linkedin_username }}">
-      <span class="fa-stack fa-lg">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-linkedin fa-stack-1x fa-spin fa-inverse"></i>
-      </span>
-    </a>
-  </li>
-  {% endif %}
+    {% if site.steam_username %}
+    <li>
+        <a href="https://steamcommunity.com/profiles/76561199047947121/home">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-steam fa-stack-1x fa-spin fa-inverse"></i>
+          </span>
+        </a>
+    </li>
+    {% endif %}
+    {% if site.twitter_username %}
+    <li>
+        <a href="https://twitter.com/{{ site.twitter_username }}">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+    </li>
+    {% endif %}
 </ul>
