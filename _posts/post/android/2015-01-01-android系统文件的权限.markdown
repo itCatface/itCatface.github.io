@@ -1,0 +1,43 @@
+---
+layout:       post
+title:        "android系统文件的权限"
+subtitle:     ""
+date:         2015-01-01 12:00:00
+header-img:   "img/color-android-robot-green.png"
+tags:
+    - android
+---
+
+# Android 系统的文件权限
+
+1. **先看下图**
+		![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTYwNjA2MTEyODU0NDkw?x-oss-process=image/format,png)
+
+2. **分析：`d rwx rw- r--`(1 - 3 - 3 - 3 总共 10 位)**
+
+	1. **第 1 位(文件类型)：d(目录)，-(文件)，l(链接)**
+	
+	2. **第 2 - 4 位为第一组(该文件所有者user)：拥有读、写、执行权限**
+
+	3. **第 5 - 7 位为第二组(该文件所在群组group)：拥有读、写权限**
+	
+	4. **第 8 - 10 位位第三组(其他用户other)：仅拥有读权限**
+
+# 修改文件权限
+
+- adb shell
+
+- chmod 600 ××× 
+只有所有者有读和写的权限
+
+- chmod 644 ××× 
+  所有者有读和写的权限，组用户只有读的权限
+
+- chmod 700 ××× 
+  只有所有者有读和写以及执行的权限
+
+- chmod 666 ××× 
+  每个人都有读和写的权限
+
+- chmod 777 ××× 
+  每个人都有读和写以及执行的权限

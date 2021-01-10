@@ -1,0 +1,132 @@
+---
+layout:       post
+title:        "Context,  What Context?"
+subtitle:     ""
+date:         2015-01-01 12:00:00
+header-img:   "img/color-android-robot-green.png"
+tags:
+    - android
+---
+
+# <a target="_blank" href="https://possiblemobile.com/2013/06/context/">原文在此</a>
+
+# 前言
+
+&emsp;&emsp;Context可能是Android应用程序中最常用的元素...同时也最容易被误用
+
+&emsp;&emsp;Context对象非常普遍和常用，它可能会发生出人预料的情形. 加载资源、启动Activity、获得系统服务、获取内部文件路径、创建View等等都需要Context的支持才能完成. 接下来我会为你提供一些和Context工作原理相关的说明，希望能帮助你更有效的开发
+
+# Context类型
+
+&emsp;&emsp;Context实例的创建方式不是唯一的. 根据Android组件的不同，创建出的Context实例是有细微区别的
+
+## Application
+
+&emsp;&emsp;Context在APP中以单例模式存在. 可以通过不同的方式得到Context实例，如在Activity或Service中的`getApplication()`、或者从其他继承了Context的任何子类调用`getApplicationContext()`获取. 无论从何处以何种方式得到，Context在一个APP的所有进程中是只有唯一实例
+
+## Activity/Service
+
+&emsp;&emsp;继承自ContextWrapper并实现了相同的API，代理了Context实例的所有内部隐藏的回调方法. 当Framework层创建新的Activity或Service实例时，同样会创建ContentImpl实例来完成其他组件内部的重型任务. 任何Activity和Service以及他们之间的通信都基于在每个进程中只有唯一实例的Context对象
+
+## BroadcastReceiver
+
+&emsp;&emsp;本身没有Context实例，但是Framework层会在在每次广播事件发生时的onReceive()方法中传递Context实例进来. 该实例是受限制的，有两个主要功能(**`registerReceiver()`、`bindService()`**)被阉割了. 这两个功能不能从现有的`BroadcastReceiver.onReceive()`调用. 每次接受者处理广播，Context会传递进来一个新的实例
+
+## ContentProvider 
+
+&emsp;&emsp;本身没有Context实例，不过可以通过`getContext()`获取. 如果ContentProvider运行在本应用程序内，则会获取Application单例. 如果该ContentProvider与调用者不在同一进程，则会创建新的实例代表provider所运行的包
+
+# 保存引用
+
+&emsp;&emsp;首要解决的问题是Context的生命周期可能会比其所在的对象的生命周期要长. 例如，创建一个自定义单例，其需要Context对象加载资源或者获取ContentProvider，并保存引用的Activity和Service的单例
+
+## 非良好单例
+
+```java
+public class CustomManager {
+    private static CustomManager sInstance;
+ 
+    public static CustomManager getInstance(Context context) {
+        if (sInstance == null) {
+            sInstance = new CustomManager(context);
+        }
+ 
+        return sInstance;
+    }
+ 
+    private Context mContext;
+ 
+    private CustomManager(Context context) {
+        mContext = context;
+    }
+}
+```
+
+&emsp;&emsp;这里的问题在于，我们不知道这个Context是从哪里来的，并且如果保存一个最终指向的是Activity或者Servece的引用是并不安全的. 这是一个问题，是因为一个单例在类的内部维持一个唯一的静态引用，这意味着我们的对象，以及所有其他它所引用的对象，将永远不能被垃圾回收. 假如这个Context是一个Activity，我们将保存与这个Activity相关的所有的view以及其他大的对象，从而造成内存泄漏
+
+## 改进
+&emsp;&emsp;为了解决这个问题，我们修改单例永远只是保存Application Context
+
+```java
+public class CustomManager {
+    private static CustomManager sInstance;
+ 
+    public static CustomManager getInstance(Context context) {
+        if (sInstance == null) {
+            //Always pass in the Application Context
+            sInstance = new CustomManager(context.getApplicationContext());
+        }
+ 
+        return sInstance;
+    }
+ 
+    private Context mContext;
+ 
+    private CustomManager(Context context) {
+        mContext = context;
+    }
+}
+```
+
+&emsp;&emsp;现在这个例子中，我们的Context来自哪里都没有关系，因为我们这里保存引用是安全的. Application Context 本身就是一个单例，所以我们再创建另外一个static引用，不会造成任何内存泄漏. 另外一个很好的例子是，在后台线程或者一个等待的Handler中保存Context的引用，也可以使用这样的方法
+
+&emsp;&emsp;为什么我们不能总是引用Application Context呢？正如前面说的，引用Application Context永远不用担心内存泄漏的问题. 问题的答案，就像我在开始的介绍中说的，是因为不同context并不是等价的
+
+# Context功能
+
+## Context能什么取决于该Context创建于哪里
+
+|-|Application|	Activity	|Service|	ContentProvider	|BroadcastReceiver|
+|-|:-:|:-:|:-:|:-:|:-:|
+|**显示Dialog**|	NO|	YES|	NO|	NO	|NO|
+|**启动Activity**|	NO1|	YES	|NO1|	NO1	|NO1|
+|**Layout Inflation**|	NO2|	YES|	NO2|	NO2|	NO2|
+|**启动Service**|	YES|	YES	|YES	|YES|	YES|
+|**绑定到Service**	|YES|	YES	|YES	|YES|	NO|
+|**发送Broadcast**	|YES	|YES	|YES|	YES|	YES|
+|**注册BroadcastReceiver**|	YES	|YES	|YES	|YES|	NO3|
+|**加载Resource**	|YES	|YES	|YES	|YES|	YES|
+
+> 说明
+
+1. NO1 表示Application context的确可以开始一个Activity，但是它需要创建一个新的task. 这可能会满足一些特定的需求，但是在你的应用中会创建一个不标准的回退栈(back stack)，这通常是不推荐的或者不是是好的实践
+
+2. NO2 表示这是非法的，但是这个填充(inflation)的确可以完成，但是是使用所运行的系统默认的主题(theme)，而不是你app定义的主题
+
+3. NO3 在Android4.2以上，如果Receiver是null的话(这是用来获取一个sticky broadcast的当前 值的)，这是允许的
+
+## 用户界面UI
+
+&emsp;&emsp;从前面的表格中可以看到，application context有很多功能并不是合适去做，而这些功能都与UI相关. 实际上，只有Activity能够处理所有与UI相关的任务. 其他类别的Context实例功能都差不多
+
+&emsp;&emsp;幸运的是，在应用中这三种操作基本上都不需要在Activity范围之外进行，这很可能是android框架故意这么设计的. 尝试显示一个使用Aplication Context创建的Dialog，或者使用Application Context开始一个Activity，系统会抛出一个异常，让你的Application崩溃，非常强的告诉你某些地方出了问题
+
+&emsp;&emsp;一个并不明显的问题是填充布局(inflating layout). 如果你已经读过了我(原文作者)的上一篇文章Layout inflation，你就已经知道它可能是一个非常神秘过程，伴随一些隐藏的行为. 使用正确的context关系到其中的一个行为。当你使用Application context来inflate一个布局的时候，框架并不会报错，并返回一个使用系统默认的主题创建一个完美的view给你，而没有考虑你的Applicaiton自定义的theme和style. 这是因为Acitivity是唯一的绑定了在manifast文件种定义主题的Context. 其他的Context实例将会使用系统默认的主题来inflater你的view. 导致显示的结果并不是你所希望的
+
+# 规则
+
+&emsp;&emsp;可能有些读者已经得出两个规则互相矛盾的结论. 可能有些情况下，在某些Application的设计中，我们可能既必须长期保存一个的引用，并且为了完成与UI相关的工作又必须保存一个Activity. 如果出现这种情况，我将会强烈建议你重新考虑你的设计，它将是一个很好的“反框架”教材
+
+# 经验
+
+&emsp;&emsp;通常，使用组件内能够直接获取的Context. 只要该引用没有超过所在组件的生命周期，便可以安全的保存该引用. 一旦超过了Activity或者Service的生命周期范围，就应该将Context引用转换为为Application Context
