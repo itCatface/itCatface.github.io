@@ -1,0 +1,138 @@
+---
+temp-layout:       post
+temp-title:        "Android一些传感器的简介"
+temp-subtitle:     ""
+temp-date:         2015-01-01 12:00:00
+htemp-eader-img:   "img/color-android-robot-green.png"
+temp-tags:
+    - android
+---
+
+<font size=5>**写在前面**
+
+>Android中各个传感器的应用都是一个模子.后面请看具体实现情况.
+
+1. 拿到`SensorManager`(传感器管理器).
+2. 获取相应传感器`getDefaultSensor()`.
+3. 监听传感器感应到的变化`registerListener()`.
+
+<hr>
+
+<font size=5>**光线传感器**
+
+- 代码
+    ```java
+    public class LightActivity extends Activity {
+    
+        @Bind(R.id.tv) TextView tv;
+    
+        private SensorManager sm;
+    
+        @Override protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_light);
+            ButterKnife.bind(this);
+        }
+    
+        @OnClick(R.id.bt_openLight) public void openLight() {
+            sm = (SensorManager) getSystemService(Context.SENSOR_SERVICE); // 传感器管理器
+            Sensor sensor = sm.getDefaultSensor(Sensor.TYPE_LIGHT); // 光线传感器
+            sm.registerListener(sel, sensor, SensorManager.SENSOR_DELAY_NORMAL); // 注册监听
+    
+        }
+    
+        @Override protected void onDestroy() {
+            super.onDestroy();
+            if (sm != null) {
+                sm.unregisterListener(sel);
+            }
+            sel = null; // 手动销毁实例
+            sm = null; // 手动销毁实例
+        }
+    
+        private SensorEventListener sel = new SensorEventListener() {
+            @Override public void onSensorChanged(SensorEvent event) {
+                float value = event.values[0]; // 监听感应变化的值
+                tv.setText("当前亮度：" + value + "lx");
+            }
+    
+            @Override public void onAccuracyChanged(Sensor sensor, int accuracy) { }
+        };
+    }
+    ```
+- 效果图：值会随光线强度动态变化.
+![这里写图片描述](https://img-blog.csdnimg.cn/img_convert/fcb7f9c2dc01246db092d8b9e3b86bae.png)
+
+<hr>
+
+<font size=5>**加速度传感器**
+
+>是不是想到了微信摇一摇，加速度超过某个值就会咔咔，叮铃铃.
+
+- 代码
+
+    ```java
+    public class ShakeActivity extends Activity {
+    
+        @Bind(R.id.tv_accX) TextView tvAccX;
+        @Bind(R.id.tv_accY) TextView tvAccY;
+        @Bind(R.id.tv_accZ) TextView tvAccZ;
+    
+        private SensorManager sm;
+    
+        private Vibrator vibrator; // 震动
+    
+        @Override protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_shake);
+            ButterKnife.bind(this);
+    
+        }
+    
+        @OnClick(R.id.bt_shake) public void shake() {
+            vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            sm = (SensorManager) getSystemService(Context.SENSOR_SERVICE); // 传感器管理器
+            Sensor sensor = sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER); // 加速度传感器
+            sm.registerListener(sel, sensor, SensorManager.SENSOR_DELAY_NORMAL); // 注册监听
+        }
+    
+        @Override protected void onDestroy() {
+            super.onDestroy();
+            if (sm != null) {
+                sm.unregisterListener(sel);
+            }
+            sel = null;
+            sm = null;
+        }
+    
+        private SensorEventListener sel = new SensorEventListener() {
+            @Override public void onSensorChanged(SensorEvent event) {
+                // 加速度可以为负值，在此取绝对值
+                final float xacc = Math.abs(event.values[0]);
+                final float yacc = Math.abs(event.values[1]);
+                final float zacc = Math.abs(event.values[2]);
+    
+                runOnUiThread(new Runnable() {
+                    @Override public void run() {
+                        tvAccX.setText(xacc + ":::X轴加速度");
+                        tvAccY.setText(yacc + ":::Y轴加速度");
+                        tvAccZ.setText(zacc + ":::Z轴加速度");
+                    }
+                });
+    
+                if (xacc > 19 || yacc > 19 || zacc > 19) {
+                    Toast.makeText(MyApplication.getCtx(), "摇一摇了哦", Toast.LENGTH_SHORT).show();
+                    // arg0：停-震;arg1：-1表不重复,非-1表从parent指定下标开始重复
+                    vibrator.vibrate(new long[] {500, 200, 500, 200, 500, 200}, -1);
+                }
+            }
+    
+            @Override public void onAccuracyChanged(Sensor sensor, int accuracy) {
+            }
+        };
+    }
+    ```
+- 说明
+	- 本例加入了Vibrator振动器，关于Vibrator的使用可参照本例，具体震动节奏后文会推出插补器(说白了就是简单数学公式)详细说明.
+- 效果图
+![这里写图片描述](https://img-blog.csdnimg.cn/img_convert/213ef28c868a22c8181efb59db90c292.png)

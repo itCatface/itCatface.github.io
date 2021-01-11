@@ -1,0 +1,200 @@
+---
+temp-layout:       post
+temp-title:        "Android单击、多击事件、定时器"
+temp-subtitle:     ""
+temp-date:         2015-01-01 12:00:00
+temp-header-img:   "img/color-android-robot-green.png"
+temp-tags:
+    - android
+---
+
+# PART A：单击事件
+
+<font size=4>**一、**
+
+ 1. **当前类实现View.onClickListener接口，覆写接口下的onClick()方法**
+
+ 2. **在onCreate()中对指定控件设置点击监听并传入参数this**
+
+ 3. **在onCLick()中使用switch-case语句来对相应控件实现点击事件的具体逻辑**
+
+	```java
+	public class ClickActivity extends AppCompatActivity implements View.OnClickListener {
+	
+	    @Override
+	    protected void onCreate(Bundle savedInstanceState) {
+	        super.onCreate(savedInstanceState);
+	        setContentView(R.layout.activity_click);
+	
+	        findViewById(R.id.bt_click_event).setOnClickListener(this);
+	    }
+	
+	    @Override
+	    public void onClick(View v) {
+	        switch (v.getId()) {
+	            case R.id.bt_click_event:
+	                Toast.makeText(this, "点击事件的实现", Toast.LENGTH_SHORT).show();
+	                break;
+	        }
+	    }
+	}
+	```
+
+<font size=4>**二、**
+
+ 4. **在onCreate()中对控件设置点击监听并传入一个View.onClickListener实例**
+ PS(本篇为方便使用匿名内部类，也可以自定义类继承onClickListener，覆写onClick()方法)
+
+ 5. **在onCLick()中使用switch-case语句来对相应控件实现点击事件的具体逻辑**
+
+	```java
+	public class ClickActivity extends AppCompatActivity {
+	
+	    @Override
+	    protected void onCreate(Bundle savedInstanceState) {
+	        super.onCreate(savedInstanceState);
+	        setContentView(R.layout.activity_click);
+	
+	        findViewById(R.id.bt_click_event).setOnClickListener(new View.OnClickListener() {
+	            @Override
+	            public void onClick(View v) {
+	                switch (v.getId()) {
+	                    case R.id.bt_click_event:
+	                        Toast.makeText(getApplicationContext(), "点击事件的实现", Toast.LENGTH_SHORT).show();
+	                        break;
+	                }
+	            }
+	        });
+	    }
+	}
+	```
+
+<font size=4>**三、**
+
+1.**在布局文件中对控件设置onClick属性**`android:onClick="clickEvent"`
+
+```java
+<Button
+        android:id="@+id/bt_click_event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="clickEvent"
+        android:text="点击事件"
+        android:textSize="22sp" />
+```
+
+2.**在Activity中实现public void clickEvent (View v)方法**
+
+- **注意：必须声明为public，返回类型固定void，必须传入View实例(组件触发对象)**
+
+	```java
+	public class ClickActivity extends AppCompatActivity {
+	
+	    @Override
+	    protected void onCreate(Bundle savedInstanceState) {
+	        super.onCreate(savedInstanceState);
+	        setContentView(R.layout.activity_click);
+	    }
+	
+	    public void clickEvent(View v) {
+	        Toast.makeText(this, "点击事件的实现", Toast.LENGTH_SHORT).show();
+	    }
+	}
+	```
+	
+<font size=4>**四、利用IOC注解(本篇使用ButterKnife)**
+```java
+public class ClickActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_click);
+        ButterKnife.bind(this);
+    }
+
+    // 使用@onClick注解(可以省略方法声明public、传入的View组件对象)
+    @OnClick(R.id.bt_click_event) 
+    void clickEvent() {
+        Toast.makeText(this, "点击事件的实现", Toast.LENGTH_SHORT).show();
+    }
+}
+```
+
+# PART B：多击事件
+
+- <s>普通双击事件(不建议使用)</s>
+	
+	```java
+	long firstClickTime = 0;
+	
+	public void clicks(int intervalTime){ // 最长间隔时间			
+		if(firstClickTime > 0){
+			if(System.currentTimeMillis() - firstClickTime < intervalTime){
+				System.out.println("双击事件");
+				firstClickTime = 0; // 将第一次点击时间置为0
+			}
+		}
+			
+		firstClickTime = System.currentTimeMillis();
+	}
+	```
+
+- **标准双击、多击事件(推荐使用)**
+
+	```java
+	/**
+     * 在intervalTime(ms)时间内点击了clickTimes次，就执行TODO逻辑
+     */
+	public void clicks(long intervalTime, int clickTimes) {
+		long[] mArrs = new long[clickTimes];
+		
+		//src    源数组
+		//srcPos 源数组的开始拷贝位置
+		//dst    目标数组
+		//dstPos 目标数组的开始拷贝位置
+		//length 数组的拷贝长度
+		System.arraycopy(mArrs, 1, mArrs, 0, mArrs.length - 1); //拷贝数组
+		mArrs[mArrs.length - 1] = SystemClock.uptimeMillis();
+		if (mArrs[0] >= (SystemClock.uptimeMillis() - intervalTime)) {
+			Log.d("clickEvent", "clickTimes次点击事件已发生，开始执行TODO");
+			// TODO
+		}
+	}
+	```
+
+# PART C：定时器
+
+<center>
+![这里写图片描述](https://img-blog.csdnimg.cn/img_convert/7f2543eeee9f90fcd5ac748ade27dfd7.png)
+
+1. **直接分析构造方法，基本就直接会用了**
+
+	- **schedule 与 scheduleAtFixedRate 的区别**
+		
+		- **schedule：**后续任务的执行起点时间会在上一任务执行完成后开始执行。比如第一个任务从第1秒后开始执行3秒，但3秒后任务为完成，拖到第5秒才完成，那第二个任务就会在第5秒开始执行
+
+		- **scheduleAtFixedRate ：**后续任务会按照参数写好的时间来计算自己的开始执行时间。比如第一个任务从第1秒后开始执行3秒，但3秒后任务为完成，拖到第5秒才完成，那第二个任务会直接在第4秒开始执行，会导致并发
+
+	- **典型：schedule(TimerTask task, long delay, long period)**
+
+		- **task：**计划表中要执行的任务
+
+		- **delay：**多少ms后开始任务
+
+		- **period：**每多少秒执行一次任务
+
+1. **简单案例：在1秒后开始任务，每3秒就执行一次TODO**
+
+	```java
+	new Timer().schedule(new TimerTask() {
+	    @Override
+	    public void run() {
+	        // TODO
+	    }
+	}, 1000, 3000);
+	```
+
+
+> 其中TimerTask包含的方法如下
+![这里写图片描述](https://img-blog.csdnimg.cn/img_convert/91dc26b452c5ebcd4120a37342bbc776.png)

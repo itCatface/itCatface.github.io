@@ -1,0 +1,248 @@
+---
+temp-layout:       post
+temp-title:        "关于网络_WebView用法简介"
+temp-subtitle:     ""
+temp-date:         2015-01-01 12:00:00
+temp-header-img:   "img/color-android-robot-green.png"
+temp-tags:
+    - android
+---
+
+**<font size=5>一、WebView简单介绍**
+
+**WebView控件可以使我们自己的app嵌入一个浏览器，并渲染各种各样的网页**
+<hr>
+
+**<font size=5>二、WebView使用方法**
+
+**1.因为要访问网络，所以必须先添加联网权限.否则<font color=re>出现错误：<font color=red>Web page not available</font>**
+```java
+<uses-permission android:name="android.permission.INTERNET" />
+```
+<br>
+
+**2.添加WebView组件的两种方式(Activity中创建、布局文件中声明)**
+
+```	java
+WebView wv = new WebView(this); // Activity中创建组件实例
+```
+```xml
+<!-- 布局文件中声明组件 -->
+<WebView
+	android:id="@+id/wv"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+```
+<br>
+
+**3.拿着组件实例，我们就可以加载网页啦(网络页面、本地页面)**
+```java
+wv.loadUrl("http://quora.com"); // 加载网络页面
+```
+```java
+wv.loadUrl("file:///android_asset/index.html"); // 加载assets目录下的本地页面
+```
+<br>
+
+**4.WebView的常用功能集锦(排名不分先后，按需CV)**
+
+### 4.0、加载页面
+
+- **加载指定页面(网络、本地)**
+	```java
+	LoadUrl() 
+	```
+- **加载指定数据**
+	```java
+	wv.loadData()
+	```
+- **使用BaseUrl加载指定页面**
+	```java
+	wv.loadDataWithBaseURL() 
+	```
+- **重新加载页面所有资源**
+	```java
+	wv.reload();
+	```
+### 4.1、网页中需要输入账号密码时获取手势焦点
+```java
+wv.requestFocusFromTouch();
+```
+### 4.2、通过组件本身打开超链接.不调用第三方浏览器
+**<font size=4>WebViewClient基本使用**：提供网页加载各个阶段的通知
+```java
+wv.setWebViewClient(new WebViewClient()); // 方法一
+```
+```java
+ww.setWebViewClient(new WebViewClient() { // 方法二
+	public boolean shouldOverrideUrlLoading(WebView view, String url) {
+		view.loadUrl(url);
+		return true;
+	}
+}); 
+```
+**<font size=4>WebViewClient详解**
+
+- `public boolean shouldOverrideUrlLoading(WebView view, String url)`
+	>告知我们应用程序是否需要接管控制网页加载
+	>返回true->主程序接管网页加载，false->WebView自己处理.
+	>
+	><font color=red>注：1.POST请求方式不会回调该方法
+	>&emsp;&emsp;2.当访问地址需自己处理时在该方法中截获
+
+- `public void onPageStarted(WebView view, String url, Bitmap favicon)`
+	>浏览器内核加载完成当前页面时回调
+
+- `public void onLoadResource(WebView view, String url)`
+	>通知主程序WebView即将加载指定地址的页面
+
+- `public void onReceivedError(WebView view, int errorCode, String description, String failingUrl)`
+	>浏览器访问的页面发生错误时回调
+
+- `public void onFormResubmission(WebView view, Message dontResend, Message resend) `
+	>浏览器需要重新发送POST请求时回调该方法
+
+- `public void doUpdateVisitedHistory(WebView view, String url, boolean isReload)`
+	>通知应用程序可以将当前的url存储在数据库中，意味着当前的访问url已经生效并被记录在内核当中. 这个函数在网页加载过程中只会被调用一次. 注意网页前进后退并不会回调这个函数.
+
+- `public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) `
+	>当网页加载资源过程中发现SSL错误会调用此方法. 我们应用程序必须做出响应，是取消请求handler.cancel()，还是继续请求handler.proceed();内核的默认行为是handler.cancel();
+
+- `public void onReceivedHttpAuthRequest(WebView view,  
+ HttpAuthHandler handler, String host, String realm) `
+	>通知应用程序WebView接收到了一个Http auth的请求，应用程序可以使用supplied设置webview的响应请求. 默认行为是cancel本次请求
+
+- `public boolean shouldOverrideKeyEvent(WebView view, KeyEvent event)`
+	>提供应用程序同步一个处理按键事件的机会，菜单快捷键需要被过滤掉。如果返回true，WebView不处理该事件，如果返回false， WebView会一直处理这个事件，因此在View链上没有一个父类可以响应到这个事件. 默认行为是return false；
+
+- `public void onScaleChanged(WebView view, float oldScale, float newScale)`
+	>通知应用程序WebView要被scale. 应用程序可以处理改事件，比如调整适配屏幕
+
+- `public void onReceivedLoginRequest(WebView view, String realm, String account, String args) `
+	>通知应用程序有个自动登录的帐号过程
+
+### 4.3、支持页面中的JavaScript脚本
+```java
+WebSettings ws = wv.getSettings(); // 先获取Settings对象.后面常用
+ws.setJavaScriptEnabled(true);
+ws.setJavaScriptCanOpenWindowsAutomatically(true);
+```
+### 4.4、启用缓存、设置缓存模式
+```java
+ws.setAppCacheEnabled(true); // 启用缓存
+
+ws.setCacheMode(WebSettings.LOAD_DEFAULT); // 默认使用本地未过期的缓存，否则从网络获取
+
+ws.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK); // 优先使用缓存
+
+ws.setCacheMode(WebSettings.LOAD_CACHE_ONLY); // 仅使用缓存
+
+ws.setCacheMode(WebSettings.LOAD_NO_CACHE); // 禁用缓存
+```
+### 4.5、支持拖动放缩页面
+```java
+ws.setSupportZoom(true);
+ws.setBuiltInZoomControls(true);
+```
+### 4.6、打开页面时自适应屏幕大小
+```java
+ws.setUseWideViewPort(true);
+ws.setLoadWithOverviewMode(true);
+```
+### 4.7、支持历史回退.否则返回时会将WebView作为整体finish掉
+覆写Activity的**onKeyDown()**
+```java
+@Override
+public boolean onKeyDown(int keyCode, KeyEvent event) {
+	if ((keyCode == KeyEvent.KEYCODE_BACK) && wv.canGoBack()) {
+		wv.goBack();
+        return true;
+	}
+		return super.onKeyDown(keyCode, event); // 注意：直接返回false会出现问题
+    }
+```
+### 4.8、针对网页加载进度进行处理
+**<font size=4>WebChromeClient**：辅助WebView处理js的对话框、网站标题、网站图标、加载进度
+```java
+wv.setWebChromeClient(new WebChromeClient() {
+	@Override
+	public void onProgressChanged(WebView view, int newProgress) {
+		super.onProgressChanged(view, newProgress);
+		if (newProgress == 100) {
+			// TODO 网页加载完成时需要进行的处理
+		} else {
+			// TODO 网页加载过程中需要进行的处理
+		}
+	}
+});
+```
+<hr>
+
+**<font size=5>WebChromeClient详解**
+
+- `public void onProgressChanged(WebView view, int newProgress)`
+	>通知应用程序当前网页加载的进度，如上代码
+
+- `public void onReceivedTitle(WebView view, String title)`
+	>当document的title变化时，通知主程序
+
+- `public void onReceivedIcon(WebView view, Bitmap icon)`
+	>当前页面有个新的favicon时候，回调该函数
+
+- `public void onReceivedTouchIconUrl(WebView view, String url, boolean precomposed)`
+	>通知应用程序apple-touch-icon的 url 
+
+- `public void onShowCustomView(View view, CustomViewCallback callback)`
+	>通知应用程序WebView需要显示一个custom view，主要用在视频全屏H5Video support
+
+- `public void onHideCustomView()`
+	>退出视频通知
+
+- `public boolean onCreateWindow(WebView view, boolean isDialog, boolean isUserGesture, Message resultMsg)`
+	>请求创建新窗口，如果我们应用程序接管这个请求，必须返回true，并且创建一个新的webview来承载主窗口. 如果应用程序不处理，则需要返回false，默认行为和返回false表现一样.
+
+- `public void onCloseWindow(WebView window)`
+	>通知应用程序从关闭传递过来的WebView并从view tree中remove
+
+- `public boolean onJsAlert(WebView view, String url, String message, JsResult result)`
+	>通知应用程序显示JS alert对话框，如果应用程序返回true内核认为应用程序处理这个消息，返回false，内核自己处理
+
+- `public boolean onJsConfirm(WebView view, String url, String message, JsResult result)`
+	>通知应用程序提供confirm对话框
+
+- `public boolean onJsPrompt(WebView view, String url, String message, String defaultValue, JsPromptResult result)`
+	>通知应用程序显示一个prompt对话框
+
+- `public boolean onJsBeforeUnload(WebView view, String url, String message, JsResult result)`
+	>通知应用程序显示一个对话框，让用户选择是否离开当前页面，这个回调是javascript中的onbeforeunload事件，如果客户端返回true，内核会认为客户端提供对话框. 默认行为是return false
+
+- `public void onExceededDatabaseQuota(String url, String databaseIdentifier, long quota, long estimatedDatabaseSize, long totalQuota, WebStorage.QuotaUpdater quotaUpdater)` 
+	>通知应用程序webview内核web sql 数据库超出配额，请求是否扩大数据库磁盘配额。默认行为是不会增加数据库配额
+
+- `public void onReachedMaxAppCacheSize(long requiredStorage, long quota, WebStorage.QuotaUpdater quotaUpdater)  `
+	>通知应用程序内核已经到达最大的appcache
+
+- `public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback)  `
+	>当前页面请求是否允许进行定位
+
+
+### 4.9、支持内容重新布局
+```java
+ws.setLayoutAlgorithm(LayoutAlgorithm.SINGLE_COLUMN);
+```
+### 4.10、支持多窗口
+```java
+ws.supportMultipleWindows(); 
+```
+### 4.11、支持访问文件
+```java
+ws.setAllowFileAccess(true); 
+```
+### 4.12、支持通过JS打开新窗口
+```java
+ws.setJavaScriptCanOpenWindowsAutomatically(true);  
+```
+### 4.13、支持自动加载图片
+```java
+ws.setLoadsImagesAutomatically(true);   
+```

@@ -1,15 +1,10 @@
 ---
-layout:       post
-title:        "android动画框架lottie简介"
-subtitle:     "方便以后运用lottie动画，并添加一个简单案例，详细操作手册参考官网就ok了"
-date:         2014-12-30 12:00:00
-author:       "catface"
-header-img:   "img/color-android-robot-green.png"
-header-mask:  0.3
-catalog:      false
-multilingual: false
-edit status:  ed
-tags:
+temp-layout:       post
+temp-title:        "android动画框架lottie简介"
+temp-subtitle:     "方便以后运用lottie动画，并添加一个简单案例，详细操作手册参考官网就ok了"
+temp-date:         2014-12-30 12:00:00
+temp-header-img:   "img/color-android-robot-green.png"
+temp-tags:
     - android
 ---
 

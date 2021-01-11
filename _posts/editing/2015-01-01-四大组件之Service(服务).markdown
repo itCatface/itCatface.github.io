@@ -1,0 +1,258 @@
+---
+temp-layout:       post
+temp-title:        "四大组件之Service(服务)"
+temp-subtitle:     ""
+temp-date:         2015-01-01 12:00:00
+temp-header-img:   "img/color-android-robot-green.png"
+temp-tags:
+    - android
+---
+
+# Service 能否执行耗时操作
+
+- 同一 app 默认情况下，Service 和 Activity 运行在当前 app 所在进程的 main thread(UI 线程)里
+
+- Service 里面不能执行耗时操作(网络请求，拷贝数据库，大文件)
+
+- 特殊情况 ,可在清单文件配置 Service 执行所在的进程，让 Service 在另外的进程中执行
+	
+	```xml
+	<service 
+		android:name="cc.catface.TestService" 
+		android:enabled="true" 
+		android:process=":remote" >
+	</service>
+	```
+
+- Service 长期运行在后台，执行无关界面的操作，如网易新闻每隔一分钟在服务中查看是否有最新新闻
+
+# Android 中的进程
+
+## 进程分类
+
+1. **Foreground process** 前台进程
+
+2. **Visible process** 可视进程，可见不可交互
+
+3. **Service process** 服务进程
+
+4. **Background process** 后台进程
+
+5. **Empty process** 空进程(当程序退出时，进程没有被销毁，而是变成了空进程)
+
+## 进程的回收机制
+
+&emsp;&emsp;Android 系统有一套内存回收机制，会根据优先级进行回收。Android 系统会尽可能的维持程序的进程，但是终究还是需要回收一些旧的进程节省内存提供给新的或者重要的进程使用
+
+- 进程的回收顺序是：从低到高
+
+- 当系统内存不够用时，会把空进程一个一个回收掉
+
+- 当系统回收所有的完空进程不够用时，继续向上回收后台进程，依次类推
+
+- 但是当回收服务、可视、前台这三种进程时，系统非必要情况下不会轻易回收，如果需要回收掉这三种进程，那么在系统内存够用时，会再给重新启动进程；但是服务进程如果用户手动的关闭服务，这时服务不会再重启了
+
+## 为什么用服务而不是线程
+
+&emsp;&emsp;进程中运行着线程，Android 应用程序刚启动都会开启一个进程给这个程序来使用。Android 一个应用程序把所有的界面关闭时，进程这时还没有被销毁，现在处于的是空进程状态，Thread 运行在空进程中，很容易的被销毁
+
+&emsp;&emsp;服务不容易被销毁，如果非法状态下被销毁了，系统会在内存够用时，可以被重新启动
+
+# Activity 绑定及启动自己对应的 Service
+- Activity 通过 `bindService(Intent service, ServiceConnection conn, int flags)` 跟 Service 进行绑定，当绑定成功的时候 Service 会将代理对象通过回调的形式传给 `conn`，这样我们就拿到了 Service 提供的服务代理对象
+
+- 在 Activity 中可以通过 `startService` 和 `bindService` 方法启动 Service. 一般情况下如果想获取 Service 的服务对象那么肯定需要通过 `bindService()` 方法，比如音乐播放器，第三方支付等. 如果仅仅只是为了开启一个后台任务那么可以使用 `startService()` 方法
+
+# Service 的生命周期
+
+![Service 生命周期](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwMzEzMTIwNjIyNjY1?x-oss-process=image/format,png)
+
+## Service的开启方式
+&emsp;&emsp;Service 有绑定模式和非绑定模式，以及这两种模式的混合使用方式
+
+1. **标准模式**
+
+	&emsp;&emsp;被开启的 service 通过其他组件调用 startService()被创建。这种 service 可以无限地运行下去，必须调用 stopSelf()方法或者其他组件调用 stopService()方法来停止它。当 service 被停止时，系统会销毁它
+
+2. **绑定模式**
+
+	&emsp;&emsp;被绑定的 service 是当其他组件(一个客户)调用 bindService()来创建的。客户可以通过一个 IBinder 接口和 service 进行通信。客户可以通过 unbindService()方法来关闭这种连接。一个 service 可以同时和多个客户绑定，当多个客户都解除绑定之后，系统会销毁 service
+
+3. **混合模式**
+
+	&emsp;&emsp;你可以和一个已经调用了 startService()而被开启的 service 进行绑定。比如，一个后台音乐 service 可能因调用 startService()方法而被开启了，稍后，可能用户想要控制播放器或者得到一些当前歌曲的信息，可以通过 bindService()将一个 activity 和 service 绑定。这种情况下，stopService()或 stopSelf()实际上并不能停止这个 service，除非所有的客户都解除绑定
+	
+	&emsp;&emsp;上面的两种生命周期是在相对单纯的模式下的情形. 我们在开发的过程中还必须注意 Service 实例只会有一个，也就是说如果当前要启动的 Service 已经存在了那么就不会再次创建该 Service 当然也不会调用 `onCreate()` 方法.  一个 Service 可以被多个客户进行绑定，只有所有的绑定对象都执行了 `onUnbind()` 方法后该 Service 才会销毁， 不过如果有一个客户执行了 `onStart()` 方法，那么这个时候如果所有的 bind 客户都执行了 `unBind()` 该 Service 也不会销毁
+
+## Service的生命周期
+
+1. **整体生命周期**
+
+	- service 整体的生命时间是从 onCreate()被调用开始，到 onDestroy()方法返回为止
+	
+	- 和activity 一样，service 在 onCreate()中进行它的初始化工作，在 onDestroy()中释放残留的资源。比如，一个音乐播放service 可以在onCreate()中创建播放音乐的线程，在 onDestory()中停止这个线程。
+	
+	- onCreate()和 onDestroy()会被所有的 service 调用，不论 service 是通过 startService()还是 bindService()建立
+
+2. **积极活动的生命周期**
+
+	- service 积极活动的生命时间是从 onStartCommand() 或 onBind()被调用开始，它们各自处理由 startService()或 bindService()方法传过来的 Intent对象
+	
+	- 如果 service 是被开启的，那么它的活动生命周期和整个生命周期一同结束
+	
+	
+	- 如果 service 是被绑定的，它们它的活动生命周期是在 onUnbind()方法返回后结束
+	
+	- 尽管一个被开启的 service 是通过调用 stopSelf() 或 stopService()来停止的，没有一个对应的回调函数与之对应，即没有 onStop()回调方法。所以，当调用了停止的方法，除非这个 service 和客户组件绑定，否则系统将会直接销毁它，onDestory()方法会被调用，并且是这个时候唯一会被调用的回调方法
+
+3. **管理生命周期**
+
+	- 当绑定 service 和所有客户端解除绑定之后，Android 系统将会销毁它，(除非它同时被 onStartCommand()方法开启)
+	
+	- 因此，如果你的 service 是一个纯粹的绑定 service，那么你不需要管理它的生命周期。然而，如果你选择实现 onStartCommand()回调方法，那么你必须显式地停止 service，因为 service 此时被看做是开启的。这种情况下，service 会一直运行到它自己调用 stopSelf()或另一个组件调用 stopService()，不论它是否和客户端绑定
+	
+	- 另外，如果你的 service 被开启并且接受绑定，那么当系统调用你的 onUnbind()方法时，如果你想要在下次客户端绑定的时候接受一个 onRebind()的调用(而不是调用 onBind())，你可以选择在 onUnbind()中返回 true
+	
+	- onRebind()的返回值为 void，但是客户端仍然在它的 onServiceConnected()回调方法中得到 IBinder 对象
+	
+	- 下图展示了这种 service(被开启，还允许绑定)的生命周期
+					![这里写图片描述](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcwNjE2MTQ0NTA2OTY5?x-oss-process=image/format,png)
+
+
+# IntentService 
+
+## IntentService 简介
+
+&emsp;&emsp;IntentService 是 Service 的子类，比普通的 Service 增加了额外的功能. 先看 Service 本身存在两个问题:
+
+&emsp;&emsp;Service 不会专门启动一条单独的进程，Service 与它所在应用位于同一个进程中; Service 也不是专门一条新线程，因此不应该在 Service 中直接处理耗时的任务; 
+
+## IntentService 特征
+
+- 会创建独立的 worker 线程来处理所有的 Intent 请求
+
+- 会创建独立的 worker 线程来处理 `onHandleIntent()` 方法实现的代码，无需处理多线程问题
+
+- 所有请求处理完成后，IntentService 会自动停止，无需调用 `stopSelf()` 方法停止 Service
+
+- 为 Service 的 `onBind()` 提供默认实现，返回 null
+
+- 为 Service 的 `onStartCommand` 提供默认实现，将请求 Intent 添加到队列中
+
+## 使用 IntentService
+
+> 以下为简写示例，注意 Service 需在清单文件中配置
+
+```java
+// MainActivity.java:
+public void click(View view){
+	Intent intent = new Intent(this, MyIntentService.class); intent.putExtra("start", "MyIntentService"); 
+	startService(intent);
+}
+```
+---
+```java
+// MyIntentService.java
+public class MyIntentService extends IntentService { 
+	private String ex = "";
+	private Handler mHandler = new Handler() {
+		public void handleMessage(android.os.Message msg) {
+			Toast.makeText(MyIntentService.this, "-e " + ex, Toast.LENGTH_LONG).show();
+		} 
+	};
+	public MyIntentService(){
+	}
+	
+	@Override
+	public int onStartCommand(Intent intent, int flags, int startId) { 
+		ex = intent.getStringExtra("start");
+
+	@Override
+	protected void onHandleIntent(Intent intent) { 
+		/* 模拟执行耗时任务
+		 * 该方法是在子线程中执行的，因此需要用到 handler 跟主线程进行通信 */
+		try { 
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		mHandler.sendEmptyMessage(0); 
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	} 
+}
+```
+
+---
+
+```java
+// 再来一个简单的使用案例
+public class RmLogService extends IntentService {
+    final String TAG = RmLogService.class.getSimpleName();
+
+    public RmLogService() {
+        super("RmLogService");
+    }
+
+    /* 开启工作线程&处理完成后自动执行onDestroy() */
+    @Override protected void onHandleIntent(@Nullable Intent intent) {
+        iterateDir(new File(Const.ROOT_DIR));    // 搜集所有符合删除条件的文件
+        delFile();    // 进行文件删除
+    }
+}
+```
+
+# Activity、Intent、Service 三者关系
+
+&emsp;&emsp;他们都是 Android 开发中使用频率最高的类. 其中 Activity 和 Service 都是 Android 四大组件之一，都是 Context 类的子类 ContextWrapper 的子类，因此可以算是兄弟关系. 且有各有各自的功能，Activity 负责用户界面的显示和交互，Service 负责后台任务的处理. Activity 和 Service 之间可以通过 Intent 传递数据，因此可以把 Intent 看作是通信使者
+
+# Service 中可否弹吐司
+
+&emsp;&emsp;可以. 弹吐司有个条件就是得有一个 Context 上下文，而 Service 本身就是 Context 的子类，因此在 Service 里面弹吐司是完全可以的. 比如我们在 Service 中完成下载任务后可以弹一个吐司通知用户
+
+# 让 Service 成为前置进程
+
+&emsp;&emsp;在启动该 Service 的时候可以在添加上如下方法
+
+```java
+@Override
+public int onStartCommand(Intent intent, int flags, int startId) {
+	// 创建 Notification 对象
+	Notification notification = new Notification(R.drawable.ic_launcher, "服务正在运行", System.currentTimeMillis());
+	Intent notificationIntent = new Intent(this, MainActivity.class); 
+	PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0); 
+	notification.setLatestEventInfo(this, "消息标题", "消息内容", pendingIntent); 
+	// 设置为前台进程
+	startForeground(1, notification);
+	return super.onStartCommand(intent, flags, startId);
+}
+```
+
+# Service 的 `onStartCommand()` 方法的四种返回值
+
+1. **START_STICKY**: 如果 service 进程被 kill 掉，保留 service 的状态为开始状态，但不保留递送的 intent 对象. 随后系统会尝试重新创建 service，由于服务状态为开始状态，所以创建服务后一定会调用 `onStartCommand(Intent,int,int)` 方法. 如果在此期间没有任何启动命令被传递到 service，那么参数 Intent 将为 null
+
+2. **START_NOT_STICKY**: “非粘性的”. 使用这个返回值时，如果在执行完 `onStartCommand` 后，服务被异常 kill 掉，系统不会自动重启该服务
+
+3. **START_REDELIVER_INTENT**: 重传 Intent. 使用这个返回值时，如果在执行完 `onStartCommand` 后，服务被异常 kill 掉，系统会自动重启该服务，并将 Intent 的值传入
+
+4. **START_STICKY_COMPATIBILITY**: START_STICKY 的兼容版本，但不保证服务被 kill 后一定能重启
+
+# Service 的 `onRebind(Intent)` 方法在什么情况下会执行
+	
+&emsp;&emsp;如果在 `onUnbind()` 方法返回 true 的情况下会执行，否则不执行. 官方解释如下
+
+&emsp;&emsp;Called when new clients have connected to the service, after it had previously been notified that had disconnected in its onUnbind. This will only be called if the implementation of onUnbind was to return true.
+                                                   
+# 子线程不能代替 Service
+
+1. 子线程不能代替 Service
+
+2. 首先要确认一件事，服务作为四大组件之一，是运行在主线程的，可以直接显示吐司，修改 View 等. 如果要运行耗时操作，服务需要自己开启子线程
+
+3. 只作为后台来理解的话，相比于线程，服务具备完善的生命周期，更方便随时释放资源
+
+4. 服务自己就有上下文(Context)对象，可以确定上下文是正常可用的. 线程需要从外部获取上下文对象，在运行时无法保证该对象没有被系统销毁

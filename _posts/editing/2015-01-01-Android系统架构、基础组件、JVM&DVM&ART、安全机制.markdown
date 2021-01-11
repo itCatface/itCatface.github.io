@@ -1,10 +1,10 @@
 ---
-layout:       post
-title:        "Android系统架构、基础组件、JVM&DVM&ART、安全机制"
-subtitle:     ""
-date:         2015-01-01 12:00:00
-header-img:   "img/color-android-robot-green.png"
-tags:
+temp-layout:       post
+temp-title:        "Android系统架构、基础组件、JVM&DVM&ART、安全机制"
+temp-subtitle:     ""
+temp-date:         2015-01-01 12:00:00
+temp-header-img:   "img/color-android-robot-green.png"
+temp-tags:
     - android
 ---
 
