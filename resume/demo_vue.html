@@ -1,25 +1,542 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>demo of vue</title>
-    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
-    <!--<script src="https://unpkg.com/vue/dist/vue.js"></script>-->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.8/vue.min.js"></script>-->
+    <!-- 基础 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.js"></script>
+    <!-- 路由 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue-router/3.4.8/vue-router.js"></script>
+    <!-- for ajax -->
+    <!-- fetch -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/fetch/3.5.0/fetch.js"></script>
+    <!-- axios -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.js"></script>
+
 
 </head>
-<body>
-<div id="app">
-    <p>{{ message }}</p>
-</div>
 
+<body>
+<div style="text-align: center">
+    learned from <a href="https://how2j.cn/k/vuejs/vuejs-start/1744.html" target="_blank">https://www.how2j.cn, 前端部分, vue.js</a><br/>
+    js files powered by <a href="https://www.bootcdn.cn/" target="_blank">https://www.bootcdn.cn/</a><br/>
+    查看页面源码阅读示例代码
+</div>
+<hr/>
+<hr/>
+<!-- 什么是vue -->
+<div id="div1"></div>
+<div id="div2">{{info.name}}--{{info.country}}--from vue</div>
+<hr/>
+
+
+<!-- v-on监听事件(v-on:可缩写为@=>v-on:click = @click) -->
+<div id="div3">
+    <div>点击次数：{{clickTimes}}</div>
+    <button v-on:click="count">click</button>
+</div>
+<hr/>
+
+
+<!-- 事件修饰符-.stop/.prevent/.capture/.self/.once -->
+
+
+<!-- 冒泡事件 -->
+<div id="bubble-event-1">
+    <div id="be1-grand-father" @click="click_bubble_1">grand father
+        <div id="be1-father" @click="click_bubble_1">father
+            <!--            <div id="be1-me" @click="click_bubble_1">me-->
+            <!--            <div id="be1-me" @click.stop="click_bubble_1">me&lt;!&ndash; .stop阻止冒泡 &ndash;&gt;-->
+            <!--            <div id="be1-me" @click.capture="click_bubble_1">me&lt;!&ndash; .capture优先触发 &ndash;&gt;-->
+            <!--            <div id="be1-me" @click.self="click_bubble_1">me&lt;!&ndash; .self只能自己触发自己 &ndash;&gt;-->
+            <div id="be1-me" @click.once="click_bubble_1">me<!-- .once只触发一次 -->
+                <div id="be1-son" @click="click_bubble_1">son</div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr/>
+
+
+<!-- 事件修饰符.prevent=阻止提交 -->
+<div id="div4">
+    <a href="https://www.baidu.com" @click="jump">www.baidu.com -- @click="jump"</a><br/>
+    <a href="https://www.baidu.com" @click.prevent="jump">www.baidu.com -- @click.prevent="jump"</a><br/>
+    <a href="https://www.baidu.com" @click.prevent>www.baidu.com -- @click.prevent</a><br/>
+    <form @submit="jump" action="https://www.baidu.com">
+        <button type="submit>">@submit="jump"</button>
+    </form>
+    </form>
+    <form @submit.prevent="jump" action="https://www.baidu.com">
+        <button type="submit>">@submit.prevent="jump"</button>
+    </form>
+    </form>
+    <form @submit.prevent action="https://www.baidu.com">
+        <button type="submit>">@submit.prevent</button>
+    </form>
+    </form>
+</div>
+<hr/>
+
+
+<!-- 条件语句v-if、v-else、v-else-if -->
+<div id="div5">
+    <button @click="testIf">测试if、v-else、v-else-if语句</button>
+    <div v-if="score>90">优秀</div>
+    <div v-else-if="score>60">及格</div>
+    <div v-else>不及格</div>
+</div>
+<hr/>
+
+
+<div id="div6">
+    <!-- 循环语句v-for -->
+    <table>
+        <tr class="title">
+            <td>name</td>
+            <td>score</td>
+        </tr>
+        <tr v-for="info in infos">
+            <td>{{info.name}}</td>
+            <td>{{info.score}}</td>
+        </tr>
+    </table>
+    <hr/>
+    <!-- 循环语句index -->
+    <table>
+        <tr class="title">
+            <td>id</td>
+            <td>name</td>
+            <td>score</td>
+        </tr>
+        <tr v-for="info,index in infos">
+            <td>{{index+1}}</td>
+            <td>{{info.name}}</td>
+            <td>{{info.score}}</td>
+        </tr>
+    </table>
+    <hr/>
+    <!-- 纯数字遍历 -->
+    <div v-for="i in 5">数字遍历-{{i}}</div>
+</div>
 <script>
+    var data = [{name: "alistar", score: 30}, {name: "akali", score: 50}, {name: "lux", score: 70}]
     new Vue({
-        el: '#app',
+        el: '#div6',
         data: {
-            message: 'Hello Vue.js!'
+            infos: data
         }
     })
 </script>
+<hr/>
+
+
+<!-- 属性绑定v-bind:可简写: -->
+<div id="div7">
+    <a v-bind:href="page" target="_blank">www.baidu.com</a>
+    <a :href="page" target="_blank">www.baidu.com</a>
+</div>
+<script>
+    new Vue({
+        el: '#div7',
+        data: {
+            page: 'http://www.baidu.com'
+        }
+    })
+</script>
+<hr/>
+
+
+<!-- 双向绑定v-model -->
+<div id="div8">
+    name:<input v-model="name"><br/>
+    show name:{{name}}
+    <hr/>
+    <!-- v-model.lazy=失去焦点时才数据绑定 -->
+    name lazy:<input v-model.lazy="name_lazy"><br/>
+    show name lazy:{{name_lazy}}
+    <hr/>
+    <!-- v-model.number=得到数字类型默认是string类型 -->
+    number:<input type="number" v-model.number="number"><br/>
+    show number:{{number}}, typeof: {{typeof number}}
+    <hr/>
+    <!-- v-model.trim=trim -->
+    trim:<input v-model.trim="trim"><br/>
+    show trim:{{trim}}
+    <button @click="submit">submit</button>
+</div>
+<script>
+    new Vue({
+        el: '#div8',
+        data: {
+            name: 'akali',
+            name_lazy: 'alistar',
+            number: '',
+            trim: 'trim'
+        },
+        methods: {
+            submit: function () {
+                console.log('name:' + this.name)
+                console.log('name lazy:' + this.name_lazy)
+            }
+        }
+    })
+</script>
+<hr/>
+
+
+<!-- 计算属性computed -->
+<div id="div9">
+    exchange rate:<input type="number" v-model.number="rate"><br/>
+    rmb:<input type="number" v-model.number="rmb"><br/>
+    <!-- 直接计算 -->
+    dollar by normal compute:{{rmb/rate}}<br/>
+    <!-- 使用computed只要rmb不变会使用缓存结果提高效率 -->
+    dollar by computed:{{dollars}}<br/>
+    <!-- 使用methods每次调用都会计算 -->
+    dollar by methods:{{getDollars()}}
+</div>
+<script>
+    new Vue({
+        el: '#div9',
+        data: {
+            rate: '',
+            rmb: ''
+        },
+        computed: {
+            dollars: function () {
+                return this.rmb / this.rate
+            }
+        },
+        methods: {
+            getDollars: function () {
+                return this.rmb / this.rate
+            }
+        }
+    })
+</script>
+<hr/>
+
+
+<!-- 监听属性watch -->
+<div id="div10">
+    exchange rate:<input type="number" v-model.number="rate"><br/>
+    rmb:<input type="number" v-model.number="rmb"><br/>
+    dollars:<input type="number" v-model.number="dollars"><br/>
+</div>
+<script>
+    new Vue({
+        el: '#div10',
+        data: {
+            rate: '',
+            rmb: '',
+            dollars: ''
+        },
+        watch: {
+            rmb: function (val) {
+                this.rmb = val;
+                this.dollars = this.rmb / this.rate;
+            },
+            dollars: function (val) {
+                this.dollars = val;
+                this.rmb = this.dollars * this.rate;
+            }
+        }
+    })
+</script>
+<hr/>
+
+
+<!-- 过滤器-一个、多个、全局 -->
+<div id="div11">
+    input text:<input v-model="text"><br/>
+    show text:{{text|upperFirstCh|upperLastCh|endWith0}}
+</div>
+<script>
+    // 全局过滤器
+    Vue.filter('endWith0', function (v) {
+        if (!v) return '';
+        v = v.toString();
+        return v + '0';
+    });
+    // 一个、单个过滤器
+    new Vue({
+        el: '#div11',
+        data: {
+            text: 'hint'
+        },
+        filters: {
+            upperFirstCh: function (v) {
+                if (!v) return '';
+                v = v.toString();
+                return v.charAt(0).toUpperCase() + v.substring(1)
+            },
+            upperLastCh: function (v) {
+                if (!v) return '';
+                v = v.toString();
+                return v.substring(0, v.length - 1) + v.charAt(v.length - 1).toUpperCase();
+            }
+        }
+    })
+</script>
+<hr/>
+
+
+<!-- 组件 -->
+<div id="div12">
+    <!-- 局部组件 -->
+    <component_single></component_single>
+    <component_single></component_single>
+    <!-- 全局组件 -->
+    <component_global></component_global>
+    <component_global></component_global>
+    <!-- 参数 -->
+    <component_props name="zhangsan"></component_props>
+    <component_props name="lisi"></component_props>
+    <!-- 动态参数=组件外传参至组件内v-bind -->
+    value of component's outside:<input v-model="outV"><br/>
+    <component_dynamic v-bind:name="outV"></component_dynamic>
+    <!-- 自定义事件 -->
+    <component_method name="ashe" score="10"></component_method>
+    <component_method name="ali" score="20"></component_method>
+    <component_method name="amumu" score="30"></component_method>
+</div>
+<script>
+    // 全局组件
+    Vue.component('component_global', {
+        template: '<div class="componentGlobal" style="background-color: #3c763d">component global with div</div>'
+    })
+    // 参数
+    Vue.component('component_props', {
+        props: ['name'],
+        template: '<div class="componentProps" style="background-color: #75715e">component props->name={{name}} with div</div>'
+    })
+    // 动态参数
+    Vue.component('component_dynamic', {
+        props: ['name'],
+        template: '<div class="componentDynamic">component dynamic with div and input, v->name={{name}}</div>'
+    })
+    // 自定义事件
+    Vue.component('component_method', {
+        props: ['name', 'score'],
+        template: '<div class="componentMethod" v-on:click="increase" style="background-color: #5c6370">name={{name}}, score={{score}}</div>',
+        methods: {
+            increase: function () {
+                this.score++;
+            }
+        }
+    })
+    new Vue({
+        el: '#div12',
+        components: {
+            // 局部组件
+            'component_single': {
+                template: '<div class="componentSingleClass" style="background-color: #2e6da4">component single with div</div>'
+            }
+        },
+        data: {
+            outV: 'hint'
+        }
+    })
+</script>
+<hr/>
+
+
+<!-- 遍历json数组* -->
+<div id="div13" style="background-color: pink">
+    <hero v-for="o in heros" v-bind:hero="o"></hero>
+</div>
+<script>
+    Vue.component('hero', {
+        props: ['hero'],
+        template: '<div class="hero" v-on:click="add">name={{hero.name}}, age={{hero.age}}</div>',
+        methods: {
+            add: function () {
+                this.hero.age++
+            }
+        }
+    });
+    new Vue({
+        el: '#div13',
+        data: {
+            heros: [{'name': 'amumu', "age": '12'}, {'name': 'jax', "age": '52'}, {'name': 'lulu', "age": '8'}]
+        }
+    })
+</script>
+<hr/>
+
+
+<!-- 自定义指令v-xxx(xxx指令) -->
+<div id="div14">
+    <!-- 简单指令 -->
+    <div v-custome_simple_command>stay foolish, stay hungry[simple]</div>
+    <!-- 带参数指令 -->
+    <div v-custome_params_command="{'color':'green', 'text':'hello world!'}">stay foolish, stay hungry[params]</div>
+    <!-- 回调函数 -->
+    <div v-xart:hello.a.b="message"></div>
+</div>
+<script>
+    // 简单指令
+    Vue.directive('custome_simple_command', function (el) {
+        el.innerHTML = el.innerHTML + ' ~end session'
+        el.style.color = 'pink'
+    })
+    // 带参数指令
+    Vue.directive('custome_params_command', function (el, binding) {
+        el.innerHTML = el.innerHTML + ' ~' + binding.value.text
+        el.style.color = binding.value.color
+    })
+    // 回调函数
+    Vue.directive('xart', {
+        bind: function (el, binding, vnode) {
+            var s = JSON.stringify
+            el.innerHTML =
+                'name: ' + s(binding.name) + '<br>' +
+                'value: ' + s(binding.value) + '<br>' +
+                'expression: ' + s(binding.expression) + '<br>' +
+                'argument: ' + s(binding.arg) + '<br>' +
+                'modifiers: ' + s(binding.modifiers) + '<br>' +
+                'vnode keys: ' + Object.keys(vnode).join(', ')
+        },
+        update: function (newValue, oldValue) { /* 值更新时的工作，也会以初始值为参数调用一次 */
+        },
+        unbind: function () {   /* 清理工作，例如，删除 bind() 添加的事件监听器 */
+        }
+    })
+    new Vue({
+        el: '#div14',
+        data: {
+            message: 'hello vue.js'
+        }
+    })
+</script>
+<hr/>
+
+
+<!-- vue里的路由=局部刷新 -->
+<div id="div15">
+    <div class="routerMenu">
+        <div>vue里的路由(局部刷新)示例</div>
+        <!-- router-link=a;to=href -->
+        <router-link to="/user">user management</router-link>
+        <router-link to="/product">product management</router-link>
+        <router-link to="/order">order management</router-link>
+        <div class="workRoom">
+            <router-view></router-view>
+        </div>
+    </div>
+</div>
+<script>
+    // 声明模版
+    let user = {template: '<p>user management detail page</p>'};
+    let product = {template: '<p>product management detail page</p>'};
+    let order = {template: '<p>order management detail page</p>'};
+    // 定义路由
+    let routes = [{path: '/', redirect: '/user'}, {path: '/user', component: user}, {path: '/product', component: product}, {path: '/order', component: order}]
+    // 创建Vue Route实例
+    let router = new VueRouter({
+        routes: routes
+    });
+    new Vue({
+        el: '#div15',
+        router
+    })
+</script>
+<hr/>
+
+
+fetch
+<div id="div16"></div>
+<script>
+    let url1 = 'https://static.how2j.cn/study/json.txt';
+    fetch(url1).then(function (response) {
+        response.json().then(function (jsonObj) {
+            let jsonStr1 = JSON.stringify(jsonObj);
+            console.log('fetch json:' + jsonStr1);
+            document.getElementById('div16').innerHTML = 'get json data by fetch.js:' + jsonStr1;
+        })
+    }).catch(function (err) {
+        console.log('fetch error:' + err);
+    })
+</script>
+<hr/>
+
+
+<!-- axios -->
+<div id="div17"></div>
+<script>
+    let url2 = 'https://static.how2j.cn/study/json.txt';
+    axios.get(url2).then(function (response) {
+        let jsonObj2 = response.data;
+        let jsonStr2 = JSON.stringify(jsonObj2);
+        console.log('axios json:' + jsonStr2);
+        document.getElementById('div17').innerHTML = 'get json data by axios.js:' + jsonStr2;
+    })
+</script>
+
+
 </body>
+
+<script>
+    // 条件语句v-if、v-else、v-else-if
+    new Vue({
+        el: '#div5',
+        data: {
+            score: 0
+        },
+        methods: {
+            testIf: function () {
+                this.score = Math.random() * 100
+                console.log('score:' + this.score)
+            }
+        }
+    })
+    // 事件修饰符.prevent
+    new Vue({
+        el: '#div4',
+        data: {},
+        methods: {
+            jump: function () {
+                alert('调用jump()')
+            }
+        }
+    })
+    // 冒泡事件
+    new Vue({
+        el: '#bubble-event-1',
+        data: {
+            id: ''
+        },
+        methods: {
+            click_bubble_1: function () {
+                this.id = event.currentTarget.id;
+                alert(this.id);
+            }
+        }
+    })
+    // v-on监听事件
+    new Vue({
+        el: '#div3',
+        data: {
+            clickTimes: 0
+        },
+        methods: {  // method写成method导致div3都不显示了整了我两天我太菜了
+            count: function () {
+                this.clickTimes++;
+            }
+        }
+    })
+    // 什么是vue
+    let info = {'name': 'catface', 'country': 'china'};
+    let div1 = document.getElementById('div1');
+    div1.innerHTML = info.name + '--' + info.country;
+
+    new Vue({
+        el: '#div2',
+        data: {
+            message: info
+        },
+    })
+
+</script>
 </html>
