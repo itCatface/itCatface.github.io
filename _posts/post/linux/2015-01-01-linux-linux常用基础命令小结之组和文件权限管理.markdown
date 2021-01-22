@@ -1,5 +1,5 @@
 ---
-layout:       post
+layout:       post-
 title:        "linux常用基础命令小结之组和文件权限管理"
 subtitle:     "简介linux文件的读写修改权限，包括更换文件所属用户和所属组等"
 date:         2015-01-01 12:00:00

@@ -1,5 +1,5 @@
 ---
-layout:       post
+layout:       post-
 title:        "java入门01-基础、运算符"
 subtitle:     "常用快捷键、变量、基本运算符、逻辑运算符等简介"
 date:         2015-01-09 12:00:00

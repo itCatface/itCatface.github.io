@@ -1,5 +1,5 @@
 ---
-layout:       post
+layout:       post-
 title:        "创建ios的HelloWorld"
 subtitle:     "通过Xcode创建第一个可运行的ios项目"
 date:         2015-01-04 12:00:00

@@ -1,5 +1,5 @@
 ---
-layout:       post
+layout:       post-
 title:        "ios的一些高级控件"
 subtitle:     "DatePicker等控件的使用介绍"
 date:         2015-01-04 12:00:00

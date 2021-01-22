@@ -1,5 +1,5 @@
 ---
-layout:       post
+layout:       post-
 title:        "软件安装异常解决办法记录"
 subtitle:     "收集记录软件安装/使用中出现的异常解决办法"
 date:         2015-01-01 12:00:00

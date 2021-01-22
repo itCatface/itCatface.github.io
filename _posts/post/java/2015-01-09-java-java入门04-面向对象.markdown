@@ -1,5 +1,5 @@
 ---
-layout:       post
+layout:       post-
 title:        "java入门04-面向对象"
 subtitle:     "面向对象简介"
 date:         2015-01-09 12:00:00

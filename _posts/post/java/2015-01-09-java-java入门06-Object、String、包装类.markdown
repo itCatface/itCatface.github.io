@@ -1,5 +1,5 @@
 ---
-layout:       post
+layout:       post-
 title:        "java入门06-Object、String、包装类"
 subtitle:     "简介java的Object、String对象和包装类"
 date:         2015-01-09 12:00:00

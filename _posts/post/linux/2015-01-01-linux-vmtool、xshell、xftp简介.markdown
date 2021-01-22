@@ -1,5 +1,5 @@
 ---
-layout:       post
+layout:       post-
 title:        "vmtool、xshell、xftp简介"
 subtitle:     "vmtool可为母机和linux设置共享文件夹、xshell和xftp为常用的维护linux的应用软件"
 date:         2015-01-01 12:00:00

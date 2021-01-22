@@ -1,5 +1,5 @@
 ---
-layout:       post
+layout:       post-
 title:        "ios的表控件"
 subtitle:     "TableView的使用介绍"
 date:         2015-01-04 12:00:00

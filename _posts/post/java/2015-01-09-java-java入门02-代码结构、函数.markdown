@@ -1,5 +1,5 @@
 ---
-layout:       post
+layout:       post-
 title:        "java入门02-代码结构、函数"
 subtitle:     "简介逻辑控制语句if、while、switch、for，函数重载"
 date:         2015-01-09 12:00:00

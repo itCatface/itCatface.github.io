@@ -1,5 +1,5 @@
 ---
-layout:       post
+layout:       post-
 title:        "sql基础语句示例"
 subtitle:     "sql的基本操作示例供参考"
 date:         2015-01-05 12:00:00
