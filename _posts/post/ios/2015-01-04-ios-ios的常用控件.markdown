@@ -1,15 +1,15 @@
 ---
-temp-layout:       post
-temp-title:        "ios的常用控件"
-temp-subtitle:     "包含TextField、Switch、Slider、WebView等常用控件的使用介绍"
-temp-date:         2015-01-04 12:00:00
-temp-author:       "catface"
-temp-header-img:   "img/color-black.png"
-temp-header-mask:  0.3
-temp-catalog:      true
-temp-multilingual: false
-temp-edit status:  ed
-temp-tags:
+layout:       post
+title:        "ios的常用控件"
+subtitle:     "包含TextField、Switch、Slider、WebView等常用控件的使用介绍"
+date:         2015-01-04 12:00:00
+author:       "catface"
+header-img:   "img/color-black.png"
+header-mask:  0.3
+catalog:      true
+multilingual: false
+edit status:  ed
+tags:
     - ios
 ---
 
@@ -148,7 +148,7 @@ temp-tags:
 		pv_test.progress += 0.1
 		if pv_test.progress == 1.0 {
 			mTimer.invalidate()
-			var alert = UIAlertView(temp-title: "下载完成", message: "下载结束哦，哥哥", delegate: nil, cancelButtontemp-title: "OK")
+			var alert = UIAlertView(title: "下载完成", message: "下载结束哦，哥哥", delegate: nil, cancelButtonTitle: "OK")
 			alert.show()
 			return
 		}
@@ -163,29 +163,29 @@ temp-tags:
     
     ``` swift
     // 单个选项
-    UIAlertView(temp-title: "警告", message: "我是警告内容", delegate: nil, cancelButtontemp-title: "知道").show()
+    UIAlertView(title: "警告", message: "我是警告内容", delegate: nil, cancelButtonTitle: "知道").show()
     
     // 两个选项
-    UIAlertView(temp-title: "警告", message: "我是警告内容", delegate: nil, cancelButtontemp-title: "取消", otherButtonTitles: "确定").show()
+    UIAlertView(title: "警告", message: "我是警告内容", delegate: nil, cancelButtonTitle: "取消", otherButtonTitles: "确定").show()
     
     // 多个选项...
-    UIAlertView(temp-title: "警告", message: "我是警告内容", delegate: nil, cancelButtontemp-title: "取消", otherButtonTitles: "确定", "玩一玩").show()
+    UIAlertView(title: "警告", message: "我是警告内容", delegate: nil, cancelButtonTitle: "取消", otherButtonTitles: "确定", "玩一玩").show()
     ```
     
 - **ActionSheet**    
 
     ``` swift
-    var asTest: UIActionSheet = UIActionSheet(temp-title: "选择列表", delegate: nil, cancelButtontemp-title: "取消", destructiveButtontemp-title: "破坏性选项", otherButtonTitles: "百度", "腾讯", "阿里")
+    var asTest: UIActionSheet = UIActionSheet(title: "选择列表", delegate: nil, cancelButtonTitle: "取消", destructiveButtonTitle: "破坏性选项", otherButtonTitles: "百度", "腾讯", "阿里")
     asTest.show(in: self.view)
     ```
     
 - **ActionControl(掌握这个可以了)**
 
     ```	swift	
-    var acTest: UIAlertController = UIAlertController(temp-title: "标题", message: "消息内容", preferredStyle: UIAlertControllerStyle.alert)
+    var acTest: UIAlertController = UIAlertController(title: "标题", message: "消息内容", preferredStyle: UIAlertControllerStyle.alert)
     
-    acTest.addAction(UIAlertAction(temp-title: "取消", style: UIAlertActionStyle.cancel) {(alertAction) -> Void in NSLog("取消")})
-    acTest.addAction(UIAlertAction(temp-title: "确定", style: UIAlertActionStyle.default) {(alertAction) -> Void in NSLog("确定")})
+    acTest.addAction(UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel) {(alertAction) -> Void in NSLog("取消")})
+    acTest.addAction(UIAlertAction(title: "确定", style: UIAlertActionStyle.default) {(alertAction) -> Void in NSLog("确定")})
     
     self.present(acTest, animated: true, completion: nil)
     ```
@@ -195,11 +195,11 @@ temp-tags:
     ``` swift
     var acTest: UIAlertController = UIAlertController()
     
-    acTest.addAction(UIAlertAction(temp-title: "取消", style: UIAlertActionStyle.cancel) {(alertAction) -> Void in NSLog("取消")})
-    acTest.addAction(UIAlertAction(temp-title: "破坏性选项", style: UIAlertActionStyle.destructive) {(alertAction) -> Void in NSLog("破坏")})
-    acTest.addAction(UIAlertAction(temp-title: "百度", style: UIAlertActionStyle.default) {(alertAction) -> Void in NSLog("百度")})
-    acTest.addAction(UIAlertAction(temp-title: "腾讯", style: UIAlertActionStyle.default) {(alertAction) -> Void in NSLog("腾讯")})
-    acTest.addAction(UIAlertAction(temp-title: "阿里", style: UIAlertActionStyle.default) {(alertAction) -> Void in NSLog("阿里")})
+    acTest.addAction(UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel) {(alertAction) -> Void in NSLog("取消")})
+    acTest.addAction(UIAlertAction(title: "破坏性选项", style: UIAlertActionStyle.destructive) {(alertAction) -> Void in NSLog("破坏")})
+    acTest.addAction(UIAlertAction(title: "百度", style: UIAlertActionStyle.default) {(alertAction) -> Void in NSLog("百度")})
+    acTest.addAction(UIAlertAction(title: "腾讯", style: UIAlertActionStyle.default) {(alertAction) -> Void in NSLog("腾讯")})
+    acTest.addAction(UIAlertAction(title: "阿里", style: UIAlertActionStyle.default) {(alertAction) -> Void in NSLog("阿里")})
     
     self.present(acTest, animated: true, completion: nil)  
     ```

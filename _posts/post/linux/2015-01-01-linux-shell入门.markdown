@@ -1,15 +1,15 @@
 ---
-temp-layout:       post
-temp-title:        "shell入门"
-temp-subtitle:     "简介shell的基础语法，编写入门案例"
-temp-date:         2015-01-01 12:00:00
-temp-author:       "catface"
-temp-header-img:   "img/color-black.png"
-temp-header-mask:  0.3
-temp-catalog:      true
-temp-multilingual: false
-temp-edit status:  ing
-temp-tags:
+layout:       post
+title:        "shell入门"
+subtitle:     "简介shell的基础语法，编写入门案例"
+date:         2015-01-01 12:00:00
+author:       "catface"
+header-img:   "img/color-black.png"
+header-mask:  0.3
+catalog:      true
+multilingual: false
+edit status:  ing
+tags:
     - linux
 ---
 

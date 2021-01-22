@@ -1,15 +1,15 @@
 ---
-temp-layout:       post
-temp-title:        "Win&VMware安装linux(CentOS)虚拟机"
-temp-subtitle:     "在windows系统下，使用VMware和linux系统镜像文件安装linux虚拟机"
-temp-date:         2015-01-01 12:00:00
-temp-author:       "catface"
-temp-header-img:   "img/color-black.png"
-temp-header-mask:  0.3
-temp-catalog:      true
-temp-multilingual: false
-temp-edit status:  ed
-temp-tags:
+layout:       post
+title:        "Win&VMware安装linux(CentOS)虚拟机"
+subtitle:     "在windows系统下，使用VMware和linux系统镜像文件安装linux虚拟机"
+date:         2015-01-01 12:00:00
+author:       "catface"
+header-img:   "img/color-black.png"
+header-mask:  0.3
+catalog:      true
+multilingual: false
+edit status:  ed
+tags:
     - linux
 ---
 

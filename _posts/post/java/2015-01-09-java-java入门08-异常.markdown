@@ -1,15 +1,15 @@
 ---
-temp-layout:       post
-temp-title:        "java入门08-异常"
-temp-subtitle:     "简介java的异常处理"
-temp-date:         2015-01-09 12:00:00
-temp-author:       "catface"
-temp-header-img:   "img/color-black.png"
-temp-header-mask:  0.3
-temp-catalog:      true
-temp-multilingual: false
-temp-edit status:  ed
-temp-tags:
+layout:       post
+title:        "java入门08-异常"
+subtitle:     "简介java的异常处理"
+date:         2015-01-09 12:00:00
+author:       "catface"
+header-img:   "img/color-black.png"
+header-mask:  0.3
+catalog:      true
+multilingual: false
+edit status:  ed
+tags:
     - java
 ---
 
