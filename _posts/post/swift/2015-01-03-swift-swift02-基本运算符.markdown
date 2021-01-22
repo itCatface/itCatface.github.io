@@ -1,7 +1,7 @@
 ---
-layout:       post-
-title:        "swift02-基本运算符"
-subtitle:     "赋值、比较、逻辑等运算符使用介绍"
+temp-layout:       post
+temp-title:        "swift02-基本运算符"
+subtemp-title:     "赋值、比较、逻辑等运算符使用介绍"
 date:         2015-01-03 12:00:00
 author:       "catface"
 header-img:   "img/color-black.png"

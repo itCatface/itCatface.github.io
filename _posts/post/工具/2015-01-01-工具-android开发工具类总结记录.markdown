@@ -1,7 +1,7 @@
 ---
-layout:       post-
-title:        "android开发基本工具总结"
-subtitle:     "将个人在开发过程中使用到的相对独立的逻辑功能封装上传至github中并通过gradle依赖使用"
+temp-layout:       post
+temp-title:        "android开发基本工具总结"
+subtemp-title:     "将个人在开发过程中使用到的相对独立的逻辑功能封装上传至github中并通过gradle依赖使用"
 date:         2015-01-01 12:00:00
 author:       "catface"
 header-img:   "img/color-black.png"

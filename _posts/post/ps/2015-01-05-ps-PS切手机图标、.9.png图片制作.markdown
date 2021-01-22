@@ -1,7 +1,7 @@
 ---
-layout:       post-
-title:        "PS切手机图标、.9.png图片制作"
-subtitle:     "使用PhotoShop切图标、android常用的.9.png图片的制作"
+temp-layout:       post
+temp-title:        "PS切手机图标、.9.png图片制作"
+subtemp-title:     "使用PhotoShop切图标、android常用的.9.png图片的制作"
 date:         2015-01-05 12:00:00
 author:       "catface"
 header-img:   "img/color-black.png"

@@ -1,7 +1,7 @@
 ---
-layout:       post-
-title:        "软件安装异常解决办法记录"
-subtitle:     "收集记录软件安装/使用中出现的异常解决办法"
+temp-layout:       post
+temp-title:        "软件安装异常解决办法记录"
+subtemp-title:     "收集记录软件安装/使用中出现的异常解决办法"
 date:         2015-01-01 12:00:00
 author:       "catface"
 header-img:   "img/color-black.png"

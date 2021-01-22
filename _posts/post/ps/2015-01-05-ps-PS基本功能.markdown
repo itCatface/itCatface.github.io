@@ -1,7 +1,7 @@
 ---
-layout:       post-
-title:        "PS基本功能"
-subtitle:     "介绍PhotoShop的常用快捷键及基本功能等"
+temp-layout:       post
+temp-title:        "PS基本功能"
+subtemp-title:     "介绍PhotoShop的常用快捷键及基本功能等"
 date:         2015-01-05 12:00:00
 author:       "catface"
 header-img:   "img/color-black.png"

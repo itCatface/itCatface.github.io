@@ -1,7 +1,7 @@
 ---
-layout:       post-
-title:        "swift07-类和结构体"
-subtitle:     "类和结构体的简单使用介绍"
+temp-layout:       post
+temp-title:        "swift07-类和结构体"
+subtemp-title:     "类和结构体的简单使用介绍"
 date:         2015-01-03 12:00:00
 author:       "catface"
 header-img:   "img/color-black.png"

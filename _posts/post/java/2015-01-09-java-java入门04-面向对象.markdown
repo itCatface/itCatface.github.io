@@ -1,7 +1,7 @@
 ---
-layout:       post-
-title:        "java入门04-面向对象"
-subtitle:     "面向对象简介"
+temp-layout:       post
+temp-title:        "java入门04-面向对象"
+subtemp-title:     "面向对象简介"
 date:         2015-01-09 12:00:00
 author:       "catface"
 header-img:   "img/color-black.png"

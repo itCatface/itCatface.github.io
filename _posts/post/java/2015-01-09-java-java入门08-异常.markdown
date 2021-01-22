@@ -1,7 +1,7 @@
 ---
-layout:       post-
-title:        "java入门08-异常"
-subtitle:     "简介java的异常处理"
+temp-layout:       post
+temp-title:        "java入门08-异常"
+subtemp-title:     "简介java的异常处理"
 date:         2015-01-09 12:00:00
 author:       "catface"
 header-img:   "img/color-black.png"

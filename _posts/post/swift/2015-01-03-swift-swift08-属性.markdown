@@ -1,7 +1,7 @@
 ---
-layout:       post-
-title:        "swift08-属性"
-subtitle:     "属性的简单使用介绍"
+temp-layout:       post
+temp-title:        "swift08-属性"
+subtemp-title:     "属性的简单使用介绍"
 date:         2015-01-03 12:00:00
 author:       "catface"
 header-img:   "img/color-black.png"

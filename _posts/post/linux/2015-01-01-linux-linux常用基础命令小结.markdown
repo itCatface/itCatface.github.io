@@ -1,7 +1,7 @@
 ---
-layout:       post-
-title:        "linux常用基础命令小结"
-subtitle:     "总结linux中常用命令，如关机重启，文件操作，r任务调度，进程管理，安装包管理等操作中经常用到的命令"
+temp-layout:       post
+temp-title:        "linux常用基础命令小结"
+subtemp-title:     "总结linux中常用命令，如关机重启，文件操作，r任务调度，进程管理，安装包管理等操作中经常用到的命令"
 date:         2015-01-01 12:00:00
 author:       "catface"
 header-img:   "img/color-black.png"

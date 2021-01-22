@@ -1,7 +1,7 @@
 ---
-layout:       post-
-title:        "WebView用法简介"
-subtitle:     "介绍WebView的常用API"
+temp-layout:       post
+temp-title:        "WebView用法简介"
+subtemp-title:     "介绍WebView的常用API"
 date:         2015-01-01 12:00:00
 author:       "catface"
 header-img:   "img/color-black.png"

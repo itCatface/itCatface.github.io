@@ -1,7 +1,7 @@
 ---
-layout:       post-
-title:        "java入门06-Object、String、包装类"
-subtitle:     "简介java的Object、String对象和包装类"
+temp-layout:       post
+temp-title:        "java入门06-Object、String、包装类"
+subtemp-title:     "简介java的Object、String对象和包装类"
 date:         2015-01-09 12:00:00
 author:       "catface"
 header-img:   "img/color-black.png"

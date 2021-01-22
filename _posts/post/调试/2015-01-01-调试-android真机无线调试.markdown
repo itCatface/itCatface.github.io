@@ -1,7 +1,7 @@
 ---
-layout:       post-
-title:        "android真机无线调试"
-subtitle:     "使用无线来连接真机进行app调试，免去了连线的麻烦，但网络不好的话会有点慢"
+temp-layout:       post
+temp-title:        "android真机无线调试"
+subtemp-title:     "使用无线来连接真机进行app调试，免去了连线的麻烦，但网络不好的话会有点慢"
 date:         2015-01-01 12:00:00
 author:       "catface"
 header-img:   "img/color-black.png"

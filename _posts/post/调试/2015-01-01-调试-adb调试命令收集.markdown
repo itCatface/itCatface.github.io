@@ -1,7 +1,7 @@
 ---
-layout:       post-
-title:        "adb调试命令收集"
-subtitle:     "收集总结开发过程中用到的adb命令"
+temp-layout:       post
+temp-title:        "adb调试命令收集"
+subtemp-title:     "收集总结开发过程中用到的adb命令"
 date:         2015-01-01 12:00:00
 author:       "catface"
 header-img:   "img/color-black.png"

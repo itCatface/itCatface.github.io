@@ -1,7 +1,7 @@
 ---
-layout:       post-
-title:        "ios的表控件"
-subtitle:     "TableView的使用介绍"
+temp-layout:       post
+temp-title:        "ios的表控件"
+subtemp-title:     "TableView的使用介绍"
 date:         2015-01-04 12:00:00
 author:       "catface"
 header-img:   "img/color-black.png"

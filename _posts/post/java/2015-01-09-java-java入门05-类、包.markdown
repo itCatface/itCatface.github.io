@@ -1,7 +1,7 @@
 ---
-layout:       post-
-title:        "java入门05-类、包"
-subtitle:     "简介java的类和包的基础知识"
+temp-layout:       post
+temp-title:        "java入门05-类、包"
+subtemp-title:     "简介java的类和包的基础知识"
 date:         2015-01-09 12:00:00
 author:       "catface"
 header-img:   "img/color-black.png"

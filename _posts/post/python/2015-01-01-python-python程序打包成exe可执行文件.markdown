@@ -1,7 +1,7 @@
 ---
-layout:       post-
-title:        "python程序打包成exe可执行文件"
-subtitle:     "将写好的python脚本程序打包成exe可执行文件，方便运行小工具"
+temp-layout:       post
+temp-title:        "python程序打包成exe可执行文件"
+subtemp-title:     "将写好的python脚本程序打包成exe可执行文件，方便运行小工具"
 date:         2015-01-01 12:00:00
 author:       "catface"
 header-img:   "img/color-black.png"

@@ -1,7 +1,7 @@
 ---
-layout:       post-
-title:        "命令行创建Cordova项目"
-subtitle:     "按步骤安装Cordova环境，并通过命令行创建第一个Cordova项目"
+temp-layout:       post
+temp-title:        "命令行创建Cordova项目"
+subtemp-title:     "按步骤安装Cordova环境，并通过命令行创建第一个Cordova项目"
 date:         2015-01-01 12:00:00
 author:       "catface"
 header-img:   "img/color-black.png"

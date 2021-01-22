@@ -1,7 +1,7 @@
 ---
-layout:       post-
-title:        "swift11-继承"
-subtitle:     "类的继承"
+temp-layout:       post
+temp-title:        "swift11-继承"
+subtemp-title:     "类的继承"
 date:         2015-01-03 12:00:00
 author:       "catface"
 header-img:   "img/color-black.png"

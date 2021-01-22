@@ -1,7 +1,7 @@
 ---
-layout:       post-
-title:        "idea快捷键总结"
-subtitle:     "收集总结开发过程中用到的idea/android studio快捷键"
+temp-layout:       post
+temp-title:        "idea快捷键总结"
+subtemp-title:     "收集总结开发过程中用到的idea/android studio快捷键"
 date:         2015-01-01 12:00:00
 author:       "catface"
 header-img:   "img/color-black.png"

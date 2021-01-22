@@ -1,7 +1,7 @@
 ---
-layout:       post-
-title:        "Android中Java和JS方法互调"
-subtitle:     "通过案例介绍Android的WebView中JavaScript和Java原生方法的互相调用"
+temp-layout:       post
+temp-title:        "Android中Java和JS方法互调"
+subtemp-title:     "通过案例介绍Android的WebView中JavaScript和Java原生方法的互相调用"
 date:         2015-01-01 12:00:00
 author:       "catface"
 header-img:   "img/color-black.png"
