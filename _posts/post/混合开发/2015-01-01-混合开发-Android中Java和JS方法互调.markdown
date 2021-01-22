@@ -1,15 +1,15 @@
 ---
 temp-layout:       post
 temp-title:        "Android中Java和JS方法互调"
-subtemp-title:     "通过案例介绍Android的WebView中JavaScript和Java原生方法的互相调用"
-date:         2015-01-01 12:00:00
-author:       "catface"
-header-img:   "img/color-black.png"
-header-mask:  0.3
-catalog:      true
-multilingual: false
-edit status:  ed
-tags:
+temp-subtitle:     "通过案例介绍Android的WebView中JavaScript和Java原生方法的互相调用"
+temp-date:         2015-01-01 12:00:00
+temp-author:       "catface"
+temp-header-img:   "img/color-black.png"
+temp-header-mask:  0.3
+temp-catalog:      true
+temp-multilingual: false
+temp-edit status:  ed
+temp-tags:
     - 混合开发
 ---
 

@@ -1,15 +1,15 @@
 ---
 temp-layout:       post
 temp-title:        "linux常用基础命令小结之组和文件权限管理"
-subtemp-title:     "简介linux文件的读写修改权限，包括更换文件所属用户和所属组等"
-date:         2015-01-01 12:00:00
-author:       "catface"
-header-img:   "img/color-black.png"
-header-mask:  0.3
-catalog:      true
-multilingual: false
-edit status:  ed
-tags:
+temp-subtitle:     "简介linux文件的读写修改权限，包括更换文件所属用户和所属组等"
+temp-date:         2015-01-01 12:00:00
+temp-author:       "catface"
+temp-header-img:   "img/color-black.png"
+temp-header-mask:  0.3
+temp-catalog:      true
+temp-multilingual: false
+temp-edit status:  ed
+temp-tags:
     - linux
 ---
 

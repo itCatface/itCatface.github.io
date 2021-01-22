@@ -1,15 +1,15 @@
 ---
 temp-layout:       post
 temp-title:        "vmtool、xshell、xftp简介"
-subtemp-title:     "vmtool可为母机和linux设置共享文件夹、xshell和xftp为常用的维护linux的应用软件"
-date:         2015-01-01 12:00:00
-author:       "catface"
-header-img:   "img/color-black.png"
-header-mask:  0.3
-catalog:      true
-multilingual: false
-edit status:  ed
-tags:
+temp-subtitle:     "vmtool可为母机和linux设置共享文件夹、xshell和xftp为常用的维护linux的应用软件"
+temp-date:         2015-01-01 12:00:00
+temp-author:       "catface"
+temp-header-img:   "img/color-black.png"
+temp-header-mask:  0.3
+temp-catalog:      true
+temp-multilingual: false
+temp-edit status:  ed
+temp-tags:
     - linux
 ---
 

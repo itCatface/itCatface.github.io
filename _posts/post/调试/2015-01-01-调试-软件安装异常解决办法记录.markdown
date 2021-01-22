@@ -1,15 +1,15 @@
 ---
 temp-layout:       post
 temp-title:        "软件安装异常解决办法记录"
-subtemp-title:     "收集记录软件安装/使用中出现的异常解决办法"
-date:         2015-01-01 12:00:00
-author:       "catface"
-header-img:   "img/color-black.png"
-header-mask:  0.3
-catalog:      false
-multilingual: false
-edit status:  ed
-tags:
+temp-subtitle:     "收集记录软件安装/使用中出现的异常解决办法"
+temp-date:         2015-01-01 12:00:00
+temp-author:       "catface"
+temp-header-img:   "img/color-black.png"
+temp-header-mask:  0.3
+temp-catalog:      false
+temp-multilingual: false
+temp-edit status:  ed
+temp-tags:
     - 调试
 ---
 

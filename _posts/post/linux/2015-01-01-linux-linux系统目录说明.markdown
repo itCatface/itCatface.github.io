@@ -1,15 +1,15 @@
 ---
 temp-layout:       post
 temp-title:        "linux系统目录说明"
-subtemp-title:     "简单介绍linux系统的各个系统目录"
-date:         2015-01-01 12:00:00
-author:       "catface"
-header-img:   "img/color-black.png"
-header-mask:  0.3
-catalog:      true
-multilingual: false
-edit status:  ed
-tags:
+temp-subtitle:     "简单介绍linux系统的各个系统目录"
+temp-date:         2015-01-01 12:00:00
+temp-author:       "catface"
+temp-header-img:   "img/color-black.png"
+temp-header-mask:  0.3
+temp-catalog:      true
+temp-multilingual: false
+temp-edit status:  ed
+temp-tags:
     - linux
 ---
 

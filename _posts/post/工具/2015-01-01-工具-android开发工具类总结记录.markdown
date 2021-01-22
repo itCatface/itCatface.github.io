@@ -1,15 +1,15 @@
 ---
 temp-layout:       post
 temp-title:        "android开发基本工具总结"
-subtemp-title:     "将个人在开发过程中使用到的相对独立的逻辑功能封装上传至github中并通过gradle依赖使用"
-date:         2015-01-01 12:00:00
-author:       "catface"
-header-img:   "img/color-black.png"
-header-mask:  0.3
-catalog:      true
-multilingual: false
-edit status:  ing
-tags:
+temp-subtitle:     "将个人在开发过程中使用到的相对独立的逻辑功能封装上传至github中并通过gradle依赖使用"
+temp-date:         2015-01-01 12:00:00
+temp-author:       "catface"
+temp-header-img:   "img/color-black.png"
+temp-header-mask:  0.3
+temp-catalog:      true
+temp-multilingual: false
+temp-edit status:  ing
+temp-tags:
     - 工具
 ---
 

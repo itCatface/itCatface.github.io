@@ -1,15 +1,15 @@
 ---
 temp-layout:       post
 temp-title:        "swift01-新建Swift工程"
-subtemp-title:     "使用Xcode新建一个Swift项目"
-date:         2015-01-03 12:00:00
-author:       "catface"
-header-img:   "img/color-black.png"
-header-mask:  0.3
-catalog:      false
-multilingual: false
-edit status:  ed
-tags:
+temp-subtitle:     "使用Xcode新建一个Swift项目"
+temp-date:         2015-01-03 12:00:00
+temp-author:       "catface"
+temp-header-img:   "img/color-black.png"
+temp-header-mask:  0.3
+temp-catalog:      false
+temp-multilingual: false
+temp-edit status:  ed
+temp-tags:
     - swift
 ---
 

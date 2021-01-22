@@ -1,15 +1,15 @@
 ---
 temp-layout:       post
 temp-title:        "上传war包到tomcat的webapps目录"
-subtemp-title:     "通过Xftp和Xshell工具将war包上传至tomcat服务器"
-date:         2015-01-01 12:00:00
-author:       "catface"
-header-img:   "img/color-black.png"
-header-mask:  0.3
-catalog:      false
-multilingual: false
-edit status:  ed
-tags:
+temp-subtitle:     "通过Xftp和Xshell工具将war包上传至tomcat服务器"
+temp-date:         2015-01-01 12:00:00
+temp-author:       "catface"
+temp-header-img:   "img/color-black.png"
+temp-header-mask:  0.3
+temp-catalog:      false
+temp-multilingual: false
+temp-edit status:  ed
+temp-tags:
     - linux
 ---
 

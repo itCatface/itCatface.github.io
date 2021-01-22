@@ -1,15 +1,15 @@
 ---
 temp-layout:       post
 temp-title:        "ios的一些高级控件"
-subtemp-title:     "DatePicker等控件的使用介绍"
-date:         2015-01-04 12:00:00
-author:       "catface"
-header-img:   "img/color-black.png"
-header-mask:  0.3
-catalog:      true
-multilingual: false
-edit status:  ed
-tags:
+temp-subtitle:     "DatePicker等控件的使用介绍"
+temp-date:         2015-01-04 12:00:00
+temp-author:       "catface"
+temp-header-img:   "img/color-black.png"
+temp-header-mask:  0.3
+temp-catalog:      true
+temp-multilingual: false
+temp-edit status:  ed
+temp-tags:
     - ios
 ---
 
@@ -24,7 +24,7 @@ tags:
 - **分别为时间、日期、日期时间选择器**
 
 	``` swift
-	let date: Date = self.dp_time.date
+	let temp-date: Date = self.dp_time.date
 	    
 	// 时间格式
 	let formatter: DateFormatter = DateFormatter()
@@ -37,7 +37,7 @@ tags:
 	---
 
 	``` swift
-	let date: Date = self.dp_date.date
+	let temp-date: Date = self.dp_date.date
 	
 	// 日期格式
 	let formatter: DateFormatter = DateFormatter()
@@ -49,7 +49,7 @@ tags:
 	--- 
 		
 	``` swift
-	let date: Date = self.dp_dateAndTime.date
+	let temp-date: Date = self.dp_dateAndTime.date
 			    
 	// 日期时间格式
 	let formatter: DateFormatter = DateFormatter()
