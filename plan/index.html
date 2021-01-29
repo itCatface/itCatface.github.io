@@ -25,16 +25,22 @@ description: "凡事豫则立，不豫则废。言前定则不跲，事前定则
 
 <meta charset="UTF-8"/>
 <script>
+    function all_js_method() {
+        let div_about_me_normal = $("#div_about_me_normal");
+        let div_about_me_resume = $("#div_about_me_resume");
+        $("#bt_about_me_exchange").click(function () {
+            alert("ddd");
+            div_about_me_normal.slideToggle();
+            div_about_me_resume.slideToggle();
+        })
+    }
+
     $(function () {
+        all_js_method();
+
         $("[data-toggle='tooltip']").tooltip();
     });
 
-    let div_about_me_normal = $("#div_about_me_normal");
-    let div_about_me_resume = $("#div_about_me_resume");
-    $("#bt_about_me_exchange").click(function () {
-        div_about_me_normal.slideToggle();
-        div_about_me_resume.slideToggle();
-    })
 </script>
 
 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -75,7 +81,7 @@ description: "凡事豫则立，不豫则废。言前定则不跲，事前定则
 
 
         <!-- 2021计划 -->
-        <div class="tab-pane fade in active" id="plan-of-this-year">
+        <div class="tab-pane fade" id="plan-of-this-year">
             <h1>2021计划</h1>
 
             <p>增重10斤，当前59.8KG</p>
