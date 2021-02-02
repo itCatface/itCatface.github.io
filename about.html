@@ -1,21 +1,21 @@
----
-layout: page
-title: "关于"
-description: "愿世界和平"
-header-img: "img/about-bg.jpg"
-multilingual: true
----
+aa---
+aalayout: page
+aatitle: "关于"
+aadescription: "愿世界和平"
+aaheader-img: "img/about-bg.jpg"
+aamultilingual: true
+aa---
 
-{% include multilingual-sel.html %}
+aa{% include multilingual-sel.html %}
 
-<!-- Chinese Version -->
-<div class="zh post-container">
-    {% capture about_zh %}{% include about/zh.md %}{% endcapture %}
-    {{ about_zh | markdownify }}
-</div>
+aa<!-- Chinese Version -->
+aa<div class="zh post-container">
+aa    {% capture about_zh %}{% include about/zh.md %}{% endcapture %}
+aa    {{ about_zh | markdownify }}
+aa</div>
 
-<!-- English Version -->
-<div class="en post-container">
-    {% capture about_en %}{% include about/en.md %}{% endcapture %}
-    {{ about_en | markdownify }}
-</div>
+aa<!-- English Version -->
+aa<div class="en post-container">
+aa    {% capture about_en %}{% include about/en.md %}{% endcapture %}
+aa    {{ about_en | markdownify }}
+aa</div>
