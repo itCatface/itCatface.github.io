@@ -100,11 +100,15 @@ page-mathjax: true
 # 主页下方的友情链接
 is_show_friends: true
 friends: [
+#  {
+#    title: "百度",
+#    href: "http://baidu.com/"
+#  },{
+#    title: "Google",
+#    href: "https://google.com"
+#  }
   {
-    title: "百度",
-    href: "http://baidu.com/"
-  },{
-    title: "Google",
-    href: "https://google.com"
+    title: "我的博客",
+    href: "https://blog.csdn.net/itCatface"
   }
 ]
