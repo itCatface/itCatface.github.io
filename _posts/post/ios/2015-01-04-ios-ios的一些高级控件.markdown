@@ -1,17 +1,17 @@
----
-layout:       post
-title:        "ios的一些高级控件"
-subtitle:     "DatePicker等控件的使用介绍"
-date:         2015-01-04 12:00:00
-author:       "catface"
-header-img:   "img/color-black.png"
-header-mask:  0.3
-catalog:      true
-multilingual: false
-edit status:  ed
-tags:
-    - ios
----
+@@@----
+@@@-layout:       post
+@@@-title:        "ios的一些高级控件"
+@@@-subtitle:     "DatePicker等控件的使用介绍"
+@@@-date:         2015-01-04 12:00:00
+@@@-author:       "catface"
+@@@-header-img:   "img/color-black.png"
+@@@-header-mask:  0.3
+@@@-catalog:      true
+@@@-multilingual: false
+@@@-edit status:  ed
+@@@-tags:
+@@@-    - ios
+@@@----
 
 # 第一章、选择器
 

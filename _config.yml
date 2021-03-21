@@ -110,5 +110,9 @@ friends: [
   {
     title: "我的博客",
     href: "https://blog.csdn.net/itCatface"
+  },
+  {
+    title: "我的音乐",
+    href: "https://music.163.com/#/user/home?id=78239461"
   }
 ]

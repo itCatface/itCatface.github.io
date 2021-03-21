@@ -1,5 +1,5 @@
 ---
-layout:       post
+@@@-layout:       post
 title:        "自定义Cordova插件"
 subtitle:     "从0开始自定义一个Cordova插件，之后有需求可以参考本篇进行新插件的封装以供JavaScript调用"
 date:         2015-01-01 12:00:00

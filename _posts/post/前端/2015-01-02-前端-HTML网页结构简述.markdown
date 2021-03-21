@@ -1,5 +1,5 @@
 ---
-layout:       post
+@@@-layout:       post
 title:        "HTML网页结构简述"
 subtitle:     "通过HTML即可编写页面元素"
 date:         2015-01-02 12:00:00

@@ -1,5 +1,5 @@
 ---
-layout:       post
+@@@-layout:       post
 title:        "java入门05-类、包"
 subtitle:     "简介java的类和包的基础知识"
 date:         2015-01-09 12:00:00

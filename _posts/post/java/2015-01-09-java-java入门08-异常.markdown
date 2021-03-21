@@ -1,5 +1,5 @@
 ---
-layout:       post
+@@@-layout:       post
 title:        "java入门08-异常"
 subtitle:     "简介java的异常处理"
 date:         2015-01-09 12:00:00

@@ -1,18 +1,18 @@
----
-layout:       post
-temp-title:        "android目录"
-subtemp-title:     ""
-date:         2025-12-30 12:00:00
-author:       "catface"
-header-style: "text"
--header-img:   "img/color-android-robot-green.png"
--header-mask:  0.3
--catalog:      false
--multilingual: false
--edit status:  ed
-tags:
-    - android
----
+@@@----
+@@@-layout:       post
+@@@-temp-title:        "android目录"
+@@@-subtemp-title:     ""
+@@@-date:         2025-12-30 12:00:00
+@@@-author:       "catface"
+@@@-header-style: "text"
+@@@--header-img:   "img/color-android-robot-green.png"
+@@@--header-mask:  0.3
+@@@--catalog:      false
+@@@--multilingual: false
+@@@--edit status:  ed
+@@@-tags:
+@@@-    - android
+@@@----
 
 # android初阶
 - 基础知识

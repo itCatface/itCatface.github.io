@@ -1,5 +1,5 @@
 ---
-layout:       post
+@@@-layout:       post
 title:        "快速搭建个人博客"
 subtitle:     "使用github的gitpage服务+Jekyll的博客模版+域名快速搭建个人博客站点"
 date:         2015-01-02 12:00:00

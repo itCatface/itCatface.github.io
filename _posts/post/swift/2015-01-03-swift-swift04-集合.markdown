@@ -1,5 +1,5 @@
 ---
-layout:       post
+@@@-layout:       post
 title:        "swift04-集合"
 subtitle:     "集合类型包括Arrays、Sets、Dictionaries的简单使用介绍"
 date:         2015-01-03 12:00:00

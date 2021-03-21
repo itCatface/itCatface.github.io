@@ -1,5 +1,5 @@
 ---
-layout:       post
+@@@-layout:       post
 title:        "swift01-新建Swift工程"
 subtitle:     "使用Xcode新建一个Swift项目"
 date:         2015-01-03 12:00:00

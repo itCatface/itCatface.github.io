@@ -1,17 +1,17 @@
----
-layout:       post
-title:        "ios的表控件"
-subtitle:     "TableView的使用介绍"
-date:         2015-01-04 12:00:00
-author:       "catface"
-header-img:   "img/color-black.png"
-header-mask:  0.3
-catalog:      true
-multilingual: false
-edit status:  ed
-tags:
-    - ios
----
+@@@----
+@@@-layout:       post
+@@@-title:        "ios的表控件"
+@@@-subtitle:     "TableView的使用介绍"
+@@@-date:         2015-01-04 12:00:00
+@@@-author:       "catface"
+@@@-header-img:   "img/color-black.png"
+@@@-header-mask:  0.3
+@@@-catalog:      true
+@@@-multilingual: false
+@@@-edit status:  ed
+@@@-tags:
+@@@-    - ios
+@@@----
 
 ![](http://itCatface.github.io/img/IOS/IOS005-表/01概述.jpg)
 

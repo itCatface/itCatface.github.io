@@ -101,7 +101,7 @@ yaml 头文件长这样:
 
 ```
 ---
-layout:     post
+@@@-layout:     post
 title:      "Hello 2015"
 subtitle:   "Hello World, Hello Blog"
 date:       2015-01-29 12:00:00
@@ -182,7 +182,7 @@ HTML5幻灯片的排版：
 
 ```
 ---
-layout:     keynote
+@@@-layout:     keynote
 iframe:     "http://huangxuan.me/js-module-7day/"
 ---
 ```

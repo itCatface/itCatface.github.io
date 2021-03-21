@@ -1,17 +1,17 @@
----
-layout:       post
-title:        "ios的常用控件"
-subtitle:     "包含TextField、Switch、Slider、WebView等常用控件的使用介绍"
-date:         2015-01-04 12:00:00
-author:       "catface"
-header-img:   "img/color-black.png"
-header-mask:  0.3
-catalog:      true
-multilingual: false
-edit status:  ed
-tags:
-    - ios
----
+@@@----
+@@@-layout:       post
+@@@-title:        "ios的常用控件"
+@@@-subtitle:     "包含TextField、Switch、Slider、WebView等常用控件的使用介绍"
+@@@-date:         2015-01-04 12:00:00
+@@@-author:       "catface"
+@@@-header-img:   "img/color-black.png"
+@@@-header-mask:  0.3
+@@@-catalog:      true
+@@@-multilingual: false
+@@@-edit status:  ed
+@@@-tags:
+@@@-    - ios
+@@@----
 
 > 本篇会介绍如下 TextFireld、TextView、Button、Segment、Label、Slider、WebView、ActivityIndicator、Progress、Alert(DEPRECATED)、ActionSheet(DEPRECATED)、ActionControl、ToolBar、Bar Button Item
 

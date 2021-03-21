@@ -1,5 +1,5 @@
 ---
-layout:       post
+@@@-layout:       post
 title:        "linux系统目录说明"
 subtitle:     "简单介绍linux系统的各个系统目录"
 date:         2015-01-01 12:00:00
