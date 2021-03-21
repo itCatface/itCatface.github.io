@@ -1,5 +1,5 @@
 ---
-@@@-layout:       post
+layout:       post
 title:        "adb调试命令收集"
 subtitle:     "收集总结开发过程中用到的adb命令"
 date:         2015-01-01 12:00:00

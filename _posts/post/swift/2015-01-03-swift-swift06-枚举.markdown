@@ -1,5 +1,5 @@
 ---
-@@@-layout:       post
+layout:       post
 title:        "swift06-枚举"
 subtitle:     "枚举类型的简单使用介绍"
 date:         2015-01-03 12:00:00

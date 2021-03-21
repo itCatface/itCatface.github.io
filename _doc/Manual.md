@@ -78,7 +78,7 @@ For instance, [Hello 2015])(https://huangxuan.me/2015/01/29/hello-2015/) has the
 
 ```yml
 ---
-@@@-layout:     post
+layout:     post
 title:      "Hello 2015"
 subtitle:   " \"Hello World, Hello Blog\""
 date:       2015-01-29 12:00:00
@@ -191,7 +191,7 @@ To use, in the **front-matter**:
 
 ```yml
 ---
-@@@-layout:     keynote
+layout:     keynote
 iframe:     "http://huangxuan.me/js-module-7day/"
 ---
 ```

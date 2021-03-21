@@ -1,5 +1,5 @@
 ---
-@@@-layout:       post
+layout:       post
 title:        "idea快捷键总结"
 subtitle:     "收集总结开发过程中用到的idea/android studio快捷键"
 date:         2015-01-01 12:00:00

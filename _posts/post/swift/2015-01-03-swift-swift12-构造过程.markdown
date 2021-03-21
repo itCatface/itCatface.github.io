@@ -1,5 +1,5 @@
 ---
-@@@-layout:       post
+layout:       post
 title:        "swift12-构造过程"
 subtitle:     "Swift的构造函数介绍"
 date:         2015-01-03 12:00:00

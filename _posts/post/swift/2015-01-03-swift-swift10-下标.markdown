@@ -1,5 +1,5 @@
 ---
-@@@-layout:       post
+layout:       post
 title:        "swift10-下标"
 subtitle:     "下标的简单使用介绍"
 date:         2015-01-03 12:00:00

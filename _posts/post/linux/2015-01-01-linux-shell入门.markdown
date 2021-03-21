@@ -1,5 +1,5 @@
 ---
-@@@-layout:       post
+layout:       post
 title:        "shell入门"
 subtitle:     "简介shell的基础语法，编写入门案例"
 date:         2015-01-01 12:00:00

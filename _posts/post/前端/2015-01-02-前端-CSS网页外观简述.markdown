@@ -1,5 +1,5 @@
 ---
-@@@-layout:       post
+layout:       post
 title:        "CSS网页外观简述"
 subtitle:     "通过CSS即可美化页面外观"
 date:         2015-01-02 12:00:00

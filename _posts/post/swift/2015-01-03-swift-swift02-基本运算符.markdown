@@ -1,5 +1,5 @@
 ---
-@@@-layout:       post
+layout:       post
 title:        "swift02-基本运算符"
 subtitle:     "赋值、比较、逻辑等运算符使用介绍"
 date:         2015-01-03 12:00:00

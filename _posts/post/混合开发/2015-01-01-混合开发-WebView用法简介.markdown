@@ -1,5 +1,5 @@
 ---
-@@@-layout:       post
+layout:       post
 title:        "WebView用法简介"
 subtitle:     "介绍WebView的常用API"
 date:         2015-01-01 12:00:00

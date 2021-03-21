@@ -1,5 +1,5 @@
 ---
-@@@-layout:       post
+layout:       post
 title:        "PS基本功能"
 subtitle:     "介绍PhotoShop的常用快捷键及基本功能等"
 date:         2015-01-05 12:00:00

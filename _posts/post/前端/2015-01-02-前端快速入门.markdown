@@ -1,5 +1,5 @@
 ---
-@@@-layout:       post
+layout:       post
 title:        "基础前端快速入门"
 subtitle:     "通过示例代码快速了解html、css、JavaScript等前端基础"
 date:         2015-01-02 12:00:00

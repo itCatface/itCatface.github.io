@@ -1,5 +1,5 @@
 ---
-@@@-layout:       post
+layout:       post
 title:        "swift05-闭包"
 subtitle:     "闭包即函数的简写方式"
 date:         2015-01-03 12:00:00

@@ -1,5 +1,5 @@
 ---
-@@@-layout:       post
+layout:       post
 title:        "JavaScript页面行为简述"
 subtitle:     "通过JavaScript即可完成界面交互"
 date:         2015-01-02 12:00:00
