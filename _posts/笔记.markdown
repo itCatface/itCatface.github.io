@@ -1,16 +1,16 @@
 ---
 layout:       post
-title:        "安卓笔记"
-subtitle:     "补充ing"
-date:         2021-06-25 10:39:00
+title:        "笔记"
+subtitle:     "ing"
+date:         2015-01-01 12:00:00
 author:       "catface"
 header-img:   "img/color-black.png"
 header-mask:  0.3
 catalog:      true
 multilingual: false
-edit status:  ing
+edit status:  ed
 tags:
-    - 笔记
+    - 简谈源码
 ---
 
 [TOC]
