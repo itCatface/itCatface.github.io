@@ -23,7 +23,7 @@ description: "千里之行 始于足下"
         </div>
     </a>
     <p class="post-meta">
-        Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}
+        作者:{% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %}, 发布时间:{{ post.date | date: "%Y-%m-%d, %A" }}
     </p>
 </div>
 <hr>
