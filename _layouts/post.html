@@ -6,8 +6,6 @@ layout: default
 <!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
 <!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
 
-{% include head-top.html %}
-
 <!-- Post Header -->
 {% include intro-header.html type='post' %}
 
@@ -94,10 +92,6 @@ layout: default
 {% if page.mathjax %}
   {% include mathjax_support.html %}
 {% endif %}
-
-
-{% include footer-bottom.html %}
-
 
 <!-- 畅言评论js -->
 {% if site.is_open_changyan %}
