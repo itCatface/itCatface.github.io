@@ -4,9 +4,19 @@ layout: default
 header-img: "img/post-bg-2015.jpg"
 description: "工欲善其事必先利其器"
 ---
-<!--{% include intro-header.html type='page' short=true %}-->
+{% include intro-header.html type='page' short=true %}
+<!--layui的css和js-->
+<link rel="stylesheet" href="//unpkg.com/layui@2.6.8/dist/css/layui.css"/>
+<script src="//unpkg.com/layui@2.6.8/dist/layui.js"></script>
+
 <meta charset="UTF-8"/>
+
 <style>
+    #layui-nav {
+        margin-left: 60px;
+        margin-right: 60px;
+    }
+
     .tool-root {
         margin-left: 80px;
         margin-right: 80px;
@@ -14,7 +24,58 @@ description: "工欲善其事必先利其器"
     }
 </style>
 
+<ul class="layui-nav layui-bg-cyan" id="layui-nav">
+    <!--给a元素的属性href设置为javascript:;则表示不执行任何操作-->
+    <li class="layui-nav-item"><a href="javascript:;" @click="switchTab(1)">藏青导航</a></li>
+    <li class="layui-nav-item"><a href="javascript:;" @click="switchTab(2)">产品</a></li>
+    <li class="layui-nav-item"><a href="">大数据</a></li>
+    <li class="layui-nav-item">
+        <a href="javascript:;">解决方案</a>
+        <dl class="layui-nav-child">
+            <dd><a href="">移动模块</a></dd>
+            <dd><a href="">后台模版</a></dd>
+            <dd><a href="">电商平台</a></dd>
+        </dl>
+    </li>
+    <li class="layui-nav-item"><a href="">社区</a></li>
+</ul>
+<div id="tab1" hidden>
+    tab1
+</div>
+
+<div id="tab2" hidden>
+    tab2
+</div>
+
+
 <div class="tool-root">
 
     <a target="_blank" href="http://catface.cc/tool/exe/SpaceSniffer.exe" download="http://catface.cc/tool/exe/SpaceSniffer.exe">磁盘空间分析工具</a>
 </div>
+
+<!--vue.js-->
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                qq: 'sdsdf'
+            }
+        },
+        methods: {
+            switchTab(index) {
+                switch (index) {
+                    case 1:
+                        document.getElementById('tab1').style.display = 'none'
+                        //document.getElementById('tab1').style.visibility = 'hidden|visible'//隐藏仍占位
+                        document.getElementById('tab2').style.display = 'inline'
+                        break
+                    case 2:
+                        document.getElementById('tab1').style.display = 'inline'
+                        document.getElementById('tab2').style.display = 'none'
+                        break
+                }
+            }
+        }
+    }).mount('#layui-nav')
+</script>
