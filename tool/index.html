@@ -26,20 +26,84 @@ description: "工欲善其事必先利其器"
 
 <!---------------------------------------------------------------------->
 <ul class="layui-nav layui-bg-cyan" id="layui-nav">
-    <li class="layui-nav-item"><a href="javascript:;" style="text-decoration: none" @click="switchHeaderTab('navigation')">网站导航</a></li>
-    <li class="layui-nav-item"><a href="javascript:;" style="text-decoration: none" @click="switchHeaderTab('tool')">实用工具</a></li>
+    <li class="layui-nav-item"><a href="javascript:;" style="text-decoration: none"
+                                  @click="switchHeaderTab('navigation')">网站导航</a></li>
+    <li class="layui-nav-item"><a href="javascript:;" style="text-decoration: none" @click="switchHeaderTab('tool')">实用工具</a>
+    </li>
     <li class="layui-nav-item">
         <a href="javascript:;" style="text-decoration: none" @click="switchHeaderTab('software')">装机必备</a>
         <dl class="layui-nav-child">
-            <dd><a href="javascript:;" style="text-decoration: none" @click="switchHeaderTab('software-win')">win</a></dd>
-            <dd><a href="javascript:;" style="text-decoration: none" @click="switchHeaderTab('software-linux')">linux</a></dd>
-            <dd><a href="javascript:;" style="text-decoration: none" @click="switchHeaderTab('software-mac')">mac</a></dd>
+            <dd><a href="javascript:;" style="text-decoration: none" @click="switchHeaderTab('software-win')">win</a>
+            </dd>
+            <dd><a href="javascript:;" style="text-decoration: none"
+                   @click="switchHeaderTab('software-linux')">linux</a></dd>
+            <dd><a href="javascript:;" style="text-decoration: none" @click="switchHeaderTab('software-mac')">mac</a>
+            </dd>
         </dl>
     </li>
 </ul>
-<div id="navigation" class="nav-content">
-    navigation
+<div style="float: left">
+    <div id="navigation" class="nav-content">
+        <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo" style="margin-right: 10px;margin-top: 20px">
+            <li class="layui-nav-item layui-nav-itemed">
+                <a href="javascript:;">默认展开</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="javascript:;">选项一</a></dd>
+                    <dd><a href="javascript:;">选项二</a></dd>
+                    <dd><a href="javascript:;">选项三</a></dd>
+                    <dd><a href="">跳转项</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="#nav-content-f">学术引擎</a></li>
+            <li class="layui-nav-item"><a href="#nav-content-s">影音娱乐</a></li>
+        </ul>
+
+        <div id="nav-content" style="float: right;height: 300px;width: 300px;overflow-y: auto">
+            <div id="nav-content-f">
+                <p>dddd1</p>
+            </div>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <div id="nav-content-s">
+                ddddd2
+            </div>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+        </div>
+    </div>
 </div>
+
 <div id="tool" class="nav-content" hidden>
     hidden
 </div>
@@ -53,9 +117,10 @@ description: "工欲善其事必先利其器"
     software mac
 </div>
 
-<div class="tool-root">
 
-    <a target="_blank" href="http://catface.cc/tool/exe/SpaceSniffer.exe" download="http://catface.cc/tool/exe/SpaceSniffer.exe">磁盘空间分析工具</a>
+<div class="tool-root" style="clear: left">
+    <a target="_blank" href="http://catface.cc/tool/exe/SpaceSniffer.exe"
+       download="http://catface.cc/tool/exe/SpaceSniffer.exe">磁盘空间分析工具</a>
 </div>
 
 
@@ -76,37 +141,37 @@ description: "工欲善其事必先利其器"
                 switch (index) {
                     case 'navigation':
                         document.getElementById('navigation').style.display = 'inline'
-                        document.getElementById('tool').style.display = 'gone'
-                        document.getElementById('software-win').style.display = 'gone'
-                        document.getElementById('software-linux').style.display = 'gone'
-                        document.getElementById('software-mac').style.display = 'gone'
+                        document.getElementById('tool').style.display = 'none'
+                        document.getElementById('software-win').style.display = 'none'
+                        document.getElementById('software-linux').style.display = 'none'
+                        document.getElementById('software-mac').style.display = 'none'
                         break
                     case 'tool':
-                        document.getElementById('navigation').style.display = 'gone'
+                        document.getElementById('navigation').style.display = 'none'
                         document.getElementById('tool').style.display = 'inline'
-                        document.getElementById('software-win').style.display = 'gone'
-                        document.getElementById('software-linux').style.display = 'gone'
-                        document.getElementById('software-mac').style.display = 'gone'
+                        document.getElementById('software-win').style.display = 'none'
+                        document.getElementById('software-linux').style.display = 'none'
+                        document.getElementById('software-mac').style.display = 'none'
                         break
                     case 'software-win':
-                        document.getElementById('navigation').style.display = 'gone'
-                        document.getElementById('tool').style.display = 'gone'
+                        document.getElementById('navigation').style.display = 'none'
+                        document.getElementById('tool').style.display = 'none'
                         document.getElementById('software-win').style.display = 'inline'
-                        document.getElementById('software-linux').style.display = 'gone'
-                        document.getElementById('software-mac').style.display = 'gone'
+                        document.getElementById('software-linux').style.display = 'none'
+                        document.getElementById('software-mac').style.display = 'none'
                         break
                     case 'software-linux':
-                        document.getElementById('navigation').style.display = 'gone'
-                        document.getElementById('tool').style.display = 'gone'
-                        document.getElementById('software-win').style.display = 'gone'
+                        document.getElementById('navigation').style.display = 'none'
+                        document.getElementById('tool').style.display = 'none'
+                        document.getElementById('software-win').style.display = 'none'
                         document.getElementById('software-linux').style.display = 'inline'
-                        document.getElementById('software-mac').style.display = 'gone'
+                        document.getElementById('software-mac').style.display = 'none'
                         break
                     case 'software-mac':
-                        document.getElementById('navigation').style.display = 'gone'
-                        document.getElementById('tool').style.display = 'gone'
-                        document.getElementById('software-win').style.display = 'gone'
-                        document.getElementById('software-linux').style.display = 'gone'
+                        document.getElementById('navigation').style.display = 'none'
+                        document.getElementById('tool').style.display = 'none'
+                        document.getElementById('software-win').style.display = 'none'
+                        document.getElementById('software-linux').style.display = 'none'
                         document.getElementById('software-mac').style.display = 'inline'
                         break
                 }
