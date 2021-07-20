@@ -1,7 +1,7 @@
 {
-  "name": "Hux Blog",
-  "short_name": "Hux Blog",
-  "description": "About an engineer & designer who loves web.",
+  "name": "catface blog",
+  "short_name": "catface blog",
+  "description": "be simple.",
   "icons": [{
     "src": "icons/128.png",
     "sizes": "128x128",
