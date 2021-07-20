@@ -5,14 +5,13 @@ header-img: "img/post-bg-2015.jpg"
 description: "工欲善其事必先利其器"
 ---
 {% include intro-header.html type='page' short=true %}
-<!--layui的css和js-->
+<!--layui的css-->
 <link rel="stylesheet" href="//unpkg.com/layui@2.6.8/dist/css/layui.css"/>
-<script src="//unpkg.com/layui@2.6.8/dist/layui.js"></script>
-
 <meta charset="UTF-8"/>
 
+<!---------------------------------------------------------------------->
 <style>
-    #layui-nav {
+    #layui-nav .nav-content {
         margin-left: 60px;
         margin-right: 60px;
     }
@@ -24,35 +23,45 @@ description: "工欲善其事必先利其器"
     }
 </style>
 
+
+<!---------------------------------------------------------------------->
 <ul class="layui-nav layui-bg-cyan" id="layui-nav">
-    <!--给a元素的属性href设置为javascript:;则表示不执行任何操作-->
-    <li class="layui-nav-item"><a href="javascript:;" style="text-decoration: none" @click="switchTab(1)">藏青导航</a></li>
-    <li class="layui-nav-item"><a href="javascript:;" style="text-decoration: none" @click="switchTab(2)">产品</a></li>
-    <li class="layui-nav-item"><a href="">大数据</a></li>
+    <li class="layui-nav-item"><a href="javascript:;" style="text-decoration: none" @click="switchHeaderTab('navigation')">网站导航</a></li>
+    <li class="layui-nav-item"><a href="javascript:;" style="text-decoration: none" @click="switchHeaderTab('tool')">实用工具</a></li>
     <li class="layui-nav-item">
-        <a href="javascript:;">解决方案</a>
+        <a href="javascript:;" style="text-decoration: none" @click="switchHeaderTab('software')">装机必备</a>
         <dl class="layui-nav-child">
-            <dd><a href="">移动模块</a></dd>
-            <dd><a href="">后台模版</a></dd>
-            <dd><a href="">电商平台</a></dd>
+            <dd><a href="javascript:;" style="text-decoration: none" @click="switchHeaderTab('software-win')">win</a></dd>
+            <dd><a href="javascript:;" style="text-decoration: none" @click="switchHeaderTab('software-linux')">linux</a></dd>
+            <dd><a href="javascript:;" style="text-decoration: none" @click="switchHeaderTab('software-mac')">mac</a></dd>
         </dl>
     </li>
-    <li class="layui-nav-item"><a href="">社区</a></li>
 </ul>
-<div id="tab1" hidden>
-    tab1
+<div id="navigation" class="nav-content">
+    navigation
 </div>
-
-<div id="tab2" hidden>
-    tab2
+<div id="tool" class="nav-content" hidden>
+    hidden
 </div>
-
+<div id="software-win" class="nav-content" hidden>
+    software win
+</div>
+<div id="software-linux" class="nav-content" hidden>
+    software linux
+</div>
+<div id="software-mac" class="nav-content" hidden>
+    software mac
+</div>
 
 <div class="tool-root">
 
     <a target="_blank" href="http://catface.cc/tool/exe/SpaceSniffer.exe" download="http://catface.cc/tool/exe/SpaceSniffer.exe">磁盘空间分析工具</a>
 </div>
 
+
+<!---------------------------------------------------------------------->
+<!--layui.js-->
+<script src="//unpkg.com/layui@2.6.8/dist/layui.js"></script>
 <!--vue.js-->
 <script src="https://unpkg.com/vue@next"></script>
 <script>
@@ -63,16 +72,42 @@ description: "工欲善其事必先利其器"
             }
         },
         methods: {
-            switchTab(index) {
+            switchHeaderTab(index) {
                 switch (index) {
-                    case 1:
-                        document.getElementById('tab1').style.display = 'none'
-                        //document.getElementById('tab1').style.visibility = 'hidden|visible'//隐藏仍占位
-                        document.getElementById('tab2').style.display = 'inline'
+                    case 'navigation':
+                        document.getElementById('navigation').style.display = 'inline'
+                        document.getElementById('tool').style.display = 'gone'
+                        document.getElementById('software-win').style.display = 'gone'
+                        document.getElementById('software-linux').style.display = 'gone'
+                        document.getElementById('software-mac').style.display = 'gone'
                         break
-                    case 2:
-                        document.getElementById('tab1').style.display = 'inline'
-                        document.getElementById('tab2').style.display = 'none'
+                    case 'tool':
+                        document.getElementById('navigation').style.display = 'gone'
+                        document.getElementById('tool').style.display = 'inline'
+                        document.getElementById('software-win').style.display = 'gone'
+                        document.getElementById('software-linux').style.display = 'gone'
+                        document.getElementById('software-mac').style.display = 'gone'
+                        break
+                    case 'software-win':
+                        document.getElementById('navigation').style.display = 'gone'
+                        document.getElementById('tool').style.display = 'gone'
+                        document.getElementById('software-win').style.display = 'inline'
+                        document.getElementById('software-linux').style.display = 'gone'
+                        document.getElementById('software-mac').style.display = 'gone'
+                        break
+                    case 'software-linux':
+                        document.getElementById('navigation').style.display = 'gone'
+                        document.getElementById('tool').style.display = 'gone'
+                        document.getElementById('software-win').style.display = 'gone'
+                        document.getElementById('software-linux').style.display = 'inline'
+                        document.getElementById('software-mac').style.display = 'gone'
+                        break
+                    case 'software-mac':
+                        document.getElementById('navigation').style.display = 'gone'
+                        document.getElementById('tool').style.display = 'gone'
+                        document.getElementById('software-win').style.display = 'gone'
+                        document.getElementById('software-linux').style.display = 'gone'
+                        document.getElementById('software-mac').style.display = 'inline'
                         break
                 }
             }
