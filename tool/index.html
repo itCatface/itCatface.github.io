@@ -11,15 +11,9 @@ description: "工欲善其事必先利其器"
 
 <!---------------------------------------------------------------------->
 <style>
-    #layui-nav .nav-content {
-        margin-left: 60px;
-        margin-right: 60px;
-    }
-
-    .tool-root {
-        margin-left: 80px;
-        margin-right: 80px;
-        margin-top: 20px;
+    #layui-nav, .nav-content {
+        margin-left: 30px;
+        margin-right: 30px;
     }
 </style>
 
@@ -44,7 +38,7 @@ description: "工欲善其事必先利其器"
 </ul>
 <div style="float: left">
     <div id="navigation" class="nav-content">
-        <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo" style="margin-right: 10px;margin-top: 20px">
+        <ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo" style="margin-right: 10px;margin-top: 1px">
             <li class="layui-nav-item layui-nav-itemed">
                 <a href="javascript:;">默认展开</a>
                 <dl class="layui-nav-child">
@@ -108,19 +102,16 @@ description: "工欲善其事必先利其器"
     hidden
 </div>
 <div id="software-win" class="nav-content" hidden>
-    software win
+    <div class="tool-root" style="clear: left">
+        <a target="_blank" href="http://catface.cc/tool/exe/SpaceSniffer.exe"
+           download="http://catface.cc/tool/exe/SpaceSniffer.exe">磁盘空间分析工具</a>
+    </div>
 </div>
 <div id="software-linux" class="nav-content" hidden>
     software linux
 </div>
 <div id="software-mac" class="nav-content" hidden>
     software mac
-</div>
-
-
-<div class="tool-root" style="clear: left">
-    <a target="_blank" href="http://catface.cc/tool/exe/SpaceSniffer.exe"
-       download="http://catface.cc/tool/exe/SpaceSniffer.exe">磁盘空间分析工具</a>
 </div>
 
 
