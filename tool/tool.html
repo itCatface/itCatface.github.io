@@ -13,14 +13,18 @@
 
     /*装机必备卡片样式*/
     .layui-col-md6 {
-        padding: 20px;
-        border-radius: 10px;
+        padding: 40px;
+        border-radius: 30px;
+    }
+    .layui-card-header {
+        background-color: #cccccc;
     }
 </style>
 
 <body id="body">
 <!--顶部导航-->
 <ul class="layui-nav layui-bg-cyan" id="layui-nav" style="width: 100%;position: fixed;top: 0;z-index: 99">
+    <li class="layui-nav-item"><a href="https://catface.cc"><b style="color: #5bc0de">主页</b></a></li>
     <li class="layui-nav-item"><a href="javascript:" @click="switchHeaderTab('navigation')">网站导航</a></li>
     <li class="layui-nav-item"><a href="javascript:" @click="switchHeaderTab('tool')">实用工具</a></li>
     <li class="layui-nav-item">
@@ -108,17 +112,40 @@
     <div id="software-win" class="nav-content" hidden>
         <div class="layui-col-md6">
             <div class="layui-card">
-                <div class="layui-card-header" style="background-color: #5c6370">编程环境</div>
+                <div class="layui-card-header">最先准备</div>
                 <div class="layui-card-body">
-                    jdk<br>
-                    anaconda
+                    edge浏览器<br>
+                    QQ输入法<br>
+                    7zip解压<br>
+                    微信<br>
+                    百度网盘<br>
+                    IDM=下载工具
                 </div>
             </div>
         </div>
-
         <div class="layui-col-md6">
             <div class="layui-card">
-                <div class="layui-card-header" style="background-color: #5c6370">编程工具</div>
+                <div class="layui-card-header">阅读编辑</div>
+                <div class="layui-card-body">
+                    Sublime Text 4<br>
+                    typora<br>
+                    极速pdf
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-md6">
+            <div class="layui-card">
+                <div class="layui-card-header">编程环境</div>
+                <div class="layui-card-body">
+                    jdk<br>
+                    anaconda<br>
+                    Git
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-md6">
+            <div class="layui-card">
+                <div class="layui-card-header">编程工具</div>
                 <div class="layui-card-body">
                     idea<br>
                     as<br>
@@ -126,28 +153,76 @@
                 </div>
             </div>
         </div>
-
         <div class="layui-col-md6">
             <div class="layui-card">
-                <div class="layui-card-header" style="background-color: #5c6370">卡片面板</div>
+                <div class="layui-card-header">数据操控</div>
                 <div class="layui-card-body">
-                    卡片式面板面板通常用于非白色背景色的主体内<br>
-                    从而映衬出边框投影
+                    navicat<br>
+                    SQLite Expert Professional
                 </div>
             </div>
         </div>
-
-        <div class="tool-root" style="clear: left">
-            <a target="_blank" href="http://catface.cc/tool/exe/SpaceSniffer.exe"
-               download="http://catface.cc/tool/exe/SpaceSniffer.exe">磁盘空间分析工具</a>
+        <div class="layui-col-md6">
+            <div class="layui-card">
+                <div class="layui-card-header">编程调试</div>
+                <div class="layui-card-body">
+                    Postman<br>
+                    Fiddler<br>
+                    AirTest=网易测试IDE
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-md6">
+            <div class="layui-card">
+                <div class="layui-card-header">影音娱乐</div>
+                <div class="layui-card-body">
+                    网易云音乐<br>
+                    QQ音乐
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-md6">
+            <div class="layui-card">
+                <div class="layui-card-header">桌面欣赏</div>
+                <div class="layui-card-body">
+                    网易UU<br>
+                    Steam<br>
+                    Wallpaper Engine
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-md6">
+            <div class="layui-card">
+                <div class="layui-card-header">电脑优化</div>
+                <div class="layui-card-body">
+                    SpaceSniffer=磁盘用量分析
+                </div>
+            </div>
         </div>
     </div>
     <!--content=装机必备linux-->
     <div id="software-linux" class="nav-content" hidden>
-        software linux
+        <div class="layui-col-md6">
+            <div class="layui-card">
+                <div class="layui-card-header">最先准备</div>
+                <div class="layui-card-body">
+                    edge浏览器<br>
+                    vim<br>
+                    Git
+                </div>
+            </div>
+        </div>
     </div>
     <!--content=装机必备mac-->
     <div id="software-mac" class="nav-content" hidden>
+        <div class="layui-col-md6">
+            <div class="layui-card">
+                <div class="layui-card-header">最先准备</div>
+                <div class="layui-card-body">
+                    edge浏览器<br>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </body>
