@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//unpkg.com/layui@2.6.8/dist/css/layui.css"/>
+    <title>tool</title>
+</head>
+
+<style>
+    a {
+        text-decoration: none;
+    }
+
+    /*装机必备卡片样式*/
+    .layui-col-md6 {
+        padding: 20px;
+        border-radius: 10px;
+    }
+</style>
+
+<body id="body">
+<!--顶部导航-->
+<ul class="layui-nav layui-bg-cyan" id="layui-nav" style="width: 100%;position: fixed;top: 0;z-index: 99">
+    <li class="layui-nav-item"><a href="javascript:" @click="switchHeaderTab('navigation')">网站导航</a></li>
+    <li class="layui-nav-item"><a href="javascript:" @click="switchHeaderTab('tool')">实用工具</a></li>
+    <li class="layui-nav-item">
+        <a href="javascript:" @click="switchHeaderTab('software')">装机必备</a>
+        <dl class="layui-nav-child">
+            <dd><a href="javascript:" @click="switchHeaderTab('software-win')">win</a></dd>
+            <dd><a href="javascript:" @click="switchHeaderTab('software-linux')">linux</a></dd>
+            <dd><a href="javascript:" @click="switchHeaderTab('software-mac')">mac</a></dd>
+        </dl>
+    </li>
+</ul>
+
+<div style="margin-top: 60px">
+    <!--content=网站导航-->
+    <div class="nav-content">
+        <ul id="navigation" class="layui-nav layui-nav-tree layui-inline" style="float: left;margin-top: 1px;position: fixed;top: 60px;z-index: 99">
+            <li class="layui-nav-item"><a href="#nav-content-f">学术引擎</a></li>
+            <li class="layui-nav-item"><a href="#nav-content-s">影音娱乐</a></li>
+            <li class="layui-nav-item layui-nav-itemed">
+                <a href="javascript:">默认展开</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="javascript:">选项一</a></dd>
+                    <dd><a href="javascript:">选项二</a></dd>
+                    <dd><a href="javascript:">选项三</a></dd>
+                </dl>
+            </li>
+        </ul>
+
+        <div id="navigation-content" style="float: left;margin-left: 210px;margin-top: -10px;height: auto;overflow-y: auto">
+            <div id="nav-content-f" style="position: relative;top: -50px">
+                <p>dddd1</p>
+            </div>
+            <p>展开000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <div id="nav-content-s">
+                ddddd2
+            </div>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+            <p>展开一</p>
+        </div>
+    </div>
+    <!--content=实用工具-->
+    <div id="tool" class="nav-content" hidden>
+        hidden
+    </div>
+    <!--content=装机必备win-->
+    <div id="software-win" class="nav-content" hidden>
+        <div class="layui-col-md6">
+            <div class="layui-card">
+                <div class="layui-card-header" style="background-color: #5c6370">编程环境</div>
+                <div class="layui-card-body">
+                    jdk<br>
+                    anaconda
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-col-md6">
+            <div class="layui-card">
+                <div class="layui-card-header" style="background-color: #5c6370">编程工具</div>
+                <div class="layui-card-body">
+                    idea<br>
+                    as<br>
+                    deveco
+                </div>
+            </div>
+        </div>
+
+        <div class="layui-col-md6">
+            <div class="layui-card">
+                <div class="layui-card-header" style="background-color: #5c6370">卡片面板</div>
+                <div class="layui-card-body">
+                    卡片式面板面板通常用于非白色背景色的主体内<br>
+                    从而映衬出边框投影
+                </div>
+            </div>
+        </div>
+
+        <div class="tool-root" style="clear: left">
+            <a target="_blank" href="http://catface.cc/tool/exe/SpaceSniffer.exe"
+               download="http://catface.cc/tool/exe/SpaceSniffer.exe">磁盘空间分析工具</a>
+        </div>
+    </div>
+    <!--content=装机必备linux-->
+    <div id="software-linux" class="nav-content" hidden>
+        software linux
+    </div>
+    <!--content=装机必备mac-->
+    <div id="software-mac" class="nav-content" hidden>
+    </div>
+</div>
+</body>
+
+<script src="//unpkg.com/layui@2.6.8/dist/layui.js"></script>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    Vue.createApp({
+        data() {
+            return {
+                qq: ''
+            }
+        },
+        methods: {
+            switchHeaderTab(index) {
+                switch (index) {
+                    case 'navigation':
+                        document.getElementById('navigation').style.display = 'inline'
+                        document.getElementById('navigation-content').style.display = 'inline'
+                        document.getElementById('tool').style.display = 'none'
+                        document.getElementById('software-win').style.display = 'none'
+                        document.getElementById('software-linux').style.display = 'none'
+                        document.getElementById('software-mac').style.display = 'none'
+                        break
+                    case 'tool':
+                        document.getElementById('navigation').style.display = 'none'
+                        document.getElementById('navigation-content').style.display = 'none'
+                        document.getElementById('tool').style.display = 'inline'
+                        document.getElementById('software-win').style.display = 'none'
+                        document.getElementById('software-linux').style.display = 'none'
+                        document.getElementById('software-mac').style.display = 'none'
+                        break
+                    case 'software-win':
+                        document.getElementById('navigation').style.display = 'none'
+                        document.getElementById('navigation-content').style.display = 'none'
+                        document.getElementById('tool').style.display = 'none'
+                        document.getElementById('software-win').style.display = 'inline'
+                        document.getElementById('software-linux').style.display = 'none'
+                        document.getElementById('software-mac').style.display = 'none'
+                        break
+                    case 'software-linux':
+                        document.getElementById('navigation').style.display = 'none'
+                        document.getElementById('navigation-content').style.display = 'none'
+                        document.getElementById('tool').style.display = 'none'
+                        document.getElementById('software-win').style.display = 'none'
+                        document.getElementById('software-linux').style.display = 'inline'
+                        document.getElementById('software-mac').style.display = 'none'
+                        break
+                    case 'software-mac':
+                        document.getElementById('navigation').style.display = 'none'
+                        document.getElementById('navigation-content').style.display = 'none'
+                        document.getElementById('tool').style.display = 'none'
+                        document.getElementById('software-win').style.display = 'none'
+                        document.getElementById('software-linux').style.display = 'none'
+                        document.getElementById('software-mac').style.display = 'inline'
+                        break
+                }
+            }
+        }
+    }).mount('#body')
+</script>
+
+</html>
