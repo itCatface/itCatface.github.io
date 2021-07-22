@@ -1,4 +1,4 @@
-<!-- Navigation -->
+<!-- 顶部导航 -->
 {% if page.nav-style == "invert" or page.header-style == "text" %}
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
 {% else %}
@@ -30,11 +30,11 @@
                     <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
                 </li>
                 {% endif %}
-                <!--添加模块-->
+                {% endfor %}
+                <!--添加单独的博客模块-->
                 <li>
                     <a href="#">测试</a>
                 </li>
-                {% endfor %}
                 <li class="search-icon">
                     <a href="javascript:void(0)">
                         <i class="fa fa-search"></i>
