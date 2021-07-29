@@ -3,8 +3,7 @@
 
 {% include header.html %}
 
-<!-- 添加普通的鼠标指针样式 -->
-<body style="cursor: url('http://catface.cc/img/cursor.png'), pointer;">
+<body>
 
 {% include nav.html %}
 
@@ -15,19 +14,17 @@
 {% include footer.html %}
 
 
-<!-- 点击鼠标出现爱心泡泡动画 -->
+<!-- 鼠标点击爱心泡泡 -->
 <script type="text/javascript" src="/js/anim-click-love.js"></script>
-<!-- 背景跟随鼠标的动态线条 -->
-<script type="text/javascript" src="/js/anim-dynamic-line.js"></script>
-<!-- 打字火花效果 -->
+<!-- 打字火花 -->
 <script type="text/javascript" src="/js/anim-input-spark.js"></script>
-<!-- 背景粒子 -->
-<script type="text/javascript" color="47,135,193" opacity='0.5' zIndex="-2" count="199" src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+<!-- 页面动态线条 -->
+<script type="text/javascript" color='0,0,0' opacity='.4' count='70' src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
 <!-- 看板娘 -->
 <script src="https://l2dwidget.js.org/lib/L2Dwidget.min.js"></script>
-<script>
+<script type="text/javascript">
     let modelType = Math.floor(Math.random() * 2);
-    let model = "https://imuncle.github.io/live2d/model/dollsfrontline/armor/model1.json";
+    let model = "https://imuncle.github.io/live2d/model/dollsfrontline/armor/model3.json";
     let defualtModel22 = "https://imuncle.github.io/live2d/model/22/model.default.json";
     let springModel22 = "https://imuncle.github.io/live2d/model/22/model.2018.spring.json";
     let summerModel22 = "https://imuncle.github.io/live2d/model/22/model.2018.bls-summer.json";
@@ -58,22 +55,23 @@
         },
         "display": {
             "position": "right",
-            "width": 200,
-            "height": 400,
+            "width": 150,
+            "height": 300,
             "hOffset": 0,
-            "vOffset": 500
+            "vOffset": -20
         },
         "mobile": {
             "show": true,
             "scale": 0.5
         },
         "react": {
-            "opacityDefault": 0.8,
-            "opacityOnHover": 1
+            "opacityDefault": 0.7,
+            "opacityOnHover": 0.2
         },
-        "dialog": {
-            "enable": true,
-            "script": {
+        dialog: {
+            enable: true,
+            script: {
+                'every idle 10s': '$hitokoto$',
                 'tap body': '哎呀！别碰我！',
                 'tap face': '别看我，看博客！',
             }
@@ -84,6 +82,13 @@
 </body>
 
 <style>
+
+    /* 鼠标指针 */
+    body {
+        cursor: url('http://catface.cc/img/cursor.png'), pointer;
+    }
+
+    /* 滚动条 */
     body::-webkit-scrollbar {
         width: 8px;
         height: 1px;
