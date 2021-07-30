@@ -13,75 +13,46 @@
 
 {% include footer.html %}
 
-
 <!-- 鼠标点击爱心泡泡 -->
 <script type="text/javascript" src="/js/anim-click-love.js"></script>
 <!-- 打字火花 -->
 <script type="text/javascript" src="/js/anim-input-spark.js"></script>
 <!-- 页面动态线条 -->
 <script type="text/javascript" color='0,0,0' opacity='.4' count='70' src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-
-<script type="text/javascript" src="https://blog-static.cnblogs.com/files/Steven-Tim/hk01.js" defer></script>
-
 <!-- 看板娘 -->
 <script src="https://l2dwidget.js.org/lib/L2Dwidget.min.js"></script>
 <script type="text/javascript">
-    let modelType = Math.floor(Math.random() * 2);
-    let model = "https://imuncle.github.io/live2d/model/dollsfrontline/armor/model3.json";
-    let defualtModel22 = "https://imuncle.github.io/live2d/model/22/model.default.json";
-    let springModel22 = "https://imuncle.github.io/live2d/model/22/model.2018.spring.json";
-    let summerModel22 = "https://imuncle.github.io/live2d/model/22/model.2018.bls-summer.json";
-    let autumn22 = "https://imuncle.github.io/live2d/model/22/model.2017.valley.json";
-    let winter22 = "https://imuncle.github.io/live2d/model/22/model.2018.bls-winter.json";
-
-    let defualtModel33 = "https://imuncle.github.io/live2d/model/33/model.default.json";
-    let springModel33 = "https://imuncle.github.io/live2d/model/33/model.2018.spring.json";
-    let summerModel33 = "https://imuncle.github.io/live2d/model/33/model.2018.bls-summer.json";
-    let autumn33 = "https://imuncle.github.io/live2d/model/33/model.2017.valley.json";
-    let winter33 = "https://imuncle.github.io/live2d/model/33/model.2018.bls-winter.json";
-
-    let date = new Date();
-    let month = date.getMonth() + 1;
-    if (month >= 3 && month < 6) {
-        modelType === 0 ? model = springModel22 : model = springModel33
-    } else if (month >= 6 && month < 9) {
-        modelType === 0 ? model = summerModel22 : model = summerModel33
-    } else if (month >= 9 && month < 11) {
-        modelType === 0 ? model = autumn22 : model = autumn33
-    } else if (month >= 11 || month < 3) {
-        modelType === 0 ? model = winter22 : model = winter33
-    }
+    let model = "https://imuncle.github.io/live2d/model/33/model.2017.valley.json";//看板娘模板=>https://imuncle.github.io/live2d/
     L2Dwidget.init({
-        "model": {
-            "jsonPath": model,
-            "scale": 1
+        model: {
+            jsonPath: model,
+            scale: 1
         },
-        "display": {
-            "position": "right",
-            "width": 150,
-            "height": 300,
-            "hOffset": 0,
-            "vOffset": -20
+        display: {
+            position: 'right',
+            width: 150,
+            height: 300,
+            hOffset: 30,
+            vOffset: -10
         },
-        "mobile": {
-            "show": true,
-            "scale": 0.5
+        mobile: {
+            show: true,
+            scale: 0.5
         },
-        "react": {
-            "opacityDefault": 0.7,
-            "opacityOnHover": 0.2
+        react: {
+            opacityDefault: 0.6,
+            opacityOnHover: 0.2
         },
         dialog: {
             enable: true,
             script: {
-                'every idle 10s': '$hitokoto$',
+                'every idle 15s': '$hitokoto$',
                 'tap body': '哎呀！别碰我！',
-                'tap face': '别看我，看博客！',
+                'tap face': '别看我，看博客！'
             }
         }
     });
 </script>
-<!-- 看板娘 -->
 </body>
 
 <style>
