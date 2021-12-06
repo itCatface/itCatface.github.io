@@ -15,12 +15,10 @@ tags:
 
 [TOC]
 
-# ---PART--- 安卓基础
+# A1.1「基础」泛型
 
-# chapter - 基础
-
-# 泛型-1.5-将类型参数化
-
+> 来自jdk1.5版本，作用是将类型参数化；
+>
 > 编译期检查类型安全，运行期是不可见的会被擦除为其上级类型
 > 省去类型强制转换
 > 常用泛型变量--E元素K关键字N数字T类型V值
@@ -109,82 +107,86 @@ public class GenericTest {
 }
 ```
 
-# 注解-1.5
+# 1.2注解
 
-> 为java代码提供元数据，不直接影响代码执行，但也有一些类型的注解可用于影响代码执行
+> 来自jdk1.5版本，为java代码提供元数据，不直接影响代码执行，但也有一些类型的注解可用于影响代码执行；
 
-## 元注解-注解的注解
+## 元注解
+
+> 注解的注解；
 
 1. @Retention-注解的保留期
 
-	- @Retention(RetentionPolicy.SOURCE)--注解仅存于源码中，class字节码中不包含
-	- @Retention(RetentionPolicy.CLASS)--默认，class字节码中存在，运行时jvm无法获得
-	- @Retention(RetentionPolicy.RUNTIME)--常用，jvm运行时可通过反射获得
+   - @Retention(RetentionPolicy.SOURCE)--注解仅存于源码中，class字节码中不包含
+   - @Retention(RetentionPolicy.CLASS)--默认，class字节码中存在，运行时jvm无法获得
+   - @Retention(RetentionPolicy.RUNTIME)--常用，jvm运行时可通过反射获得
 
 2. @Target-注解的作用范围
 
-	- @Target(ElementType.TYPE)--接口、类、枚举、注解
-	- @Target(ElementType.FIELD)--属性字段、枚举的常量
-	- @Target(ElementType.METHOD)--方法
-	- @Target(ElementType.PARAMETER)--方法参数
-	- @Target(ElementType.CONSTRUCTOR)--构造函数
-	- @Target(ElementType.LOCAL_VARIABLE)--局部变量
-	- @Target(ElementType.ANNOTATION_TYPE)--注解（@Retention注解中就使用该属性）
-	- @Target(ElementType.PACKAGE)--包
-	- @Target(ElementType.TYPE_PARAMETER)--1.8，类型泛型，即泛型方法、泛型类、泛型接口
-	- @Target(ElementType.TYPE_USE)--1.8，类型使用.可以用于标注任意类型除了class
+   - @Target(ElementType.TYPE)--接口、类、枚举、注解
+   - @Target(ElementType.FIELD)--属性字段、枚举的常量
+   - @Target(ElementType.METHOD)--方法
+   - @Target(ElementType.PARAMETER)--方法参数
+   - @Target(ElementType.CONSTRUCTOR)--构造函数
+   - @Target(ElementType.LOCAL_VARIABLE)--局部变量
+   - @Target(ElementType.ANNOTATION_TYPE)--注解（@Retention注解中就使用该属性）
+   - @Target(ElementType.PACKAGE)--包
+   - @Target(ElementType.TYPE_PARAMETER)--1.8，类型泛型，即泛型方法、泛型类、泛型接口
+   - @Target(ElementType.TYPE_USE)--1.8，类型使用.可以用于标注任意类型除了class
 
 3. @Document-将注解中的元素包含到javadoc中
 
 4. @Inherited-若其子类未加注解，则继承其所有注解
 
-    ```java
-    // 自定义注解
-    @Documented
-    @Inherited
-    @Retention(RetentionPolicy.RUNTIME)
-    @Target({ElementType.TYPE, ElementType.METHOD})
-    @interface TestAnnotation { }
-    
-    // 父类注解
-    @TestAnnotation
-    public class Father { }
-    
-    // 子类继承父类的所有注解
-    public class Son extends Father { }
-    
-    // 成功获取Son类上的@TestAnnotation注解
-    Class<Son> sonClass = Son.class;
-    TestAnnotation annotation = sonClass.getAnnotation(TestAnnotation.class);
-    System.out.println(annotation.annotationType());
-    ```
+   ```java
+   // 自定义注解
+   @Documented
+   @Inherited
+   @Retention(RetentionPolicy.RUNTIME)
+   @Target({ElementType.TYPE, ElementType.METHOD})
+   @interface TestAnnotation { }
+   
+   // 父类注解
+   @TestAnnotation
+   public class Father { }
+   
+   // 子类继承父类的所有注解
+   public class Son extends Father { }
+   
+   // 成功获取Son类上的@TestAnnotation注解
+   Class<Son> sonClass = Son.class;
+   TestAnnotation annotation = sonClass.getAnnotation(TestAnnotation.class);
+   System.out.println(annotation.annotationType());
+   ```
 
 5. @Repeatable-1.8-可多次作用于一个对象
 
-    ```java
-    // 玩家注解--一个玩家可玩多款游戏
-    @Documented
-    @Retention(RetentionPolicy.RUNTIME)
-    @Target(ElementType.TYPE)
-    public @interface Person {
-        Game[] value();
-    }
-    
-    // 游戏注解
-    @Repeatable(Person.class)
-    @Retention(RetentionPolicy.RUNTIME)
-    @Target(ElementType.TYPE)
-    public @interface Game {
-        String value() default "";
-    }
-    
-    @Game("lol")
-    @Game("dnf")
-    @Game("cf")
-    public class PlayGamesPerson { }
-    ```
+   ```java
+   // 玩家注解--一个玩家可玩多款游戏
+   @Documented
+   @Retention(RetentionPolicy.RUNTIME)
+   @Target(ElementType.TYPE)
+   public @interface Person {
+       Game[] value();
+   }
+   
+   // 游戏注解
+   @Repeatable(Person.class)
+   @Retention(RetentionPolicy.RUNTIME)
+   @Target(ElementType.TYPE)
+   public @interface Game {
+       String value() default "";
+   }
+   
+   @Game("lol")
+   @Game("dnf")
+   @Game("cf")
+   public class PlayGamesPerson { }
+   ```
 
-## 注解的属性-通过反射获取
+## 注解的属性
+
+> 可以通过反射获取；
 
 ```java
 @Retention(RetentionPolicy.RUNTIME)
@@ -214,7 +216,9 @@ System.out.println(Arrays.asList(annotations));
 4. @SafeVarargs--1.7-提醒开发者不要用参数做一些不安全的操作(运行时抛ClassCastException )
 5. @FunctionalInterface--1.8-函数式接口注解
 
-# 反射-通过class类的对象获取目标类的属性、方法等信息
+# 1.3反射
+
+> 通过class类的对象获取目标类的属性、方法等信息
 
 ```java
 public class ReflectionTest {
@@ -353,7 +357,7 @@ public class ReflectionTest {
 }
 ```
 
-# 并发编程
+# 1.4并发编程
 
 ## 基础概念
 
@@ -380,8 +384,8 @@ public class ReflectionTest {
 
 - 并发控制--保证并发情况下数据的准确性，否则会出现脏读、幻读、不可查重复读的问题
 - 悲观锁--通过锁机制，持有锁的线程可以对数据进行处理，其他线程阻塞等待锁释放后才能读写该数据
-	- 共享锁--多个事物对同一数据共享锁，都能读取但无法修改
-	- 排他锁--一个事物获取某个数据的排他锁，该事物可对数据进行读写操作，其他事物无法获取该数据的锁
+  - 共享锁--多个事物对同一数据共享锁，都能读取但无法修改
+  - 排他锁--一个事物获取某个数据的排他锁，该事物可对数据进行读写操作，其他事物无法获取该数据的锁
 - 乐观锁(CompareAndSwap)
 - ABA问题--已知当前栈内有BA，线程1介入知道A为栈顶且A.next是B想将B置为栈顶，此时线程2介入将A、B均出栈，并添加DCA于栈中，线程1介入，发现栈中A为栈顶，就开始CAS操作，将A出栈，B置为栈顶，结果栈中只有B，CD被丢弃
 - 解决ABA问题--在改变记录时添加version(可以是时间戳)控制，避免并发操作出现ABA问题
@@ -389,7 +393,7 @@ public class ReflectionTest {
 
 ## 线程池
 
-# 数据传输与序列化
+# 1.5序列化
 
 ## 序列化和反序列化概念
 
@@ -408,17 +412,37 @@ public class ReflectionTest {
 - S通过io读写进行序列化，并用到反射，过程中会产生大量临时对象，从而导致gc频繁--P在内存中完成序列化
 - S适合序列化需要永久保存的数据--P适合序列化在Intent或进程间传递的数据
 
-# java虚拟机原理
+# 1.6java虚拟机原理
 
-# 反射与类加载
+# 1.7反射与类加载
 
 ## Hook技术
 
 ## Dalvik和ART
 
-# chapter - UI&framework源码
+# 1.8IO
 
-# 事件分发
+# 1.9集合
+
+- SparseArray
+
+  适合存储少量数据[-128~127]；
+
+  数据维护在Object[]，相比于HashMap不会自动装箱，所以节省内存；
+
+  通过二进制搜索查找键，所以不适合大量数据存储；
+
+  为提升性能，删除键时，会为该条目添加标记，而不是立刻压缩数组；
+
+- ArrayMap
+
+  适合存储少量数据，相比于HashMap内存利用率更高；
+
+  查找时使用二进制搜索，所以比HashMap慢；
+
+  线程不安全；
+
+# 2.1「UI&framework源码」事件分发
 
 - 核心方法有三个：onInterceptTouchEvent、dispatchTouchEvent、onTouchEvent
 - 主要存在于三个组件中：Activity、ViewGroup、View
@@ -456,7 +480,35 @@ public class ReflectionTest {
 }
 ```
 
-# View渲染机制
+- getParent().requestDisallowInterceptTouchEvent(true);
+
+  如果子View被分发了事件，请求父控件不要在之后拦截事件；即父控件的onInterceptTouchEvent在接收ACTION_DOWN后return false不拦截事件，则事件交由子控件处理，此时子控件在onTouchEvent中调用标题方法后，后续的ACTION_MOVE和ACTION_UP事件都会流到子控件这处理；
+
+## 事件传递机制的总结
+
+1. 同一事件序列是指从手指触屏瞬间至离开屏幕瞬间，过程中产生的一系列事件，即从down事件开始，up事件结束，中间包含若干move事件；
+
+2. 正常情况下，一个事件序列只能被一个View拦截且消耗。因为一旦一个元素拦截了某个事件，那么同一事件序列内的所有事件都会直接交给其处理，因此同一事件序列中的事件不能分别由两个View同时处理。通过特殊手段，如一个View可将本该自己处理的事件通过onTouchEvent强行传递给其他View处理；
+
+3. 某个View一旦拦截，那么同一事件序列都只能由它来处理，且其onInterceptTouchEvent方法不会再被调用
+
+4. 某个View一旦开始处理事件，如果它不消耗ACTION_DOWN事件，那么同一事件序列中的其他事件都不会再交给它来处理，且事件将重新交个它的父元素处理，即父元素的onTouchEvent方法会被调用；
+
+5. 若View不消耗ACTION_DOWN以外的其他事件，那么这个点击事件会消失，此时父元素的onTouchEvent并不会被调用，且当前View可持续接收到后续的事件，最终这些消失的点击事件会传递给Activity处理；
+
+6. ViewGroup默认不拦截任何事件，即ViewGroup的onInterceptTouchEvent方法默认返回false；
+
+7. View没有onInterceptTouchEvent方法，若有事件传递给它，则其onTouchEvent方法会被调用；
+
+8. View的onTouchEvent默认会消耗事件，除非它是不可点击的(clickable,longClickable == false)。View的longClickable默认都为false；
+
+9. View的enable属性不影响onTouchEvent的默认返回值，即使View是disable状态，只要其clickable或longClickable有一个为true，则其onTouchEvent就返回true；
+
+10. onClick会发生的前提是当前View是可点击的，且其收到了down和up的事件；
+
+11. 事件传递过程是由外向内的，即事件总是先传递给父元素，再由父元素分发给子元素。但通过requestDisallowInterceptTouchEvent方法可在子元素中干预父元素的事件分发过程，但ACTION_DOWN事件除外；
+
+# 2.2View渲染机制
 
 ## 常用View
 
@@ -464,7 +516,7 @@ public class ReflectionTest {
 - CardView
 - ViewPager
 - WebView
-	
+
   - WebViewClient和WebChromeClient区别
         1. WebViewClient帮助WV处理通知、请求事件
             - onPageStarted
@@ -479,353 +531,2396 @@ public class ReflectionTest {
 
 ## 自定义View&动画
 
+## 屏幕适配
 
-# 四大组件
+# 2.3基本组件
 
-- Activity
-	- 生命周期
-		- onCreate-onCreate、onStart(onRestart<)、onResume、onPause、onStop(onRestart>)、onDestroy
-	- 启动模式
-		- standard
-		- single top--会调onNewIntent
-		- single task
-		- single instance
-	- flag
-		- service启动activity--new_task
-		- clear top
-		- clear task
-		- 
-- Fragment
-- Service
+## Activity
 
-# IPC(Inter-Process Communication)P183
+- 生命周期
 
-# SharedPreferences
+  - 启动新的页面onCreate、onStart、onResume、onPause、onStop、onDestroy；
+  - 不可见至到达前台onStop、onRestart、onStart；
+  - 当启动模式为top或task时，不可见至到达前台，在调用onRestart方法前会调用onNewIntent(Intent intent)方法，以更新当前页面的intent数据；
 
-## commit() vs. apply()
-	commit--同步提交到磁盘，效率低，有返回值
-	apply--异步原子操作至内存，随后再同步至磁盘，效率高，没有返回值
+- onSaveInstanceState()方法作用及调用时机
 
-## mmkv原理
+  内存不足时导致低优先级activity被杀死时调用；
 
-# chapter - 性能调优
+  调用该方法保存activity状态，在onStop()方法前调用，与onPause()无先后顺序；
 
-# subchapter - 设计思想与代码质量优化
+  当activity重建后，系统调用onRestoreInstanceState()方法，并将保存activity状态信息的bundle对象传递给onRestoreInstanceState(bundle)和onCreate(bundle)；
 
-# 六大设计原则
+  当用户以finish()方法销毁页面，则不会保存状态数据；
 
-https://blog.csdn.net/fragmentalice/article/details/82460939
-https://blog.csdn.net/weixin_34126215/article/details/86349672
+- AActivity跳转BActivity方法调用
 
-## 单一职责
-## 开闭
-## 里氏替换
-## 依赖倒置
-## 接口隔离
-## 迪米特
+  AActivity的onPause()，BActivity的onCreate()，onStart()，onResume()，AActivity的onStop()；
 
+  如果BActivity是透明主题或是一个DialogActivity，则AActivity不会走onStop()；
 
-# 23种设计模式
+- activity的四种状态
 
-- 创建型--原建抽工单
-- 结构型--适桥组装外享代
-- 行为型--责命解迭观状策中备模访
+  active；pause；stop；destroy；
 
-## 创建型-抽象工厂
-## 创建型-生成器
-## 创建型-工厂方法
-## 创建型-原型
-## 创建型-单例
-## 结构型-适配器
-## 结构型-桥接
-## 结构型-组装
-## 结构型-装饰器
-## 结构型-外观
-## 结构型-享元
-## 结构型-代理
+- 启动模式
 
-### 简介
+  - standard
+  - single top--会调onNewIntent
+  - single task--将activity实例上面的activity全部出栈，使该activity位于栈顶；会调onNewIntent
+  - single instance--使用场景有浏览器、系统拨号
 
-代理模式的定义：为其他对象提供一种代理以控制对这个对象的访问。在某些情况下，一个对象不适合或者不能直接引用另一个对象，而代理对象可以在客户端和目标对象之间起到中介的作用。
+- flag
 
-著名的代理模式例子为引用计数（英语：reference counting）指针对象。
+  - Intent.FLAG_ACTIVITY_NEW_TASK
 
-当一个复杂对象的多份副本须存在时，代理模式可以结合享元模式以减少存储器用量。典型作法是创建一个复杂对象及多个代理者，每个代理者会引用到原本的复杂对象。而作用在代理者的运算会转送到原本对象。一旦所有的代理者都不存在时，复杂对象会被移除。 
+    通常用于service启动activity，因为service中没有activity栈；
 
-### 组成
+  - FLAG_ACTIVITY_SINGLE_TOP
 
-抽象角色：通过接口或抽象类声明真实角色实现的业务方法。
+    同singleTop模式；
 
-代理角色：实现抽象角色，是真实角色的代理，通过真实角色的业务逻辑方法来实现抽象方法，并可以附加自己的操作。
+  - FLAG_ACTIVITY_CLEAR_TOP
 
-真实角色：实现抽象角色，定义真实角色所要实现的业务逻辑，供代理角色调用。
+    同singleTask模式；
 
-### 优点
+  - FLAG_ACTIVITY_NO_HISTORY
 
-(1).职责清晰
-真实的角色就是实现实际的业务逻辑，不用关心其他非本职责的事务，通过后期的代理完成一件完成事务，附带的结果就是编程简洁清晰。
+    以此模式启动的如AActivity，当AActivity中跳至其他activity后，栈中将不会保留AActivity；
 
-(2).代理对象可以在客户端和目标对象之间起到中介的作用，这样起到了中介的作用和保护了目标对象的作用。
+- activity，window和view之间的关系
 
-(3).高扩展性
+  activity创建时通过attach()初始化一个window(PhoneWindow)，一个window持有一个DecorView实例，DecorView本身是FrameLayout(View)，activity调用setContentView将xml中控件通过addView添加到view中，最终显示到window与用户交互；
 
-### 模式结构
+- 横竖屏切换activity声明周期变化
 
-一个是真正的你要访问的对象(目标类)，一个是代理对象,真正对象与代理对象实现同一个接口,先访问代理类再访问真正要访问的对象。
+  默认为销毁创建；
 
-代理模式分为静态代理、动态代理。
+  当为activity设置`android:configChanges=" orientation|keyboardHidden|screen
+  Size"`属性，则不会重新调用各个生命周期方法，只会执行onConfigurationChange方法；
 
-静态代理是由程序员创建或工具生成代理类的源码，再编译代理类。所谓静态也就是在程序运行前就已经存在代理类的字节码文件，代理类和委托类的关系在运行前就确定了。
+## Fragment
 
-动态代理是在实现阶段不用关心代理类，而在运行阶段才指定哪一个对象。
+- fragment的声明周期
 
-### java代码示例
+  onAttach，onCreate，onCreateView，onActivityCreated，onStart，onResume，onPause，onStop，onDestroyView，onDestroy，onDetach；
+
+- fragment切换方式
+
+  add，remove，show，hide，replace，attach，detach来控制fragment的切换；
+
+  replace其实就是先remove后add；
+
+  
+
+  注意在detach后fragment的isAdded()返回false，在调用attach还原fragment后isAdded()仍返回false；
+
+  可以在onCreateView方法中通过view的parent的removeView方法来解除view和parent的关联；
+
+- add和replace区别
+
+  add不会重新初始化fragment，伴随hide和show避免布局重叠；
+
+  replace每次都会remove在add，会重新初始化fragment；
+
+  添加相同的fragment，replace没问题，add会报IllegalStateException异常；
+
+- FragmentPagerAdapter和FragmentStatePagerAdater的区别
+
+  前者中的fragment会持久的保存在其中，当用户可以返回页面时，其不会被销毁，适合相对静态，fragment数量少的场景；
+
+  后者只保留当前页面，当页面不可见时，该fragment就会被消除，释放其资源，适合数据动态性大，占内存多，多fragment场景；
+
+- 转场动画
+
+  setCustomAnimations()；
+
+- fragment嵌套的fragment不显示
+
+  使用getChildFragmentManager()，而不是getSupportFragmentManager()或getFragmentManager()；
+
+## BroadcastReceiver
+
+- 使用场景
+
+  同一个app内多个进程间消息通信；
+
+  不同app间消息通信；
+
+- 广播类型
+
+  有序(order)和无序；
+
+  本地广播LocalBroadcastManager；
+
+- 广播的静态注册和动态注册
+
+  静态注册，清单文件中声明；应用未启动也能接收广播；
+
+  动态注册，代码中注册；应用未启动则接受不到广播；
+
+## ContentProvider
+
+- 实质
+
+  ContentProvider实质就是AIDL的封装，核心是binder机制；
+
+- 内容提供者
+
+  通过ContentResolver访问ContentProvider提供的共享数据；包含insert，delete，update和query方法；
+
+## Service
+
+- service和thread区别
+
+  service运行在main线程，不能进行耗时操作；thread开启子线程可以进行耗时操作，但不能直接更新UI；
+
+- startService和bindService
+
+  startService后执行onCreate、onStartCommand、onDestroy；通过`stopService(Intent)`停止service；
+
+  bindService后执行onCreate、onBind、onUnbind、onDestroy；通过`unbindService(ServiceConnection)`解绑service；
+
+  多次调用startService，服务只会创建以一次，onCreate只走一次，但onStartCommand会走多次；
+
+  多次调用bindService，服务的onCreate和onBind不会被多次调用；
+
+- bindService获取服务实例
+
+  Service的onBind方法会返回客户端一个IBinder接口实例；客户端在new ServiceConnection()的onServiceConnected的回调用方法中强转IBinder对象即可；
+
+- IntentService
+
+  源码主要包含Handler和HandlerThread；
+
+  会创建一个工作线程来处理任务；多次启动IntentService，每个耗时任务会以队列的方式在IntentService的onHandleIntent回调方法中依次执行；所有任务执行完毕，服务自动销毁；
+
+- 如何保证service不被杀死
+
+  onStartCommand方法返回START_STICKY；
+
+  设置priority提高service的优先级；
+
+  设置process将service运行于独立进程；
+
+  在service的onDestroy里发送自定义广播，重启service；
+
+  将apk安装到/system/app目录下；
+
+### JobService和JobScheduler
+
+支持持续的job，设备重启后，之前被中断的job可以继续执行；
+
+可以设置任务执行的最后期限；
+
+支持设置为非蜂窝网络中执行任务；
+
+支持设置为充电时开始执行任务；
 
 ```java
-// 业务接口1-买鞋
-public interface IShoes {
-    void tryOn();
-
-    void buyShoes();
+//使用示例参考
+class TaskJobService extends JobService {
+    @Override
+    public boolean onStartJob(JobParameters jobParameters) {}
+    
+    @Override
+    public boolean onStopJob(JobParameters jobParameters) {}
 }
 
-// 实现接口的真实主题类1
-public class NikeShop implements IShoes {
-    @Override public void tryOn() {
-        System.out.println("试试nike air!");
-    }
+JobScheduler jobScheduler = (JobScheduler) getActivity().getSystemService(Context.JOB_SCHEDULER_SERVICE);
+ComponentName cn = new ComponentName(activity, TaskJobService.class);
+JobInfo.Builder jobBuilder = new JobInfo.Builder(1, cn);
+//jobBuilder.set...
 
-    @Override public void buyShoes() {
-        System.out.println("买nike air!");
-    }
-}
-
-// 业务接口1-买iPhone
-public interface IApple {
-    void chose();
-
-    void buyIPhone();
-}
-
-// 实现接口的真实主题类2
-public class AppleStore implements IApple{
-    @Override public void chose() {
-        System.out.println("挑选iPhone型号!");
-    }
-
-    @Override public void buyIPhone() {
-        System.out.println("买iPhone 12pro max+!");
-    }
-}
-
-// 静态代理类
-public class ProfessionalAgent implements IShoes, IApple {
-
-    /** 代购nike */
-    private IShoes mShoes;	// 持有真实主题类1的引用
-
-    public ProfessionalAgent(IShoes shoes) {
-        this.mShoes = shoes;
-    }
-
-    @Override public void tryOn() {
-        mShoes.tryOn();
-        System.out.println("试完挑好，代购我来帮你砍价!");
-    }
-
-    @Override public void buyShoes() {
-        mShoes.buyShoes();
-        System.out.println("买完nike，后期有问题找代购我!");
-    }
-
-    /** 代购iPhone */
-    private IApple mApple;	// 持有真实主题类2的引用
-
-    public ProfessionalAgent(IApple apple) {
-        this.mApple = apple;
-    }
-
-    @Override public void chose() {
-        System.out.println("代购我来给你推荐性价比高的型号!");
-        mApple.chose();
-    }
-
-    @Override public void buyIPhone() {
-        mApple.buyIPhone();
-        System.out.println("买完iPhone，后期有问题找代购我!");
-    }
-}
-
-// 动态代理
-public class DynamicAgent implements InvocationHandler {
-
-    private Object mObject;	// 被代理的类引用
-
-    public void setObject(Object object) {
-        this.mObject = object;
-    }
-
-    public Object getObject() {
-        return this.mObject;
-    }
-	
-    @Override public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        System.out.println("pre invoke...");
-        Object object = method.invoke(mObject, args); // 调用被代理类的方法
-        System.out.println("after invoke...");
-        return object;
-    }
-}
-
-// 测试
-public class ProxyTest {
-    public static void main(String[] args) {
-        staticsTest(); // 代购帮买鞋和苹果并提供附加服务
-
-        dynamicTest(); // 动态代理
-    }
-
-    private static void staticsTest() {
-        // 想买鞋了
-        IShoes nikeShop = new NikeShop();
-        ProfessionalAgent nikeAgent = new ProfessionalAgent(nikeShop);
-        nikeAgent.tryOn();
-        nikeAgent.buyShoes();
-        System.out.println();
-
-        // 想买苹果了
-        IApple appleStore = new AppleStore();
-        ProfessionalAgent appleAgent = new ProfessionalAgent(appleStore);
-        appleAgent.chose();
-        appleAgent.buyIPhone();
-        System.out.println();
-    }
-
-    private static void dynamicTest() {
-        IShoes shoes = new NikeShop();
-        DynamicAgent nikeAgent = new DynamicAgent();
-        nikeAgent.setObject(shoes);
-		// 动态构造代理鞋店
-        IShoes shoesInstance = (IShoes) Proxy.newProxyInstance(shoes.getClass().getClassLoader(), shoes.getClass().getInterfaces(), nikeAgent);
-        shoesInstance.tryOn();
-        shoesInstance.buyShoes();
-        System.out.println();
-        IApple apple = new AppleStore();
-        DynamicAgent appleAgent = new DynamicAgent();
-        appleAgent.setObject(apple);
-        IApple appleInstance = (IApple) Proxy.newProxyInstance(apple.getClass().getClassLoader(), apple.getClass().getInterfaces(), appleAgent);
-        appleInstance.chose();
-        appleInstance.buyIPhone();
-    }
-}
-
-// 测试运行结果打印
-/*
-试试nike air!
-试完挑好，代购我来帮你砍价!
-买nike air!
-买完nike，后期有问题找代购我!
-
-代购我来给你推荐性价比高的型号!
-挑选iPhone型号!
-买iPhone 12pro max+!
-买完iPhone，后期有问题找代购我!
-
-pre invoke...
-试试nike air!
-after invoke...
-pre invoke...
-买nike air!
-after invoke...
-
-pre invoke...
-挑选iPhone型号!
-after invoke...
-pre invoke...
-买iPhone 12pro max+!
-after invoke...
-*/
+jobScheduler.schedule(jobBuilder.build());
 ```
 
-### 动态代理源码*
+## Bundle
 
-### android中的运用*
+通常传递数据大小安全上限为1m，不适合传输大量数据；
 
-## 行为型-责任链
-## 行为型-命令
-## 行为型-解释器
-## 行为型-迭代器
-## 行为型-观察者
-## 行为型-状态
-## 行为型-策略
-## 行为型-中介者
-## 行为型-备忘录
-## 行为型-模版方法
-## 行为型-访问者
+## Bitmap
 
-# 数据结构
+- Bitmap.recycle()
 
-# 算法
+  通过源码可知，bitmap加载到内存后，包含两部分内存区域，java和c；bitmap对象是由java分配的，用完后系统会回收；但c内存区域需要调用recycler()方法释放，调用后再调System.gc()让系统的垃圾回收器加快回收；
 
-二分查找(折半查找)
+# 2.4IPC
 
-# subchapter - 程序性能优化
+> Inter-Process Communication
 
-# OOM
-# ANR
-# Crash监控
-# 启动速度检测优化
+## 进程
 
-# 布局优化
+1. 线程和进程
 
-- 使用ConstrantLayout减少布局绘制层级(扁平化)
+   线程是系统调度的最小单位；进程是资源分配的最小单位
+
+2. 多进程
+
+   在清单文件中给四大组件设置android:process属性，两种方式
+
+   a. :remote
+
+   b. cc.catface.xapp.remote
+
+   a方式为当前应用的私有进程，其他应用进程不能访问之，进程名参考cc.catface.xapp:remote
+
+   b方式为全局进程，其他应用进程可以访问之，进程名参考cc.catface.xapp.remote
+
+   系统会为每个应用分配唯一UID，以隔离内存数据访问
+
+3. 四大组件多进程存在的问题
+
+   android为每个应用分配一个独立的虚拟机，系统会在创建新进程的同时，分配独立的虚拟机，所以进程间无法通过共享同一片内存区域来共享数据
+
+   1. 静态成员和单例模式完全失效
+   2. 线程同步机制完全失效
+   3. SP可靠性下降[I/O并发读/写]
+   4. Application会多次创建[运行不同进程需要分配不同的虚拟机]
+
+## 序列化Serializable和Parcelable(*)
+
+参考[https://blog.csdn.net/itCatface/article/details/85948341](https://blog.csdn.net/itCatface/article/details/85948341)
+
+## Binder
+
+### 安卓中常见IPC方式及使用场景
+
+| 方式            | 优点                          | 缺点                 | 使用场景                    |
+| --------------- | ----------------------------- | -------------------- | --------------------------- |
+| Bundle          |                               | 数据类型限制         | 四大组件                    |
+| 文件共享        |                               | 并发                 | 大量IO                      |
+| AIDL            | 安卓独有快速功能强大          |                      | 为第三方app提供各种服务方法 |
+| Messenger       | aidl的封装传递Message对象消息 | 配合Handler和Message | 传递简单标识                |
+| ContentProvider | aidl的封装操作数据库          |                      | 跨进程CRUD                  |
+| Socket          |                               |                      | 网络                        |
+| 广播            |                               |                      |                             |
+
+### 简谈AIDL源码
+
+1. aidl案例
+
+   ```java
+   package cc.catface.aidls.login;
+   
+   interface Test {
+       void hello(String name);
+   }
+   ```
+
+
+2. 根据aidl生成的接口
+
+   ```java
+   package cc.catface.aidls.login;
+   
+   public interface Test extends android.os.IInterface {
+       
+       public static class Default implements cc.catface.aidls.login.Test {}
+       
+       public static abstract class Stub extends android.os.Binder implements cc.catface.aidls.login.Test {}
+       
+       public void hello(java.lang.String name) throws android.os.RemoteException;
+   }
+   ```
+
+   2.1、Test接口，继承IInterface，IInterface包含唯一抽象方法`IBinder asBinder()`，用于检索并返回与此接口关联的Binder对象；
+
+   2.2、Default类，Test接口的默认实现；
+
+   2.3、Stub[桩类]，实现Test接口，其asBinder方法会根据，C/S在同一进程，返回当前Stub，即Binder对象；若C/S不在同一进程，返回远程Binder对象；
+
+   2.4、hello抽象方法，aidl中的方法声明；
+
+   2.5、IInterface接口[系统]
+
+   ```java
+   public interface IInterface {
+       public IBinder asBinder();
+   }
+   ```
+
+   IInterface是Binder接口的基类；asBinder方法用于检索并返回与此接口关联的Binder对象；
+
+3. Default类
+
+   ```java
+   public static class Default implements cc.catface.aidls.login.Test {
+       @Override public void hello(java.lang.String name) throws android.os.RemoteException {}
+   
+       @Override public android.os.IBinder asBinder() {
+           return null;
+       }
+   }
+   ```
+
+   Default是Test接口的默认空实现类，内部方法也为空实现，asBinder方法返回null；
+
+4. Stub类
+
+   ```java
+   public static abstract class Stub extends android.os.Binder implements cc.catface.aidls.login.Test {
+       private static final java.lang.String DESCRIPTOR = "cc.catface.aidls.login.Test";
+       
+       public Stub() {//...}
+       public static cc.catface.aidls.login.Test asInterface(android.os.IBinder obj) {//...}
+               
+       @Override public android.os.IBinder asBinder() {//...}
+       @Override public boolean onTransact(int code, android.os.Parcel data, android.os.Parcel reply, int flags) throws android.os.RemoteException {//...}
+               
+       private static class Proxy implements cc.catface.aidls.login.Test {
+           private android.os.IBinder mRemote;
+           Proxy(android.os.IBinder remote) {//...}
+           @Override public android.os.IBinder asBinder() {//...}
+           public java.lang.String getInterfaceDescriptor() {//...}
+           @Override public void hello(java.lang.String name) throws android.os.RemoteException {//...}
+           public static cc.catface.aidls.login.Test sDefaultImpl;
+       }
+                   
+       static final int TRANSACTION_hello = (android.os.IBinder.FIRST_CALL_TRANSACTION + 0);
+                   
+       public static boolean setDefaultImpl(cc.catface.aidls.login.Test impl) {//...}
+       public static cc.catface.aidls.login.Test getDefaultImpl() {//...}
+   }
+   ```
+
+   4.1、桩类Stub，继承Binder，客户端通过Stub拿到Binder实例，来调用服务端方法；
+
+   4.2、DESCRIPTOR常量，描述服务的标识，即当前服务标识为`cc.catface.aidls.login.Test`；参考`getSystemService(Context.CAMERA_SERVICE);`和`getSystemService(Context.ACTIVITY_SERVICE);`等；
+
+   4.3、Stub构造方法
+
+   ```java
+   public Stub() {
+       this.attachInterface(this, DESCRIPTOR);
+   }
+   ```
+
+   4.3.1、attachInterface为Binder中的方法
+
+   ```java
+   public class Binder implements IBinder {    
+       private IInterface mOwner;
+       private String mDescriptor;
+       
+       public void attachInterface(@Nullable IInterface owner, @Nullable String descriptor) {
+           mOwner = owner;
+           mDescriptor = descriptor;
+       }
+       //...
+   }
+   ```
+
+   将接口与Binder关联，便于后续的asInterface方法获取对应的本地或远程Binder对象；
+
+   4.4、asInterface方法
+
+   ```java
+   public static cc.catface.aidls.login.Test asInterface(android.os.IBinder obj) {
+       if ((obj == null)) {
+           return null;
+       }
+       android.os.IInterface iin = obj.queryLocalInterface(DESCRIPTOR);
+       if (((iin != null) && (iin instanceof cc.catface.aidls.login.Test))) {
+           return ((cc.catface.aidls.login.Test) iin);
+       }
+       return new cc.catface.aidls.login.Test.Stub.Proxy(obj);
+   }
+   ```
+
+   将Stub(IBinder)对象转换为Test接口，通过queryLocalInterface方法判断C/S是否在同一进程，若在同一进程，直接返回Stub.this即当前Stub；若不在同一进程，inn为空，并通过Proxy代理创建远程IBinder对象，即提供远程Test服务的Binder；
+
+   4.4.1、queryLocalInterface方法
+
+   ```java
+   public class Binder implements IBinder {
+       public @Nullable IInterface queryLocalInterface(@NonNull String descriptor) {
+           if (mDescriptor != null && mDescriptor.equals(descriptor)) {
+               return mOwner;
+           }
+           return null;
+       }
+       //...
+   }
+   ```
+
+   检索descriptor描述的Binder对象的本地实现，如果返回null，则需要实例化一个代理类，以便通过transact方法对调用进行编组处理；通过实际调用得出结论，对于同样的`Test.Stub.asInterface(service);`方法调用，C/S在不同进程，返回的iin为null，在同一进程，返回的iin为TestService$Binder@11064；
+
+   4.5、asBinder方法
+
+   ```java
+   @Override
+   public android.os.IBinder asBinder() {
+       return this;
+   }
+   ```
+
+   返回当前Binder对象
+
+   4.6、onTransact方法
+
+   ```java
+   @Override
+   public boolean onTransact(int code, android.os.Parcel data, android.os.Parcel reply, int flags) throws android.os.RemoteException {
+       java.lang.String descriptor = DESCRIPTOR;
+       switch (code) {
+           case INTERFACE_TRANSACTION: {
+               reply.writeString(descriptor);
+               return true;
+           }
+           case TRANSACTION_hello: {
+               data.enforceInterface(descriptor);
+               java.lang.String _arg0;
+               _arg0 = data.readString();
+               this.hello(_arg0);
+               reply.writeNoException();
+               return true;
+           }
+           default: {
+               return super.onTransact(code, data, reply, flags);
+           }
+       }
+   }
+   ```
+
+   服务端调用，code为方法标识，参考4.8；data为客户端传参，其中的_arg0为hello方法的入参name；reply为hello方法处理后的返回值；return true标识该方法在服务端成功处理并响应；不在同一进程的客户端会通过Proxy中的mRemote对象，即远程Binder对象，调用transact方法，最终调用到当前服务端的onTransact方法；
+
+   4.7、Proxy代理，当C/S不在同一进程，就要用Proxy来实例化远程Binder对象，并执行transact方法；详见5.
+
+   4.8、TRANSACTION_hello标识，aidl中声明的方法标识
+
+   4.9、setDefaultImpl方法和getDefaultImpl方法
+
+   ```java
+   public static boolean setDefaultImpl(cc.catface.aidls.login.Test impl) {
+       if (Stub.Proxy.sDefaultImpl != null) {
+           throw new IllegalStateException("setDefaultImpl() called twice");
+       }
+       if (impl != null) {
+           Stub.Proxy.sDefaultImpl = impl;
+           return true;
+       }
+       return false;
+   }
+   
+   public static cc.catface.aidls.login.Test getDefaultImpl() {
+       return Stub.Proxy.sDefaultImpl;
+   }
+   ```
+
+   `public static cc.catface.aidls.login.Test sDefaultImpl;`声明在Proxy内部，参考5.，用来操作默认的Test对象，并在Proxy进行服务方法处理时使用，如Proxy=>hello(){getDefaultImpl().hello(name)}；
+
+5. Proxy代理类
+
+   ```java
+   private static class Proxy implements cc.catface.aidls.login.Test {
+       private android.os.IBinder mRemote;
+       Proxy(android.os.IBinder remote) {//...}
+       @Override public android.os.IBinder asBinder() {//...}
+       public java.lang.String getInterfaceDescriptor() {//...}
+       @Override public void hello(java.lang.String name) throws android.os.RemoteException {//...}
+       public static cc.catface.aidls.login.Test sDefaultImpl;
+   }
+   ```
+
+   5.1、Proxy
+
+   ```java
+   private static class Proxy implements cc.catface.aidls.login.Test {
+       private android.os.IBinder mRemote;
+   
+       Proxy(android.os.IBinder remote) {
+           mRemote = remote;
+       }
+   
+       @Override
+       public android.os.IBinder asBinder() {
+           return mRemote;
+       }
+   
+       public java.lang.String getInterfaceDescriptor() {
+           return DESCRIPTOR;
+       }
+   
+       @Override
+       public void hello(java.lang.String name) throws android.os.RemoteException {
+           android.os.Parcel _data = android.os.Parcel.obtain();
+           android.os.Parcel _reply = android.os.Parcel.obtain();
+           try {
+               _data.writeInterfaceToken(DESCRIPTOR);
+               _data.writeString(name);
+               boolean _status = mRemote.transact(Stub.TRANSACTION_hello, _data, _reply, 0);
+               if (!_status && getDefaultImpl() != null) {
+                   getDefaultImpl().hello(name);
+                   return;
+               }
+               _reply.readException();
+           } finally {
+               _reply.recycle();
+               _data.recycle();
+           }
+       }
+       
+       public static cc.catface.aidls.login.Test sDefaultImpl;
+   }
+   ```
+
+   5.2、mRemote
+
+   调用远程服务的Binder对象
+
+   5.5、hello方法
+
+   客户端调用hello方法，`_data`为客户端入参，mRemote.transact调用远程服务端的onTransact方法，`_status`为服务端处理成功失败标志，参考4.6，若是成功，`_reply`为方法返回值；
+
+   5.6、`boolean _status = mRemote.transact(Stub.TRANSACTION_hello, _data, _reply, 0);`
+
+   `_status`为服务端的onTransact方法处理返回值，但一般好像都是true；onTransact方法的源码注释为，成功调用时返回true；返回false通常用于表示您没有理解事务代码；
+
+### aidl调用补充
+
+当C/S不在同一进程，C调用hello方法的流程为，先调用本地Test里Proxy的hello方法，通过`boolean _status = mRemote.transact(Stub.TRANSACTION_hello, _data, _reply, 0);`调用远程服务端的Test里Stub的`public boolean onTransact(int code, android.os.Parcel data, android.os.Parcel reply, int flags)`方法，若该方法返回false；
+
+这里常见的都是返回true，如何返回false呢，可以删除服务端的aidl文件，直接将Test复制进src相应目录下，手动改成返回false；
+
+此时`_status`即为false，再判断getDefaultImpl()是否为空，sDefaultImpl可以在客户端连接服务后调用`Test.Stub.setDefaultImpl(new Test() {})`设置一个由客户端实现的本地默认处理类；
+
+# 2.5数据持久化
+
+- android数据持久存储方式
+
+  SP，SQLite，ContentProvider，文件，网络存储等；
+
+## 安卓系统个版本存储分析
+
+## SharedPreferences
+
+基于xml，读取时会将所有内容通过IO读至内存，效率低；
+
+- commit()和apply()的比较
+
+  commit--同步提交到磁盘，效率低，有返回值
+  apply--异步原子操作至内存，随后再同步至磁盘，效率高，没有返回值
+
+## mmkv
+
+### mmap
+
+- 方法说明
+
+  1. copy_from_user()
+
+     从用户空间拷贝至内核空间；
+
+  2. copy_to_user()
+
+     从内核空间拷贝至用户空间；
+
+- 内存映射
+
+  mmap是一种内存映射的方法，将一个文件对象映射到进程的地址空间，实现文件磁盘地址和进程虚拟地址空间中一段虚拟地址的一一对应关系；
+
+  实现映射后，进程可以采用指针方式读写操作这一段内存，系统会自动同步至对应的文件磁盘，不必再调用read/write等函数；
+
+### protobuf
+
+> 谷歌开发的一种数据描述语言，适用于存储结构化数据序列，如key-value对；
+>
+> 是二进制格式，xml和json是文本格式，所以protobuf序列化和反序列化效率高得多；
+
+- 类型
+
+  key为String类型，value可医师int/bool/double等类型；
+
+- 写入优化
+
+  protobuf不支持增量更新，所以有新增或修改的k-v对，直接append在内存末尾，这样同一个key会有新旧若干份数据，最新的在最后，在读取时，不断的用后面的k-v来更新value值；
+
+- 空间增长
+
+  因为只能一直append，所以以pagesize为单位申请内存空间，当append超过文件大小，进行文件整理，key排重，若依然保存不下，则将文件空间扩大一倍；
+
+- 数据有效性
+
+  mmkv添加了crc校验，且ios微信现网日均有70w次数据校验不通过；
+
+## SQLite
+
+- 查看工具
+
+  1. Android-Debug-Database
+
+     项目地址是https://github.com/amitshekhariitbhu/Android-Debug-Database；
+
+     可以在浏览器上查看和编辑数据库/SP文件；
+
+  2. Database Inspector
+
+     可以执行dao文件中的room查询语句；
+
+- 数据库的升降级
+
+  继承SQLiteOpenHelper，实现onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)进行升级；实现onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion)进行降级；
+
+  ```java
+  @Override
+  public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+      //从版本3降至版本2
+      if(oldVersion == 3 && newVersion == 2){
+          db.execSQL("create table tmp_mytable as select name, age from mytable");
+          db.execSQL("drop table mytable");
+          db.execSQL("alter table tmp_mytable rename to mytable");
+      }
+  }
+  
+  @Override
+  public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+      switch (newVersion){
+          case 3: { 
+              db.execSQL("create table tmp_mytable as select name, age from mytable"); 
+              db.execSQL("drop table mytable");
+              db.execSQL("alter table tmp_mytable rename to mytable");
+              break;
+          }
+  
+          default:
+              break;
+      }
+  }
+  ```
+
+  
+
+## Room
+
+继承RoomDatabase，使用单例模式提供实例；通过addMigrations(Migration)编写数据库升级逻辑；
+
+# 2.6双亲委派机制
+
+## jvm中的ClassLoader
+
+- 背景
+
+  JVM提供了三层ClassLoader，Bootstrap负责核心类库加载(java.lang.*等)，构造Ext和Applet；
+
+  Ext负责加载jre/lib/ext目录下的扩展类；
+
+  Applet负责加载应用程序的类；
+
+- JVM类加载伪代码
+
+  当加载Custom.class时，首先在AppletClassLoader中检查是否已加载，如果没有，则递归判断是否在父加载器中加载，若都未加载，则到最顶层的BootstrapClassLoader，其会判断自己能否加载，若不能则层层下发，各下层判断自己是否可以加载，直至最底层，若都无法加载，则抛出ClassNotFoundException异常；
+
+  ```java
+  protected Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException {
+      synchronized (getClassLoadingLock(name)) {
+          // native方法检查已被类加载器加载
+          Class<?> c = findLoadedClass(name);
+          if (c == null) {
+              try {
+                  // 如果未加载，递归交给父加载器加载
+                  if (parent != null) {
+                      c = parent.loadClass(name, false);
+                  } else {
+                      // 直至最顶层的BootstrapClassLoader
+                      c = findBootstrapClassOrNull(name);
+                  }
+              } catch (ClassNotFoundException e) {
+                  // ClassNotFoundException thrown if class not found
+                  // from the non-null parent class loader
+              }
+  			//...
+          }
+          //...
+          return c;
+      }
+  }
+  ```
+
+- 双亲委派机制的优点
+
+  类加载层层向上委托，若上层无法加载，则层层下发加载，避免了类的重复加载，避免了java核心API被篡改；如有人编写了java.lang.Integer类，则系统会加载jdk中的Integer类；并且会验证字节码文件是否合法；
+
+- 自定义实现
+
+  继承java.lang.ClassLoader类，实现自定义的类加载器，如果想保持双亲委托机制，则重写findClass(name)方法，如果想破坏双亲委托机制，重写loadClass(name)方法；
+
+## sdk中的ClassLoader
+
+- 背景
+
+  sdk中的ClassLoader主要有三种，Bootstrap预加载常用类，预加载资源，预加载共享库；Dex加载dex及相关文件(如包含dex的apk或jar文件)；Path加载系统类和应用程序的类；
+
+# 2.7framework内核
+
+## android系统基础
+
+
+
+![android系统架构](https://s2.ax1x.com/2019/05/28/VmiykV.png)
+
+- 系统架构
+
+  1. application应用层
+
+  2. application framework应用框架层
+
+     activity，view system，content provider，location，package等；
+
+  3. native系统运行库包含native c/c++ libraries和android runtime(ART)
+
+     包含webkit，openGL，media等；
+
+  4. HAL硬件抽象层
+
+     位于OS与硬件电路之间的接口，目的是将硬件抽象化，将控制硬件的动作放在HAL；
+
+     保护硬件厂商的知识产权，隐藏特定平台的硬件接口细节，为OS提供虚拟硬件平台，具有硬件无关性，可在多个平台上移至；
+
+     包含audio，bluetooth，camera等；
+
+  5. linux kernelLinux内核层
+
+     包含audio，binderIPC，display，bluetooth，camera，usb，wifi等；
+
+- Dalvik和ART
+
+  1. dalvik中应用每次运行都会将字节码通过及时编译转换为机器码，运行效率低；
+  2. ART在应用第一次安装就将字节码编译成机器码，并使其成为本地应用，运行效率高，内存占用稍高；
+
+## 部分系统基础源码
+
+### init进程启动过程
+
+- android系统启动流程基础步骤
+
+  1. 启动电源和系统
+
+     按下电源，引导芯片上的代码从预定义的地方(固话在ROM)开始执行，加载引导程序bootloader到RAM并执行；
+
+  2. 引导程序bootloader
+
+     引导程序是安卓OS开始运行前的一段程序，主要作用是拉起并运行OS；
+
+  3. linux内核启动
+
+     内核启动时，设置缓存/被保护存储器/计划列表，加载驱动；当内核完成系统设置，会在系统中寻找init文件，然后启动系统的第一个进程root进程；
+
+  4. init进程启动
+
+     入口就是main函数，主要是挂载系统文件，如/dev，/proc，/sys等，初始化并启动属性服务(即win中的注册表配置)，解析init.rc配置文件，zygote服务的启动脚本就被配置在init.rc文件中；rc即run command执行命令的意思；
+
+  5. init启动zygote
+
+     zygote服务的方法名配置在init.rc，init执行该配置后，在main方法中通过AppRuntime(继承自AndroidRuntime，调用start方法)启动zygote进程；
+
+- 步骤总述
+
+  创建一些文件夹并挂载设备；初始化并启动属性服务；解析init.rc配置文件启动zygote进程；
+
+### zygote进程启动过程
+
+- zygote进程启动流程基础步骤
+
+  1. 系统通过JNI调用ZygoteInit的main方法，便进入了应用框架层(java)，在main方法中执行如下；
+  2. 调用registerZygoteSocket方法创建服务端socket，等待AMS请求zygote创建新的应用进程；
+  3. 调用preload方法预加载类和资源；
+  4. 调用startSystemServer方法，通过fork启动SystemServer进程，该进程会启动系统的关键服务；
+  5. 调用runSelectLoop方法等待客户端请求；
+
+- 步骤总述
+
+  系统native层创建AppRuntime并调用其start方法启动zygote进程；
+
+  系统native层创建DVM并为DVM注册JNI；
+
+  通过JNI调用ZygoteInit的main方法进入应用框架层，即java层；
+
+  通过registerZygoteSocket方法创建服务端socket，并调用runSelectLoop方法等待AMS的请求来创建新的应用进程；
+
+  启动SystemServer进程；
+
+### SystemServer进程启动过程
+
+- SystemServer进程启动流程基本步骤
+
+  1. ZygoteInit中调用findStaticMain方法，通过反射调用SystemServer中的main方法；
+  2. main方法中，启动binder线程池，SQLite能力等；
+  3. 加载libandroid_servers.so；
+  4. new创建SystemServiceManager，进行系统服务的创建，启动和生命周期管理；
+  5. 通过startBootstrapServices方法启动AMS，PMS，Camera，Sensor等等系统服务；
+
+- 步骤总述
+
+  启动binder线程池，以便与其他进程进行通信；
+
+  创建SystemServiceManager用于对系统服务进行创建，启动和生命周期管理；
+
+  启动各种系统服务；
+
+### 系统应用launcher启动过程
+
+AMS来启动launcher，launcher中通过PMS读取系统已安装应用列表，绘制展示；
+
+## 应用程序<u>进程</u>启动流程
+
+zygote进程中会创建服务端socket，并执行循环等待AMS请求创建新的应用进程；
+
+zygote通过fork自身创建新应用进程，这样新的应用程序进程就会获得zygote进程在启动时创建的虚拟机实例，获得binder线程池和消息循环，所以可以通过binder与其他进程进行通信，并使用消息处理机制；
+
+## AMS(Activity)
+
+AMS的作用包含四大组件的启动和管理，应用进程的启动，切换，调度和管理；
+
+在SystemServer进程的main方法中启动；
+
+系统启动后，AMS请求zygote，通过fork创建新的应用程序进程，新的应用进程包含zygote中启动的binder线程池，消息处理机制；
+
+ActivityManager中通过ActivityManagerNative的getDefault方法获得ActivityManagerProxy；
+
+AM是和AMS关联的类，主要作用是管理activity，这些管理工作是通过AM中的AMP进行；
+
+AMS是系统核心服务，很多api不会暴露给AM；
+
+- activity的启动过程
+
+## WMS(Window)
+
+ViewRoot对应于ViewRootImpl类，是连接WindowManager和DecorView的纽带，View的三大流程均是通过ViewRoot来完成的，在ActivityThread中，当activity对象被创建完成后，会将DecorView添加到Window中，同时会创建ViewRootImpl对象，并将ViewRootImpl对象和DecorView建立关联；
+
+Window是抽象类，具体实现为PhoneWindow，管理View；WindowManager是接口类，继承ViewManager，管理Window，实现类为WindowManagerImpl；使用WindowManager来添加更新或删除WIndow，具体工作有WMS处理；WM和WMS通过binder跨进程通信；
+
+Window包含了View并对View进行管理，Window的实体其实也是View，WM管理Window，具体有WMS处理；
+
+WM接口继承ViewManager接口，包含添加更新和删除View方法，实现类为WindowManagerImpl，内部持有WindowManagerGlobal单例，具体功能委托给其实现；
+
+- Window的类型和显示次序
+
+  | 类型                           | type        | 例                |
+  | ------------------------------ | ----------- | ----------------- |
+  | application window应用程序窗口 | 从1~99      | activity          |
+  | sub window子窗口               | 从1000~1999 | popup window      |
+  | system window系统窗口          | 从2000~2999 | toast，status bar |
+
+  type越大，显示顺序，即按z-order顺序越靠近用户；
+
+- Window的标志
+
+  | FLAG                | 描述     |
+  | ------------------- | -------- |
+  | FLAG_FULLSCREEN     | 全屏显示 |
+  | FLAG_TURN_SCREEN_ON | 屏幕常亮 |
+
+- 软键盘相关模式
+
+  | MODE                           | 描述                         |
+  | ------------------------------ | ---------------------------- |
+  | SOFT_INPUT_STATE_HIDDEN        | 用户进入窗口，软键盘隐藏     |
+  | SOFT_INPUT_STATE_ALWAYS_HIDDEN | 窗口获取焦点时，软键盘隐藏   |
+  | SOFT_INPUT_ADJUST_RESIZE       | 软键盘弹出时，窗口调整大小   |
+  | SOFT_INPUT_ADJUST_PAN          | 软键盘弹出时，窗口不调整大小 |
+
+​		清单文件中给activity设置属性android:windowSoftInputMode也可以；
+
+- Window添加过程
+
+  如系统窗口status bar添加过程，PhoneStatusBar的addStatusBarWindow方法负责添加status bar，调用WM的addView方法，addView方法定义在WM的父接口ViewManager中，实现在WindowManagerImpl中，在WMI中，调用WMG的addView方法；检查参数view，params和display，通过ViewRootImpl的setView添加视图；
+
+- ViewRootImpl的职责
+
+  管理view树；触发view的测量布局和绘制；输入事件中转站；管理surface；与WMS进行进程间通信；
+
+- dialog中的context
+
+  dialog中必须传入activity的context，如果传入application的context，会报BadToken异常，而应用的token一般只有activity拥有；如果将dialog的window设置为系统类型也可以正常弹出，即`dialog.getWindow().setType(LayoutParams.TYPE_SYSTEM_ERROR)`，并在清单文件中声明权限`SYSTEM_ALERT_WINDOW`；
+
+- toast的window创建过程
+
+  使用IPC，NotificationManagerService和TN来管理toast的显示隐藏；
+
+## PMS(Package)
+
+在SystemServer的main方法中启动，是一个IPC服务；
+
+- 功能
+
+  获取应用的完整信息ApplicationInfo；
+
+  解析清单文件，权限，组件声明配置等；
+
+  管理已安装apk，系统应用和非系统应用；
+
+  安装和卸载apk；
+
+## Handler
+
+### 概述
+
+```java
+//<ActivityThread>
+public static void main(String[] args) {
+    //创建Looper消息轮询和MessageQueue消息对队列
+    Looper.prepareMainLooper();
+    
+    ActivityThread thread = new ActivityThread();
+    thread.attach(false, startSeq);
+    
+    Looper.loop();
+}
+
+//<Looper>
+public static void prepareMainLooper() {
+    prepare(false);
+}
+private static void prepare(boolean quitAllowed) {
+    //ThreadLocal<Looper> sThreadLocal
+    sThreadLocal.set(new Looper(quitAllowed));
+}
+private Looper(boolean quitAllowed) {
+    mQueue = new MessageQueue(quitAllowed);
+}
+```
+
+`thread.attach`方法中，绑定AMS(ActivityManager.getService())，即Binder对象；发送`H.CONFIGURATION_CHANGED`消息，通过handler进行application创建，主题设置等；通过Binder，AMS发送开启activity，开启服务等message，然后ActivityThread内的H(Handler)进行处理；
+
+一个线程能创建Handler若干个，Looper1个，MessageQueue1个；
+
+### epoll机制
+
+epoll可以同时监控多个描述符；
+
+1. `int epfd = epoll_create(intsize);`
+
+   创建epoll句柄；
+
+   生成一个epoll专用的文件描述符，即在内存申请一组空间；
+
+2. `int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event)`
+
+   控制epoll文件描述符epfd上的事件，可以注册/修改/删除事件；
+
+3. `int epoll_wait(int epfd, struct epoll_event * events, intmaxevents, int timeout);`
+
+   等待事件的产生，即等待唤醒，若无事件产生，进入休眠状态；
+
+> Handler、Looper、MessageQueue、Message
+
+Looper用于为线程进行消息循环；默认情况下线程没有与之关联的Looper；需要的话，可以在线程中调用prepare方法创建一个Looper，让他处理消息；通过Handler处理与Looper交互的消息；
+
+1. 看下各个类的大致注释
+
+   1. Looper
+
+      ```java
+      static final ThreadLocal<Looper> sThreadLocal = new ThreadLocal<Looper>();
+      /**为当前线程初始化一个Looper*/
+      private static void prepare(boolean quitAllowed) {
+          //...
+          sThreadLocal.set(new Looper(quitAllowed));
+      }
+      
+      /**初始化一个消息队列*/
+      final MessageQueue mQueue;
+      final Thread mThread;
+      private Looper(boolean quitAllowed) {
+          mQueue = new MessageQueue(quitAllowed);
+          mThread = Thread.currentThread();
+      }
+      
+      /***/
+      public static void loop() {
+          final Looper me = sThreadLocal.get();
+          final MessageQueue queue = me.mQueue;
+          for (;;) {
+              Message msg = queue.next(); // might block
+              if (msg == null) {
+                  return;//无消息表示消息队列正在退出
+              }
+              
+              try {
+                  //msg.target即handler
+                  //dispatchMessage内执行handleMessage(msg)
+      	        msg.target.dispatchMessage(msg);
+              }
+          }
+      }
+      ```
+
+   2. MessageQueue
+
+      ```java
+      //内部的静态native方法
+      //核心方法nativePollOnce和nativeWake
+      private native static long nativeInit();
+      private native static void nativeDestroy(long ptr);
+      private native void nativePollOnce(long ptr, int timeoutMillis);
+      private native static void nativeWake(long ptr);
+      private native static boolean nativeIsPolling(long ptr);
+      private native static void nativeSetFileDescriptorEvents(long ptr, int fd, int events);
+      
+      /***/
+      Message next() {
+          for (;;) {
+              //调用c方法epoll_wait获取消息，当无消息是进入休眠
+              nativePollOnce(ptr, nextPollTimeoutMillis);
+              
+              return msg;
+          }
+      }
+      ```
+
+      消息队列，用于管理消息；通过与Looper关联的Handler对象添加消息；通过Looper.myQueue()检索当前线程的message queue；
+
+   3. Message
+
+      ```java
+      //消息类型
+      public int what;
+      
+      //可发送消息数据
+      public int arg1;
+      public int arg2;
+      public Object obj;
+      public Messenger replyTo;
+      Bundle data;
+      public void setData(Bundle data) {
+          this.data = data;
+      }
+      
+      /**利用消息池减少消息对象的创建*/
+      public static Message obtain() {
+          synchronized (sPoolSync) {
+              if (sPool != null) {
+                  Message m = sPool;
+                  sPool = m.next;
+                  m.next = null;
+                  m.flags = 0; // clear in-use flag
+                  sPoolSize--;
+                  return m;
+              }
+          }
+          return new Message();
+      }
+      ```
+
+      可以传递的数据类型有what(int)，arg1和arg2(int)，obj(Object)，setData(Bundle)，replyTo(Messenger)；
+
+      `Message obtain()`可以从消息池中获取Message实例，节约内存；
+
+      
+
+### Looper.loop()为什么不会卡死
+
+由于Linux的epoll这个IO复用机制；当应用启动时，ActivityThread的main方法执行`Looper.prepareMainLooper();`方法为当前应用进程创建Looper，然后执行`Looper.loop();`方法，该方法中有个`for(;;)`死循环，用于轮询处理MessageQueue中的消息，具体是调用MessageQueue的`next()`方法取消息，该方法中调用native的`nativePollOnce()`，即epoll中的`epoll_wait()`方法，当没有消息时，线程进入休眠状态，让出CPU执行其他任务；当来消息时，调用MessageQueue的`enqueueMessage()`方法，调用native的`nativeWake()`方法，即epoll中的`epoll_ctl()`方法，唤醒线程，通过Handler处理消息；
+
+### 子线程中使用handler
+
+需要`Looper.prepare()`在子线程创建looper；
+
+创建handler；
+
+`Looper.loop()`开启looper循环；
+
+## 布局和资源
+
+# 3.1「性能调优」六大原则及设计模式
+
+> 1-4
+
+## 六大原则
+
+1. 单一职责原则
+
+   单一职责的边界如何界定及划分；
+
+2. 开闭原则
+
+   对扩展开放，对修改封闭；升级或修改项目时，尽量扩展方法或类，不要修改原有逻辑，避免将错误引入原来经过测试的稳定逻辑中；
+
+3. 里氏替换原则
+
+   抽象；父类可以出现的地方，子类一定可以出现；
+
+4. 依赖倒置原则
+
+   面向接口编程；依赖与抽象，而不依赖于具体；
+
+5. 接口隔离原则
+
+   依赖的接口尽可能的小；即接口中不存在子类用不到却必须实现的方法，否则需要拆分接口；
+
+6. 迪米特原则
+
+   最少知道原则；对自己依赖的类知道的越少越好，当依赖的类变化时，自己受到的影响最小化；
+
+## 设计模式
+
+### 创建型
+
+> 工厂方法，抽象工厂，原型，单例，建造者
+
+1. 工厂方法
+
+   List和Set都继承Collection接口，Collection继承Iterable接口，所以List和Set都包含iterator方法；
+
+2. 抽象工厂
+
+3. 原型
+
+   ArrayList实现了Cloneable，是原型模式；
+
+4. 单例
+
+   application context；
+
+   EventBus单例；
+
+5. 建造者
+
+   AlertDialog.Builder，setIcon，setTitle，setMessage，set按钮点击事件；
+
+   OkHttpClient对象的构建是建造者模式，包含dispatcher，interceptor，timeout等；
+
+### 结构型
+
+> 适，桥，组，装，外，享，代
+
+1. 适配器
+
+   ViewPager和Fragment，ListView，RecyclerView用到adapter；
+
+2. 桥接*
+
+   Window和WindowManager；Window声明抽象方法，WindowManager实现方法，可通过ServiceManager获取WMS；
+
+3. 组装
+
+   View和ViewGroup的组合；
+
+4. 装饰*
+
+   抽象类Context声明各个抽象方法， ContextImpl实现Context抽象方法，ContextWrapper中通过ContextImpl实例调用各个方法，并且可以对ContextImpl中的方法实现进行扩展装饰；
+
+5. 外观
+
+   ContextImpl就是一个外观类，所有的Context方法都由ContextImpl实现；
+
+   Retrofit，EventBus等；
+
+6. 享元
+
+   如Message.obtain()从消息池中获取消息对象，当池中没有时才创建Message对象；
+
+7. 代理
+
+   Binder中的Proxy；
+
+   Retrofit中retrofit.create(ApiService.class)生成代理对象；
+
+### 行为型
+
+> 责，命，解，迭，中，备，观，状，策，模，访
+
+1. 责任链
+
+   事件分发dispatchTouchEvent；
+
+   OkHttp中的各个Interceptor拦截器；
+
+2. 命令*
+
+   android中的每一种事件在屏幕上产生后都会由底层转换为struct NotifyArgs对象，其仅定义了notify抽象方法；
+
+3. 解释器
+
+   PackageParser类解释清单文件中的配置；
+
+4. 迭代器
+
+   Sqlite中的查询Cursor游标对象；
+
+   Iterator<T>接口，包含`hasNext()`方法和`T next()`方法；
+
+5. 中介者
+
+   各个Mediator类，如KeyguardViewMediator中管理各个Manager管理器对象；
+
+6. 备忘录
+
+   内存紧张时，系统将activity的状态通过onRestoreInstanceState()方法保存至bundle中，当重新创建activity时，在onCreate()方法中的saveInstanceState可以获取这些状态数据；但当用户以finish()方法来销毁页面，则不会保存这些状态数据；
+
+7. 观察者
+
+   LiveData；
+
+   RxJava，EventBus；
+
+8. 状态
+
+   WifiEnabler实现CompoundButton.OnCheckedChangeListener接口，接口中的handleWifiStateChanged方法会监听wifi的连接状态，有wifi开启中，已开启，关闭中，已关闭状态；
+
+9. 策略
+
+   动画中的Interplator插值器；
+
+10. 模板方法
+
+    AsyncTask的方法执行流程为，execute，onPreExecute，doInBackground，onPostExecute；
+
+11. 访问者
+
+    APT；组成代码的基本元素有包，类，函数，字段，类型参数，变量，JDK为这些元素定义了基类Element，包含PackageElement(包元素，获取包名)，TypeElement(类型元素，字段类型)，ExecutableElement(可执行元素，函数类型)，VariableElement(变量元素)，TypeParameterElement(类型参数元素)；
+
+    Element中的accept方法有参数ElementVisitor，这个是一个访问者；
+
+# 3.2数据结构及算法
+
+## 数据结构
+
+1. 数组
+
+2. 栈
+
+   先进后出；activity栈管理；
+
+3. 队列
+
+   先进先出；只能在队头删元素，队尾加元素；
+
+4. 链表
+
+   可分为单链表，双向链表，循环链表；通过指针连接元素；
+
+5. 树
+
+6. 图
+
+7. 堆
+
+8. 哈希表
+
+   根据key-value获取数据，key数组存于栈内存，value链表存于堆中；
+
+## 算法
+
+### 排序
+
+- 分类
+
+  ```mermaid
+  graph TD
+  排序算法-->非线性时间比较类
+  排序算法-->线性时间非比较类
+  非线性时间比较类-->交换排序
+  非线性时间比较类-->插入排序
+  非线性时间比较类-->选择排序
+  非线性时间比较类-->归并排序
+  线性时间非比较类-->基数排序
+  线性时间非比较类-->计数排序
+  线性时间非比较类-->桶排序
+  交换排序-->冒泡排序
+  交换排序-->快速排序
+  插入排序-->直接插入排序
+  插入排序-->希尔排序
+  选择排序-->简单选择排序
+  选择排序-->堆排序
+  归并排序-->二路归并排序
+  归并排序-->多路归并排序
+  ```
+
+- 复杂度
+
+  | 排序算法 | 平均时间复杂度 | 最坏时间复杂度 | 最好时间复杂度 | 空间复杂度 | 是否稳定 |
+  | -------- | -------------- | -------------- | -------------- | ---------- | -------- |
+  | 插入排序 | O(n²)          | O(n²)          | O(n)           | O(1)       | 是       |
+  | 希尔排序 | O(n¹·³)        | O(n²)          | O(n)           | O(1)       | **否**   |
+  | 选择排序 | O(n²)          | O(n²)          | o(n²)          | O(1)       | **否**   |
+  | 堆排序   | O(nlog₂n)      | O(nlog₂n)      | O(nlog₂n)      | O(1)       | **否**   |
+  | 冒泡排序 | O(n²)          | O(n²)          | O(n)           | O(1)       | 是       |
+  | 快速排序 | O(nlog₂n)      | O(n²)          | O(nlog₂n)      | O(nlog₂n)  | **否**   |
+  | 归并排序 | O(nlog₂n)      | O(nlog₂n)      | O(nlog₂n)      | O(n)       | 是       |
+  | 计数排序 | O(n+k)         | O(n+k)         | O(n+k)         | O(n+k)     | 是       |
+  | 桶排序   | O(n+k)         | O(n²)          | O(n)           | O(n+k)     | 是       |
+  | 基数排序 | O(n*k)         | O(n*k)         | O(n*k)         | O(n+k)     | 是       |
+
+  
+
+1. 冒泡排序
+
+   平均时间复杂度n²，最坏时间复杂度n²，最好时间复杂度n；空间复杂度1；稳定
+
+   ![冒泡排序](https://img-blog.csdnimg.cn/20181108191123628.gif)
+
+   ```java
+   private static void bubble() {
+       for (int i = 0; i < nums.length; i++) {
+           for (int j = 0; j < nums.length - 1 - i; j++) {
+               if (nums[j] > nums[j + 1]) {
+                   int temp = nums[j];
+                   nums[j] = nums[j + 1];
+                   nums[j + 1] = temp;
+               }
+           }
+       }
+   }
+   ```
+
+2. 选择排序
+
+   ![选择排序](https://img-blog.csdnimg.cn/20181108191520166.gif)
+
+   ```java
+   private static void choose() {
+       for (int i = 0; i < nums.length; i++) {
+           int minIndex = i;
+           for (int j = i; j < nums.length; j++) {
+               if (nums[minIndex] > nums[j]) {
+                   minIndex = j;
+               }
+           }
+           int temp = nums[minIndex];
+           nums[minIndex] = nums[i];
+           nums[i] = temp;
+       }
+   }
+   ```
+
+3. 插入排序
+
+   ![插入排序](https://img-blog.csdnimg.cn/20181108191925813.gif)
+
+   ```java
+   private static void insert() {
+       for (int i = 1; i < nums.length; i++) {
+           int temp = nums[i];
+           int j;
+           for (j = i - 1; j >= 0 && temp < nums[j]; j--) {
+               nums[j + 1] = nums[j];
+           }
+           nums[j + 1] = temp;
+       }
+   }
+   ```
+
+4. 希尔排序
+
+   ![希尔排序](https://img-blog.csdnimg.cn/20181108192122882.gif)
+
+   ```java
+   private static void shell() {
+       for (int step = nums.length / 2; step > 0; step /= 2) {
+           for (int i = step; i < nums.length; i++) {
+               int value = nums[i];
+               int j;
+               for (j = i - step; j >= 0 && value < nums[j]; j -= step) {
+                   nums[j + step] = nums[j];
+               }
+               nums[j + step] = value;
+           }
+       }
+   }
+   ```
+
+5. 归并排序
+
+   ![归并排序](https://img-blog.csdnimg.cn/2018110819232047.gif)
+
+   ![分治法](https://img-blog.csdnimg.cn/20181108192330778.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Rjcm1n,size_16,color_FFFFFF,t_70)
+
+   ```java
+   //
+   ```
+
+6. 快速排序
+
+   ![快速排序](https://img-blog.csdnimg.cn/20181108192522752.gif)
+
+   ```java
+   //
+   ```
+
+   
+
+7. 堆排序
+
+   ![堆排序](https://img-blog.csdnimg.cn/20181108192721466.gif)
+
+   ```java
+   //
+   ```
+
+8. 计数排序
+
+   ![计数排序](https://img-blog.csdnimg.cn/20181108192837268.gif)
+
+   ```java
+   //
+   ```
+
+9. 桶排序
+
+   ![桶排序](https://img-blog.csdnimg.cn/20181108193017522.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Rjcm1n,size_16,color_FFFFFF,t_70)
+
+   ```java
+   //
+   ```
+
+10. 基数排序
+
+    ![基数排序](https://img-blog.csdnimg.cn/20181108193151498.gif)
+
+    ```java
+    //
+    ```
+
+### 查找
+
+1. 二分/折半查找
+
+   ```java
+   private static int binary(int[] nums, int key) {
+       int low = 0;
+       int high = nums.length - 1;
+       int middle = 0;
+   
+       while (low <= high) {
+           middle = (low + high) / 2;
+   
+           if (nums[middle] == key) {
+               return middle;
+           } else if (nums[middle] < key) {
+               low = middle + 1;
+           } else if (nums[middle] > key) {
+               high = middle - 1;
+           }
+       }
+   
+       return -1;
+   }
+   ```
+
+   
+
+2. 分块查找
+
+3. 哈希查找
+
+# 3.3性能优化
+
+## 冷启动
+
+在launcher点击app启动图标，系统从Zygot进程fork一个新进程分配给app，之后会创建Application类，创建MainActivity类，载入主题Theme中的windowBackground等属性，然后inflate布局，当走完onCreate/onStart/onResume后，进行setContentView，measure/layout/draw布局显示于屏幕；
+
+- 查看app启动时间
+
+  ```shell
+  adb shell am start -W cc.catface.app/cc.catface.app.MainActivity
+  ```
+
+- 降低app启动耗时
+
+  在Application中，将资源初始化操作放在子线程中，如ARouter/LeakCanary/Fresco/Iflytek等；
+
+  对于MainActivity，减少布局层级(ConstraintLayout)，用StubView延迟载入，不在主线程做耗时操作；
+
+- 优化app启动体验
+
+  创建一个透明的主题，windowBackground设为启动页面的背景图，在引导页的onCreate方法中，在super.onCreate前设置主题setTheme；
+
+## app卡顿分析
+
+- 16ms原则
+
+  1s60帧的刷新率看起来才足够流畅，即1000ms刷新60次，即刷新率为16ms/帧；
+
+- 双缓冲和三缓冲
+
+  丢帧不可避免，android对此作出优化；ABC三个缓冲分别存放下一帧，比如当前A存放第一帧，B存放第二帧，C存放第三帧，此时A缓冲的帧进行显示，则显示完成后，开始显示B缓存的帧，同时，A进行第四帧的读取和缓存；
+
+- 卡顿分析
+
+  通过Hierarchy Viewer，现在是Layout Inspector查看布局层级；白紫绿粉红
+
+## 布局优化
+
+- 使用HierarchyViewer分析布局as3.1弃用，改用Tools>LayoutInspector
+
+- 尽量用padding代替margin
+
+- 使用ConstraintLayout减少布局绘制层级(扁平化)
+
 - 不用设置不必要的背景，避免过度绘制. 比如父控件设置了背景色，子控件完全将父控件给覆盖的情况下，那么父控件就没有必要设置背景
-- 使用<include>复用布局
-- 使用<merge>减少布局层级
-- 使用<ViewStub>实现布局懒加载
+
+- 使用`<include>`复用布局
+
+- 使用`<merge>`减少布局层级
+
+- 使用`<ViewStub>`实现布局懒加载
+
 - setContentView即pull解析xml，是io耗时过程；通过反射创建View实例
+
 - AspectJ面向切面(AOP)统计耗时框架的使用
+
 - 使用AspectJ统计布局和各个控件的加载耗时
+
 - Hook技术使用
+
 - 使用hook拦截View的创建过程，并替换字体，全局换肤，替换控件等操作
+
 - 使用AsyncLayoutInflater异步加载布局
 
-        implementation "androidx.asynclayoutinflater:asynclayoutinflater:1.0.0"
+      implementation "androidx.asynclayoutinflater:asynclayoutinflater:1.0.0"
 
 - 使用X2C编译器将xml翻译成对应的java文件，避免耗时io解析xml
 
-        annotationProcessor 'com.zhangyue.we:x2c-apt:1.1.2'
-        implementation 'com.zhangyue.we:x2c-lib:1.0.6'
-    
+      annotationProcessor 'com.zhangyue.we:x2c-apt:1.1.2'
+      implementation 'com.zhangyue.we:x2c-lib:1.0.6'
+
 - 绘制优化
 
-    - 设置—>开发人员选项—>监控—>GPU呈现模式分析
-    
-        屏幕下方会有一排竖条，每条代表一帧，每条高度代表该帧渲染耗时，上方绿色代表16毫秒(60帧/秒参考线)
-        
-    - 设置—>开发人员选项—>硬件—>调试GPU过度绘制(白紫绿粉红)
+  - 设置—>开发人员选项—>监控—>GPU呈现模式分析
+
+    屏幕下方会有一排竖条，每条代表一帧，每条高度代表该帧渲染耗时，上方绿色代表16毫秒(60帧/秒参考线)
+
+  - 设置—>开发人员选项—>硬件—>调试GPU过度绘制(白紫绿粉红)
+
+## 内存泄漏
+
+- 基础知识
+
+  不再使用的对象被另一个正在被使用的对象持有，从而不能被及时释放销毁；
+
+  系统为每个应用分配的内存空间是有限的，当内存泄漏到达一定阀值，就会内存溢出OOM；
+
+  安卓进程优先级分别有空进程，后台，服务，可见和前台进程，内存空间不够时优先从空进程回收；
+
+- 内存抖动
+
+  循环中大量创建临时变量，频繁GC，onDraw中创建Paint或Bitmap等对象；严重会导致OOM；
+
+- 常见内存泄漏原因及解决办法
+
+  - 非静态内部类持有外部类的引用，如activity中创建handler；
+
+    使用静态内部类；
+
+  - handler
+
+    未被处理的message引用handler，handler引用activity，导致activity无法被销毁；
+
+    handler内的message存储在MessageQueue中，如果message不能及时处理，handler就不能被回收，而handler引用的外部类就不能被回收；使用static修饰handler，使用WeakReference弱引用，退出页面时removeCallbacksAndMessages；
+
+  - context
+
+    使用application的context，使用context.getApplicationContext()，使用WeakReference弱引用；
+
+    如单例持有context使用application context，如`getInstance(context)`；
+
+  - WebView
+
+    WebView使用后，内存不会被释放，可以单开一个进程运行WebView，并用AIDL与之进行通信；
+
+    不再使用时将WebView从父容器中移除，再销毁之，如下；
+
+    ```java
+    @Overrideprotected void onDestroy() {
+        super.onDestroy();
+        //先从父控件中移除WebView
+        mWebViewContainer.removeView(mWebView);
+        mWebView.stopLoading();
+        mWebView.getSettings().setJavaScriptEnabled(false);
+        mWebView.clearHistory();
+    	mWebView.removeAllViews();
+    	mWebView.destroy();
+    }
+    ```
+
+  - Timer和TimerTask在页面销毁时及时cancel释放；
+
+  - 资源未释放
+
+    数据库cursor和文件流使用完毕后需要及时close；广播，观察者，服务，监听和回调等使用完毕后及时解注册释放；
+
+  - 属性动画
+
+    ObjectAnimator不再使用或者页面销毁时将动画cancel()；
+
+  - bitmap
+
+    使用BitmapFactory.Options缩放像素后显示，options.inJustDecodeBounds设为true来读图片大小，根据显示区域大小计算得出合适的采样率大小inSampleSize，再options.inJustDecodeBounds设为false读图片资源并加载显示；
+
+    bitmap不再使用时调用`recycle()`回收；
+
+    ARGB8888每像素占用4B，调整为RGB565占用2B；
+
+  - 使用android提供的优化集合的api
+
+    SparseArray，ArrayMap等；
+
+  - 集合长度
+
+    如HashMap默认长度16，负载因子为0.75；若只需要存放5个数据，则可设置最适合的初始容量`new HashMap(7)`，5/0.75=7；
+
+  - 使用StringBuilder
+
+    String的拼接会创建若干临时变量；
+
+- 内存分析工具及方法
+
+  - as的Memory Profiler
+
+    可以看java/native/graphics/stack/code内存情况；dump后可导出.hprof文件
+
+  - MAT
+
+    使用sdk/platform-tool目录下的工具执行`hprof-conv dump.hprof converted-dump.hprof `转换dump文件格式，导入MAT中进行分析；
+
+  - Leak Canary
+
+# 3.4耗电优化
+
+1. AlarmManager
+
+   唤醒api，提供系统级别服务，可以通过PendingIntent启动activity，service，broadcast；
+
+2. WakeLock
+
+   核心源码在PowerManagerService中；通过(PowerManager) getSystemService(Context.POWER_SERVICE)获取manager，只要进程持有锁，系统就无法进入休眠状态；可分为永久锁和超时锁，超时锁内部维护了handler；
+
+3. WifiScan
+
+   扫描wifi；
+
+4. BluetoothScan
+
+   扫描蓝牙；
+
+5. GPS
+
+   精确定位，模糊定位；可以缓存定位数据以减少定位调用次数；
+
+6. Camera
+
+   不允许后台使用相机；
+
+7. Network
+
+   数据流量使用，5g/4g；
+
+8. 优化代码逻辑
+
+   避免不必要的对象创建，不要在循环中大量创建临时变量；不要在onDraw方法中创建对象；
+
+# 3.5网络传输与数据存储优化
+
+1. protobuf
+
+   参考mmap>protobuf；
+
+2. zip压缩
+
+   java.util.zip.ZipOutputStream和ZipEntry；
+
+3. webp
+
+   谷歌发布的图片格式，可以有损和无损压缩，无损压缩率比png高约45%；
+
+# 3.6APK大小优化
+
+首先，可以利用as的Build工具栏Analyze APK分析apk包内容大小；
+
+1. 可以设置只保留一份so文件
+
+   ```gradle
+   ndk {
+   	abiFilters "armeabi-v7a"
+   }
+   ```
+
+2. 编译时控制编译内容范围
+
+   如编译ffmpeg时，可选是否包含x264部分；
+
+3. lint检查
+
+   去除未引用资源
+
+4. 图片压缩
+
+   使用tinypng工具压缩图片；使用webp格式的图片；
+
+5. 不要使用帧动画
+
+   使用lottie；
+
+6. shrinkResources
+
+   gradle的buildType中设置shrinkResources移除无用的resource文件；
+
+7. 减少代码中使用的重复框架
+
+   如图片加载只用一种框架就行；
 
 
-# 内存优化
-# 耗电优化
-# 网络传输与数据存储优化
-# APK瘦身
-# 屏幕适配
 
-# subchapter - 开发效率
+# 3.7Git
 
-# svn
-# git
-# gradle
+> Git是分布式版本控制系统；Gitlab，Github，Gitee；
 
-# ---PART - 面试题[网络]---
+```
+//开始工作区
+clone
+init
 
-## 常见状态码
-https://blog.csdn.net/qq_35779969/article/details/80753197
+//在当前变更上工作
+add
+mv
+reset
+rm
 
-## 三次握手和四次挥手
-https://baijiahao.baidu.com/s?id=1654225744653405133&wfr=spider&for=pc
+//检查历史和状态
+bisect
+grep
+log
+show
+status
+
+//扩展/标记/调校历史记录
+branch
+checkout
+commit
+diff
+merge
+rebase
+tag
+
+//协同
+fetch
+pull
+push
+```
+
+- submodule
+
+- cherry pick
+
+- rebase合并多次已push的提交
+
+  1. `git log`查看提交记录，每笔提交都会有conmmit id
+  2. 若需合并最近三笔提交，则`git rebase -i id`；其中id为第四笔提交的commit id；
+  3. vim进入INSERT模式，将第二、三提交前缀pick改为s后，退出INSERT模式wq!保存；
+  4. vim进入INSERT模式，编辑commit message后，退出INSERT模式wq!保存；
+  5. `git push -f`或者`git push --force-with-lease`强制push完成，查看提交日志验证；
+
+- merge，rebase和cherry pick三个的区别
+
+- 日志格式规范
+
+  ```
+  (1)[2]{3}
+  ```
+
+  参数1中，+添加；-删除；*配置调整或方法替换等；fix-bugID缺陷修复；↗优化；d文档变更；r重构优化；t测试代码；merge分支合并；delete分支删除；
+
+  参数2中，模块名；
+
+  参数3中，具体调整内容；
+
+# 3.8Gradle
+
+- android的签名机制
+
+  android的签名机制包含消息摘要，数字签名和数字证书；
+
+  消息摘要是hash函数生成的固定长度的hash值；
+
+  数字签名包含签名算法和验证算法；
+
+  数字证书是CA颁发的经数字签名的包含公钥信息的文件；
+
+- android签名打包时v1和v2的区别
+
+  v1是对未压缩内容进行验证，此时打包apk后可以进行修改重新压缩；
+
+  v2是对整个zip包进行验证，无法篡改，7.0及以上版本可用之；
+
+- 如何通过gradle配置多渠道包
+
+  清单文件中设置meta-data的name和value；gradle中配置不同的productFlavors；
+
+- android各版本主要特性
+
+  | 版本 | 特性                                             |
+  | ---- | ------------------------------------------------ |
+  | 5.0  | 支持64为ART；MaterialDesign设计风格；            |
+  | 6.0  | 动态权限；                                       |
+  | 7.0  | 多窗口支持；V2签名；                             |
+  | 8.0  | 优化通知，通知渠道，休眠超时设置等；画中画模式； |
+  | 9.0  | 室内wifi定位；刘海屏支持；                       |
+  | 10.0 | 夜间模式；                                       |
+  | 11.0 | 隐私权限；新增emoji；                            |
+  | 12.0 | 隐私功能变更；                                   |
+
+  
+
+- INSTALL_FAILED_TEST_ONLY
+
+  gradle.properties文件中添加android.injected.testOnly=false
+
+## 用法笔记
+
+- 添加so库
+
+  src目录>main目录>jniLibs目录>armeabi/armeabi-v7a/arm64-v8a/x86/x86_64/mips/mips64等目录下；
+
+  ```gradle
+  //gradle默认配置
+  sourceSets {    
+      main {        
+          jniLibs.srcDirs = ['src/main/jniLibs']        
+          aidl.srcDirs = ['src/main/aidl']    
+      } 
+  }
+  ```
+
+- 查看项目依赖树
+
+  ```gradle
+  //两种方式
+  gradlew app:dependencies
+  gradlew app:dependencies --configuration releaseCompileClasspath
+  ```
+
+  - 显示说明
+
+    +---依赖库的开始：+--- com.alibaba:arouter-compiler:1.2.2
+    |显示这个依赖库所依赖的库：|    +--- com.alibaba:arouter-annotation:1.0.6
+    \---该依赖库显示结束：\--- com.alibaba:fastjson:1.2.48
+    该库有更多依赖，已在其他地方显示过了：+--- com.google.auto:auto-common:0.10 (*)
+    ->存在不同版本的一个库，项目会依赖这个库的最新版本：com.google.guava:guava:23.5-jre -> 28.1-jre
+
+  ```gradle
+  //强制gradle依赖某个版本=>解决冲突
+  android {
+      configurations.all {      
+          resolutionStrategy.force 'com.android.support:support-v4:27.0.2'
+      }
+  }
+  
+  //去除重复依赖=>
+  dependencies {
+      implementation('com.afollestad.material-dialogs:commons:0.9.4.5') {
+          exclude group: 'com.android.support'
+      }
+      
+      // project用括号包裹住
+      compile (project(':uisdk:Library:facebook')) {
+          exclude group: 'com.android.support', module: 'appcompat-v7'
+      }
+  }
+  
+  //全局去除重复依赖
+  // 排除掉V4包中引入的android.arch.lifecycle:runtime导致的构建失败
+  configurations.all {
+      exclude group: 'android.arch.lifecycle', module: 'runtime'
+  }
+  // 排除掉V4包中引入的android.arch.lifecycle:runtime导致的构建失败
+  configurations.all {
+      exclude group: 'android.arch.lifecycle', module: 'runtime'
+  }
+  ```
+
+# 4.1「设计思想」热修复
+
+# 4.2插件化
+
+# 4.3组件化
+
+- 插桩和hook区别
+
+  插桩是静态修改代码，在编译阶段修改源码，后重新打包；
+
+  hook是在运行时通过反射方式修改逻辑，是动态篡改；
+
+# 4.4图片加载
+
+## Glide
+
+> google推荐的图片加载框架；
+
+- 基本用法示例
+
+  ```java
+  Glide.with(context).load(url).into(iv);
+  ```
+
+- 概述
+
+  主要分为三个阶段，1为准备阶段，1.1拿到GenericRequest对象，1.2拿到DecodeJob对象；2为异步处理阶段，2.1网络请求通过HttpUrlConnection拿到数据流，2.2解码拿到Bitmap，2.3将Bitmap转码成Drawable，因为动图也是Drawable，所以统一类型方便操作；3为切换主线程，显示Drawable；
+
+  1. with()流程，这是一个静态方法，内容通过RequestManagerRetriver获取RequestManager对象，该对象用来管理和启动Glide请求的类，传入的context都会转成applicationContext对象，与Application生命周期保持一致；
+  2. load()流程，加载Drawable的请求生成器RequestBuilder<TranscodeType>对象，该对象可处理的泛型为Bitmap和Drawable；
+  3. into()流程较多，构建DecodeJob对象，该对象负责异步从网络或缓存中获取数据，并进行转码工作；网络数据通过HttpUrlFetcher类中的HttpURLConnection对象获取数据流，缓存通过DiskLruCacheFactory从内存磁盘中获取；获取图片数据流后，因为动图是Drawable类型，所以将Bitmap对象也转码成Drawable，方便统一处理；最后通过Handler切到主线程进行图片显示；
+
+# 4.5网络访问
+
+## 基础
+
+- restful
+
+  通过method配置请求方式，GET获取资源，POST新增资源，PUT更新资源，DELETE删除资源；
+
+​		提高了url的重用性；
+
+​		后台通过@RequestMapping注解中的method属性配置；
+
+​		安卓通过retrofit提供的如@POST注解对接口方法进行声明；
+
+- TCP三次握手和四次挥手
+
+  1. 三次握手
+
+     ```
+     C->S,发送SYN=1 Seq=X;
+     S->C,发送SYN=1 ACK=X+1 Seq=Y;
+     C->S,发送ACK=Y+1 Seq=z;
+     ```
+
+     第一次握手，服务端知道，客户端发送正常，服务端接收正常；
+
+     第二次握手，客户端知道，客户端发送正常，客户端接收正常，服务端接收正常，服务端发送正常；
+
+     第三次握手，服务端知道，客户端接收正常，服务端发送正常；
+
+     至此，客户端知道C和S收发正常，服务端知道C和S收发正常，即可进行点对点通信；
 
 
-# ---PART - 面试题[android]---
+  2. 四次挥手
+
+     ```
+     C->S,发送Fin=1 Ack=Z Seq=X;
+     S->C,发送ACK=X+1 Seq=Z;
+     S->C,发送Fin=1 Ack=X Seq=Y;
+     C->S,发送ACK=Y Seq=X;
+     ```
+
+     第一次，客户端告诉服务端，我要关闭连接了，close()；
+
+     第二次，服务端告诉客户端，我知道你要关闭连接；但是不会立即关闭，因为还有数据需要传给客户端；
+
+     第三次，服务端告诉客户端，我传完所有数据了，有个Fin标志；并关闭像客户端传输方向上的连接；
+
+     第四次，客户端告诉服务端，我知道你传完了，并确认关闭连接；
+
+- DNS和ARP
+
+  1. DNS域名系统
+
+     将域名解析成ip地址；工作于应用层；
+
+
+  2. ARP地址解析协议
+
+     通过ip找到对应的物理地址，及MAC地址；工作于网络层；
+
+## HTTP
+
+- http特点
+
+  无状态>cookie/session；
+
+  无连接>三次握手和四次挥手；
+
+  基于请求和响应>客户端发起请求，服务端响应；
+
+  数据传输使用明文，无法确保数据安全性和完整性；
+
+- http各版本
+
+  | 版本 | 时间 | 内容                                    | 现状             |
+  | ---- | ---- | --------------------------------------- | ---------------- |
+  | 1.0  | 1996 | 增加PUT，DELETE，HEAD等命令             | 正式标准         |
+  | 1.1  | 1997 | 通过Connection:Keep-Alive可建立持久连接 | 2015年前广泛使用 |
+  | 2    | 2015 | 多路复用，服务器推送                    | 逐步推广         |
+
+- https特点
+
+  基于http协议，通过SSL/TSL，可以使用对称或非对称加密数据，使用CA验证对方身份，能保证数据完整性；
+
+  SSL是安全套接字层，TSL是SSL3.1版本，是传输层安全协议；
+
+## Socket
+
+- socket是什么
+
+  socket是传输层和应用层之间的一个抽象，是对TCP/IP协议的封装，本身不属于协议范畴，是一个调用接口API，对应用层屏蔽了底层细节；
+
+  socket是一种特殊的文件，进程可以用open/write/read/close来操作socket；
+
+- socket如何唯一标识一个进程
+
+  socket是基于TCP/IP协议实现的，可以通过传输层的协议和端口号来绑定对应的进程；
+
+- socket属于网络的哪一层
+
+  socket不是协议，是传输层和应用层之间的一个抽象；
+
+- socket是全双工吗
+
+  基于TCP/IP协议，是全双工；
+
+- socket和http的区别
+
+  socket是长连接，当无数据传输，会通过心跳消息维持连接；http是短连接，C发送一次请求，S响应后即断开；
+
+  socket传输数据可自定义，数据量小，可以加密，适合实时交互；http传输慢，数据包大，安全性差，不适合实时交互；
+
+  http是无状态的协议，需要通过session/cookie来记录状态；
+
+  socket适合推送，聊天等可用心跳保持长连接的场景；http适合上传文件，获取新闻等获取一次数据的场景；
+
+- socket和websocket的区别
+
+  websocket是应用层协议，基于TCP/IP实现，同时借助http协议建立连接，通过三次握手，以ws://或wss://开头，通过ping/pong心跳来维持长连接；
+
+## OkHttp
+
+1. 使用示例
+
+   创建OkHttpClient对象，创建Request对象，通过client.newCall(request)创建RealCall(Call接口)对象，然后通过execute()同步请求，或者enqueue()异步请求，拿到Response；
+
+2. 主要对象介绍
+
+​		OkHttpClient采用建造者模式，可以设置timeout，cookie，proxy，dispatcher，interceptor等；
+
+​		Request采用建造者模式，可以设置url，请求方法，请求头，请求体；
+
+​		Call接口，标识请求接下来可以被execute同步或enqueue异步执行，或者取消；RealCall为其实现类；
+
+​		AsyncCall是RealCall的内部类，是一个Runnable，再dispatcher的线程池中执行；
+
+​		Dispatcher，调度Call对象，包含线程池和异步请求队列，存放AsyncCall对象；
+
+3. 请求
+
+   1. 同步
+
+      ```java
+      client.newCall(request).execute();
+      ```
+
+      调用dispatcher的executed方法，将RealCall对象加入runningSyncCalls队列，调用getResponseWithInterceptorChain方法拿到response；
+
+   2. 异步
+
+      ```java
+      client.newCall(request).enqueue(new Callback() {});
+      ```
+
+      调用dispatcher的enqueue方法，将AsyncCall对象加入readyAsyncCalls队列，调用promoteAndExecuted方法执行请求，该方法就是遍历readyAsyncCalls队列，将符合条件的请求在线程池中执行，执行AsyncCall.run()方法；
+
+4. getResponseWithInterceptorChain方法获取response
+
+   采用责任链设计模式；核心方法为procedd(request)处理请求获取response；
+
+   client.addInterceptor用户设置，添加应用拦截器，可以处理header参数，log，加密等；责任链中的第一个拦截器；
+
+   RetryAndFollowUpInterceptor失败重试，重定向；
+
+   BridgeInterceptor将用户构建的请求转换为服务器需要的请求，将服务器返回数据转换为提供用户的响应；
+
+   CacheInterceptor通过缓存策略返回response；
+
+   ConnectInterceptor建立连接，建立TCP或者TLS连接；
+
+   client.addNetworkInterceptor用户设置，添加网络拦截器，
+
+   CallServerInterceptor实际的网络IO操作，将请求头和请求体发送给服务器，解析服务器返回的response；
+
+   拦截器流程大致为客户端构建Call对象，经过重试拦截器，用户定义拦截器，Bridge，Cache，Connect，CallServer拦截器；
+
+   > 应用拦截器和网络拦截器区别，应用拦截器无论如何都会被执行，且只会执行一次；网络拦截器不一定会被执行，也可能会多次执行，如Retry拦截器失败或者Cache拦截器直接返回缓存时，网络拦截器不会被执行；
+
+## Retrofit
+
+真正的网络请求还是通过OkHttp完成的；
+
+通过接口和注解简化网络请求操作，是一套Restful风格的请求框架；
+
+可以添加ConverterFactory做json转换，添加CallAdapterFactor做rxjava转换；
+
+retrofit.create(ApiService.class)内通过动态代理生成代理类对象，即通过Proxy.newProxyInstance()创建，然后通过invoke()方法构建用于网络请求的Call对象或者结合rxjava使用的Observable对象；
+
+- 大致流程
+
+  通过建造者模式创建retrofit实例，即做相关配置；
+
+  retrofit.create()创建代理对象，当调用接口方式时，调用代理对象的invoke方法；
+
+  invoke方法内部操作为，解析method，生成ServiceMethod对象并缓存；将原始的OkHttp的Call封装成OkHttpCall对象；通过CallAdapter将OkHttpCall对象转换成Call或者Observable对象；
+
+  针对Call对象，调用execute或enqueue方法做网络请求；针对observable对象，结合rxjava做链式逻辑处理；
+
+# 4.6RxJava
+
+> 异步简洁，事件驱动，观察者模式，链式编程，避免回调地狱；
+>
+> 使用Observable<T>统一了所有异步任务的回调接口；
+>
+> 在时间维度，可通过debounce控制点击或网络请求防抖；
+>
+> 在空间维度，可以重新组织Observable的数据类型，进行流式处理；
+>
+> RxJava通过observable这个统一的接口，对相关事件，在空间和时间维度进行重新组织，来简化日常的事件驱动编程；
+
+- 使用方式
+
+  创建Observable，生产事件；
+
+  创建Observer，定义响应事件的行为；
+
+  订阅Subscribe，连接observable和observer；
+
+### Shceduler
+
+通过observeOn/subscribeOn设置观察者和被观察者线程；
+
+io(网络或文件等io操作)、newThread(新线程处理耗时操作)、computation(CPU计算线程)、AndroidSchedulers.mainThread等；
+
+### 使用场景
+
+1. 有条件的网络请求轮询
+
+   repeatWhen；
+
+2. 网络请求出错重连
+
+   retryWhen；
+
+3. 网络请求嵌套，如注册成功后登录
+
+   flatMap返回新的observable；
+
+   ```java
+   .flatMap(new Function<Translation1, ObservableSource<Translation2>>() {})
+   ```
+
+4. map
+
+   如将Integer处理后，返回String类型数据；
+
+   ```java
+   .map(new Function<Integer, String>() {})
+   ```
+
+5. 从缓存，磁盘，网络获取数据
+
+   concat串联被观察者处理队列，firstElement取有效事件；
+
+   ```java
+   Observable.concat(memory, disk, network)
+       .firstElement()//从串联队列中取出并发送第一个有效事件
+   ```
+
+6. 判断表单中账号密码都被填写才允许点击提交
+
+   combineLatest合并事件并做联合判断；
+
+7. 线程调度
+
+   通过subscribeOn和observeOn方法设置；
+
+8. 功能防抖
+
+   throttleFirst或debounce；
+
+   ```java
+   RxView.clicks(button)
+       .throttleFirst(2, TimeUnit.SECONDS)//接收2s内第一次点击
+       .subscribe...
+       
+   RxView.clicks(btn)
+       .debounce(500, TimeUnit.MILLISECONDS)
+       .observerOn(AndroidSchedulers.mainThread())
+       .subscribe...
+   ```
+
+9. 联想搜索
+
+   addTextChangedListener配合debounce；
+
+   ```java
+   RxTextView.textChanges(ed)
+       .debounce(1, TimeUnit.SECONDS).skip(1)
+       .observeOn(AndroidSchedulers.mainThread())
+       .subscribe
+   ```
+
+10. 背压
+
+    observable发送事件速度>observer处理事件速度，可能会OOM，需要背压；
+
+    需要用Flowable(Observable)，并设置背压模式BackpressureStrategy；
+
+11. 合并数据源
+
+    zip或merge；
+
+### disposable
+
+`dispose()`主动解除订阅；
+
+`isDisposed()`是否已解除订阅；
+
+# 4.7IOC
+
+# 4.8Jetpack
+
+# 4.9MVC，MVP，MVVM
+
+
+
+# 5.1「NDK」C基础
+
+# 5.2JNI
+
+- **c中方法声明格式**
+
+  ```c
+  JNIEXPORT jstring JNICALL Java_cc_catface_TLog_show(JNIEnv *env, jobject jobj) {}
+  //static静态方法
+  JNIEXPORT jstring JNICALL Java_cc_catface_TLog_showStatic(JNIEnv *env, jclass jcls) {}
+  ```
+
+  env指代当前java环境，可以在native中访问java代码，只在创建它的线程中有效，不能跨进程；
+
+  jobject指代jni对应的java native方法的类实例；
+
+  jclass是jni的数据类型，对应java中的class类；
+
+- **获取java对象并修改age字段**
+
+  ```c
+  jclass jclz = env->GetObjectClass(jobj);//获取java对象
+  jfieldID id = env->GetStaticFieldID(jclz, "age", "I");//I即int类型
+  jint jage = env->GetStaticIntField(jclz, id);//获取java对象的age字段
+  jage += 10;
+  env->SetStaticIntField(jclz, id, jage);//设置java对象的age字段值
+  return env->NewStringUTF("age update success");
+  ```
+
+​		上面是通过jobject获取jclass后修改age字段；
+
+​		也可以通过jclass获取jobject；
+
+- **静态注册与动态注册**
+
+- **数据类型**
+
+  | java类型         | native类型             |
+  | ---------------- | ---------------------- |
+  | 基本数据类型     |                        |
+  | byte             | jbyte                  |
+  | short            | jshort                 |
+  | int              | jint                   |
+  | long             | jlong                  |
+  | float            | jfloat                 |
+  | double           | jdouble                |
+  | char(占2B)       | jchar                  |
+  | boolean          | jboolean               |
+  | void             | void                   |
+  | 数组引用类型     |                        |
+  | byte[]           | jbyteArray             |
+  | short[]          | jshortArray            |
+  | int[]            | jintArray              |
+  | long[]           | jlongArray             |
+  | float[]          | jfloatArray            |
+  | double[]         | jdoubleArray           |
+  | char[]           | jcharArray             |
+  | boolean[]        | jbooleanArray          |
+  | 对象引用类型     |                        |
+  | String           | jstring，通常是jobject |
+  | 对象数组引用类型 |                        |
+  | String[]         | jstringArray           |
+
+  注意java中boolean理论上占1B，但单个boolean，如`boolean b = false`在编译时使用int类型，占用4B；boolean类型的数组，如`boolean[] bs = new boolean[10]`编译时，每个boolean在JVM中占一个字节；
+
+- **native和static native**
+
+  static方法属于类而不属于对象，参数二为jclass；非static方法属于对象，参数二为jobject；
+
+# 5.3native开发工具
+
+# 5.4linux
+
+# 5.5底层图片处理
+
+# 5.6音视频
+
+## opencv识别身份证号
+
+载入原图；转灰度图；使用高斯模糊进行降噪；图片二值化；使用中值滤波降噪；腐蚀操作，是内容连接；轮廓检测，获得所有轮廓；定义身份证号的位置大于图片的一半，并且宽度是高度的6倍以上，并裁减该区域；号码分割，数字样本库训练；
+
+## ffmpeg
+
+1. 下载ffmpeg，mobile-ffmpeg，x264等c源码库；
+
+2. 配置设备sdk和ndk环境并编译，启用x264视频清晰度，fontconfig添加字幕能力；
+
+   ```shell
+   ./android.sh --enable-gpl --enable-x264 --enable-fontconfig --enable-libass
+   ```
+
+3. 封装视频裁减，信息获取，字幕添加等方法；
+
+# 5.7机器学习
+
+# C1错误集锦
+
+>  java.lang.IllegalStateException: The specified child already has a parent. You must call removeView() on the child's parent first.
+
+fragment的onCreateView方法内`inflater.inflate(R.layout.api_fm_demo_job_scheduler, container);`中的container改为null；
+
+> java.lang.IllegalArgumentException: Scheduled service ComponentInfo{cc.catface.app/cc.catface.api.job.TaskJobService} does not require android.permission.BIND_JOB_SERVICE permission
+
+注册service时添加`android:permission="android.permission.BIND_JOB_SERVICE"`；
+
+>  远程主机强迫关闭了一个现有的连接。
+
+结束java进程，重启as；
+
+# J1
+
+- token和session的区别，cookie，JWT
+
+  session是空间换时间，token是时间换空间；
+
+  http是无状态的，后来有了购物等网站，需要记录用户登录状态，即会话管理，所以服务为每个用户分配唯一的会话标识session id；浏览器可以通过cookie存储数据，服务器将session id放入cookie给用户存到用户浏览器，下次访问将cookie信息，即session id带给服务端，以确认身份；
+
+  cookie存在客户端，不可跨域；
+
+  存在问题，当服务器使用了集群来负载均衡，则不同的服务器间要同步用户session信息；
+
+  token令牌，将用户user id，加盐通过如SHA256算法算出token，发送给用户保存，用户请求服务时，会传user id和token，服务器使用接收到的user id通过约定的盐和算法，算出token，和用户传过来的token比对；
+
+  JWT，用户发送用户名和密码，服务器接收，并生成JWT给客户端，客户端下次请求带着JWT，服务器根据JWT可以解析出用户名和密码等信息；因为JWT不使用cookie，所以解决了跨域问题；
+
+# M1安卓
+
+- JNI中native和static native方法的区别
+- Lopper是死循环为什么系统不会卡死
+
+# 软件使用
+
+- fiddler抓手机包
+  1. 打开工具栏Tools，HTTPS，勾选所有选项，安装证书，重启fiddler；
+  2. 打开工具栏Tools，HTTPS，点击Actions，Export Root Certificate To Desktop导出证书file；
+  3. ping电脑，如ip为172.17.25.144，手机必须与电脑连在同一wifi；
+  4. 进入手机设置，查看连接wifi信息，如ip为172.17.24.1，用电脑测试能否ping通之；
+  5. 手机wifi设置代理，选手动，主机名填172.17.25.144，端口填8888，保存；
+  6. 将步骤2中的证书file发送至手机，在手机的设置中搜索CA证书，安装file；
+  7. 重启fiddler即可抓手机包；
+
+
+
 

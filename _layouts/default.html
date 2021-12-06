@@ -17,7 +17,7 @@
 <script type="text/javascript" src="/js/anim-click-love.js"></script>
 <!-- 打字火花 -->
 <script type="text/javascript" src="/js/anim-input-spark.js"></script>
-<!-- 页面动态线条 -->
+<!-- 光标吸附线条球 -->
 <script type="text/javascript" color='0,0,0' opacity='.4' count='70' src="https://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
 <!-- 看板娘 -->
 <script src="https://l2dwidget.js.org/lib/L2Dwidget.min.js"></script>
@@ -43,12 +43,13 @@
             opacityDefault: 0.6,
             opacityOnHover: 0.2
         },
-        dialog: {
-            enable: true,
-            script: {
+        "dialog": {
+            "enable": true,
+            "script": {
                 'every idle 15s': '$hitokoto$',
-                'tap body': '哎呀！别碰我！',
-                'tap face': '别看我，看博客！'
+                'hover .star':'~',
+                'tap body': '~~',
+                'tap face': '~~~'
             }
         }
     });
